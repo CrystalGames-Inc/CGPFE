@@ -2,7 +2,7 @@ package Game.Data.Models.ItemTypes;
 
 import Game.Data.Models.Item;
 
-public class Weapon implements Item {
+public class Weapon extends Item {
     public int InventoryId;
     public int MaxCapacity;
     public int Amount;
