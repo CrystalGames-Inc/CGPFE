@@ -1,4 +1,4 @@
-package God.Creation.Importance;
+package God.Creation.Importance.Constants;
 
 public enum Class {
     BARBARIAN,
@@ -11,5 +11,6 @@ public enum Class {
     RANGER,
     ROGUE,
     SORCERER,
-    WIZARD
+    WIZARD,
+    PLACEHOLDER
 }

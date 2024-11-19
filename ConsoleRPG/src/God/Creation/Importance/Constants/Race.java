@@ -1,4 +1,4 @@
-package God.Creation.Importance;
+package God.Creation.Importance.Constants;
 
 public enum Race {
     DWARF,
@@ -7,5 +7,6 @@ public enum Race {
     HALFELF,
     HALFORC,
     HALFLING,
-    HUMAN
+    HUMAN,
+    PLACEHOLDER
 }
