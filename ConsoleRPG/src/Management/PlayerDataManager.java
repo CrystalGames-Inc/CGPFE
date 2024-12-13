@@ -146,6 +146,7 @@ public class PlayerDataManager {
     public void registerPlayerClass(){
 
         CommandManagerSingleton cmdMgr = CommandManagerSingleton.getInstance();
+        Dice dice = new Dice();
         Skills skills = new Skills();
 
         System.out.println("Please choose your character's class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard");
@@ -154,68 +155,68 @@ public class PlayerDataManager {
             case("BARBARIAN"):
                 Player.Info.Class = Class.BARBARIAN;
                 Player.Info.Skills = skills.barbarianSkills;
-                Player.Info.MaxHealth = 1 + Dice.Roll(12) + Player.AttributeMods.Constitution;
-                Player.Wallet.GoldPieces = Dice.Roll(6,3) * 10;
+                Player.Info.MaxHealth = 1 + dice.Roll(12) + Player.AttributeMods.Constitution;
+                Player.Wallet.GoldPieces = dice.Roll(6,3) * 10;
                 break;
             case("BARD"):
                 Player.Info.Class = Class.BARD;
                 Player.Info.Skills = skills.bardSkills;
-                Player.Info.MaxHealth = 1 + Dice.Roll(8) + Player.AttributeMods.Constitution;
-                Player.Wallet.GoldPieces = Dice.Roll(6,3) * 10;
+                Player.Info.MaxHealth = 1 + dice.Roll(8) + Player.AttributeMods.Constitution;
+                Player.Wallet.GoldPieces = dice.Roll(6,3) * 10;
                 break;
             case("CLERIC"):
                 Player.Info.Class = Class.CLERIC;
                 Player.Info.Skills = skills.clericSkills;
-                Player.Info.MaxHealth = 1 + Dice.Roll(8) + Player.AttributeMods.Constitution;
-                Player.Wallet.GoldPieces = Dice.Roll(6,4) * 10;
+                Player.Info.MaxHealth = 1 + dice.Roll(8) + Player.AttributeMods.Constitution;
+                Player.Wallet.GoldPieces = dice.Roll(6,4) * 10;
                 break;
             case("DRUID"):
                 Player.Info.Class = Class.DRUID;
                 Player.Info.Skills = skills.druidSkills;
-                Player.Info.MaxHealth = 1 + Dice.Roll(8) + Player.AttributeMods.Constitution;
-                Player.Wallet.GoldPieces = Dice.Roll(6,2) * 10;
+                Player.Info.MaxHealth = 1 + dice.Roll(8) + Player.AttributeMods.Constitution;
+                Player.Wallet.GoldPieces = dice.Roll(6,2) * 10;
                 break;
             case("FIGHTER"):
                 Player.Info.Class = Class.FIGHTER;
                 Player.Info.Skills = skills.fighterSkills;
-                Player.Info.MaxHealth = 1 + Dice.Roll(10) + Player.AttributeMods.Constitution;
-                Player.Wallet.GoldPieces = Dice.Roll(6,5) * 10;
+                Player.Info.MaxHealth = 1 + dice.Roll(10) + Player.AttributeMods.Constitution;
+                Player.Wallet.GoldPieces = dice.Roll(6,5) * 10;
                 break;
             case("MONK"):
                 Player.Info.Class = Class.MONK;
                 Player.Info.Skills = skills.monkSkills;
-                Player.Info.MaxHealth = 1 + Dice.Roll(8) + Player.AttributeMods.Constitution;
-                Player.Wallet.GoldPieces = Dice.Roll(6) * 10;
+                Player.Info.MaxHealth = 1 + dice.Roll(8) + Player.AttributeMods.Constitution;
+                Player.Wallet.GoldPieces = dice.Roll(6) * 10;
                 break;
             case("PALADIN"):
                 Player.Info.Class = Class.PALADIN;
                 Player.Info.Skills = skills.paladinSkills;
-                Player.Info.MaxHealth = 1 + Dice.Roll(10) + Player.AttributeMods.Constitution;
-                Player.Wallet.GoldPieces = Dice.Roll(6,5) * 10;
+                Player.Info.MaxHealth = 1 + dice.Roll(10) + Player.AttributeMods.Constitution;
+                Player.Wallet.GoldPieces = dice.Roll(6,5) * 10;
                 break;
             case("RANGER"):
                 Player.Info.Class = Class.RANGER;
                 Player.Info.Skills = skills.rangerSkills;
-                Player.Info.MaxHealth = 1 + Dice.Roll(10) + Player.AttributeMods.Constitution;
-                Player.Wallet.GoldPieces = Dice.Roll(6,5) * 10;
+                Player.Info.MaxHealth = 1 + dice.Roll(10) + Player.AttributeMods.Constitution;
+                Player.Wallet.GoldPieces = dice.Roll(6,5) * 10;
                 break;
             case("ROGUE"):
                 Player.Info.Class = Class.ROGUE;
                 Player.Info.Skills = skills.rogueSkills;
-                Player.Info.MaxHealth = 1 + Dice.Roll(8) + Player.AttributeMods.Constitution;
-                Player.Wallet.GoldPieces = Dice.Roll(6,4) * 10;
+                Player.Info.MaxHealth = 1 + dice.Roll(8) + Player.AttributeMods.Constitution;
+                Player.Wallet.GoldPieces = dice.Roll(6,4) * 10;
                 break;
             case("SORCERER"):
                 Player.Info.Class = Class.SORCERER;
                 Player.Info.Skills = skills.sorcererSkills;
-                Player.Info.MaxHealth = 1 + Dice.Roll(6) + Player.AttributeMods.Constitution;
-                Player.Wallet.GoldPieces = Dice.Roll(6,2) * 10;
+                Player.Info.MaxHealth = 1 + dice.Roll(6) + Player.AttributeMods.Constitution;
+                Player.Wallet.GoldPieces = dice.Roll(6,2) * 10;
                 break;
             case("WIZARD"):
                 Player.Info.Class = Class.WIZARD;
                 Player.Info.Skills = skills.wizardSkills;
-                Player.Info.MaxHealth = 1 + Dice.Roll(6) + Player.AttributeMods.Constitution;
-                Player.Wallet.GoldPieces = Dice.Roll(6,2) * 10;
+                Player.Info.MaxHealth = 1 + dice.Roll(6) + Player.AttributeMods.Constitution;
+                Player.Wallet.GoldPieces = dice.Roll(6,2) * 10;
                 break;
             default:
                 System.out.println("Invalid class.");
