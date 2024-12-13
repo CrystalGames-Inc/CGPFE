@@ -5,19 +5,19 @@ import Game.Mechanics.Dialogue.DialogueLine;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DialogueMgrSingleton{
+public class DialogueMgr {
 
-    private static DialogueMgrSingleton _instance = null;
+    private static DialogueMgr _instance = null;
 
     public List<DialogueLine> chat;
 
-    private DialogueMgrSingleton(){
+    private DialogueMgr(){
         chat = new ArrayList<DialogueLine>();
     }
 
-    public static synchronized DialogueMgrSingleton getInstance(){
+    public static synchronized DialogueMgr getInstance(){
         if(_instance == null)
-            _instance = new DialogueMgrSingleton();
+            _instance = new DialogueMgr();
 
         return  _instance;
     }

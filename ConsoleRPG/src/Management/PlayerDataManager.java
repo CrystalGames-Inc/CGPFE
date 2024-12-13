@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 public class PlayerDataManager {
 
-    public CommandManagerSingleton cmdMgr = CommandManagerSingleton.getInstance();
+    public CommandMgr cmdMgr = CommandMgr.getInstance();
 
     public Scanner input = new Scanner(System.in);
 
@@ -145,7 +145,7 @@ public class PlayerDataManager {
 
     public void registerPlayerClass(){
 
-        CommandManagerSingleton cmdMgr = CommandManagerSingleton.getInstance();
+        CommandMgr cmdMgr = CommandMgr.getInstance();
         Dice dice = new Dice();
         Skills skills = new Skills();
 

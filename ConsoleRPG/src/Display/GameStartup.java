@@ -1,6 +1,6 @@
 package Display;
 
-import Management.CommandManagerSingleton;
+import Management.CommandMgr;
 import Management.PlayerDataManager;
 
 import java.util.Scanner;
@@ -21,7 +21,7 @@ public class GameStartup {
     }
 
     public void startIntro(){
-        CommandManagerSingleton cmdMgr = CommandManagerSingleton.getInstance();
+        CommandMgr cmdMgr = CommandMgr.getInstance();
         System.out.println("======================================================================="); cmdMgr.wait(350);
         System.out.println("\r _____                _        _ _____                           \r"); cmdMgr.wait(350);
         System.out.println("/  __ \\              | |      | |  __ \\                          \r"); cmdMgr.wait(350);

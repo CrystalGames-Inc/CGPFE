@@ -1,16 +1,16 @@
 package Management;
 
-public class CommandManagerSingleton {
+public class CommandMgr {
 
-    private static CommandManagerSingleton _instance;
+    private static CommandMgr _instance;
 
-    private CommandManagerSingleton(){
+    private CommandMgr(){
 
     }
 
-    public static synchronized CommandManagerSingleton getInstance(){
+    public static synchronized CommandMgr getInstance(){
         if(_instance == null)
-            _instance = new CommandManagerSingleton();
+            _instance = new CommandMgr();
 
         return _instance;
     }
