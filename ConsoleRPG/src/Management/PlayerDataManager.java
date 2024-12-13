@@ -23,13 +23,11 @@ public class PlayerDataManager {
     public Player Player = new Player(new PlayerInfo("PLACEHOLDER", Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0, new Skill[]{}), new EntityAttributes(0,0,0,0,0,0,0), new EntityAttributeModifiers(0,0,0,0,0,0,0), new EntityWallet(0,0,0,0), new Item[210]);
 
 
+    //region Player Registration
+
     public void registerNewPlayer(Player player){
         registerPlayerInfo();
         player = Player;
-    }
-
-    public void updatePlayerValues(Player player){
-        Player = player;
     }
 
     public void registerPlayerInfo(){
@@ -228,6 +226,19 @@ public class PlayerDataManager {
         Player.Info.Health = Player.Info.MaxHealth;
     }
 
+    //endregion
+
+    //region Data Updates
+
+    public void updatePlayerValues(Player player){
+        Player = player;
+    }
+
+    //endregion
+
+
+    //region Data Displays
+
     public void displayPlayerData(){
         System.out.println("|Player Info:");
         System.out.println("|Name      : " + Player.Info.Name);
@@ -265,4 +276,18 @@ public class PlayerDataManager {
         System.out.println("|   Platinum Pieces: " + Player.Wallet.PlatinumPieces);
 
     }
+
+    public void displayPlayerInventory(){
+        System.out.println("|Player Inventory:");
+        for (Item item: Player.Inventory) {
+            System.out.println("  |" + item.Name + ": ");
+            System.out.println("    |" + item.InventoryId);
+            System.out.println("    |" + item.Amount);
+            System.out.println("    |" + item.MaxCapacity);
+        }
+    }
+
+    //endregion
+
+
 }
