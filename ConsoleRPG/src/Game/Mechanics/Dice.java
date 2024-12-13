@@ -7,12 +7,12 @@ public class Dice {
     static Random die = new Random();
 
     //Single-Die Roll.
-    public static int Roll(int faces){
+    public int Roll(int faces){
         return  die.nextInt(1, faces + 1);
     }
 
     //Multiple Dice Roll.
-    public static int Roll(int faces, int amount){
+    public int Roll(int faces, int amount){
         int sum = 0;
         for(int i = 0; i < amount; i++){
             sum += die.nextInt(1, faces + 1);
@@ -21,7 +21,7 @@ public class Dice {
     }
 
     //Multiple Dice Roll With A Modifier
-    public static int Roll(int faces, int amount, int modifier){
+    public int Roll(int faces, int amount, int modifier){
         int sum = 0;
         for (int i = 0; i < amount; i++){
             sum += die.nextInt(1, faces + 1);

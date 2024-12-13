@@ -1,10 +1,9 @@
-package Management.Player;
+package God.Creation.Player;
 
 import Game.Data.Models.Item;
 import God.Creation.Entity.Additional.EntityWallet;
 import God.Creation.Entity.Mandatory.EntityAttributeModifiers;
 import God.Creation.Entity.Mandatory.EntityAttributes;
-import God.Creation.Entity.Mandatory.EntityInfo;
 
 public class Player {
 

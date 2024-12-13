@@ -1,4 +1,4 @@
-package Management.Player;
+package God.Creation.Player;
 
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Constants.Race;

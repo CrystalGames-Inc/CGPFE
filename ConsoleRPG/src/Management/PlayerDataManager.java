@@ -1,8 +1,7 @@
-package Management.Player;
+package Management;
 
 import Game.Data.Models.Item;
 import Game.Mechanics.Dice;
-import Game.Other.CommandManager;
 import God.Creation.Entity.Additional.EntityWallet;
 import God.Creation.Entity.Mandatory.EntityAttributeModifiers;
 import God.Creation.Entity.Mandatory.EntityAttributes;
@@ -10,37 +9,45 @@ import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Constants.Race;
 import God.Creation.Importance.Skills.Skill;
 import God.Creation.Importance.Skills.Skills;
+import God.Creation.Player.Player;
+import God.Creation.Player.PlayerInfo;
 
 import java.util.Scanner;
 
 public class PlayerDataManager {
 
-    static Scanner input = new Scanner(System.in);
+    public CommandManagerSingleton cmdMgr = CommandManagerSingleton.getInstance();
 
-    static Player Player = new Player(new PlayerInfo("PLACEHOLDER", Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0, new Skill[]{}), new EntityAttributes(0,0,0,0,0,0,0), new EntityAttributeModifiers(0,0,0,0,0,0,0), new EntityWallet(0,0,0,0), new Item[210]);
+    public Scanner input = new Scanner(System.in);
+
+    public Player Player = new Player(new PlayerInfo("PLACEHOLDER", Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0, new Skill[]{}), new EntityAttributes(0,0,0,0,0,0,0), new EntityAttributeModifiers(0,0,0,0,0,0,0), new EntityWallet(0,0,0,0), new Item[210]);
 
 
-    public static void registerNewPlayer(Player player){
+    public void registerNewPlayer(Player player){
         registerPlayerInfo();
         player = Player;
     }
-    public static void updatePlayerValues(Player player){
+
+    public void updatePlayerValues(Player player){
         Player = player;
     }
-    static void registerPlayerInfo(){
+
+    public void registerPlayerInfo(){
         System.out.println("Please choose your character's name: ");
         Player.Info.Name = input.nextLine();
-        CommandManager.cls();
+        cmdMgr.cls();
 
         registerPlayerRace();
 
         registerPlayerClass();
     }
-    static void registerPlayerRace(){
+
+    public void registerPlayerRace(){
+
 
         System.out.println("Please choose your character's race:\nDwarf\nElf\nGnome\nHalfElf\nHalfOrc\nHalfling\nHuman");
         String race = input.nextLine();
-        CommandManager.cls();
+        cmdMgr.cls();
 
         switch (race.toUpperCase()){
             case("DWARF"):
@@ -95,10 +102,16 @@ public class PlayerDataManager {
                 Player.Info.Race = Race.HUMAN;
                 Player.Attributes.MoveSpeed = 30;
                 break;
+
+            default:
+                System.out.println("Invalid Race.");
+                registerPlayerRace();
+                break;
         }
-        CommandManager.cls();
+        cmdMgr.cls();
     }
-    static void registerPlayerStatMod(){
+
+    public void registerPlayerStatMod(){
         String raceStatMod;
 
         System.out.println("Please select the attribute you'd like to increase:\nStr\nDex\nCon\nInt\nWis\nCha");
@@ -124,89 +137,97 @@ public class PlayerDataManager {
                 Player.AttributeMods.Charisma += 2;
                 break;
             default:
+                System.out.println("Invalid attribute selected");
                 registerPlayerStatMod();
                 break;
         }
     }
-    static void registerPlayerClass(){
+
+    public void registerPlayerClass(){
+
+        CommandManagerSingleton cmdMgr = CommandManagerSingleton.getInstance();
+        Skills skills = new Skills();
+
         System.out.println("Please choose your character's class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard");
         String pClass = input.nextLine();
         switch (pClass.toUpperCase()){
             case("BARBARIAN"):
                 Player.Info.Class = Class.BARBARIAN;
-                Player.Info.Skills = Skills.barbarianSkills;
+                Player.Info.Skills = skills.barbarianSkills;
                 Player.Info.MaxHealth = 1 + Dice.Roll(12) + Player.AttributeMods.Constitution;
                 Player.Wallet.GoldPieces = Dice.Roll(6,3) * 10;
                 break;
             case("BARD"):
                 Player.Info.Class = Class.BARD;
-                Player.Info.Skills = Skills.bardSkills;
+                Player.Info.Skills = skills.bardSkills;
                 Player.Info.MaxHealth = 1 + Dice.Roll(8) + Player.AttributeMods.Constitution;
                 Player.Wallet.GoldPieces = Dice.Roll(6,3) * 10;
                 break;
             case("CLERIC"):
                 Player.Info.Class = Class.CLERIC;
-                Player.Info.Skills = Skills.clericSkills;
+                Player.Info.Skills = skills.clericSkills;
                 Player.Info.MaxHealth = 1 + Dice.Roll(8) + Player.AttributeMods.Constitution;
                 Player.Wallet.GoldPieces = Dice.Roll(6,4) * 10;
                 break;
             case("DRUID"):
                 Player.Info.Class = Class.DRUID;
-                Player.Info.Skills = Skills.druidSkills;
+                Player.Info.Skills = skills.druidSkills;
                 Player.Info.MaxHealth = 1 + Dice.Roll(8) + Player.AttributeMods.Constitution;
                 Player.Wallet.GoldPieces = Dice.Roll(6,2) * 10;
                 break;
             case("FIGHTER"):
                 Player.Info.Class = Class.FIGHTER;
-                Player.Info.Skills = Skills.fighterSkills;
+                Player.Info.Skills = skills.fighterSkills;
                 Player.Info.MaxHealth = 1 + Dice.Roll(10) + Player.AttributeMods.Constitution;
                 Player.Wallet.GoldPieces = Dice.Roll(6,5) * 10;
                 break;
             case("MONK"):
                 Player.Info.Class = Class.MONK;
-                Player.Info.Skills = Skills.monkSkills;
+                Player.Info.Skills = skills.monkSkills;
                 Player.Info.MaxHealth = 1 + Dice.Roll(8) + Player.AttributeMods.Constitution;
                 Player.Wallet.GoldPieces = Dice.Roll(6) * 10;
                 break;
             case("PALADIN"):
                 Player.Info.Class = Class.PALADIN;
-                Player.Info.Skills = Skills.paladinSkills;
+                Player.Info.Skills = skills.paladinSkills;
                 Player.Info.MaxHealth = 1 + Dice.Roll(10) + Player.AttributeMods.Constitution;
                 Player.Wallet.GoldPieces = Dice.Roll(6,5) * 10;
                 break;
             case("RANGER"):
                 Player.Info.Class = Class.RANGER;
-                Player.Info.Skills = Skills.rangerSkills;
+                Player.Info.Skills = skills.rangerSkills;
                 Player.Info.MaxHealth = 1 + Dice.Roll(10) + Player.AttributeMods.Constitution;
                 Player.Wallet.GoldPieces = Dice.Roll(6,5) * 10;
                 break;
             case("ROGUE"):
                 Player.Info.Class = Class.ROGUE;
-                Player.Info.Skills = Skills.rogueSkills;
+                Player.Info.Skills = skills.rogueSkills;
                 Player.Info.MaxHealth = 1 + Dice.Roll(8) + Player.AttributeMods.Constitution;
                 Player.Wallet.GoldPieces = Dice.Roll(6,4) * 10;
                 break;
             case("SORCERER"):
                 Player.Info.Class = Class.SORCERER;
-                Player.Info.Skills = Skills.sorcererSkills;
+                Player.Info.Skills = skills.sorcererSkills;
                 Player.Info.MaxHealth = 1 + Dice.Roll(6) + Player.AttributeMods.Constitution;
                 Player.Wallet.GoldPieces = Dice.Roll(6,2) * 10;
                 break;
             case("WIZARD"):
                 Player.Info.Class = Class.WIZARD;
-                Player.Info.Skills = Skills.wizardSkills;
+                Player.Info.Skills = skills.wizardSkills;
                 Player.Info.MaxHealth = 1 + Dice.Roll(6) + Player.AttributeMods.Constitution;
                 Player.Wallet.GoldPieces = Dice.Roll(6,2) * 10;
                 break;
             default:
-                CommandManager.checkForCommand(pClass);
+                System.out.println("Invalid class.");
+                registerPlayerClass();
                 break;
         }
-        CommandManager.cls();
+        cmdMgr.cls();
 
         Player.Info.Health = Player.Info.MaxHealth;
     }
-    public static void displayPlayerData(){
+
+    public void displayPlayerData(){
         System.out.println("|Player Info:");
         System.out.println("|Name      : " + Player.Info.Name);
         System.out.println("|Race      : " + Player.Info.Race);

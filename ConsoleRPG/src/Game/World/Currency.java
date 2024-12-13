@@ -1,4 +1,4 @@
-package Game.World.Models;
+package Game.World;
 
 public class Currency {
      public String Name;
