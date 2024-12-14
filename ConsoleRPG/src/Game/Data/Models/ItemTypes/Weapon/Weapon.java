@@ -15,8 +15,9 @@ public class Weapon extends Item {
     public double Weight; //In lbs
     public Types[] Type;
     public Specials[] Special;
+    public Ammunition Ammunition;
 
-    public Weapon(String name, int inventoryId, int maxCapacity, int amount, double cost, String dmgS, String dmgM, String critical, double range, double weight, Types[] type, Specials[] special) {
+    public Weapon(String name, int inventoryId, int maxCapacity, int amount, double cost, String dmgS, String dmgM, String critical, double range, double weight, Types[] type, Specials[] special, Ammunition ammunition) {
         Name = name;
         InventoryId = inventoryId;
         MaxCapacity = maxCapacity;
@@ -29,5 +30,6 @@ public class Weapon extends Item {
         Weight = weight;
         Type = type;
         Special = special;
+        Ammunition = ammunition;
     }
 }
