@@ -7,16 +7,16 @@ public class Weapon extends Item {
     public int InventoryId;
     public int MaxCapacity;
     public int Amount;
-    public int Cost;
+    public double Cost; //In gp
     public String DmgS;
     public String DmgM;
     public String Critical;
-    public double Range;
-    public double Weight;
+    public double Range; //In ft
+    public double Weight; //In lbs
     public Types[] Type;
     public Specials[] Special;
 
-    public Weapon(String name, int inventoryId, int maxCapacity, int amount, int cost, String dmgS, String dmgM, String critical, double range, double weight, Types[] type, Specials[] special) {
+    public Weapon(String name, int inventoryId, int maxCapacity, int amount, double cost, String dmgS, String dmgM, String critical, double range, double weight, Types[] type, Specials[] special) {
         Name = name;
         InventoryId = inventoryId;
         MaxCapacity = maxCapacity;
