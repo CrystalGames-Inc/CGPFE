@@ -1,6 +1,5 @@
 package God.Creation.Entity;
 
-import God.Creation.Entity.Additional.EntityWallet;
 import God.Creation.Entity.Mandatory.EntityAttributeModifiers;
 import God.Creation.Entity.Mandatory.EntityAttributes;
 import God.Creation.Entity.Mandatory.EntityInfo;

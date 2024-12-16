@@ -1,26 +1,26 @@
 package Display;
 
 import Management.CommandMgr;
-import Management.PlayerDataManager;
+import Management.PlayerDataMgr;
 
 import java.util.Scanner;
 
 public class GameStartup {
 
-    boolean skipIntro = false;
+    boolean skipIntro = true;
     boolean skipRegister = false;
-    boolean displayStatsAfterRegister = false;
+    boolean displayStatsAfterRegister = true;
 
     Scanner input = new Scanner(System.in);
 
     public void startGame(){
-        PlayerDataManager pDataMgr = new PlayerDataManager();
+        PlayerDataMgr pDataMgr = new PlayerDataMgr();
 
         if(!skipIntro) startIntro();
 
         if(!skipRegister) pDataMgr.registerNewPlayer(Game.player);
 
-        if(!displayStatsAfterRegister) pDataMgr.displayPlayerData();
+        if(displayStatsAfterRegister) pDataMgr.displayPlayerData();
     }
 
     public void startIntro(){

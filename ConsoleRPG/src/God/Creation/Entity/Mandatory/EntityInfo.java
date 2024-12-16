@@ -6,7 +6,7 @@ public class EntityInfo {
     public int MaxHealth;
     public int Health;
 
-    public  EntityInfo(String name, int level, int maxHealth, int health){
+    public EntityInfo(String name, int level, int maxHealth, int health){
         Name = name;
         Level = level;
         MaxHealth = maxHealth;

@@ -1,6 +1,6 @@
 package Game.Data.Models.ItemTypes.Equipment.Weapon.Base;
 
-public enum Types {
+public enum Type {
     BLUDGEONING,
     PIERCING,
     SLASHING,

@@ -1,6 +1,6 @@
 package Game.Data.Models.ItemTypes.Equipment.Weapon.Base;
 
-public enum Specials {
+public enum Special {
     BRACE,
     DISARM,
     DOUBLE,

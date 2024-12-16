@@ -1,4 +1,4 @@
-package Game.Data.Storage;
+package Game.Data.Storage.World;
 
 import Game.World.Currency;
 

@@ -1,10 +1,8 @@
 package Game.Data.Models.ItemTypes.Equipment.Weapon;
 
-import Game.Data.Models.Item;
-import Game.Data.Models.ItemTypes.Equipment.Weapon.Base.Specials;
-import Game.Data.Models.ItemTypes.Equipment.Weapon.Base.Types;
+import Game.Data.Models.item;
 
-public class Weapon extends Item {
+public class Weapon extends item {
     public String Name;
     public int InventoryId;
     public int MaxCapacity;
@@ -15,10 +13,10 @@ public class Weapon extends Item {
     public String Critical;
     public double Range; //In ft
     public double Weight; //In lbs
-    public Types[] Type;
-    public Specials[] Special;
+    public Game.Data.Models.ItemTypes.Equipment.Weapon.Base.Type[] Type;
+    public Game.Data.Models.ItemTypes.Equipment.Weapon.Base.Special[] Special;
 
-    public Weapon(String name, int inventoryId, int maxCapacity, int amount, double cost, String dmgS, String dmgM, String critical, double range, double weight, Types[] type, Specials[] special) {
+    public Weapon(String name, int inventoryId, int maxCapacity, int amount, double cost, String dmgS, String dmgM, String critical, double range, double weight, Game.Data.Models.ItemTypes.Equipment.Weapon.Base.Type[] type, Game.Data.Models.ItemTypes.Equipment.Weapon.Base.Special[] special) {
         Name = name;
         InventoryId = inventoryId;
         MaxCapacity = maxCapacity;

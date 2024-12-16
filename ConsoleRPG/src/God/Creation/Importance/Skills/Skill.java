@@ -1,35 +1,35 @@
 package God.Creation.Importance.Skills;
 
 public class Skill {
-    public String Name;
-    public boolean Barbarian;
-    public boolean Bard;
-    public boolean Cleric;
-    public boolean Druid;
-    public boolean Fighter;
-    public boolean Monk;
-    public boolean Paladin;
-    public boolean Ranger;
-    public boolean Rogue;
-    public boolean Sorcerer;
-    public boolean Wizard;
-    public boolean Untrained;
-    public String Ability;
+    public String name;
+    public boolean barbarian;
+    public boolean bard;
+    public boolean cleric;
+    public boolean druid;
+    public boolean fighter;
+    public boolean monk;
+    public boolean paladin;
+    public boolean ranger;
+    public boolean rogue;
+    public boolean sorcerer;
+    public boolean wizard;
+    public boolean untrained;
+    public Ability ability;
 
-    public Skill(String name, boolean barbarian, boolean bard, boolean cleric, boolean druid, boolean fighter, boolean monk, boolean paladin, boolean ranger, boolean rogue, boolean sorcerer, boolean wizard, boolean untrained, String ability) {
-        Name = name;
-        Barbarian = barbarian;
-        Bard = bard;
-        Cleric = cleric;
-        Druid = druid;
-        Fighter = fighter;
-        Monk = monk;
-        Paladin = paladin;
-        Ranger = ranger;
-        Rogue = rogue;
-        Sorcerer = sorcerer;
-        Wizard = wizard;
-        Untrained = untrained;
-        Ability = ability;
+    public Skill(String name, boolean barbarian, boolean bard, boolean cleric, boolean druid, boolean fighter, boolean monk, boolean paladin, boolean ranger, boolean rogue, boolean sorcerer, boolean wizard, boolean untrained, Ability ability) {
+        this.name = name;
+        this.barbarian = barbarian;
+        this.bard = bard;
+        this.cleric = cleric;
+        this.druid = druid;
+        this.fighter = fighter;
+        this.monk = monk;
+        this.paladin = paladin;
+        this.ranger = ranger;
+        this.rogue = rogue;
+        this.sorcerer = sorcerer;
+        this.wizard = wizard;
+        this.untrained = untrained;
+        this.ability = ability;
     }
 }
