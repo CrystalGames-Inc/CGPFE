@@ -1,8 +1,8 @@
-package Game.Data.Models.ItemTypes.Weapon.Ranged;
+package Game.Data.Models.ItemTypes.Equipment.Weapon.Ranged;
 
-import Game.Data.Models.ItemTypes.Weapon.Base.Specials;
-import Game.Data.Models.ItemTypes.Weapon.Base.Types;
-import Game.Data.Models.ItemTypes.Weapon.Weapon;
+import Game.Data.Models.ItemTypes.Equipment.Weapon.Base.Specials;
+import Game.Data.Models.ItemTypes.Equipment.Weapon.Base.Types;
+import Game.Data.Models.ItemTypes.Equipment.Weapon.Weapon;
 
 public class RangedWeapon extends Weapon {
     public Ammunition Ammunition;

@@ -1,9 +1,9 @@
-package Game.Data.Storage.Equipment;
+package Game.Data.Storage.Equipment.Weapons;
 
-import Game.Data.Models.ItemTypes.Weapon.Ranged.RangedWeapon;
-import Game.Data.Models.ItemTypes.Weapon.Base.Specials;
-import Game.Data.Models.ItemTypes.Weapon.Base.Types;
-import Game.Data.Models.ItemTypes.Weapon.Weapon;
+import Game.Data.Models.ItemTypes.Equipment.Weapon.Ranged.RangedWeapon;
+import Game.Data.Models.ItemTypes.Equipment.Weapon.Base.Specials;
+import Game.Data.Models.ItemTypes.Equipment.Weapon.Base.Types;
+import Game.Data.Models.ItemTypes.Equipment.Weapon.Weapon;
 
 public class Weapons {
     Munitions munitions = new Munitions();

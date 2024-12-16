@@ -1,8 +1,8 @@
-package Game.Data.Models.ItemTypes.Weapon;
+package Game.Data.Models.ItemTypes.Equipment.Weapon;
 
 import Game.Data.Models.Item;
-import Game.Data.Models.ItemTypes.Weapon.Base.Specials;
-import Game.Data.Models.ItemTypes.Weapon.Base.Types;
+import Game.Data.Models.ItemTypes.Equipment.Weapon.Base.Specials;
+import Game.Data.Models.ItemTypes.Equipment.Weapon.Base.Types;
 
 public class Weapon extends Item {
     public String Name;

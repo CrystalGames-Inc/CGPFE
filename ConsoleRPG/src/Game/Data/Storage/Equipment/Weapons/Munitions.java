@@ -1,6 +1,6 @@
-package Game.Data.Storage.Equipment;
+package Game.Data.Storage.Equipment.Weapons;
 
-import Game.Data.Models.ItemTypes.Weapon.Ranged.Ammunition;
+import Game.Data.Models.ItemTypes.Equipment.Weapon.Ranged.Ammunition;
 
 public class Munitions {
     public Ammunition blowgunDarts = new Ammunition("Blowgun Darts", 10,0.5, 0.0);

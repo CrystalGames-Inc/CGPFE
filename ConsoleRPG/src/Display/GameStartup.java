@@ -9,6 +9,7 @@ public class GameStartup {
 
     boolean skipIntro = false;
     boolean skipRegister = false;
+    boolean displayStatsAfterRegister = false;
 
     Scanner input = new Scanner(System.in);
 
@@ -18,6 +19,8 @@ public class GameStartup {
         if(!skipIntro) startIntro();
 
         if(!skipRegister) pDataMgr.registerNewPlayer(Game.player);
+
+        if(!displayStatsAfterRegister) pDataMgr.displayPlayerData();
     }
 
     public void startIntro(){

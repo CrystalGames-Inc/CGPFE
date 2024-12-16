@@ -1,6 +1,9 @@
 package God.Creation.Importance.Skills;
 
 public class Skills {
+
+    //region Skills
+
     public Skill acrobatics =             new Skill("Acrobatics",                true,  true,  false, false, false, true,  false, false, true,  false, false, true,  "DEX");
     public Skill appraise =               new Skill("Appraise",                  false, true,  true,  false, false, false, false, false, true,  true,  true,  true,  "INT");
     public Skill bluff =                  new Skill("Bluff",                     false, true,  false, false, false, false, false, false, true,  true,  false, true,  "CHA");
@@ -36,6 +39,8 @@ public class Skills {
     public Skill survival =               new Skill("Survival",                  true,  false, false, true,  false, false, true,  false, false, false, false, true,  "WIS");
     public Skill swim =                   new Skill("Swim",                      true,  false, false, true,  false, true,  true,  true,  false, false, false, false, "STR");
     public Skill useMagicDevice =         new Skill("Use Magic Device",          false, true,  false, false, false, false, false, false, true,  true,  false, false, "CHA");
+
+    //endregion
 
     //region Class-Specific Skill Arrays
 

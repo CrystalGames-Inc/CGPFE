@@ -1,4 +1,4 @@
-package Game.Data.Models.ItemTypes.Weapon.Base;
+package Game.Data.Models.ItemTypes.Equipment.Weapon.Base;
 
 public enum Types {
     BLUDGEONING,
