@@ -7,18 +7,19 @@ import java.util.Scanner;
 
 public class GameStartup {
 
-    boolean skipIntro = true;
+    boolean skipIntro = false;
     boolean skipRegister = false;
     boolean displayStatsAfterRegister = true;
 
     Scanner input = new Scanner(System.in);
 
     public void startGame(){
+        Game g = new Game();
         PlayerDataMgr pDataMgr = new PlayerDataMgr();
 
         if(!skipIntro) startIntro();
 
-        if(!skipRegister) pDataMgr.registerNewPlayer(Game.player);
+        if(!skipRegister) pDataMgr.registerNewPlayer(g.player);
 
         if(displayStatsAfterRegister) pDataMgr.displayPlayerData();
     }

@@ -1,8 +1,11 @@
 package Management;
 
+import java.util.Scanner;
+
 public class CommandMgr {
 
     private static CommandMgr _instance;
+    Scanner input = new Scanner(System.in);
 
     private CommandMgr(){
 
@@ -41,7 +44,7 @@ public class CommandMgr {
 
     public void wait(int millis){
         try{
-            Thread.sleep(350);
+            Thread.sleep(millis);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             return;
@@ -50,5 +53,9 @@ public class CommandMgr {
 
     public void cls(){
         System.out.flush();
+    }
+
+    public void awaitUserInput(){
+        input.nextLine();
     }
 }

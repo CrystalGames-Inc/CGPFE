@@ -11,10 +11,11 @@ import God.Creation.Importance.Constants.Race;
 import God.Creation.Importance.Skills.Skill;
 import God.Creation.Player.Player;
 import God.Creation.Player.PlayerInfo;
+import Management.DialogueMgr;
 
 public class Game {
 
-    public static Player player = new Player(
+    public Player player = new Player(
             new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0,new Skill[]{}),
             new EntityAttributes(0,0,0,0,0,0,0),
             new EntityAttributeModifiers(0,0,0,0,0,0,0),

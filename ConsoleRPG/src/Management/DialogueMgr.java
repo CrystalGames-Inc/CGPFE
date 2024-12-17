@@ -9,7 +9,10 @@ public class DialogueMgr {
 
     private static DialogueMgr _instance = null;
 
+    public int letterSpacingTime = 200;
     public List<DialogueLine> chat;
+
+    CommandMgr cmdMgr = CommandMgr.getInstance();
 
     private DialogueMgr(){
         chat = new ArrayList<DialogueLine>();
@@ -24,8 +27,15 @@ public class DialogueMgr {
 
     public void startChat(){
         for(DialogueLine d: chat){
-            System.out.println(d.SpeakerName + ": " + d.Line);
+            String[] letters = d.Line.split("");
+            System.out.print(d.SpeakerName + ": ");
+            for (int i = 0; i < d.Line.length(); i++) {
+                System.out.print(letters[i]);
+                cmdMgr.wait(letterSpacingTime);
+            }
+            cmdMgr.awaitUserInput();
         }
+        resetDialogue();
     }
 
     public void addLine(String speakerName, String text){
