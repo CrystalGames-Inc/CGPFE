@@ -1,6 +1,6 @@
 package Display;
 
-import Game.Data.Models.item;
+import Game.Data.Models.Item;
 import God.Creation.Entity.Additional.EntityWallet;
 import God.Creation.Entity.Mandatory.EntityAttributeModifiers;
 import God.Creation.Entity.Mandatory.EntityAttributes;
@@ -11,7 +11,6 @@ import God.Creation.Importance.Constants.Race;
 import God.Creation.Importance.Skills.Skill;
 import God.Creation.Player.Player;
 import God.Creation.Player.PlayerInfo;
-import Management.DialogueMgr;
 
 public class Game {
 
@@ -20,7 +19,7 @@ public class Game {
             new EntityAttributes(0,0,0,0,0,0,0),
             new EntityAttributeModifiers(0,0,0,0,0,0,0),
             new EntityWallet(0,0,0,0),
-            new item[210]
+            new Item[210]
     );
 
     public static void main(String[] args){

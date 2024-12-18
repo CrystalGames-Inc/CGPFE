@@ -1,8 +1,8 @@
 package Game.Data.Models.ItemTypes.Equipment.Weapon;
 
-import Game.Data.Models.item;
+import Game.Data.Models.Item;
 
-public class Weapon extends item {
+public class Weapon extends Item {
     public String Name;
     public int InventoryId;
     public int MaxCapacity;
