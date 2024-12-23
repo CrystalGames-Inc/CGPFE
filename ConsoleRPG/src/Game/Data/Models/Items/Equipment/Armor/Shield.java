@@ -1,4 +1,4 @@
-package Game.Data.Models.ItemTypes.Equipment.Armor;
+package Game.Data.Models.Items.Equipment.Armor;
 
 public class Shield {
     public String Name;

@@ -1,6 +1,6 @@
-package Game.Data.Models;
+package Game.Mechanics.Player;
 
-public class Item {
+public class InventoryItem {
      public String name;
      public int itemId;
      public int inventoryId;

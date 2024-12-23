@@ -1,4 +1,4 @@
-package Game.Data.Models.ItemTypes.Equipment.Weapon.Ranged;
+package Game.Data.Models.Items.Equipment.Weapon.Ranged;
 
 public class Ammunition {
     public String Name;

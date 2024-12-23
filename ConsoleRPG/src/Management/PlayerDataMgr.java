@@ -1,6 +1,6 @@
 package Management;
 
-import Game.Data.Models.Item;
+import Game.Mechanics.Player.InventoryItem;
 import Game.Mechanics.Dice;
 import God.Creation.Entity.Additional.EntityWallet;
 import God.Creation.Entity.Mandatory.EntityAttributeModifiers;
@@ -24,7 +24,7 @@ public class PlayerDataMgr {
 
     public Scanner input = new Scanner(System.in);
 
-    public Player player = new Player(new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0, new Skill[]{}), new EntityAttributes(0,0,0,0,0,0,0), new EntityAttributeModifiers(0,0,0,0,0,0,0), new EntityWallet(0,0,0,0), new Item[210]);
+    public Player player = new Player(new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0, new Skill[]{}), new EntityAttributes(0,0,0,0,0,0,0), new EntityAttributeModifiers(0,0,0,0,0,0,0), new EntityWallet(0,0,0,0), new InventoryItem[210]);
 
     //region Player Registration
 
@@ -361,8 +361,9 @@ public class PlayerDataMgr {
 
     public void displayPlayerInventory(){
         System.out.println("|Player Inventory:");
-        for (Item item: player.inventory) {
+        for (InventoryItem item: player.inventory) {
             System.out.println("  |" + item.name + ": ");
+            System.out.println("    |" + item.itemId);
             System.out.println("    |" + item.inventoryId);
             System.out.println("    |" + item.amount);
             System.out.println("    |" + item.maxCapacity);

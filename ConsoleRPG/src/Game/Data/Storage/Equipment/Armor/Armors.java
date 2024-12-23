@@ -1,6 +1,6 @@
 package Game.Data.Storage.Equipment.Armor;
 
-import Game.Data.Models.ItemTypes.Equipment.Armor.Armor;
+import Game.Data.Models.Items.Equipment.Armor.Armor;
 
 public class Armors {
 

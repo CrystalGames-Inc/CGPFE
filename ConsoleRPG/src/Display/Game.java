@@ -1,6 +1,6 @@
 package Display;
 
-import Game.Data.Models.Item;
+import Game.Mechanics.Player.InventoryItem;
 import God.Creation.Entity.Additional.EntityWallet;
 import God.Creation.Entity.Mandatory.EntityAttributeModifiers;
 import God.Creation.Entity.Mandatory.EntityAttributes;
@@ -19,7 +19,7 @@ public class Game {
             new EntityAttributes(0,0,0,0,0,0,0),
             new EntityAttributeModifiers(0,0,0,0,0,0,0),
             new EntityWallet(0,0,0,0),
-            new Item[210]
+            new InventoryItem[210]
     );
 
     public static void main(String[] args){

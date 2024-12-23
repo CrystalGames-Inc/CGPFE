@@ -1,6 +1,6 @@
 package Game.Data.Storage.Equipment.Armor;
 
-import Game.Data.Models.ItemTypes.Equipment.Armor.ArmorExtra;
+import Game.Data.Models.Items.Equipment.Armor.ArmorExtra;
 
 public class ArmorExtras {
     public ArmorExtra armorSpikes = new ArmorExtra("Armor Spikes", 50, 0,0,10);

@@ -1,4 +1,4 @@
-package Game.Data.Models.ItemTypes.Equipment.Weapon.Base;
+package Game.Data.Models.Items.Equipment.Weapon.Base;
 
 public enum Special {
     BRACE,

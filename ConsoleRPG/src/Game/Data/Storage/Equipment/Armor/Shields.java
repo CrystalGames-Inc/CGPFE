@@ -1,6 +1,6 @@
 package Game.Data.Storage.Equipment.Armor;
 
-import Game.Data.Models.ItemTypes.Equipment.Armor.Shield;
+import Game.Data.Models.Items.Equipment.Armor.Shield;
 
 public class Shields {
     public Shield buckler = new Shield("Buckler",15,1,0,-1,5,5);
