@@ -1,29 +1,33 @@
 package Game.Data.Models.Items.Equipment.Weapon;
 
-import Game.Mechanics.Player.InventoryItem;
+import Game.Data.Models.Items.Equipment.Weapon.Base.*;
+import Game.Data.Models.Items.Item;
 
-public class Weapon extends InventoryItem {
-    public String Name;
-    public int MaxCapacity;
-    public double Cost; //In gp
-    public String DmgS;
-    public String DmgM;
-    public String Critical;
-    public double Range; //In ft
-    public double Weight; //In lbs
-    public Game.Data.Models.Items.Equipment.Weapon.Base.Type[] Type;
-    public Game.Data.Models.Items.Equipment.Weapon.Base.Special[] Special;
+public class Weapon extends Item {
+    public String name;
+    public int id;
+    public int maxCapacity;
+    public double cost; //In gp
+    public String dmgS;
+    public String dmgM;
+    public String critical;
+    public double range; //In ft
+    public double weight; //In lbs
+    public Type[] type;
+    public Special[] special;
 
-    public Weapon(String name, int maxCapacity, double cost, String dmgS, String dmgM, String critical, double range, double weight, Game.Data.Models.Items.Equipment.Weapon.Base.Type[] type, Game.Data.Models.Items.Equipment.Weapon.Base.Special[] special) {
-        Name = name;
-        MaxCapacity = maxCapacity;
-        Cost = cost;
-        DmgS = dmgS;
-        DmgM = dmgM;
-        Critical = critical;
-        Range = range;
-        Weight = weight;
-        Type = type;
-        Special = special;
+    public Weapon(String name, int id, int maxCapacity, double cost, String dmgS, String dmgM, String critical, double range, double weight, Type[] type, Special[] special) {
+        super(name, id, cost);
+        this.name = name;
+        this.id = id;
+        this.maxCapacity = maxCapacity;
+        this.cost = cost;
+        this.dmgS = dmgS;
+        this.dmgM = dmgM;
+        this.critical = critical;
+        this.range = range;
+        this.weight = weight;
+        this.type = type;
+        this.special = special;
     }
 }

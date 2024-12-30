@@ -1,5 +1,6 @@
 package Display;
 
+import Game.Data.Storage.God.Creation.Skills.Appraise;
 import Game.Mechanics.Player.InventoryItem;
 import God.Creation.Entity.Additional.EntityWallet;
 import God.Creation.Entity.Mandatory.EntityAttributeModifiers;
@@ -8,7 +9,7 @@ import God.Creation.Importance.Constants.Alignment;
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Constants.Gender;
 import God.Creation.Importance.Constants.Race;
-import God.Creation.Importance.Skills.Skill;
+import Game.Data.Models.God.Creation.Skill;
 import God.Creation.Player.Player;
 import God.Creation.Player.PlayerInfo;
 
@@ -24,6 +25,9 @@ public class Game {
 
     public static void main(String[] args){
         GameStartup g = new GameStartup();
+
+        Appraise appraise = new Appraise();
+        System.out.println(appraise.name());
 
         g.startGame();
     }

@@ -1,4 +1,6 @@
-package God.Creation.Importance.Skills;
+package Game.Data.Models.God.Creation;
+
+import God.Creation.Importance.Skills.Attribute;
 
 public class Skill {
     public String name;
@@ -14,9 +16,9 @@ public class Skill {
     public boolean sorcerer;
     public boolean wizard;
     public boolean untrained;
-    public Ability ability;
+    public Attribute ability;
 
-    public Skill(String name, boolean barbarian, boolean bard, boolean cleric, boolean druid, boolean fighter, boolean monk, boolean paladin, boolean ranger, boolean rogue, boolean sorcerer, boolean wizard, boolean untrained, Ability ability) {
+    public Skill(String name, boolean barbarian, boolean bard, boolean cleric, boolean druid, boolean fighter, boolean monk, boolean paladin, boolean ranger, boolean rogue, boolean sorcerer, boolean wizard, boolean untrained, Attribute ability) {
         this.name = name;
         this.barbarian = barbarian;
         this.bard = bard;

@@ -9,8 +9,8 @@ import God.Creation.Importance.Constants.Alignment;
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Constants.Gender;
 import God.Creation.Importance.Constants.Race;
-import God.Creation.Importance.Skills.Skill;
-import Game.Data.Storage.God.Creation.Skills;
+import Game.Data.Models.God.Creation.Skill;
+import Game.Data.Storage.God.Creation.SkillsTemp;
 import God.Creation.Player.Player;
 import God.Creation.Player.PlayerInfo;
 
@@ -172,7 +172,7 @@ public class PlayerDataMgr {
     }
 
     public void registerPlayerClass(){
-        Skills skills = new Skills();
+        SkillsTemp skills = new SkillsTemp();
 
         System.out.println("Please choose your character's class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard");
         String pClass = input.nextLine();

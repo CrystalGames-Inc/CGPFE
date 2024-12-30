@@ -2,7 +2,7 @@ package God.Creation.Player;
 
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Constants.*;
-import God.Creation.Importance.Skills.Skill;
+import Game.Data.Models.God.Creation.Skill;
 
 public class PlayerInfo {
     public String name;

@@ -1,6 +1,6 @@
 package God.Creation.Importance.Skills;
 
-public enum Ability {
+public enum Attribute {
     STRENGTH,
     DEXTERITY,
     CONSTITUTION,
