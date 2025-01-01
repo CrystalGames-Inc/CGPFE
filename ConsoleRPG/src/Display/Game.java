@@ -26,8 +26,7 @@ public class Game {
     public static void main(String[] args){
         GameStartup g = new GameStartup();
 
-        Appraise appraise = new Appraise();
-        System.out.println(appraise.name());
+
 
         g.startGame();
     }
