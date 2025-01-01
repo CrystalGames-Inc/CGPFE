@@ -9,7 +9,7 @@ import God.Creation.Importance.Constants.Alignment;
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Constants.Gender;
 import God.Creation.Importance.Constants.Race;
-import Game.Data.Models.God.Creation.Skill;
+import Game.Data.Models.God.Creation.SkillTemp;
 import Game.Data.Storage.God.Creation.SkillsTemp;
 import God.Creation.Player.Player;
 import God.Creation.Player.PlayerInfo;
@@ -24,7 +24,7 @@ public class PlayerDataMgr {
 
     public Scanner input = new Scanner(System.in);
 
-    public Player player = new Player(new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0, new Skill[]{}), new EntityAttributes(0,0,0,0,0,0,0), new EntityAttributeModifiers(0,0,0,0,0,0,0), new EntityWallet(0,0,0,0), new InventoryItem[210]);
+    public Player player = new Player(new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0, new SkillTemp[]{}), new EntityAttributes(0,0,0,0,0,0,0), new EntityAttributeModifiers(0,0,0,0,0,0,0), new EntityWallet(0,0,0,0), new InventoryItem[210]);
 
     //region Player Registration
 

@@ -2,7 +2,7 @@ package God.Creation.Player;
 
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Constants.*;
-import Game.Data.Models.God.Creation.Skill;
+import Game.Data.Models.God.Creation.SkillTemp;
 
 public class PlayerInfo {
     public String name;
@@ -15,9 +15,9 @@ public class PlayerInfo {
     public int xp;
     public int maxHealth;
     public int health;
-    public Skill[] skills;
+    public SkillTemp[] skills;
 
-    public PlayerInfo(String name, Gender gender, Alignment alignment, int age, Race race, Class pClass, int level, int xp, int maxHealth, int health, Skill[] skills){
+    public PlayerInfo(String name, Gender gender, Alignment alignment, int age, Race race, Class pClass, int level, int xp, int maxHealth, int health, SkillTemp[] skills){
         this.name = name;
         this.gender = gender;
         this.alignment = alignment;

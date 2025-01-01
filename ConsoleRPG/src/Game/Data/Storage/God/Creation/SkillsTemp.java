@@ -1,63 +1,63 @@
 package Game.Data.Storage.God.Creation;
 
-import Game.Data.Models.God.Creation.Skill;
+import Game.Data.Models.God.Creation.SkillTemp;
 import God.Creation.Importance.Skills.*;
 
 public class SkillsTemp {
 
     //region Skills
 
-    public Skill acrobatics =             new Skill("Acrobatics",                true,  true,  false, false, false, true,  false, false, true,  false, false, true,  Attribute.DEXTERITY);
-    public Skill appraise =               new Skill("Appraise",                  false, true,  true,  false, false, false, false, false, true,  true,  true,  true,  Attribute.INTELLIGENCE);
-    public Skill bluff =                  new Skill("Bluff",                     false, true,  false, false, false, false, false, false, true,  true,  false, true,  Attribute.CHARISMA);
-    public Skill climb =                  new Skill("Climb",                     true,  true,  false, true,  false, true,  false, true,  true,  false, false, true,  Attribute.STRENGTH);
-    public Skill craft =                  new Skill("Craft",                     true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  Attribute.INTELLIGENCE);
-    public Skill diplomacy =              new Skill("Diplomacy",                 false, true,  true,  false, false, true,  false, false, true,  false, false, true,  Attribute.CHARISMA);
-    public Skill disableDevice =          new Skill("Disable Device",            false, false, false, false, false, false, false, false, true,  false, false, false, Attribute.DEXTERITY);
-    public Skill disguise =               new Skill("Disguise",                  false, true,  false, false, false, false, false, false, true,  false, false, true,  Attribute.CHARISMA);
-    public Skill escapeArtist =           new Skill("Escape Artist",             false, true,  false, false, false, true,  false, false, true,  false, false, true,  Attribute.DEXTERITY);
-    public Skill fly =                    new Skill("Fly",                       false, false, false, true,  false, false, false, false, false, true,  true,  true,  Attribute.DEXTERITY);
-    public Skill handleAnimal =           new Skill("Handle Animal",             true,  false, false, true,  false, true,  true,  true,  false, false, false, false, Attribute.CHARISMA);
-    public Skill heal =                   new Skill("Heal",                      false, false, true,  true,  false, false, true,  true,  false, false, false, false, Attribute.WISDOM);
-    public Skill intimidate =             new Skill("Intimidate",                true,  true,  false, false, true,  true,  true,  true,  true,  false, false, true,  Attribute.CHARISMA);
-    public Skill knowArcana =             new Skill("Knowledge (Arcana)",        false, true,  true,  false, false, false, false, false, true,  true,  true,  false, Attribute.INTELLIGENCE);
-    public Skill knowDungeoneering =      new Skill("Knowledge (Dungeoneering)", false, true,  false, false, true,  false, true,  true,  false, false, true,  false, Attribute.INTELLIGENCE);
-    public Skill knowEngineering =        new Skill("Knowledge (Engineering)",   false, true,  false, true,  false, false, true,  false, false, false, true,  false, Attribute.INTELLIGENCE);
-    public Skill knowGeography =          new Skill("Knowledge (Geography)",     false, true,  false, true,  false, false, true,  false, false, false, true,  false, Attribute.INTELLIGENCE);
-    public Skill knowHistory =            new Skill("Knowledge (History)",       false, true,  true,  false, false, true,  false, false, false, false, true,  false, Attribute.INTELLIGENCE);
-    public Skill knowLocal =              new Skill("Knowledge (Local)",         false, true,  false, false, false, false, false, true,  false, false, true,  false, Attribute.INTELLIGENCE);
-    public Skill knowNature =             new Skill("Knowledge (Nature)",        true,  true,  false, true,  false, false, true,  false, false, false, true,  false, Attribute.INTELLIGENCE);
-    public Skill knowNobility =           new Skill("Knowledge (Nobility)",      false, true,  true,  false, false, true,  false, false, false, false, true,  false, Attribute.INTELLIGENCE);
-    public Skill knowPlanes =             new Skill("Knowledge (Planes)",        false, true,  true,  false, false, false, false, false, false, false, true,  false, Attribute.INTELLIGENCE);
-    public Skill knowReligion =           new Skill("Knowledge (Religion)",      false, true,  true,  false, false, true,  true,  false, false, false, true,  false, Attribute.INTELLIGENCE);
-    public Skill linguistics =            new Skill("Linguistics",               false, true,  true,  false, false, false, false, false, true,  false, false, true,  Attribute.INTELLIGENCE);
-    public Skill perception =             new Skill("Perception",                true,  true,  false, true,  false, true,  false, true,  true,  false, false, true,  Attribute.WISDOM);
-    public Skill perform =                new Skill("Perform",                   false, true,  false, false, false, true,  false, false, true,  false, false, true,  Attribute.CHARISMA);
-    public Skill profession =             new Skill("Profession",                false, true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  Attribute.WISDOM);
-    public Skill ride =                   new Skill("Ride",                      true,  false, false, true,  true,  true,  true,  true,  false, false, false, false, Attribute.DEXTERITY);
-    public Skill senseMotive =            new Skill("Sense Motive",              false, true,  true,  false, false, true,  false, false, true,  false, false, true,  Attribute.WISDOM);
-    public Skill sleightOfHand =          new Skill("Sleight Of Hand",           false, true,  false, false, false, false, false, false, true,  false, false, false, Attribute.DEXTERITY);
-    public Skill spellcraft =             new Skill("Spellcraft",                false, true,  true,  true,  false, false, true,  true,  false, true,  true,  false, Attribute.INTELLIGENCE);
-    public Skill stealth =                new Skill("Stealth",                   false, true,  false, false, false, true,  false, true,  true,  false, false, true,  Attribute.DEXTERITY);
-    public Skill survival =               new Skill("Survival",                  true,  false, false, true,  false, false, true,  false, false, false, false, true,  Attribute.WISDOM);
-    public Skill swim =                   new Skill("Swim",                      true,  false, false, true,  false, true,  true,  true,  false, false, false, false, Attribute.STRENGTH);
-    public Skill useMagicDevice =         new Skill("Use Magic Device",          false, true,  false, false, false, false, false, false, true,  true,  false, false, Attribute.CHARISMA);
+    public SkillTemp acrobatics =             new SkillTemp("Acrobatics",                true,  true,  false, false, false, true,  false, false, true,  false, false, true,  Attribute.DEXTERITY);
+    public SkillTemp appraise =               new SkillTemp("Appraise",                  false, true,  true,  false, false, false, false, false, true,  true,  true,  true,  Attribute.INTELLIGENCE);
+    public SkillTemp bluff =                  new SkillTemp("Bluff",                     false, true,  false, false, false, false, false, false, true,  true,  false, true,  Attribute.CHARISMA);
+    public SkillTemp climb =                  new SkillTemp("Climb",                     true,  true,  false, true,  false, true,  false, true,  true,  false, false, true,  Attribute.STRENGTH);
+    public SkillTemp craft =                  new SkillTemp("Craft",                     true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  Attribute.INTELLIGENCE);
+    public SkillTemp diplomacy =              new SkillTemp("Diplomacy",                 false, true,  true,  false, false, true,  false, false, true,  false, false, true,  Attribute.CHARISMA);
+    public SkillTemp disableDevice =          new SkillTemp("Disable Device",            false, false, false, false, false, false, false, false, true,  false, false, false, Attribute.DEXTERITY);
+    public SkillTemp disguise =               new SkillTemp("Disguise",                  false, true,  false, false, false, false, false, false, true,  false, false, true,  Attribute.CHARISMA);
+    public SkillTemp escapeArtist =           new SkillTemp("Escape Artist",             false, true,  false, false, false, true,  false, false, true,  false, false, true,  Attribute.DEXTERITY);
+    public SkillTemp fly =                    new SkillTemp("Fly",                       false, false, false, true,  false, false, false, false, false, true,  true,  true,  Attribute.DEXTERITY);
+    public SkillTemp handleAnimal =           new SkillTemp("Handle Animal",             true,  false, false, true,  false, true,  true,  true,  false, false, false, false, Attribute.CHARISMA);
+    public SkillTemp heal =                   new SkillTemp("Heal",                      false, false, true,  true,  false, false, true,  true,  false, false, false, false, Attribute.WISDOM);
+    public SkillTemp intimidate =             new SkillTemp("Intimidate",                true,  true,  false, false, true,  true,  true,  true,  true,  false, false, true,  Attribute.CHARISMA);
+    public SkillTemp knowArcana =             new SkillTemp("Knowledge (Arcana)",        false, true,  true,  false, false, false, false, false, true,  true,  true,  false, Attribute.INTELLIGENCE);
+    public SkillTemp knowDungeoneering =      new SkillTemp("Knowledge (Dungeoneering)", false, true,  false, false, true,  false, true,  true,  false, false, true,  false, Attribute.INTELLIGENCE);
+    public SkillTemp knowEngineering =        new SkillTemp("Knowledge (Engineering)",   false, true,  false, true,  false, false, true,  false, false, false, true,  false, Attribute.INTELLIGENCE);
+    public SkillTemp knowGeography =          new SkillTemp("Knowledge (Geography)",     false, true,  false, true,  false, false, true,  false, false, false, true,  false, Attribute.INTELLIGENCE);
+    public SkillTemp knowHistory =            new SkillTemp("Knowledge (History)",       false, true,  true,  false, false, true,  false, false, false, false, true,  false, Attribute.INTELLIGENCE);
+    public SkillTemp knowLocal =              new SkillTemp("Knowledge (Local)",         false, true,  false, false, false, false, false, true,  false, false, true,  false, Attribute.INTELLIGENCE);
+    public SkillTemp knowNature =             new SkillTemp("Knowledge (Nature)",        true,  true,  false, true,  false, false, true,  false, false, false, true,  false, Attribute.INTELLIGENCE);
+    public SkillTemp knowNobility =           new SkillTemp("Knowledge (Nobility)",      false, true,  true,  false, false, true,  false, false, false, false, true,  false, Attribute.INTELLIGENCE);
+    public SkillTemp knowPlanes =             new SkillTemp("Knowledge (Planes)",        false, true,  true,  false, false, false, false, false, false, false, true,  false, Attribute.INTELLIGENCE);
+    public SkillTemp knowReligion =           new SkillTemp("Knowledge (Religion)",      false, true,  true,  false, false, true,  true,  false, false, false, true,  false, Attribute.INTELLIGENCE);
+    public SkillTemp linguistics =            new SkillTemp("Linguistics",               false, true,  true,  false, false, false, false, false, true,  false, false, true,  Attribute.INTELLIGENCE);
+    public SkillTemp perception =             new SkillTemp("Perception",                true,  true,  false, true,  false, true,  false, true,  true,  false, false, true,  Attribute.WISDOM);
+    public SkillTemp perform =                new SkillTemp("Perform",                   false, true,  false, false, false, true,  false, false, true,  false, false, true,  Attribute.CHARISMA);
+    public SkillTemp profession =             new SkillTemp("Profession",                false, true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  Attribute.WISDOM);
+    public SkillTemp ride =                   new SkillTemp("Ride",                      true,  false, false, true,  true,  true,  true,  true,  false, false, false, false, Attribute.DEXTERITY);
+    public SkillTemp senseMotive =            new SkillTemp("Sense Motive",              false, true,  true,  false, false, true,  false, false, true,  false, false, true,  Attribute.WISDOM);
+    public SkillTemp sleightOfHand =          new SkillTemp("Sleight Of Hand",           false, true,  false, false, false, false, false, false, true,  false, false, false, Attribute.DEXTERITY);
+    public SkillTemp spellcraft =             new SkillTemp("Spellcraft",                false, true,  true,  true,  false, false, true,  true,  false, true,  true,  false, Attribute.INTELLIGENCE);
+    public SkillTemp stealth =                new SkillTemp("Stealth",                   false, true,  false, false, false, true,  false, true,  true,  false, false, true,  Attribute.DEXTERITY);
+    public SkillTemp survival =               new SkillTemp("Survival",                  true,  false, false, true,  false, false, true,  false, false, false, false, true,  Attribute.WISDOM);
+    public SkillTemp swim =                   new SkillTemp("Swim",                      true,  false, false, true,  false, true,  true,  true,  false, false, false, false, Attribute.STRENGTH);
+    public SkillTemp useMagicDevice =         new SkillTemp("Use Magic Device",          false, true,  false, false, false, false, false, false, true,  true,  false, false, Attribute.CHARISMA);
 
     //endregion
 
     //region Class-Specific Skill Arrays
 
-    public Skill[] barbarianSkills = new Skill[]{acrobatics, climb, craft, handleAnimal, intimidate, knowNature, perception, ride, survival, swim};
-    public Skill[] bardSkills = new Skill[]{acrobatics, appraise, bluff, climb, craft, diplomacy, disguise, escapeArtist, intimidate, knowArcana, knowDungeoneering, knowEngineering, knowGeography, knowHistory, knowLocal, knowNature, knowNobility, knowPlanes, knowReligion, linguistics, perception, perform, profession, senseMotive, sleightOfHand, spellcraft, stealth, useMagicDevice};
-    public Skill[] clericSkills = new Skill[]{appraise, craft, diplomacy, heal, knowArcana, knowHistory, knowNobility, knowPlanes, knowReligion, linguistics, profession, senseMotive, spellcraft};
-    public Skill[] druidSkills = new Skill[]{climb, craft, fly, handleAnimal, heal, knowEngineering, knowGeography, knowNature, perception, profession, ride, spellcraft, survival, swim};
-    public Skill[] fighterSkills = new Skill[]{craft, intimidate, knowDungeoneering, profession, ride};
-    public Skill[] monkSkills = new Skill[]{acrobatics, craft, intimidate, knowHistory, knowNobility, knowReligion, perception, perform, profession, ride, senseMotive, stealth, swim};
-    public Skill[] paladinSkills = new Skill[]{craft, handleAnimal, heal, intimidate, knowDungeoneering, knowEngineering, knowGeography, knowNature, knowReligion, profession, ride, spellcraft, survival, swim};
-    public Skill[] rangerSkills = new Skill[]{climb, craft, handleAnimal, heal, intimidate, knowDungeoneering, knowLocal, perception, profession, ride, spellcraft, stealth, swim};
-    public Skill[] rogueSkills = new Skill[]{acrobatics, appraise, bluff, climb, craft, diplomacy, disableDevice, disguise, escapeArtist, intimidate, knowArcana, linguistics, perception, perform, profession, senseMotive, sleightOfHand, stealth, useMagicDevice};
-    public Skill[] sorcererSkills = new Skill[]{appraise, bluff, craft, fly, knowArcana, profession, spellcraft, useMagicDevice};
-    public Skill[] wizardSkills = new Skill[]{appraise, craft, fly, knowArcana, knowDungeoneering, knowEngineering, knowGeography, knowHistory, knowLocal, knowNature, knowNobility, knowPlanes, knowReligion, profession, spellcraft};
+    public SkillTemp[] barbarianSkills = new SkillTemp[]{acrobatics, climb, craft, handleAnimal, intimidate, knowNature, perception, ride, survival, swim};
+    public SkillTemp[] bardSkills = new SkillTemp[]{acrobatics, appraise, bluff, climb, craft, diplomacy, disguise, escapeArtist, intimidate, knowArcana, knowDungeoneering, knowEngineering, knowGeography, knowHistory, knowLocal, knowNature, knowNobility, knowPlanes, knowReligion, linguistics, perception, perform, profession, senseMotive, sleightOfHand, spellcraft, stealth, useMagicDevice};
+    public SkillTemp[] clericSkills = new SkillTemp[]{appraise, craft, diplomacy, heal, knowArcana, knowHistory, knowNobility, knowPlanes, knowReligion, linguistics, profession, senseMotive, spellcraft};
+    public SkillTemp[] druidSkills = new SkillTemp[]{climb, craft, fly, handleAnimal, heal, knowEngineering, knowGeography, knowNature, perception, profession, ride, spellcraft, survival, swim};
+    public SkillTemp[] fighterSkills = new SkillTemp[]{craft, intimidate, knowDungeoneering, profession, ride};
+    public SkillTemp[] monkSkills = new SkillTemp[]{acrobatics, craft, intimidate, knowHistory, knowNobility, knowReligion, perception, perform, profession, ride, senseMotive, stealth, swim};
+    public SkillTemp[] paladinSkills = new SkillTemp[]{craft, handleAnimal, heal, intimidate, knowDungeoneering, knowEngineering, knowGeography, knowNature, knowReligion, profession, ride, spellcraft, survival, swim};
+    public SkillTemp[] rangerSkills = new SkillTemp[]{climb, craft, handleAnimal, heal, intimidate, knowDungeoneering, knowLocal, perception, profession, ride, spellcraft, stealth, swim};
+    public SkillTemp[] rogueSkills = new SkillTemp[]{acrobatics, appraise, bluff, climb, craft, diplomacy, disableDevice, disguise, escapeArtist, intimidate, knowArcana, linguistics, perception, perform, profession, senseMotive, sleightOfHand, stealth, useMagicDevice};
+    public SkillTemp[] sorcererSkills = new SkillTemp[]{appraise, bluff, craft, fly, knowArcana, profession, spellcraft, useMagicDevice};
+    public SkillTemp[] wizardSkills = new SkillTemp[]{appraise, craft, fly, knowArcana, knowDungeoneering, knowEngineering, knowGeography, knowHistory, knowLocal, knowNature, knowNobility, knowPlanes, knowReligion, profession, spellcraft};
 
     //endregion
 }

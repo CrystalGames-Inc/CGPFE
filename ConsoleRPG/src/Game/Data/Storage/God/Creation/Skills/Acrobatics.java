@@ -1,10 +1,13 @@
 package Game.Data.Storage.God.Creation.Skills;
 
-import Game.Data.Models.God.Creation.ISkill;
 import Game.Data.Models.God.Creation.Skill;
-import God.Creation.Importance.Skills.Attribute;
 
-public class Acrobatics extends ISkill {
-    public String name = "Acrobatics";
-    public boolean barbarian = true;
+public class Acrobatics extends Skill {
+    final Skill acrobatics = new Skill();
+
+    void setAcrobatics(){
+        acrobatics.setName("Acrobatics");
+        acrobatics.setBarbarian(true);
+        acrobatics.setBard(true);
+    }
 }
