@@ -1,5 +1,6 @@
 package Display;
 
+import Game.Data.Storage.God.Creation.Skills.Climb;
 import Game.Mechanics.Player.InventoryItem;
 import God.Creation.Entity.Additional.EntityWallet;
 import God.Creation.Entity.Mandatory.EntityAttributeModifiers;
@@ -25,7 +26,7 @@ public class Game {
     public static void main(String[] args){
         GameStartup g = new GameStartup();
 
-
+        System.out.println(new Climb().getName());
 
         g.startGame();
     }

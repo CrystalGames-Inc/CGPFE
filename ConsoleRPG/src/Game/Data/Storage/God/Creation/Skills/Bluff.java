@@ -3,21 +3,21 @@ package Game.Data.Storage.God.Creation.Skills;
 import Game.Data.Models.God.Creation.Skill;
 import God.Creation.Importance.Skills.Attribute;
 
-public final class Appraise extends Skill {
-    public Appraise(){
-        setName("Appraise");
+public final class Bluff extends Skill {
+    public Bluff() {
+        setName("Bluff");
         setBarbarian(false);
         setBard(true);
-        setCleric(true);
+        setCleric(false);
         setDruid(false);
         setFighter(false);
-        setMonk(true);
+        setMonk(false);
         setPaladin(false);
         setRanger(false);
         setRogue(true);
         setSorcerer(true);
-        setWizard(true);
+        setWizard(false);
         setUntrained(true);
-        setAbility(Attribute.INTELLIGENCE);
+        setAbility(Attribute.CHARISMA);
     }
 }
