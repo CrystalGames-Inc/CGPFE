@@ -4,21 +4,17 @@ import Game.Data.Models.God.Creation.Skill;
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Skills.Attribute;
 
-public final class Climb extends Skill {
-
-    public Climb(){
-        setName("Climb");
+public final class HandleAnimal extends Skill {
+    public HandleAnimal(){
+        setName("Handle Animal");
         setClasses(new Class[]{
                 Class.BARBARIAN,
-                Class.BARD,
                 Class.DRUID,
                 Class.FIGHTER,
-                Class.MONK,
-                Class.RANGER,
-                Class.ROGUE
+                Class.PALADIN,
+                Class.RANGER
         });
-        setUntrained(true);
-        setAbility(Attribute.STRENGTH);
+        setUntrained(false);
+        setAbility(Attribute.CHARISMA);
     }
-
 }

@@ -4,11 +4,16 @@ import Game.Data.Models.God.Creation.Skill;
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Skills.Attribute;
 
-public final class Bluff extends Skill {
-    public Bluff() {
-        setName("Bluff");
+public final class Intimidate extends Skill {
+    public Intimidate(){
+        setName("Intimidate");
         setClasses(new Class[]{
+                Class.BARBARIAN,
                 Class.BARD,
+                Class.FIGHTER,
+                Class.MONK,
+                Class.RANGER,
+                Class.ROGUE,
                 Class.SORCERER
         });
         setUntrained(true);

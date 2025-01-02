@@ -4,14 +4,16 @@ import Game.Data.Models.God.Creation.Skill;
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Skills.Attribute;
 
-public final class Bluff extends Skill {
-    public Bluff() {
-        setName("Bluff");
+public final class Heal extends Skill {
+    public Heal(){
+        setName("Heal");
         setClasses(new Class[]{
-                Class.BARD,
-                Class.SORCERER
+                Class.CLERIC,
+                Class.DRUID,
+                Class.PALADIN,
+                Class.RANGER
         });
         setUntrained(true);
-        setAbility(Attribute.CHARISMA);
+        setAbility(Attribute.WISDOM);
     }
 }

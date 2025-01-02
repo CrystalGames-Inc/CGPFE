@@ -4,14 +4,15 @@ import Game.Data.Models.God.Creation.Skill;
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Skills.Attribute;
 
-public final class Bluff extends Skill {
-    public Bluff() {
-        setName("Bluff");
+public final class EscapeArtist extends Skill {
+    public EscapeArtist(){
+        setName("Escape Artist");
         setClasses(new Class[]{
                 Class.BARD,
-                Class.SORCERER
+                Class.MONK,
+                Class.ROGUE
         });
         setUntrained(true);
-        setAbility(Attribute.CHARISMA);
+        setAbility(Attribute.DEXTERITY);
     }
 }
