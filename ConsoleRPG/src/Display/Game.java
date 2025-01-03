@@ -1,5 +1,6 @@
 package Display;
 
+import Game.Data.Models.God.Creation.Skill;
 import Game.Data.Storage.God.Creation.Skills.Climb;
 import Game.Mechanics.Player.InventoryItem;
 import God.Creation.Entity.Additional.EntityWallet;
@@ -16,7 +17,7 @@ import God.Creation.Player.PlayerInfo;
 public class Game {
 
     public Player player = new Player(
-            new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0,new SkillTemp[]{}),
+            new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0,new Skill[]{}),
             new EntityAttributes(0,0,0,0,0,0,0),
             new EntityAttributeModifiers(0,0,0,0,0,0,0),
             new EntityWallet(0,0,0,0),

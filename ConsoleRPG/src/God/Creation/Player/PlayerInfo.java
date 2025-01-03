@@ -1,8 +1,8 @@
 package God.Creation.Player;
 
+import Game.Data.Models.God.Creation.Skill;
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Constants.*;
-import Game.Data.Models.God.Creation.SkillTemp;
 
 public class PlayerInfo {
     public String name;
@@ -15,9 +15,9 @@ public class PlayerInfo {
     public int xp;
     public int maxHealth;
     public int health;
-    public SkillTemp[] skills;
+    public Skill[] skills;
 
-    public PlayerInfo(String name, Gender gender, Alignment alignment, int age, Race race, Class pClass, int level, int xp, int maxHealth, int health, SkillTemp[] skills){
+    public PlayerInfo(String name, Gender gender, Alignment alignment, int age, Race race, Class pClass, int level, int xp, int maxHealth, int health, Skill[] skills){
         this.name = name;
         this.gender = gender;
         this.alignment = alignment;
