@@ -1,5 +1,6 @@
 package Management;
 
+import Display.Windows.SkillWindow;
 import Game.Data.Models.God.Creation.Skill;
 import Game.Mechanics.Player.InventoryItem;
 import Game.Mechanics.Dice;
@@ -25,6 +26,19 @@ public class PlayerDataMgr {
     public Scanner input = new Scanner(System.in);
 
     public Player player = new Player(new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0, new Skill[]{}), new EntityAttributes(0,0,0,0,0,0,0), new EntityAttributeModifiers(0,0,0,0,0,0,0), new EntityWallet(0,0,0,0), new InventoryItem[210]);
+
+    private static PlayerDataMgr _instance = null;
+
+    private PlayerDataMgr(){
+
+    }
+
+    public static synchronized PlayerDataMgr getInstance(){
+        if(_instance == null)
+            _instance = new PlayerDataMgr();
+
+        return _instance;
+    }
 
     //region Player Registration
 
@@ -321,42 +335,42 @@ public class PlayerDataMgr {
 
     public void displayPlayerData(){
         System.out.println("|Player Info:");
-        System.out.println("|Name      : " + player.info.name);
-        System.out.println("|Gender    : " + player.info.gender);
-        System.out.println("|Alignment : " + player.info.alignment);
-        System.out.println("|Age       : " + player.info.age);
-        System.out.println("|Race      : " + player.info.race);
-        System.out.println("|Class     : " + player.info.pClass);
-        System.out.println("|Level     : " + player.info.level);
-        System.out.println("|XP        : " + player.info.xp);
-        System.out.println("|Health    : " + player.info.health);
-        System.out.println("|Max Health: " + player.info.maxHealth);
-        System.out.println("\n|Skills: ");
+        System.out.println("| Name      : " + player.info.name);
+        System.out.println("| Gender    : " + player.info.gender);
+        System.out.println("| Alignment : " + player.info.alignment);
+        System.out.println("| Age       : " + player.info.age);
+        System.out.println("| Race      : " + player.info.race);
+        System.out.println("| Class     : " + player.info.pClass);
+        System.out.println("| Level     : " + player.info.level);
+        System.out.println("| XP        : " + player.info.xp);
+        System.out.println("| Health    : " + player.info.health);
+        System.out.println("| Max Health: " + player.info.maxHealth);
+        System.out.println("\n| Skills: ");
         for(int i = 0; i < player.info.skills.length; i++)
-            System.out.println("|    " + player.info.skills[i].name);
+            System.out.println("|  " + player.info.skills[i].getName());
         System.out.println("\n|Attributes:");
-        System.out.println("|   Strength    : " + player.attributes.Strength);
-        System.out.println("|   Dexterity   : " + player.attributes.Dexterity);
-        System.out.println("|   Constitution: " + player.attributes.Constitution);
-        System.out.println("|   Intelligence: " + player.attributes.Intelligence);
-        System.out.println("|   Wisdom      : " + player.attributes.Wisdom);
-        System.out.println("|   Charisma    : " + player.attributes.Charisma);
-        System.out.println("|   Move Speed  : " + player.attributes.MoveSpeed);
+        System.out.println("|  Strength    : " + player.attributes.Strength);
+        System.out.println("|  Dexterity   : " + player.attributes.Dexterity);
+        System.out.println("|  Constitution: " + player.attributes.Constitution);
+        System.out.println("|  Intelligence: " + player.attributes.Intelligence);
+        System.out.println("|  Wisdom      : " + player.attributes.Wisdom);
+        System.out.println("|  Charisma    : " + player.attributes.Charisma);
+        System.out.println("|  Move Speed  : " + player.attributes.MoveSpeed);
 
-        System.out.println("\n|Attribute Modifiers:");
-        System.out.println("|   Strength    : " + player.attributeMods.Strength);
-        System.out.println("|   Dexterity   : " + player.attributeMods.Dexterity);
-        System.out.println("|   Constitution: " + player.attributeMods.Constitution);
-        System.out.println("|   Intelligence: " + player.attributeMods.Intelligence);
-        System.out.println("|   Wisdom      : " + player.attributeMods.Wisdom);
-        System.out.println("|   Charisma    : " + player.attributeMods.Charisma);
-        System.out.println("|   Move Speed  : " + player.attributeMods.MoveSpeed);
+        System.out.println("\n| Attribute Modifiers:");
+        System.out.println("|  Strength    : " + player.attributeMods.Strength);
+        System.out.println("|  Dexterity   : " + player.attributeMods.Dexterity);
+        System.out.println("|  Constitution: " + player.attributeMods.Constitution);
+        System.out.println("|  Intelligence: " + player.attributeMods.Intelligence);
+        System.out.println("|  Wisdom      : " + player.attributeMods.Wisdom);
+        System.out.println("|  Charisma    : " + player.attributeMods.Charisma);
+        System.out.println("|  Move Speed  : " + player.attributeMods.MoveSpeed);
 
-        System.out.println("\n|Wallet:");
-        System.out.println("|   Copper Pieces  : " + player.wallet.CopperPieces);
-        System.out.println("|   Silver Pieces  : " + player.wallet.SilverPieces);
-        System.out.println("|   Gold Pieces    : " + player.wallet.GoldPieces);
-        System.out.println("|   Platinum Pieces: " + player.wallet.PlatinumPieces);
+        System.out.println("\n| Wallet:");
+        System.out.println("|  Copper Pieces  : " + player.wallet.CopperPieces);
+        System.out.println("|  Silver Pieces  : " + player.wallet.SilverPieces);
+        System.out.println("|  Gold Pieces    : " + player.wallet.GoldPieces);
+        System.out.println("|  Platinum Pieces: " + player.wallet.PlatinumPieces);
     }
 
     public void displayPlayerInventory(){

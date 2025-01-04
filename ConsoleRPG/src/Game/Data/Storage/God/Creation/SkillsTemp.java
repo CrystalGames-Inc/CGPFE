@@ -41,7 +41,7 @@ public class SkillsTemp {
     public final Skill stealth = new Stealth();
     public final Skill survival = new Survival();
     public final Skill swim = new Swim();
-    public final Skill useMagicDevice =  new UseMagicDevice();
+    public final Skill useMagicDevice = new UseMagicDevice();
 
     //endregion
 

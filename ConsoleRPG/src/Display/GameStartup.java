@@ -1,5 +1,6 @@
 package Display;
 
+import Display.Windows.SkillWindow;
 import Management.CommandMgr;
 import Management.PlayerDataMgr;
 
@@ -9,19 +10,19 @@ public class GameStartup {
 
     boolean skipIntro = false;
     boolean skipRegister = false;
-    boolean displayStatsAfterRegister = true;
 
     Scanner input = new Scanner(System.in);
 
     public void startGame(){
         Game g = new Game();
-        PlayerDataMgr pDataMgr = new PlayerDataMgr();
+        PlayerDataMgr pDataMgr = PlayerDataMgr.getInstance();
 
         if(!skipIntro) startIntro();
 
-        if(!skipRegister) pDataMgr.registerNewPlayer(g.player);
-
-        if(displayStatsAfterRegister) pDataMgr.displayPlayerData();
+        if(!skipRegister){
+            pDataMgr.registerNewPlayer(g.player);
+            new SkillWindow().newWindow();
+        }
     }
 
     public void startIntro(){
