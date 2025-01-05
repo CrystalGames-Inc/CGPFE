@@ -3,18 +3,18 @@ package Display.Windows;
 import Management.PlayerDataMgr;
 
 import javax.swing.*;
+import java.awt.*;
 
-public class SkillWindow {
+public class SkillWindow{
 
     JFrame f = new JFrame("Player Skills");
 
     JTextArea jt = new JTextArea(100,1);
 
-
-
     public void newWindow(){
         PlayerDataMgr pDataMgr = PlayerDataMgr.getInstance();
         JPanel p = new JPanel();
+
         jt.append("|Player Info:" + "\n");
         jt.append("| Name      : " + pDataMgr.player.info.name + "\n");
         jt.append("| Gender    : " + pDataMgr.player.info.gender + "\n");
@@ -54,10 +54,16 @@ public class SkillWindow {
         jt.append("|  Silver Pieces  :" + pDataMgr.player.wallet.SilverPieces + "\n");
         jt.append("|  Gold Pieces    :" + pDataMgr.player.wallet.GoldPieces + "\n");
         jt.append("|  Platinum Pieces: " + pDataMgr.player.wallet.PlatinumPieces + "\n");
-        p.add(jt);
+
+        jt.setBackground(Color.black);
+        jt.setForeground(Color.white);
         jt.setEditable(false);
-        f.add(p);
+
+        p.add(jt);
+
+
         f.setSize(175,1440);
+        f.add(p);
         f.setAlwaysOnTop(true);
         f.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         f.setVisible(true);

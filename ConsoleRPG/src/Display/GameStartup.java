@@ -1,5 +1,6 @@
 package Display;
 
+import Display.Windows.MainWindow;
 import Display.Windows.SkillWindow;
 import Management.CommandMgr;
 import Management.PlayerDataMgr;
@@ -16,6 +17,8 @@ public class GameStartup {
     public void startGame(){
         Game g = new Game();
         PlayerDataMgr pDataMgr = PlayerDataMgr.getInstance();
+
+        new MainWindow().newWindow();
 
         if(!skipIntro) startIntro();
 
