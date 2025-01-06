@@ -5,9 +5,20 @@ import Management.PlayerDataMgr;
 import javax.swing.*;
 import java.awt.*;
 
-public class SkillWindow{
+public class SkillWindow extends JFrame{
 
-    JFrame f = new JFrame("Player Skills");
+    public SkillWindow(){
+        initUi();
+        newWindow();
+        setPosToRight();
+    }
+
+    private void initUi(){
+        setSize(175,1440);
+        setAlwaysOnTop(true);
+        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        setVisible(true);
+    }
 
     JTextArea jt = new JTextArea(100,1);
 
@@ -15,6 +26,7 @@ public class SkillWindow{
         PlayerDataMgr pDataMgr = PlayerDataMgr.getInstance();
         JPanel p = new JPanel();
 
+        jt.setText("");
         jt.append("|Player Info:" + "\n");
         jt.append("| Name      : " + pDataMgr.player.info.name + "\n");
         jt.append("| Gender    : " + pDataMgr.player.info.gender + "\n");
@@ -61,12 +73,17 @@ public class SkillWindow{
 
         p.add(jt);
 
+        add(p);
+    }
 
-        f.setSize(175,1440);
-        f.add(p);
-        f.setAlwaysOnTop(true);
-        f.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-        f.setVisible(true);
+    void setPosToRight(){
+        GraphicsConfiguration config = getGraphicsConfiguration();
+        Rectangle bounds = config.getBounds();
+        Insets insets = Toolkit.getDefaultToolkit().getScreenInsets(config);
+
+        int x = bounds.x + bounds.width - insets.right - getWidth();
+        int y = bounds.y + insets.top;
+        setLocation(x, y);
     }
 
 }

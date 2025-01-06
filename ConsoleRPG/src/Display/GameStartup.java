@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class GameStartup {
 
-    boolean skipIntro = false;
+    boolean skipIntro = true;
     boolean skipRegister = false;
 
     Scanner input = new Scanner(System.in);
@@ -18,7 +18,7 @@ public class GameStartup {
         Game g = new Game();
         PlayerDataMgr pDataMgr = PlayerDataMgr.getInstance();
 
-        new MainWindow().newWindow();
+        new MainWindow();
 
         if(!skipIntro) startIntro();
 
