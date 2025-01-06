@@ -7,19 +7,6 @@ import java.awt.*;
 
 public class SkillWindow extends JFrame{
 
-    public SkillWindow(){
-        initUi();
-        newWindow();
-        setPosToRight();
-    }
-
-    private void initUi(){
-        setSize(175,1440);
-        setAlwaysOnTop(true);
-        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-        setVisible(true);
-    }
-
     JTextArea jt = new JTextArea(100,1);
 
     public void newWindow(){
@@ -74,16 +61,10 @@ public class SkillWindow extends JFrame{
         p.add(jt);
 
         add(p);
+
+        setSize(175,1440);
+        setAlwaysOnTop(true);
+        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        setVisible(true);
     }
-
-    void setPosToRight(){
-        GraphicsConfiguration config = getGraphicsConfiguration();
-        Rectangle bounds = config.getBounds();
-        Insets insets = Toolkit.getDefaultToolkit().getScreenInsets(config);
-
-        int x = bounds.x + bounds.width - insets.right - getWidth();
-        int y = bounds.y + insets.top;
-        setLocation(x, y);
-    }
-
 }

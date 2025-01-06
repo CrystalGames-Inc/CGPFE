@@ -1,4 +1,4 @@
-package God.Creation.Importance.Skills;
+package God.Creation.Importance.Constants;
 
 public enum Attribute {
     STRENGTH,

@@ -4,26 +4,24 @@ import Management.WindowMgr;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
-public class MainWindow {
+public class MainWindow extends JFrame{
 
-    JFrame f = new JFrame("ConsoleRPG");
     JTextArea jt = new JTextArea();
-
-    WindowMgr wMgr = WindowMgr.getInstance();
 
     public void newWindow(){
         JPanel p = new JPanel();
         p.setBackground(Color.darkGray);
 
 
-
-        f.setSize(677,433);
-        f.setResizable(false);
-        f.setAlwaysOnTop(true);
-        f.setForeground(Color.black);
-        f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        f.setVisible(true);
+        setName("ConsoleRPG");
+        setSize(677,433);
+        setResizable(false);
+        setAlwaysOnTop(true);
+        setForeground(Color.black);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
     }
 
     public void cls(){
@@ -33,5 +31,4 @@ public class MainWindow {
     public void addLine(String str){
         jt.append(str);
     }
-
 }

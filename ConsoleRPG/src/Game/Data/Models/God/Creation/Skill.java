@@ -1,7 +1,7 @@
 package Game.Data.Models.God.Creation;
 
 import God.Creation.Importance.Constants.Class;
-import God.Creation.Importance.Skills.Attribute;
+import God.Creation.Importance.Constants.Attribute;
 
 public class Skill {
 
