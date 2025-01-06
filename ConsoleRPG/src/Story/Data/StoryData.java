@@ -1,9 +1,18 @@
 package Story.Data;
 
-public class StoryData {
-    public Fantasty gameFantasty;
+import Story.Data.StoryModifiers.AbilityScoreType;
+import Story.Data.StoryModifiers.Fantasty;
 
-    public StoryData(Fantasty gameFantasty){
-        this.gameFantasty = gameFantasty;
-    }
+public class StoryData {
+    /* Fantasty level point distribution
+        Low - 10 points
+        Standard - 15 points
+        High - 20 points
+        Epic - 20 points
+     */
+    public Fantasty gameFantasty = Fantasty.HIGH;
+
+    //I have decided not to include the dice pool into the game.
+
+    public AbilityScoreType abilityScoreType = AbilityScoreType.PURCHASE;
 }

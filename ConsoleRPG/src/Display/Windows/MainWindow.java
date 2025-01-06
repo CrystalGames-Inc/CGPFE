@@ -4,7 +4,6 @@ import Management.WindowMgr;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 public class MainWindow extends JFrame{
 

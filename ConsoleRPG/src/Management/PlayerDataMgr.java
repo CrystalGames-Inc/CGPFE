@@ -1,6 +1,5 @@
 package Management;
 
-import Display.Windows.SkillWindow;
 import Game.Data.Models.God.Creation.Skill;
 import Game.Mechanics.Player.InventoryItem;
 import Game.Mechanics.Dice;
@@ -14,18 +13,24 @@ import God.Creation.Importance.Constants.Race;
 import Game.Data.Storage.God.Creation.SkillsTemp;
 import God.Creation.Player.Player;
 import God.Creation.Player.PlayerInfo;
+import Story.Data.StoryData;
 
 import java.util.Scanner;
 
 public class PlayerDataMgr {
 
+    public StoryData storyData = new StoryData();
     public CommandMgr cmdMgr = CommandMgr.getInstance();
-
     public Dice dice = new Dice();
 
     public Scanner input = new Scanner(System.in);
 
-    public Player player = new Player(new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0, new Skill[]{}), new EntityAttributes(0,0,0,0,0,0,0), new EntityAttributeModifiers(0,0,0,0,0,0,0), new EntityWallet(0,0,0,0), new InventoryItem[210]);
+    public Player player = new Player(
+            new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0, new Skill[]{}),
+            new EntityAttributes(0,0,0,0,0,0,0),
+            new EntityAttributeModifiers(0,0,0,0,0,0,0),
+            new EntityWallet(0,0,0,0),
+            new InventoryItem[210]);
 
     private static PlayerDataMgr _instance = null;
 
@@ -59,6 +64,10 @@ public class PlayerDataMgr {
         registerPlayerRace();
 
         registerPlayerClass();
+
+        calculateAbilityScorePoints();
+
+        calculateHealth();
 
         calculatePlayerAge();
     }
@@ -194,67 +203,56 @@ public class PlayerDataMgr {
             case("BARBARIAN") -> {
                 player.info.pClass = Class.BARBARIAN;
                 player.info.skills = skills.barbarianSkills;
-                player.info.maxHealth = 1 + dice.Roll(12) + player.attributeMods.Constitution;
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
             }
             case("BARD") -> {
                 player.info.pClass = Class.BARD;
                 player.info.skills = skills.bardSkills;
-                player.info.maxHealth = 1 + dice.Roll(8) + player.attributeMods.Constitution;
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
             }
             case("CLERIC") -> {
                 player.info.pClass = Class.CLERIC;
                 player.info.skills = skills.clericSkills;
-                player.info.maxHealth = 1 + dice.Roll(8) + player.attributeMods.Constitution;
                 player.wallet.GoldPieces = dice.Roll(6,4) * 10;
             }
             case("DRUID") -> {
                 player.info.pClass = Class.DRUID;
                 player.info.skills = skills.druidSkills;
-                player.info.maxHealth = 1 + dice.Roll(8) + player.attributeMods.Constitution;
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
             }
             case("FIGHTER") -> {
                 player.info.pClass = Class.FIGHTER;
                 player.info.skills = skills.fighterSkills;
-                player.info.maxHealth = 1 + dice.Roll(10) + player.attributeMods.Constitution;
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
             }
             case("MONK") -> {
                 player.info.pClass = Class.MONK;
                 player.info.skills = skills.monkSkills;
-                player.info.maxHealth = 1 + dice.Roll(8) + player.attributeMods.Constitution;
                 player.wallet.GoldPieces = dice.Roll(6) * 10;
             }
             case("PALADIN") -> {
                 player.info.pClass = Class.PALADIN;
                 player.info.skills = skills.paladinSkills;
-                player.info.maxHealth = 1 + dice.Roll(10) + player.attributeMods.Constitution;
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
             }
             case("RANGER") -> {
                 player.info.pClass = Class.RANGER;
                 player.info.skills = skills.rangerSkills;
-                player.info.maxHealth = 1 + dice.Roll(10) + player.attributeMods.Constitution;
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
             }
             case("ROGUE") -> {
                 player.info.pClass = Class.ROGUE;
                 player.info.skills = skills.rogueSkills;
-                player.info.maxHealth = 1 + dice.Roll(8) + player.attributeMods.Constitution;
                 player.wallet.GoldPieces = dice.Roll(6,4) * 10;
             }
             case("SORCERER") -> {
                 player.info.pClass = Class.SORCERER;
                 player.info.skills = skills.sorcererSkills;
-                player.info.maxHealth = 1 + dice.Roll(6) + player.attributeMods.Constitution;
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
             }
             case("WIZARD") -> {
                 player.info.pClass = Class.WIZARD;
                 player.info.skills = skills.wizardSkills;
-                player.info.maxHealth = 1 + dice.Roll(6) + player.attributeMods.Constitution;
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
             }
             default ->{
@@ -266,10 +264,6 @@ public class PlayerDataMgr {
 
         player.info.health = player.info.maxHealth;
     }
-
-    //endregion
-
-    //region Data Updates
 
     public void calculatePlayerAge(){
         switch (player.info.race){
@@ -325,7 +319,68 @@ public class PlayerDataMgr {
         }
     }
 
-    public void updatePlayerValues(God.Creation.Player.Player player){
+    public void calculateAbilityScorePoints(){
+        int[] abilities = new int[6];
+        switch (storyData.abilityScoreType){
+            case STANDARD -> {
+                for (int i = 0; i < 6; i++) {
+                    int minIndex = 0;
+                    int[] rolls = new int[]{
+                            dice.Roll(6),
+                            dice.Roll(6),
+                            dice.Roll(6),
+                            dice.Roll(6)
+                    };
+                    for (int j = 0; j < 3; j++) {
+                        if(rolls[j] < rolls[j+1])
+                            minIndex = rolls[j];
+                    }
+                    rolls[minIndex] = 0;
+                    abilities[i] = rolls[0] + rolls[1] + rolls[2] + rolls[3];
+                }
+            }
+            case CLASSIC -> {
+                for (int i = 0; i < 6; i++) {
+                    int[] rolls = new int[]{
+                            dice.Roll(6),
+                            dice.Roll(6),
+                            dice.Roll(6)
+                    };
+                    abilities[i] = rolls[0] + rolls[1] + rolls[2];
+                }
+            }
+            case HEROIC -> {
+                for (int i = 0; i < 6; i++) {
+                    int[] rolls = new int[]{
+                            dice.Roll(6),
+                            dice.Roll(6),
+                    };
+                    abilities[i] = rolls[0] + rolls[1] + 6;
+                }
+            }
+            case PURCHASE -> {
+
+            }
+        }
+    }
+
+    public void calculateHealth(){
+        switch (player.info.pClass){
+            case BARBARIAN -> player.info.maxHealth = 1 + dice.Roll(12) + player.attributes.Constitution;
+            case BARD, CLERIC, DRUID, MONK, ROGUE -> player.info.maxHealth = 1 + dice.Roll(8) + player.attributes.Constitution;
+            case FIGHTER, PALADIN, RANGER -> player.info.maxHealth = 1 + dice.Roll(10) + player.attributes.Constitution;
+            case SORCERER, WIZARD ->player.info.maxHealth = 1 + dice.Roll(6) + player.attributes.Constitution;
+
+        }
+    }
+
+    //endregion
+
+    //region Data Updates
+
+
+
+    public void updatePlayerValues(Player player){
         this.player = player;
     }
 

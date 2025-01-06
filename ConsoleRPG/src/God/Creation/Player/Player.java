@@ -13,6 +13,8 @@ public class Player {
     public EntityWallet wallet;
     public InventoryItem[] inventory;
 
+    public int abilityScorePoints;
+
     public Player(PlayerInfo info, EntityAttributes attributes, EntityAttributeModifiers attributeMods, EntityWallet wallet, InventoryItem[] inventory){
         this.info = info;
         this.attributes = attributes;

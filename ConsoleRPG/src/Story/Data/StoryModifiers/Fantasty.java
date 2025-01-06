@@ -1,4 +1,4 @@
-package Story.Data;
+package Story.Data.StoryModifiers;
 
 public enum Fantasty {
     LOW,
