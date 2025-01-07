@@ -1,9 +1,8 @@
-package Game.Data.Storage.God.Creation;
+package Game.Data.Storage.God.Creation.Skills;
 
 import Game.Data.Models.God.Creation.Skill;
-import Game.Data.Storage.God.Creation.Skills.*;
 
-public class SkillsTemp {
+public class Skills {
 
     //region Skills
 

@@ -1,9 +1,32 @@
 package Game.Data.Models.God.Creation;
 
 public class Feat {
-    public String name;
+    private String name;
+    private Feat dependantFeat;
+    private boolean combatFeat;
 
-    public Feat(String name){
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public void setDependantFeat(Feat dependantFeat) {
+        this.dependantFeat = dependantFeat;
+    }
+
+    public void setCombatFeat(boolean combatFeat) {
+        this.combatFeat = combatFeat;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Feat getDependantFeat() {
+        return dependantFeat;
+    }
+
+    public boolean isCombatFeat() {
+        return combatFeat;
     }
 }

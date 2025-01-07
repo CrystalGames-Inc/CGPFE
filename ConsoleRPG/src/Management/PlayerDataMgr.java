@@ -10,10 +10,10 @@ import God.Creation.Importance.Constants.Alignment;
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Constants.Gender;
 import God.Creation.Importance.Constants.Race;
-import Game.Data.Storage.God.Creation.SkillsTemp;
+import Game.Data.Storage.God.Creation.Skills.Skills;
 import God.Creation.Player.Player;
 import God.Creation.Player.PlayerInfo;
-import Story.Data.StoryData;
+import Story.Data.*;
 
 import java.util.Scanner;
 
@@ -195,7 +195,7 @@ public class PlayerDataMgr {
     }
 
     public void registerPlayerClass(){
-        SkillsTemp skills = new SkillsTemp();
+        Skills skills = new Skills();
 
         System.out.println("Please choose your character's class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard");
         String pClass = input.nextLine();
@@ -321,8 +321,15 @@ public class PlayerDataMgr {
 
     public void calculateAbilityScorePoints(){
         int[] abilities = new int[6];
+        abilities[0] = player.attributes.Strength;
+        abilities[1] = player.attributes.Dexterity;
+        abilities[2] = player.attributes.Constitution;
+        abilities[3] = player.attributes.Intelligence;
+        abilities[4] = player.attributes.Wisdom;
+        abilities[5] = player.attributes.Charisma;
+
         switch (storyData.abilityScoreType){
-            case STANDARD -> {
+            case  STANDARD-> {
                 for (int i = 0; i < 6; i++) {
                     int minIndex = 0;
                     int[] rolls = new int[]{
