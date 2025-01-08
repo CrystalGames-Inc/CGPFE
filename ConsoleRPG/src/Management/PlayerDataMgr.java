@@ -10,7 +10,7 @@ import God.Creation.Importance.Constants.Alignment;
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Constants.Gender;
 import God.Creation.Importance.Constants.Race;
-import Game.Data.Storage.God.Creation.Skills.Skills;
+import Game.Data.Storage.God.Creation.Skills;
 import God.Creation.Player.Player;
 import God.Creation.Player.PlayerInfo;
 import Story.Data.*;

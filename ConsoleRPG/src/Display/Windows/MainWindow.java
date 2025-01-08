@@ -9,6 +9,8 @@ public class MainWindow extends JFrame{
 
     JTextArea jt = new JTextArea();
 
+
+
     public void newWindow(){
         JPanel p = new JPanel();
         p.setBackground(Color.darkGray);
@@ -21,10 +23,6 @@ public class MainWindow extends JFrame{
         setForeground(Color.black);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
-    }
-
-    public void cls(){
-        jt.setText("");
     }
 
     public void addLine(String str){
