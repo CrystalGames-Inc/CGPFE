@@ -19,11 +19,11 @@ import java.util.Scanner;
 
 public class PlayerDataMgr {
 
-    public StoryData storyData = new StoryData();
-    public CommandMgr cmdMgr = CommandMgr.getInstance();
-    public Dice dice = new Dice();
+    StoryData storyData = new StoryData();
+    CommandMgr cmdMgr = CommandMgr.getInstance();
+    Dice dice = new Dice();
 
-    public Scanner input = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
 
     public Player player = new Player(
             new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0, new Skill[]{}),
@@ -31,6 +31,19 @@ public class PlayerDataMgr {
             new EntityAttributeModifiers(0,0,0,0,0,0,0),
             new EntityWallet(0,0,0,0),
             new InventoryItem[210]);
+
+    int[] abilities = {
+        player.attributes.Strength,
+        player.attributes.Dexterity,
+        player.attributes.Constitution,
+        player.attributes.Intelligence,
+        player.attributes.Wisdom,
+        player.attributes.Charisma
+    };
+
+    int[] abilityMods = {0, 0, 0, 0, 0, 0};
+
+    int spendableAbilityPoints;
 
     private static PlayerDataMgr _instance = null;
 
@@ -52,10 +65,12 @@ public class PlayerDataMgr {
         player = this.player;
     }
 
-    public void registerPlayerInfo(){
+    void registerPlayerInfo(){
         System.out.println("Please choose your character's name: ");
         player.info.name = input.nextLine();
         cmdMgr.cls();
+
+        calculateAbilityScorePoints();
 
         registerPlayerGender();
 
@@ -65,14 +80,12 @@ public class PlayerDataMgr {
 
         registerPlayerClass();
 
-        calculateAbilityScorePoints();
-
         calculateHealth();
 
         calculatePlayerAge();
     }
 
-    public void registerPlayerGender(){
+    void registerPlayerGender(){
         System.out.println("Please select your character's gender:\nMale\nFemale\n");
         String gender = input.nextLine();
         switch (gender.toUpperCase()){
@@ -91,7 +104,7 @@ public class PlayerDataMgr {
         cmdMgr.cls();
     }
 
-    public void registerPlayerAlignment(){
+    void registerPlayerAlignment(){
         System.out.println("Please Select Your Character's Alignment:\nLawfulGood\nNeutralGood\nChaoticGood\nLawfulNeutral\nNeutral\nChaoticNeutral\nLawfulEvil\nNeutralEvil\nChaoticEvil");
         String alignment = input.nextLine();
         switch (alignment.toUpperCase()){
@@ -114,7 +127,7 @@ public class PlayerDataMgr {
         cmdMgr.cls();
     }
 
-    public void registerPlayerRace(){
+    void registerPlayerRace(){
         System.out.println("Please choose your character's race:\nDwarf\nElf\nGnome\nHalfElf\nHalfOrc\nHalfling\nHuman");
         String race = input.nextLine();
         cmdMgr.cls();
@@ -122,46 +135,46 @@ public class PlayerDataMgr {
         switch (race.toUpperCase()){
             case("DWARF") -> {
                 player.info.race = Race.DWARF;
-                player.attributeMods.Constitution += 2;
-                player.attributeMods.Wisdom += 2;
-                player.attributeMods.Charisma -= 2;
+                player.attributes.Constitution += 2;
+                player.attributes.Wisdom += 2;
+                player.attributes.Charisma -= 2;
                 player.attributes.MoveSpeed = 20;
             }
             case("ELF") -> {
                 player.info.race = Race.ELF;
-                player.attributeMods.Dexterity += 2;
-                player.attributeMods.Constitution -= 2;
-                player.attributeMods.Intelligence += 2;
+                player.attributes.Dexterity += 2;
+                player.attributes.Constitution -= 2;
+                player.attributes.Intelligence += 2;
                 player.attributes.MoveSpeed = 30;
             }
             case("GNOME") -> {
                 player.info.race = Race.GNOME;
-                player.attributeMods.Strength -= 2;
-                player.attributeMods.Constitution += 2;
-                player.attributeMods.Charisma += 2;
+                player.attributes.Strength -= 2;
+                player.attributes.Constitution += 2;
+                player.attributes.Charisma += 2;
                 player.attributes.MoveSpeed = 20;
             }
             case("HALFELF") -> {
-                registerPlayerStatMod();
+                registerPlayerRaceStatMod();
 
                 player.info.race = Race.HALFELF;
                 player.attributes.MoveSpeed = 30;
             }
             case("HALFORC") -> {
-                registerPlayerStatMod();
+                registerPlayerRaceStatMod();
 
                 player.info.race = Race.HALFORC;
                 player.attributes.MoveSpeed = 30;
             }
             case("HALFLING") -> {
                 player.info.race = Race.HALFLING;
-                player.attributeMods.Strength -= 2;
-                player.attributeMods.Dexterity += 2;
-                player.attributeMods.Charisma += 2;
+                player.attributes.Strength -= 2;
+                player.attributes.Dexterity += 2;
+                player.attributes.Charisma += 2;
                 player.attributes.MoveSpeed = 20;
             }
             case("HUMAN") -> {
-                registerPlayerStatMod();
+                registerPlayerRaceStatMod();
 
                 player.info.race = Race.HUMAN;
                 player.attributes.MoveSpeed = 30;
@@ -174,27 +187,27 @@ public class PlayerDataMgr {
         cmdMgr.cls();
     }
 
-    public void registerPlayerStatMod(){
+    void registerPlayerRaceStatMod(){
         String raceStatMod;
 
         System.out.println("Please select the attribute you'd like to increase:\nStr\nDex\nCon\nInt\nWis\nCha");
         raceStatMod = input.nextLine();
 
         switch (raceStatMod.toUpperCase()){
-            case("STR") -> player.attributeMods.Strength += 2;
-            case("DEX") -> player.attributeMods.Dexterity += 2;
-            case("CON") -> player.attributeMods.Constitution += 2;
-            case("INT") -> player.attributeMods.Intelligence += 2;
-            case("WIS") -> player.attributeMods.Wisdom += 2;
-            case("CHA") -> player.attributeMods.Charisma += 2;
+            case("STR") -> player.attributes.Strength += 2;
+            case("DEX") -> player.attributes.Dexterity += 2;
+            case("CON") -> player.attributes.Constitution += 2;
+            case("INT") -> player.attributes.Intelligence += 2;
+            case("WIS") -> player.attributes.Wisdom += 2;
+            case("CHA") -> player.attributes.Charisma += 2;
             default -> {
                 System.out.println("Invalid attribute selected");
-                registerPlayerStatMod();
+                registerPlayerRaceStatMod();
             }
         }
     }
 
-    public void registerPlayerClass(){
+    void registerPlayerClass(){
         Skills skills = new Skills();
 
         System.out.println("Please choose your character's class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard");
@@ -265,7 +278,7 @@ public class PlayerDataMgr {
         player.info.health = player.info.maxHealth;
     }
 
-    public void calculatePlayerAge(){
+    void calculatePlayerAge(){
         switch (player.info.race){
             case DWARF -> {
                 switch (player.info.pClass){
@@ -319,17 +332,23 @@ public class PlayerDataMgr {
         }
     }
 
-    public void calculateAbilityScorePoints(){
-        int[] abilities = new int[6];
-        abilities[0] = player.attributes.Strength;
-        abilities[1] = player.attributes.Dexterity;
-        abilities[2] = player.attributes.Constitution;
-        abilities[3] = player.attributes.Intelligence;
-        abilities[4] = player.attributes.Wisdom;
-        abilities[5] = player.attributes.Charisma;
+    void calculateHealth(){
+        switch (player.info.pClass){
+            case BARBARIAN -> player.info.maxHealth = 1 + dice.Roll(12) + player.attributes.Constitution;
+            case BARD, CLERIC, DRUID, MONK, ROGUE -> player.info.maxHealth = 1 + dice.Roll(8) + player.attributes.Constitution;
+            case FIGHTER, PALADIN, RANGER -> player.info.maxHealth = 1 + dice.Roll(10) + player.attributes.Constitution;
+            case SORCERER, WIZARD ->player.info.maxHealth = 1 + dice.Roll(6) + player.attributes.Constitution;
 
+        }
+    }
+
+    //endregion
+
+    //region Ability Points
+
+    void calculateAbilityScorePoints(){
         switch (storyData.abilityScoreType){
-            case  STANDARD-> {
+            case STANDARD-> {
                 for (int i = 0; i < 6; i++) {
                     int minIndex = 0;
                     int[] rolls = new int[]{
@@ -343,7 +362,7 @@ public class PlayerDataMgr {
                             minIndex = rolls[j];
                     }
                     rolls[minIndex] = 0;
-                    abilities[i] = rolls[0] + rolls[1] + rolls[2] + rolls[3];
+                    abilities[i] += rolls[0] + rolls[1] + rolls[2] + rolls[3];
                 }
             }
             case CLASSIC -> {
@@ -366,26 +385,75 @@ public class PlayerDataMgr {
                 }
             }
             case PURCHASE -> {
-
+                switch (storyData.gameFantasty) {
+                    case LOW -> spendableAbilityPoints = 10;
+                    case STANDARD -> spendableAbilityPoints = 15;
+                    case HIGH -> spendableAbilityPoints = 20;
+                    case EPIC -> spendableAbilityPoints = 25;
+                }
+                registerAbilityScorePoints();
             }
         }
+
+        calculateAbilityModifiers();
+
     }
 
-    public void calculateHealth(){
-        switch (player.info.pClass){
-            case BARBARIAN -> player.info.maxHealth = 1 + dice.Roll(12) + player.attributes.Constitution;
-            case BARD, CLERIC, DRUID, MONK, ROGUE -> player.info.maxHealth = 1 + dice.Roll(8) + player.attributes.Constitution;
-            case FIGHTER, PALADIN, RANGER -> player.info.maxHealth = 1 + dice.Roll(10) + player.attributes.Constitution;
-            case SORCERER, WIZARD ->player.info.maxHealth = 1 + dice.Roll(6) + player.attributes.Constitution;
+    //For the PURCHASE Point Generation Mod
+    //TODO finish adding the PURCHASE case
+    void registerAbilityScorePoints(){
+        abilities = new int[]{10, 10, 10, 10, 10, 10};
+        int amount;
 
+        do{
+            System.out.println("Please enter the Strength attribute you'd like to have (7-18) (" + spendableAbilityPoints + " left):");
+            amount = input.nextInt();
+
+            switch (amount){
+                case 7  -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 4;  abilities[0] =  7; } }
+                case 8  -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 2;  abilities[0] =  8; } }
+                case 9  -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 1;  abilities[0] =  9; } }
+                case 10 ->   abilities[0] = 10;
+                case 11 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 1;  abilities[0] =  11;} }
+                case 12 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 2;  abilities[0] =  12;} }
+                case 13 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 3;  abilities[0] =  13;} }
+                case 14 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 5;  abilities[0] =  14;} }
+                case 15 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 7;  abilities[0] =  15;} }
+                case 16 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 10; abilities[0] = 16;} }
+                case 17 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 13; abilities[0] = 17;} }
+                case 18 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 17; abilities[0] = 18;} }
+                default -> System.out.println("Insufficient points left");
+            }
+
+        } while (amount >= 0);
+    }
+
+    void calculateAbilityModifiers(){
+        for(int i = 0; i < abilities.length; i++){
+            switch (abilities[i]){
+                case 1 -> abilityMods[i] = -5;
+                case 2,3 -> abilityMods[i] = -4;
+                case 4,5 -> abilityMods[i] = -3;
+                case 6,7 -> abilityMods[i] = -2;
+                case 8,9 -> abilityMods[i] = -1;
+                case 10,11 -> abilityMods[i] = 0;
+                case 12,13 -> abilityMods[i] = 1;
+                case 14,15 -> abilityMods[i] = 2;
+                case 16,17 -> abilityMods[i] = 3;
+                case 18,19 -> abilityMods[i] = 4;
+                case 20,21 -> abilityMods[i] = 5;
+                case 22,23 -> abilityMods[i] = 6;
+                case 24,25 -> abilityMods[i] = 7;
+                case 26,27 -> abilityMods[i] = 8;
+                case 28,29 -> abilityMods[i] = 9;
+                case 30,31 -> abilityMods[i] = 10;
+            }
         }
     }
 
     //endregion
 
     //region Data Updates
-
-
 
     public void updatePlayerValues(Player player){
         this.player = player;
