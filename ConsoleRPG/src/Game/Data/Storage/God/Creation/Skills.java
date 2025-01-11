@@ -1,6 +1,6 @@
 package Game.Data.Storage.God.Creation;
 
-import Game.Data.Models.God.Creation.Skill;
+import Game.Data.Models.God.Creation.Skill.Skill;
 import Game.Data.Storage.God.Creation.GameSkills.*;
 
 public class Skills {

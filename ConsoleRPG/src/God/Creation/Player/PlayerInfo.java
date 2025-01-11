@@ -1,6 +1,6 @@
 package God.Creation.Player;
 
-import Game.Data.Models.God.Creation.Skill;
+import Game.Data.Models.God.Creation.Skill.Skill;
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Constants.*;
 

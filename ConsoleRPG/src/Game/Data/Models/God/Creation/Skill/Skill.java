@@ -1,4 +1,4 @@
-package Game.Data.Models.God.Creation;
+package Game.Data.Models.God.Creation.Skill;
 
 import God.Creation.Importance.Constants.Class;
 import God.Creation.Importance.Constants.Attribute;

@@ -1,6 +1,6 @@
 package Management;
 
-import Game.Data.Models.God.Creation.Skill;
+import Game.Data.Models.God.Creation.Skill.Skill;
 import Game.Mechanics.Player.InventoryItem;
 import Game.Mechanics.Dice;
 import God.Creation.Entity.Additional.EntityWallet;
@@ -18,6 +18,8 @@ import Story.Data.*;
 import java.util.Scanner;
 
 public class PlayerDataMgr {
+
+    //region Variables
 
     StoryData storyData = new StoryData();
     CommandMgr cmdMgr = CommandMgr.getInstance();
@@ -41,11 +43,14 @@ public class PlayerDataMgr {
         player.attributes.Charisma
     };
 
+
     int[] abilityMods = {0, 0, 0, 0, 0, 0};
 
     int spendableAbilityPoints;
 
     private static PlayerDataMgr _instance = null;
+
+    //endregion
 
     private PlayerDataMgr(){
 
@@ -190,16 +195,16 @@ public class PlayerDataMgr {
     void registerPlayerRaceStatMod(){
         String raceStatMod;
 
-        System.out.println("Please select the attribute you'd like to increase:\nStr\nDex\nCon\nInt\nWis\nCha");
+        System.out.println("Please select the attribute you'd like to increase:\nStr(ength)\nDex(terity)\nCon(stitution)\nInt(elligence)\nWis(dom)\nCha(risma)");
         raceStatMod = input.nextLine();
 
         switch (raceStatMod.toUpperCase()){
-            case("STR") -> player.attributes.Strength += 2;
-            case("DEX") -> player.attributes.Dexterity += 2;
-            case("CON") -> player.attributes.Constitution += 2;
-            case("INT") -> player.attributes.Intelligence += 2;
-            case("WIS") -> player.attributes.Wisdom += 2;
-            case("CHA") -> player.attributes.Charisma += 2;
+            case("STR"), ("STRENGTH")     -> player.attributes.Strength += 2;
+            case("DEX"), ("DEXTERITY")    -> player.attributes.Dexterity += 2;
+            case("CON"), ("CONSTITUTION") -> player.attributes.Constitution += 2;
+            case("INT"), ("INTELLIGENCE") -> player.attributes.Intelligence += 2;
+            case("WIS"), ("WISDOM")       -> player.attributes.Wisdom += 2;
+            case("CHA"), ("CHARISMA")     -> player.attributes.Charisma += 2;
             default -> {
                 System.out.println("Invalid attribute selected");
                 registerPlayerRaceStatMod();
@@ -359,7 +364,7 @@ public class PlayerDataMgr {
                     };
                     for (int j = 0; j < 3; j++) {
                         if(rolls[j] < rolls[j+1])
-                            minIndex = rolls[j];
+                            minIndex = j;
                     }
                     rolls[minIndex] = 0;
                     abilities[i] += rolls[0] + rolls[1] + rolls[2] + rolls[3];
@@ -396,7 +401,7 @@ public class PlayerDataMgr {
         }
 
         calculateAbilityModifiers();
-
+        updateAbilityPoints();
     }
 
     //For the PURCHASE Point Generation Mod
@@ -449,11 +454,35 @@ public class PlayerDataMgr {
                 case 30,31 -> abilityMods[i] = 10;
             }
         }
+
+        updateAbilityModifiers();
     }
 
     //endregion
 
     //region Data Updates
+
+    void updateAbilityPoints(){
+        player.attributes.Strength += abilities[0];
+        player.attributes.Dexterity += abilities[1];
+        player.attributes.Constitution += abilities[2];
+        player.attributes.Intelligence += abilities[3];
+        player.attributes.Wisdom += abilities[4];
+        player.attributes.Charisma += abilities[5];
+
+        abilities = new int[]{0, 0, 0, 0, 0, 0};
+    }
+
+    void updateAbilityModifiers(){
+        player.attributeMods.Strength += abilityMods[0];
+        player.attributeMods.Dexterity += abilityMods[1];
+        player.attributeMods.Constitution += abilityMods[2];
+        player.attributeMods.Intelligence += abilityMods[3];
+        player.attributeMods.Wisdom += abilityMods[4];
+        player.attributeMods.Charisma += abilityMods[5];
+
+        abilityMods = new int[]{0, 0, 0, 0, 0, 0};
+    }
 
     public void updatePlayerValues(Player player){
         this.player = player;

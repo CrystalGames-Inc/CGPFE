@@ -1,6 +1,6 @@
 package Display;
 
-import Game.Data.Models.God.Creation.Skill;
+import Game.Data.Models.God.Creation.Skill.Skill;
 import Game.Mechanics.Player.InventoryItem;
 import God.Creation.Entity.Additional.EntityWallet;
 import God.Creation.Entity.Mandatory.EntityAttributeModifiers;

@@ -14,5 +14,5 @@ public class StoryData {
 
     //I have decided not to include the dice pool into the game.
 
-    public AbilityScoreType abilityScoreType = AbilityScoreType.CLASSIC;
+    public AbilityScoreType abilityScoreType = AbilityScoreType.STANDARD;
 }
