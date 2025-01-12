@@ -43,7 +43,7 @@ public class DialogueMgr {
         chat.add(line);
     }
 
-    public void resetDialogue(){
-        chat = null;
+    void resetDialogue(){
+        chat = new ArrayList<>(){};
     }
 }

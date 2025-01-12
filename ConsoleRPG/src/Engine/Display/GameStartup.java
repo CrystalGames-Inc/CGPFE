@@ -4,13 +4,14 @@ import Engine.Display.Windows.MainWindow;
 import Engine.Display.Windows.SkillWindow;
 import Engine.Management.CommandMgr;
 import Engine.Management.PlayerDataMgr;
+import Story.Data.Characters.NPCs.ExampleNPC;
 
 import java.util.Scanner;
 
 public class GameStartup {
 
     boolean skipIntro = true;
-    boolean skipRegister = false;
+    boolean skipRegister = true;
 
     Scanner input = new Scanner(System.in);
 
