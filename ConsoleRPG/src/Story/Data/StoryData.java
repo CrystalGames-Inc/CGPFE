@@ -13,6 +13,6 @@ public class StoryData {
     public Fantasty gameFantasty = Fantasty.HIGH;
 
     //I have decided not to include the dice pool into the game.
-
     public AbilityScoreType abilityScoreType = AbilityScoreType.STANDARD;
+
 }
