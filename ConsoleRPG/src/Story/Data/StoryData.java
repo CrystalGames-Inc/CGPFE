@@ -2,6 +2,7 @@ package Story.Data;
 
 import Story.Data.StoryModifiers.AbilityScoreType;
 import Story.Data.StoryModifiers.Fantasty;
+import Story.Data.StoryModifiers.GameSpeed;
 
 public class StoryData {
     /* Fantasty level point distribution
@@ -14,5 +15,8 @@ public class StoryData {
 
     //I have decided not to include the dice pool into the game.
     public AbilityScoreType abilityScoreType = AbilityScoreType.STANDARD;
+
+    //The gameSpeed variable determines the amount of experience points needed to level up
+    public GameSpeed gameSpeed = GameSpeed.MEDIUM;
 
 }

@@ -28,7 +28,7 @@ public class PlayerDataMgr {
     Scanner input = new Scanner(System.in);
 
     public Player player = new Player(
-            new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 0,0,0,0, new Skill[]{}),
+            new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 1,0,0,0, new Skill[]{}),
             new EntityAttributes(0,0,0,0,0,0,0),
             new EntityAttributeModifiers(0,0,0,0,0,0,0),
             new EntityWallet(0,0,0,0),
@@ -47,6 +47,8 @@ public class PlayerDataMgr {
     int[] abilityMods = {0, 0, 0, 0, 0, 0};
 
     int spendableAbilityPoints;
+    int xpForNextLvl;
+    int spendableFeatPoints = 1;
 
     private static PlayerDataMgr _instance = null;
 
@@ -329,7 +331,7 @@ public class PlayerDataMgr {
 
     //endregion
 
-    //region Stat Calculations
+    //region Data Calculations
 
     void calculatePlayerAge(){
         switch (player.info.race){
@@ -392,6 +394,80 @@ public class PlayerDataMgr {
             case FIGHTER, PALADIN, RANGER -> player.info.maxHealth = 1 + 10 + player.attributes.Constitution;
             case SORCERER, WIZARD ->player.info.maxHealth = 1 + 6 + player.attributes.Constitution;
 
+        }
+    }
+
+    void calculateXPForNextLvl(){
+        switch (storyData.gameSpeed){
+            case SLOW -> {
+                switch (player.info.level){
+                    case 1 -> xpForNextLvl = 3000;
+                    case 2 -> xpForNextLvl = 7500;
+                    case 3 -> xpForNextLvl = 14000;
+                    case 4 -> xpForNextLvl = 23000;
+                    case 5 -> xpForNextLvl = 35000;
+                    case 6 -> xpForNextLvl = 53000;
+                    case 7 -> xpForNextLvl = 77000;
+                    case 8 -> xpForNextLvl = 115000;
+                    case 9 -> xpForNextLvl = 160000;
+                    case 10 -> xpForNextLvl = 235000;
+                    case 11 -> xpForNextLvl = 330000;
+                    case 12 -> xpForNextLvl = 475000;
+                    case 13 -> xpForNextLvl = 665000;
+                    case 14 -> xpForNextLvl = 955000;
+                    case 15 -> xpForNextLvl = 1350000;
+                    case 16 -> xpForNextLvl = 1900000;
+                    case 17 -> xpForNextLvl = 2700000;
+                    case 18 -> xpForNextLvl = 3850000;
+                    case 19 -> xpForNextLvl = 5350000;
+                }
+            }
+            case MEDIUM -> {
+                switch (player.info.level){
+                    case 1 -> xpForNextLvl = 2000;
+                    case 2 -> xpForNextLvl = 5000;
+                    case 3 -> xpForNextLvl = 9000;
+                    case 4 -> xpForNextLvl = 15000;
+                    case 5 -> xpForNextLvl = 23000;
+                    case 6 -> xpForNextLvl = 35000;
+                    case 7 -> xpForNextLvl = 51000;
+                    case 8 -> xpForNextLvl = 755000;
+                    case 9 -> xpForNextLvl = 105000;
+                    case 10 -> xpForNextLvl = 155000;
+                    case 11 -> xpForNextLvl = 220000;
+                    case 12 -> xpForNextLvl = 315000;
+                    case 13 -> xpForNextLvl = 445000;
+                    case 14 -> xpForNextLvl = 635000;
+                    case 15 -> xpForNextLvl = 890000;
+                    case 16 -> xpForNextLvl = 1300000;
+                    case 17 -> xpForNextLvl = 1800000;
+                    case 18 -> xpForNextLvl = 2550000;
+                    case 19 -> xpForNextLvl = 3600000;
+                }
+            }
+            case FAST -> {
+                switch (player.info.level){
+                    case 1 -> xpForNextLvl = 1300;
+                    case 2 -> xpForNextLvl = 3300;
+                    case 3 -> xpForNextLvl = 6000;
+                    case 4 -> xpForNextLvl = 10000;
+                    case 5 -> xpForNextLvl = 15000;
+                    case 6 -> xpForNextLvl = 23000;
+                    case 7 -> xpForNextLvl = 34000;
+                    case 8 -> xpForNextLvl = 50000;
+                    case 9 -> xpForNextLvl = 71000;
+                    case 10 -> xpForNextLvl = 105000;
+                    case 11 -> xpForNextLvl = 145000;
+                    case 12 -> xpForNextLvl = 210000;
+                    case 13 -> xpForNextLvl = 295000;
+                    case 14 -> xpForNextLvl = 425000;
+                    case 15 -> xpForNextLvl = 600000;
+                    case 16 -> xpForNextLvl = 850000;
+                    case 17 -> xpForNextLvl = 1200000;
+                    case 18 -> xpForNextLvl = 1700000;
+                    case 19 -> xpForNextLvl = 2400000;
+                }
+            }
         }
     }
 
@@ -534,6 +610,13 @@ public class PlayerDataMgr {
 
     public void updatePlayerValues(Player player){
         this.player = player;
+    }
+
+    public void levelUp(){
+        player.info.level++;
+
+        if(player.info.level % 3 == 0)
+            spendableFeatPoints++;
     }
 
     //endregion

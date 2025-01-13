@@ -1,6 +1,7 @@
 package Engine.Management;
 
 public class GameDataMgr {
+
     private static GameDataMgr _instance;
 
     public GameDataMgr(){
