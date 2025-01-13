@@ -46,9 +46,11 @@ public class PlayerDataMgr {
 
     int[] abilityMods = {0, 0, 0, 0, 0, 0};
 
-    int spendableAbilityPoints;
     int xpForNextLvl;
-    int spendableFeatPoints = 1;
+    int spendableFeatPts;
+    int spendableAbilityPts;
+    int spendableAbilityScorePts;
+
 
     private static PlayerDataMgr _instance = null;
 
@@ -515,10 +517,10 @@ public class PlayerDataMgr {
             }
             case PURCHASE -> {
                 switch (storyData.gameFantasty) {
-                    case LOW -> spendableAbilityPoints = 10;
-                    case STANDARD -> spendableAbilityPoints = 15;
-                    case HIGH -> spendableAbilityPoints = 20;
-                    case EPIC -> spendableAbilityPoints = 25;
+                    case LOW -> spendableAbilityPts = 10;
+                    case STANDARD -> spendableAbilityPts = 15;
+                    case HIGH -> spendableAbilityPts = 20;
+                    case EPIC -> spendableAbilityPts = 25;
                 }
                 registerAbilityScorePoints();
             }
@@ -535,22 +537,33 @@ public class PlayerDataMgr {
         int amount;
 
         do{
-            System.out.println("Please enter the Strength attribute you'd like to have (7-18) (" + spendableAbilityPoints + " left):");
+            System.out.println("Please enter the Strength attribute you'd like to have (7-18) (" + spendableAbilityPts + " left):");
             amount = input.nextInt();
 
             switch (amount){
-                case 7  -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 4;  abilities[0] =  7; } }
-                case 8  -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 2;  abilities[0] =  8; } }
-                case 9  -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 1;  abilities[0] =  9; } }
+                case 7  -> { if (spendableAbilityPts - amount >= 0) {
+                    spendableAbilityPts += 4;  abilities[0] =  7; } }
+                case 8  -> { if (spendableAbilityPts - amount >= 0) {
+                    spendableAbilityPts += 2;  abilities[0] =  8; } }
+                case 9  -> { if (spendableAbilityPts - amount >= 0) {
+                    spendableAbilityPts += 1;  abilities[0] =  9; } }
                 case 10 ->   abilities[0] = 10;
-                case 11 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 1;  abilities[0] =  11;} }
-                case 12 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 2;  abilities[0] =  12;} }
-                case 13 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 3;  abilities[0] =  13;} }
-                case 14 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 5;  abilities[0] =  14;} }
-                case 15 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 7;  abilities[0] =  15;} }
-                case 16 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 10; abilities[0] = 16;} }
-                case 17 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 13; abilities[0] = 17;} }
-                case 18 -> { if (spendableAbilityPoints - amount >= 0) {spendableAbilityPoints += 17; abilities[0] = 18;} }
+                case 11 -> { if (spendableAbilityPts - amount >= 0) {
+                    spendableAbilityPts += 1;  abilities[0] =  11;} }
+                case 12 -> { if (spendableAbilityPts - amount >= 0) {
+                    spendableAbilityPts += 2;  abilities[0] =  12;} }
+                case 13 -> { if (spendableAbilityPts - amount >= 0) {
+                    spendableAbilityPts += 3;  abilities[0] =  13;} }
+                case 14 -> { if (spendableAbilityPts - amount >= 0) {
+                    spendableAbilityPts += 5;  abilities[0] =  14;} }
+                case 15 -> { if (spendableAbilityPts - amount >= 0) {
+                    spendableAbilityPts += 7;  abilities[0] =  15;} }
+                case 16 -> { if (spendableAbilityPts - amount >= 0) {
+                    spendableAbilityPts += 10; abilities[0] = 16;} }
+                case 17 -> { if (spendableAbilityPts - amount >= 0) {
+                    spendableAbilityPts += 13; abilities[0] = 17;} }
+                case 18 -> { if (spendableAbilityPts - amount >= 0) {
+                    spendableAbilityPts += 17; abilities[0] = 18;} }
                 default -> System.out.println("Insufficient points left");
             }
 
@@ -615,8 +628,10 @@ public class PlayerDataMgr {
     public void levelUp(){
         player.info.level++;
 
-        if(player.info.level % 3 == 0)
-            spendableFeatPoints++;
+        if(player.info.level % 2 == 1)
+            spendableFeatPts++;
+        if(player.info.level % 4 == 0)
+            spendableAbilityScorePts++;
     }
 
     //endregion
