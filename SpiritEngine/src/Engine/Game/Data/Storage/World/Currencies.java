@@ -1,6 +1,6 @@
 package Engine.Game.Data.Storage.World;
 
-import Engine.Game.World.Currency;
+import Engine.Game.Data.Models.Items.Currency;
 
 public class Currencies {
     public final Currency COPPER = new Currency("Copper", 1, 0.1, 0.01, 0.001);
