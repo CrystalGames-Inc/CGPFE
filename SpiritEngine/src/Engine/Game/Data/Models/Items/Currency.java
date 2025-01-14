@@ -1,4 +1,4 @@
-package Engine.Game.World;
+package Engine.Game.Data.Models.Items;
 
 public class Currency {
      public String Name;
