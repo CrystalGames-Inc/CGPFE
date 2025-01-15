@@ -1,6 +1,6 @@
 package Engine.God.Creation.Player;
 
-import Engine.Game.Data.Models.God.Creation.Skill.Skill;
+import Engine.Game.Data.Models.God.Creation.Skill.EntitySkill;
 import Engine.God.Creation.Importance.Constants.Class;
 import Engine.God.Creation.Importance.Constants.*;
 
@@ -15,9 +15,10 @@ public class PlayerInfo {
     public int xp;
     public int maxHealth;
     public int health;
-    public Skill[] skills;
+    public int armorClass;
+    public EntitySkill[] skills;
 
-    public PlayerInfo(String name, Gender gender, Alignment alignment, int age, Race race, Class pClass, int level, int xp, int maxHealth, int health, Skill[] skills){
+    public PlayerInfo(String name, Gender gender, Alignment alignment, int age, Race race, Class pClass, int level, int xp, int maxHealth, int health, int armorClass, EntitySkill[] skills){
         this.name = name;
         this.gender = gender;
         this.alignment = alignment;
@@ -28,6 +29,7 @@ public class PlayerInfo {
         this.xp = xp;
         this.maxHealth = maxHealth;
         this.health = health;
+        this.armorClass = armorClass;
         this.skills = skills;
     }
 }

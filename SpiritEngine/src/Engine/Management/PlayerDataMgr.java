@@ -1,6 +1,6 @@
 package Engine.Management;
 
-import Engine.Game.Data.Models.God.Creation.Skill.Skill;
+import Engine.Game.Data.Models.God.Creation.Skill.EntitySkill;
 import Engine.Game.Mechanics.Player.InventoryItem;
 import Engine.Game.Mechanics.Dice;
 import Engine.God.Creation.Entity.Additional.EntityWallet;
@@ -28,7 +28,7 @@ public class PlayerDataMgr {
     Scanner input = new Scanner(System.in);
 
     public Player player = new Player(
-            new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 1,0,0,0, new Skill[]{}),
+            new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Class.PLACEHOLDER, 1,0,0,0,0, new EntitySkill[]{}),
             new EntityAttributes(0,0,0,0,0,0,0),
             new EntityAttributeModifiers(0,0,0,0,0,0,0),
             new EntityWallet(0,0,0,0),
@@ -267,57 +267,57 @@ public class PlayerDataMgr {
         switch (pClass.toUpperCase()){
             case("BARBARIAN") -> {
                 player.info.pClass = Class.BARBARIAN;
-                player.info.skills = skills.barbarianSkills;
+                player.info.skills = (EntitySkill[]) skills.barbarianSkills;
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
             }
             case("BARD") -> {
                 player.info.pClass = Class.BARD;
-                player.info.skills = skills.bardSkills;
+                player.info.skills = (EntitySkill[]) skills.bardSkills;
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
             }
             case("CLERIC") -> {
                 player.info.pClass = Class.CLERIC;
-                player.info.skills = skills.clericSkills;
+                player.info.skills =  (EntitySkill[]) skills.clericSkills;
                 player.wallet.GoldPieces = dice.Roll(6,4) * 10;
             }
             case("DRUID") -> {
                 player.info.pClass = Class.DRUID;
-                player.info.skills = skills.druidSkills;
+                player.info.skills = (EntitySkill[]) skills.druidSkills;
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
             }
             case("FIGHTER") -> {
                 player.info.pClass = Class.FIGHTER;
-                player.info.skills = skills.fighterSkills;
+                player.info.skills = (EntitySkill[]) skills.fighterSkills;
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
             }
             case("MONK") -> {
                 player.info.pClass = Class.MONK;
-                player.info.skills = skills.monkSkills;
+                player.info.skills = (EntitySkill[]) skills.monkSkills;
                 player.wallet.GoldPieces = dice.Roll(6) * 10;
             }
             case("PALADIN") -> {
                 player.info.pClass = Class.PALADIN;
-                player.info.skills = skills.paladinSkills;
+                player.info.skills = (EntitySkill[]) skills.paladinSkills;
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
             }
             case("RANGER") -> {
                 player.info.pClass = Class.RANGER;
-                player.info.skills = skills.rangerSkills;
+                player.info.skills = (EntitySkill[]) skills.rangerSkills;
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
             }
             case("ROGUE") -> {
                 player.info.pClass = Class.ROGUE;
-                player.info.skills = skills.rogueSkills;
+                player.info.skills = (EntitySkill[]) skills.rogueSkills;
                 player.wallet.GoldPieces = dice.Roll(6,4) * 10;
             }
             case("SORCERER") -> {
                 player.info.pClass = Class.SORCERER;
-                player.info.skills = skills.sorcererSkills;
+                player.info.skills = (EntitySkill[]) skills.sorcererSkills;
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
             }
             case("WIZARD") -> {
                 player.info.pClass = Class.WIZARD;
-                player.info.skills = skills.wizardSkills;
+                player.info.skills = (EntitySkill[]) skills.wizardSkills;
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
             }
             default ->{
@@ -325,6 +325,8 @@ public class PlayerDataMgr {
                 registerPlayerClass();
             }
         }
+        player.info.skills = calculateSkillsBonuses();
+
         cmdMgr.cls();
 
         player.info.health = player.info.maxHealth;
@@ -471,6 +473,31 @@ public class PlayerDataMgr {
                 }
             }
         }
+    }
+
+    void calculateArmorClass(){
+        player.info.armorClass = 10 + player.attributeMods.Dexterity;
+    }
+
+    EntitySkill[] calculateSkillsBonuses(){
+
+        EntitySkill[] skills = new EntitySkill[player.info.skills.length];
+
+        for(int i = 0; i < player.info.skills.length; i++){
+            EntitySkill skill = new EntitySkill();
+            skill.setSkill(player.info.skills[i]);
+            switch (skill.getAbility()) {
+                case STRENGTH -> skill.setSize(player.attributeMods.Strength);
+                case DEXTERITY -> skill.setSize(player.attributeMods.Dexterity);
+                case CONSTITUTION -> skill.setSize(player.attributeMods.Constitution);
+                case INTELLIGENCE -> skill.setSize(player.attributeMods.Intelligence);
+                case WISDOM -> skill.setSize(player.attributeMods.Wisdom);
+                case CHARISMA -> skill.setSize(player.attributeMods.Charisma);
+            }
+            skills[i] = skill;
+        }
+
+        return skills;
     }
 
     //endregion

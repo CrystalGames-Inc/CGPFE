@@ -2,9 +2,9 @@ package Engine.Display;
 
 import Engine.Display.Windows.MainWindow;
 import Engine.Display.Windows.SkillWindow;
+import Engine.Game.Mechanics.Dice;
 import Engine.Management.CommandMgr;
 import Engine.Management.PlayerDataMgr;
-import Story.Data.Characters.NPCs.ExampleNPC;
 
 import java.util.Scanner;
 
@@ -12,20 +12,23 @@ public class GameStartup {
 
     boolean skipIntro = true;
     boolean skipRegister = true;
+    boolean displaySkillWindow = false;
 
     Scanner input = new Scanner(System.in);
 
     public void startGame(){
-        Game g = new Game();
         PlayerDataMgr pDataMgr = PlayerDataMgr.getInstance();
 
         new MainWindow();
 
         if(!skipIntro) startIntro();
 
-        if(!skipRegister){
-            pDataMgr.registerNewPlayer(g.player);
-            new SkillWindow().newWindow();
+        if(!skipRegister) pDataMgr.registerNewPlayer(pDataMgr.player);
+
+        if(displaySkillWindow) new SkillWindow().newWindow();
+
+        for (int i = 0; i < 6; i++) {
+            System.out.println(new Dice().Roll(6,3));
         }
     }
 
