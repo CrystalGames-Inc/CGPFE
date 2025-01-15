@@ -1,6 +1,7 @@
 package SpiritEngine.God.Creation.Player.ClassTables;
 
 public class ClassTable {
+    ClassTableRow level;
     ClassTableRow level1;
     ClassTableRow level2;
     ClassTableRow level3;
@@ -21,6 +22,10 @@ public class ClassTable {
     ClassTableRow level18;
     ClassTableRow level19;
     ClassTableRow level20;
+
+    public void setLevel(ClassTableRow level){
+        this.level = level;
+    }
 
     public void setLevel1(int BAB, int fortSave, int refSave, int willSave) {
         this.level1.BAB = BAB;
@@ -160,6 +165,72 @@ public class ClassTable {
         this.level20.fortSave = fortSave;
         this.level20.refSave = refSave;
         this.level20.willSave = willSave;
+    }
+
+    public ClassTableRow getLevel(int level){
+        switch (level){
+            case 1 -> {
+                return getLevel1();
+            }
+            case 2 -> {
+                return getLevel2();
+            }
+            case 3 -> {
+                return getLevel3();
+            }
+            case 4 -> {
+                return getLevel4();
+            }
+            case 5 -> {
+                return getLevel5();
+            }
+            case 6 -> {
+                return getLevel6();
+            }
+            case 7 -> {
+                return getLevel7();
+            }
+            case 8 -> {
+                return getLevel8();
+            }
+            case 9 -> {
+                return getLevel9();
+            }
+            case 10 -> {
+                return getLevel10();
+            }
+            case 11 -> {
+                return getLevel11();
+            }
+            case 12 -> {
+                return getLevel12();
+            }
+            case 13 -> {
+                return getLevel13();
+            }
+            case 14 -> {
+                return getLevel14();
+            }
+            case 15 -> {
+                return getLevel15();
+            }
+            case 16 -> {
+                return getLevel16();
+            }
+            case 17 -> {
+                return getLevel17();
+            }
+            case 18 -> {
+                return getLevel18();
+            }
+            case 19 -> {
+                return getLevel19();
+            }
+            case 20 -> {
+                return getLevel20();
+            }
+        }
+        return null;
     }
 
     public ClassTableRow getLevel1() {

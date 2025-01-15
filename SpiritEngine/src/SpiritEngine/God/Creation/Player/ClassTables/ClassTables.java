@@ -2,27 +2,27 @@ package SpiritEngine.God.Creation.Player.ClassTables;
 
 import SpiritEngine.God.Creation.Player.ClassTables.Classes.*;
 
-public class ClassTables {
+public final class ClassTables {
 
-    public ClassTable barbarianTable = new BarbarianTable();
+    public final ClassTable barbarianTable = new BarbarianTable();
 
-    public ClassTable bardTable = new BardTable();
+    public final ClassTable bardTable = new BardTable();
 
-    public ClassTable clericTable = new ClericTable();
+    public final ClassTable clericTable = new ClericTable();
 
-    public ClassTable druidTable = new DruidTable();
+    public final ClassTable druidTable = new DruidTable();
 
-    public ClassTable fighterTable = new FighterTable();
+    public final ClassTable fighterTable = new FighterTable();
 
-    public ClassTable monkTable = new MonkTable();
+    public final ClassTable monkTable = new MonkTable();
 
-    public ClassTable paladinTable = new PaladinTable();
+    public final ClassTable paladinTable = new PaladinTable();
 
-    public ClassTable rangerTable = new RangerTable();
+    public final ClassTable rangerTable = new RangerTable();
 
-    public ClassTable rogueTable = new RogueTable();
+    public final ClassTable rogueTable = new RogueTable();
 
-    public ClassTable sorcererTable = new SorcererTable();
+    public final ClassTable sorcererTable = new SorcererTable();
 
-    public ClassTable wizardTable = new WizardTable();
+    public final ClassTable wizardTable = new WizardTable();
 }

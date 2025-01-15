@@ -10,6 +10,8 @@ public class PlayerInfo {
     public Alignment alignment;
     public int age;
     public Race race;
+    public Size size;
+    public int sizeMod;
     public Class pClass;
     public int level;
     public int xp;
@@ -18,12 +20,13 @@ public class PlayerInfo {
     public int armorClass;
     public EntitySkill[] skills;
 
-    public PlayerInfo(String name, Gender gender, Alignment alignment, int age, Race race, Class pClass, int level, int xp, int maxHealth, int health, int armorClass, EntitySkill[] skills){
+    public PlayerInfo(String name, Gender gender, Alignment alignment, int age, Race race, Size size, Class pClass, int level, int xp, int maxHealth, int health, int armorClass, EntitySkill[] skills){
         this.name = name;
         this.gender = gender;
         this.alignment = alignment;
         this.age = age;
         this.race = race;
+        this.size = size;
         this.pClass = pClass;
         this.level = level;
         this.xp = xp;
