@@ -1,6 +1,6 @@
 package Story.Data.World.Locations;
 
-import Engine.Game.World.GameWorld.Location;
+import SpiritEngine.Game.World.GameWorld.Location;
 
 public class ExampleTemple extends Location {
     public ExampleTemple(){

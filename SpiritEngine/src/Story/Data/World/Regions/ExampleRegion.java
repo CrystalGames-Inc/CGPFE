@@ -1,7 +1,7 @@
 package Story.Data.World.Regions;
 
-import Engine.Game.World.GameWorld.Location;
-import Engine.Game.World.GameWorld.Region;
+import SpiritEngine.Game.World.GameWorld.Location;
+import SpiritEngine.Game.World.GameWorld.Region;
 import Story.Data.World.Locations.ExampleTemple;
 import Story.Data.World.Locations.ExampleVillage;
 

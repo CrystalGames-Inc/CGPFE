@@ -1,6 +1,6 @@
 package Story.Data;
 
-import Engine.Game.World.GameWorld.World;
+import SpiritEngine.Game.World.GameWorld.World;
 import Story.Data.StoryModifiers.AbilityScoreType;
 import Story.Data.StoryModifiers.Fantasty;
 import Story.Data.StoryModifiers.GameSpeed;

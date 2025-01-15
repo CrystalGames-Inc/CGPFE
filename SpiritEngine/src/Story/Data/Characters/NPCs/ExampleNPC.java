@@ -1,12 +1,12 @@
 package Story.Data.Characters.NPCs;
 
-import Engine.Game.Data.Storage.God.Creation.Skills;
-import Engine.God.Creation.Importance.Constants.Alignment;
-import Engine.God.Creation.Importance.Constants.NPCClass;
-import Engine.God.Creation.Importance.Constants.Race;
-import Engine.God.Creation.NPC.NPC;
-import Engine.God.Creation.NPC.NPCInfo;
-import Engine.Management.DialogueMgr;
+import SpiritEngine.Game.Data.Storage.God.Creation.Skills;
+import SpiritEngine.God.Creation.Importance.Constants.Alignment;
+import SpiritEngine.God.Creation.Importance.Constants.NPCClass;
+import SpiritEngine.God.Creation.Importance.Constants.Race;
+import SpiritEngine.God.Creation.NPC.NPC;
+import SpiritEngine.God.Creation.NPC.NPCInfo;
+import SpiritEngine.Management.DialogueMgr;
 
 public class ExampleNPC extends NPC {
     ///This here is the example of creating an NPC, and I'm going to guide you step-by-step on everything here.

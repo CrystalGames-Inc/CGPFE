@@ -1,7 +1,7 @@
 package Story.Data.World;
 
-import Engine.Game.World.GameWorld.Region;
-import Engine.Game.World.GameWorld.World;
+import SpiritEngine.Game.World.GameWorld.Region;
+import SpiritEngine.Game.World.GameWorld.World;
 import Story.Data.World.Regions.ExampleRegion;
 
 public class ExampleWorld extends World {
