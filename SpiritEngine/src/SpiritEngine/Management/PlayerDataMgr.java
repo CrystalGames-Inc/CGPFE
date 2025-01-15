@@ -23,6 +23,7 @@ public class PlayerDataMgr {
 
     StoryData storyData = new StoryData();
     CommandMgr cmdMgr = CommandMgr.getInstance();
+
     Dice dice = new Dice();
 
     Scanner input = new Scanner(System.in);
@@ -69,9 +70,8 @@ public class PlayerDataMgr {
 
     //region Player Registration
 
-    public void registerNewPlayer(Player player){
+    public void registerNewPlayer(){
         registerPlayerInfo();
-        player = this.player;
     }
 
     void registerPlayerInfo(){
@@ -659,6 +659,42 @@ public class PlayerDataMgr {
             spendableFeatPts++;
         if(player.info.level % 4 == 0)
             spendableAbilityScorePts++;
+    }
+
+    public void addInventoryItem(InventoryItem item){
+        for (int i = 0; i < player.inventory.length; i++) {
+            if(player.inventory[i] == null){
+                player.inventory[i] = item;
+                break;
+            }
+        }
+    }
+
+    public void removeInventoryItem(InventoryItem item){
+        for (int i = 0; i < player.inventory.length; i++) {
+            if(player.inventory[i] == item){
+                player.inventory[i] = null;
+                break;
+            }
+        }
+    }
+
+    public InventoryItem getFistItem(){
+        for (int i = 0; i < player.inventory.length; i++) {
+            if(player.inventory[i] != null){
+                return player.inventory[i];
+            }
+        }
+        return null;
+    }
+
+    public InventoryItem getFirstItem(InventoryItem item){
+        for (int i = 0; i < player.inventory.length; i++) {
+            if(player.inventory[i] == item){
+                return player.inventory[i];
+            }
+        }
+        return null;
     }
 
     //endregion
