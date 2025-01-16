@@ -2,8 +2,9 @@ package SpiritEngine.God.Creation.Player.ClassTables.Classes;
 
 import SpiritEngine.God.Creation.Player.ClassTables.ClassTable;
 
-public class BardTable extends ClassTable {
-    public BardTable(){
+public class Bard extends ClassTable {
+    public Bard(int level){
+        super(level);
         setLevel1(0, 0, 2, 2);
         setLevel2(1, 0, 3, 3);
         setLevel3(2, 1, 3, 3);

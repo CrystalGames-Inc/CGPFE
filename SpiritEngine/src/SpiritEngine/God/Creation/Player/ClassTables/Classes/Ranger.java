@@ -2,8 +2,9 @@ package SpiritEngine.God.Creation.Player.ClassTables.Classes;
 
 import SpiritEngine.God.Creation.Player.ClassTables.ClassTable;
 
-public class RangerTable extends ClassTable {
-    public RangerTable(){
+public class Ranger extends ClassTable {
+    public Ranger(int level){
+        super(level);
         setLevel1(1,2,2,0);
         setLevel2(2,3,3,0);
         setLevel3(3,3,3,1);

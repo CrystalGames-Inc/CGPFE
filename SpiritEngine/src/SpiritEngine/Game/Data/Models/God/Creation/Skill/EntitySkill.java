@@ -2,14 +2,14 @@ package SpiritEngine.Game.Data.Models.God.Creation.Skill;
 
 public class EntitySkill extends Skill{
     public Skill skill;
-    public int size;
+    public int skillBonus;
 
     public void setSkill(Skill skill) {
         this.skill = skill;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setSize(SkillBonus size) {
+        this.skillBonus = size.abilityMod + size.ranks + size.miscMod;
     }
 
     public Skill getSkill() {
@@ -17,6 +17,15 @@ public class EntitySkill extends Skill{
     }
 
     public int getSize() {
-        return size;
+        return skillBonus;
+    }
+
+    public EntitySkill(){
+
+    }
+
+    public EntitySkill(Skill skill, int skillBonus) {
+        this.skill = skill;
+        this.skillBonus = skillBonus;
     }
 }

@@ -2,8 +2,9 @@ package SpiritEngine.God.Creation.Player.ClassTables.Classes;
 
 import SpiritEngine.God.Creation.Player.ClassTables.ClassTable;
 
-public class RogueTable extends ClassTable {
-    public RogueTable(){
+public class Rogue extends ClassTable {
+    public Rogue(int level){
+        super(level);
         setLevel1(0,0,2,0);
         setLevel2(1,0,3,0);
         setLevel3(2,1,3,1);

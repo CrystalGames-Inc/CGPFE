@@ -23,148 +23,109 @@ public class ClassTable {
     ClassTableRow level19;
     ClassTableRow level20;
 
-    public void setLevel(ClassTableRow level){
-        this.level = level;
+    public ClassTable(int level){
+        switch (level){
+            case 1 -> this.level = getLevel1();
+            case 2 -> this.level = getLevel2();
+            case 3 -> this.level = getLevel3();
+            case 4 -> this.level = getLevel4();
+            case 5 -> this.level = getLevel5();
+            case 6 -> this.level = getLevel6();
+            case 7 -> this.level = getLevel7();
+            case 8 -> this.level = getLevel8();
+            case 9 -> this.level = getLevel9();
+            case 10 -> this.level = getLevel10();
+            case 11 -> this.level = getLevel11();
+            case 12 -> this.level = getLevel12();
+            case 13 -> this.level = getLevel13();
+            case 14 -> this.level = getLevel14();
+            case 15 -> this.level = getLevel15();
+            case 16 -> this.level = getLevel16();
+            case 17 -> this.level = getLevel17();
+            case 18 -> this.level = getLevel18();
+            case 19 -> this.level = getLevel19();
+            case 20 -> this.level = getLevel20();
+        }
     }
 
     public void setLevel1(int BAB, int fortSave, int refSave, int willSave) {
-        this.level1.BAB = BAB;
-        this.level1.fortSave = fortSave;
-        this.level1.refSave = refSave;
-        this.level1.willSave = willSave;
+        this.level1 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel2(int BAB, int fortSave, int refSave, int willSave) {
-        this.level2.BAB = BAB;
-        this.level2.fortSave = fortSave;
-        this.level2.refSave = refSave;
-        this.level2.willSave = willSave;
+        this.level2 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel3(int BAB, int fortSave, int refSave, int willSave) {
-        this.level3.BAB = BAB;
-        this.level3.fortSave = fortSave;
-        this.level3.refSave = refSave;
-        this.level3.willSave = willSave;
+        this.level3 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel4(int BAB, int fortSave, int refSave, int willSave) {
-        this.level4.BAB = BAB;
-        this.level4.fortSave = fortSave;
-        this.level4.refSave = refSave;
-        this.level4.willSave = willSave;
+        this.level4 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel5(int BAB, int fortSave, int refSave, int willSave) {
-        this.level5.BAB = BAB;
-        this.level5.fortSave = fortSave;
-        this.level5.refSave = refSave;
-        this.level5.willSave = willSave;
+        this.level5 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel6(int BAB, int fortSave, int refSave, int willSave) {
-        this.level6.BAB = BAB;
-        this.level6.fortSave = fortSave;
-        this.level6.refSave = refSave;
-        this.level6.willSave = willSave;
+        this.level6 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel7(int BAB, int fortSave, int refSave, int willSave) {
-        this.level7.BAB = BAB;
-        this.level7.fortSave = fortSave;
-        this.level7.refSave = refSave;
-        this.level7.willSave = willSave;
+        this.level7 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel8(int BAB, int fortSave, int refSave, int willSave) {
-        this.level8.BAB = BAB;
-        this.level8.fortSave = fortSave;
-        this.level8.refSave = refSave;
-        this.level8.willSave = willSave;
+        this.level8 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel9(int BAB, int fortSave, int refSave, int willSave) {
-        this.level9.BAB = BAB;
-        this.level9.fortSave = fortSave;
-        this.level9.refSave = refSave;
-        this.level9.willSave = willSave;
+        this.level9 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel10(int BAB, int fortSave, int refSave, int willSave) {
-        this.level10.BAB = BAB;
-        this.level10.fortSave = fortSave;
-        this.level10.refSave = refSave;
-        this.level10.willSave = willSave;
+        this.level10 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel11(int BAB, int fortSave, int refSave, int willSave) {
-        this.level11.BAB = BAB;
-        this.level11.fortSave = fortSave;
-        this.level11.refSave = refSave;
-        this.level11.willSave = willSave;
+        this.level11 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel12(int BAB, int fortSave, int refSave, int willSave) {
-        this.level12.BAB = BAB;
-        this.level12.fortSave = fortSave;
-        this.level12.refSave = refSave;
-        this.level12.willSave = willSave;
+        this.level12 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel13(int BAB, int fortSave, int refSave, int willSave) {
-        this.level13.BAB = BAB;
-        this.level13.fortSave = fortSave;
-        this.level13.refSave = refSave;
-        this.level13.willSave = willSave;
+        this.level13 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel14(int BAB, int fortSave, int refSave, int willSave) {
-        this.level14.BAB = BAB;
-        this.level14.fortSave = fortSave;
-        this.level14.refSave = refSave;
-        this.level14.willSave = willSave;
+        this.level14 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel15(int BAB, int fortSave, int refSave, int willSave) {
-        this.level15.BAB = BAB;
-        this.level15.fortSave = fortSave;
-        this.level15.refSave = refSave;
-        this.level15.willSave = willSave;
+        this.level15 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel16(int BAB, int fortSave, int refSave, int willSave) {
-        this.level16.BAB = BAB;
-        this.level16.fortSave = fortSave;
-        this.level16.refSave = refSave;
-        this.level16.willSave = willSave;
+        this.level16 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel17(int BAB, int fortSave, int refSave, int willSave) {
-        this.level17.BAB = BAB;
-        this.level17.fortSave = fortSave;
-        this.level17.refSave = refSave;
-        this.level17.willSave = willSave;
+        this.level17 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel18(int BAB, int fortSave, int refSave, int willSave) {
-        this.level18.BAB = BAB;
-        this.level18.fortSave = fortSave;
-        this.level18.refSave = refSave;
-        this.level18.willSave = willSave;
+        this.level18 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel19(int BAB, int fortSave, int refSave, int willSave) {
-        this.level19.BAB = BAB;
-        this.level19.fortSave = fortSave;
-        this.level19.refSave = refSave;
-        this.level19.willSave = willSave;
+        this.level19 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public void setLevel20(int BAB, int fortSave, int refSave, int willSave) {
-        this.level20.BAB = BAB;
-        this.level20.fortSave = fortSave;
-        this.level20.refSave = refSave;
-        this.level20.willSave = willSave;
+        this.level20 = new ClassTableRow(BAB, fortSave, refSave, willSave);
     }
 
     public ClassTableRow getLevel(int level){

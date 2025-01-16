@@ -3,6 +3,7 @@ package SpiritEngine.Management;
 import SpiritEngine.Game.Data.Models.God.Creation.Feat.Feat;
 import SpiritEngine.Game.Data.Models.God.Creation.Skill.EntitySkill;
 import SpiritEngine.Game.Data.Models.God.Creation.Skill.Skill;
+import SpiritEngine.Game.Data.Models.God.Creation.Skill.SkillBonus;
 import SpiritEngine.Game.Data.Models.Items.Equipment.Armor.Armor;
 import SpiritEngine.Game.Data.Models.Items.Equipment.Armor.Shield;
 import SpiritEngine.Game.Data.Models.Items.Equipment.Weapon.Base.Special;
@@ -19,7 +20,7 @@ import SpiritEngine.God.Creation.Player.Additions.PlayerCombatInfo;
 import SpiritEngine.God.Creation.Player.Additions.PlayerRangedWeapon;
 import SpiritEngine.God.Creation.Player.Additions.PlayerWeapon;
 import SpiritEngine.God.Creation.Player.ClassTables.ClassTable;
-import SpiritEngine.God.Creation.Player.ClassTables.ClassTables;
+import SpiritEngine.God.Creation.Player.ClassTables.Classes.*;
 import SpiritEngine.God.Creation.Player.Player;
 import SpiritEngine.God.Creation.Player.PlayerInfo;
 import Story.Data.*;
@@ -31,7 +32,6 @@ public class PlayerDataMgr {
 
     //region Variables
 
-    ClassTables classTables = new ClassTables();
     StoryData storyData = new StoryData();
     CommandMgr cmdMgr = CommandMgr.getInstance();
 
@@ -62,7 +62,6 @@ public class PlayerDataMgr {
     int xpForNextLvl;
     int spendableFeatPts;
     int spendableAbilityPts;
-    int spendableAbilityScorePts;
     int sizeBonus;
     ClassTable classTable;
 
@@ -287,67 +286,66 @@ public class PlayerDataMgr {
         switch (pClass.toUpperCase()){
             case("BARBARIAN") -> {
                 player.info.pClass = Class.BARBARIAN;
-                classTable = classTables.barbarianTable;
+                classTable = new Barbarian(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.barbarianSkills;
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
             }
             case("BARD") -> {
                 player.info.pClass = Class.BARD;
-                classTable = classTables.bardTable;
+                classTable = new Bard(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.bardSkills;
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
             }
             case("CLERIC") -> {
                 player.info.pClass = Class.CLERIC;
-                classTable= classTables.clericTable;
+                classTable= new Cleric(player.info.level);
                 player.info.skills =  (EntitySkill[]) skills.clericSkills;
                 player.wallet.GoldPieces = dice.Roll(6,4) * 10;
             }
             case("DRUID") -> {
                 player.info.pClass = Class.DRUID;
-                classTable = classTables.druidTable;
+                classTable = new Druid(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.druidSkills;
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
             }
             case("FIGHTER") -> {
                 player.info.pClass = Class.FIGHTER;
-                classTable = classTables.fighterTable;
+                classTable = new Fighter(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.fighterSkills;
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
             }
             case("MONK") -> {
                 player.info.pClass = Class.MONK;
-                classTable = classTables.monkTable;
+                classTable = new Monk(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.monkSkills;
                 player.wallet.GoldPieces = dice.Roll(6) * 10;
             }
             case("PALADIN") -> {
                 player.info.pClass = Class.PALADIN;
-                classTable = classTables.paladinTable;
-                player.info.skills = (EntitySkill[]) skills.paladinSkills;
+                classTable = new Paladin(player.info.level);
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
             }
             case("RANGER") -> {
                 player.info.pClass = Class.RANGER;
-                classTable = classTables.rangerTable;
+                classTable = new Ranger(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.rangerSkills;
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
             }
             case("ROGUE") -> {
                 player.info.pClass = Class.ROGUE;
-                classTable = classTables.rogueTable;
+                classTable = new Rogue(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.rogueSkills;
                 player.wallet.GoldPieces = dice.Roll(6,4) * 10;
             }
             case("SORCERER") -> {
                 player.info.pClass = Class.SORCERER;
-                classTable = classTables.sorcererTable;
+                classTable = new Sorcerer(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.sorcererSkills;
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
             }
             case("WIZARD") -> {
                 player.info.pClass = Class.WIZARD;
-                classTable = classTables.wizardTable;
+                classTable = new Wizard(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.wizardSkills;
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
             }
@@ -527,12 +525,12 @@ public class PlayerDataMgr {
             EntitySkill skill = new EntitySkill();
             skill.setSkill(player.info.skills[i]);
             switch (skill.getAbility()) {
-                case STRENGTH -> skill.setSize(player.attributeMods.Strength);
-                case DEXTERITY -> skill.setSize(player.attributeMods.Dexterity);
-                case CONSTITUTION -> skill.setSize(player.attributeMods.Constitution);
-                case INTELLIGENCE -> skill.setSize(player.attributeMods.Intelligence);
-                case WISDOM -> skill.setSize(player.attributeMods.Wisdom);
-                case CHARISMA -> skill.setSize(player.attributeMods.Charisma);
+                case STRENGTH -> skill.setSize(new SkillBonus(player.attributeMods.Strength, 0,0));
+                case DEXTERITY -> skill.setSize(new SkillBonus(player.attributeMods.Dexterity, 0,0));
+                case CONSTITUTION -> skill.setSize(new SkillBonus(player.attributeMods.Constitution, 0,0));
+                case INTELLIGENCE -> skill.setSize(new SkillBonus(player.attributeMods.Intelligence, 0,0));
+                case WISDOM -> skill.setSize(new SkillBonus(player.attributeMods.Wisdom, 0,0));
+                case CHARISMA -> skill.setSize(new SkillBonus(player.attributeMods.Charisma, 0,0));
             }
             skills[i] = skill;
         }
@@ -562,12 +560,15 @@ public class PlayerDataMgr {
     int calculateAC(){
         int armorBonus = 0, shieldBonus = 0;
         for (Armor armor: player.combatInfo.armors) {
-            armorBonus += armor.armorBonus;
+            if(armor != null)
+                armorBonus += armor.armorBonus;
         }
-        for(Shield shield: player.combatInfo.shields){
-            shieldBonus += shield.shieldBonus;
+        if(player.combatInfo.shields != null) {
+            for (Shield shield : player.combatInfo.shields) {
+                if(shield != null)
+                    shieldBonus += shield.shieldBonus;
+            }
         }
-
         return 10 + armorBonus + shieldBonus + player.attributeMods.Dexterity + sizeBonus;
     }
 
@@ -749,7 +750,7 @@ public class PlayerDataMgr {
         if(player.info.level % 2 == 1)
             spendableFeatPts++;
         if(player.info.level % 4 == 0)
-            spendableAbilityScorePts++;
+            player.abilityScorePoints++;
     }
 
     public void addInventoryItem(InventoryItem item){
@@ -770,7 +771,7 @@ public class PlayerDataMgr {
         }
     }
 
-    public InventoryItem getFistItem(){
+    public InventoryItem getFirstItem(){
         for (int i = 0; i < player.inventory.length; i++) {
             if(player.inventory[i] != null){
                 return player.inventory[i];
@@ -792,7 +793,21 @@ public class PlayerDataMgr {
 
     //region Data Displays
 
+    public void displayAll(){
+        displayPlayerInfo();
+        displayPlayerCombatInfo();
+        displayPlayerWeapons();
+        displayACItems();
+        displayPlayerAttributes();
+        displayAttributeMods();
+        displayPlayerSkills();
+        displayPlayerFeats();
+        displayPlayerWallet();
+        displayPlayerInventory();
+    }
+
     public void displayPlayerInfo(){
+        if(player.info != null){
         System.out.println("|Player Info:");
         System.out.println("| Name      : " + player.info.name);
         System.out.println("| Gender    : " + player.info.gender);
@@ -804,34 +819,40 @@ public class PlayerDataMgr {
         System.out.println("| XP        : " + player.info.xp);
         System.out.println("| Health    : " + player.info.health);
         System.out.println("| Max Health: " + player.info.maxHealth);
+        }
     }
 
     public void displayPlayerCombatInfo(){
-        System.out.println("|Combat Info: ");
-        System.out.println("| Armor Class: " + player.combatInfo.AC);
-        System.out.println("| Initial Modifier: " + player.combatInfo.initMod);
-        System.out.println("| Base Attack Bonus: " + player.combatInfo.BAB);
-        System.out.println("| Spell Resistance: " + player.combatInfo.sRes);
-        System.out.println("| Combat Maneuver Bonus: " + player.combatInfo.CMB);
-        System.out.println("| Combat Maneuver Defense: " + player.combatInfo.CMD);
-        System.out.println("| Fortitude Save: " + player.combatInfo.fort);
-        System.out.println("| Reflex Save: " + player.combatInfo.ref);
-        System.out.println("| Will Save: " + player.combatInfo.will);
+        if(player.combatInfo != null){
+            System.out.println("|Combat Info: ");
+            System.out.println("| Armor Class: " + player.combatInfo.AC);
+            System.out.println("| Initial Modifier: " + player.combatInfo.initMod);
+            System.out.println("| Base Attack Bonus: " + player.combatInfo.BAB);
+            System.out.println("| Spell Resistance: " + player.combatInfo.sRes);
+            System.out.println("| Combat Maneuver Bonus: " + player.combatInfo.CMB);
+            System.out.println("| Combat Maneuver Defense: " + player.combatInfo.CMD);
+            System.out.println("| Fortitude Save: " + player.combatInfo.fort);
+            System.out.println("| Reflex Save: " + player.combatInfo.ref);
+            System.out.println("| Will Save: " + player.combatInfo.will);
+        }
+
     }
 
     public void displayPlayerWeapons(){
         System.out.println("\n| Weapons: ");
-        for(PlayerWeapon weapon: player.combatInfo.weapons){
+        for (PlayerWeapon weapon : player.combatInfo.weapons) {
+            if(weapon != null){
             System.out.println("|  Name: " + weapon.weapon.name);
             System.out.println("|  Dmg (S): " + weapon.weapon.dmgS);
             System.out.println("|  Dmg (M): " + weapon.weapon.dmgM);
             System.out.println("|  Critical: " + weapon.weapon.critical);
             System.out.println("|  Range: " + weapon.weapon.range + "ft");
             System.out.println("|  Types: ");
-            for(Type type: weapon.weapon.type)
+            for (Type type : weapon.weapon.type)
                 System.out.println("|   " + type.name());
-            for(Special special: weapon.weapon.special)
+            for (Special special : weapon.weapon.special)
                 System.out.println("|   " + special.name());
+            }
         }
     }
 
@@ -839,76 +860,97 @@ public class PlayerDataMgr {
         System.out.println("|AC Items: ");
         System.out.println("| Armors: ");
         for(Armor armor: player.combatInfo.armors){
-            System.out.println("|  Name: " + armor.name);
-            System.out.println("|  Armor Bonus: " + armor.armorBonus);
-            System.out.println("|  Type: " + armor.type);
-            System.out.println("|  Check Penalty: " + armor.armorCheckPenalty);
-            System.out.println("|  Spell Fail Chance: " + armor.arcCheckFailChance + "%");
-            System.out.println("|  Weight: " + armor.weight);
+            if(armor != null){
+                System.out.println("|  Name: " + armor.name);
+                System.out.println("|  Armor Bonus: " + armor.armorBonus);
+                System.out.println("|  Type: " + armor.type);
+                System.out.println("|  Check Penalty: " + armor.armorCheckPenalty);
+                System.out.println("|  Spell Fail Chance: " + armor.arcCheckFailChance + "%");
+                System.out.println("|  Weight: " + armor.weight);
+            }
         }
         System.out.println("| Shields: ");
         for(Shield shield: player.combatInfo.shields){
-            System.out.println("|  Name: " + shield.name);
-            System.out.println("|  Shield Bonus: " + shield.shieldBonus);
-            if(shield.maxDexBonus != 0)
-                System.out.println("|  Max Dex Bonus: " + shield.maxDexBonus);
-            System.out.println("|  Armor Check Penalty: " + shield.armorCheckPenalty);
-            System.out.println("|  Spell Fail Chance: " + shield.spellFailChance);
-            System.out.println("|  Weight: " + shield.weight);
+            if(shield != null){
+                System.out.println("|  Name: " + shield.name);
+                System.out.println("|  Shield Bonus: " + shield.shieldBonus);
+                if(shield.maxDexBonus != 0)
+                    System.out.println("|  Max Dex Bonus: " + shield.maxDexBonus);
+                System.out.println("|  Armor Check Penalty: " + shield.armorCheckPenalty);
+                System.out.println("|  Spell Fail Chance: " + shield.spellFailChance);
+                System.out.println("|  Weight: " + shield.weight);
+            }
         }
+
     }
 
     public void displayPlayerAttributes(){
-        System.out.println("|Attributes:");
-        System.out.println("| Strength    : " + player.attributes.Strength);
-        System.out.println("| Dexterity   : " + player.attributes.Dexterity);
-        System.out.println("| Constitution: " + player.attributes.Constitution);
-        System.out.println("| Intelligence: " + player.attributes.Intelligence);
-        System.out.println("| Wisdom      : " + player.attributes.Wisdom);
-        System.out.println("| Charisma    : " + player.attributes.Charisma);
-        System.out.println("| Move Speed  : " + player.attributes.MoveSpeed);
+        if (player.attributes != null) {
+            System.out.println("|Attributes:");
+            System.out.println("| Strength    : " + player.attributes.Strength);
+            System.out.println("| Dexterity   : " + player.attributes.Dexterity);
+            System.out.println("| Constitution: " + player.attributes.Constitution);
+            System.out.println("| Intelligence: " + player.attributes.Intelligence);
+            System.out.println("| Wisdom      : " + player.attributes.Wisdom);
+            System.out.println("| Charisma    : " + player.attributes.Charisma);
+            System.out.println("| Move Speed  : " + player.attributes.MoveSpeed);
+        }
     }
 
-    public void displayAttributeMods(){
-        System.out.println("|Attribute Modifiers:");
-        System.out.println("| Strength    : " + player.attributeMods.Strength);
-        System.out.println("| Dexterity   : " + player.attributeMods.Dexterity);
-        System.out.println("| Constitution: " + player.attributeMods.Constitution);
-        System.out.println("| Intelligence: " + player.attributeMods.Intelligence);
-        System.out.println("| Wisdom      : " + player.attributeMods.Wisdom);
-        System.out.println("| Charisma    : " + player.attributeMods.Charisma);
-        System.out.println("| Move Speed  : " + player.attributeMods.MoveSpeed);
+    public void displayAttributeMods() {
+        if (player.attributeMods == null) {
+            System.out.println("|Attribute Modifiers:");
+            System.out.println("| Strength    : " + player.attributeMods.Strength);
+            System.out.println("| Dexterity   : " + player.attributeMods.Dexterity);
+            System.out.println("| Constitution: " + player.attributeMods.Constitution);
+            System.out.println("| Intelligence: " + player.attributeMods.Intelligence);
+            System.out.println("| Wisdom      : " + player.attributeMods.Wisdom);
+            System.out.println("| Charisma    : " + player.attributeMods.Charisma);
+            System.out.println("| Move Speed  : " + player.attributeMods.MoveSpeed);
+
+        }
     }
 
     public void displayPlayerSkills(){
-        System.out.println("|Skills: ");
-        for(Skill skill: player.info.skills)
-            System.out.println("| " + skill.getName());
+        if(player.info.skills != null){
+            System.out.println("|Skills: ");
+            for(Skill skill: player.info.skills)
+                System.out.println("| " + skill.getName());
+        }
     }
 
     public void displayPlayerFeats(){
-        System.out.println("\n| Feats");
-        for (Feat feat: player.info.feats)
-            System.out.println("|  " + feat.getName());
+        if(player.info.feats != null){
+            System.out.println("\n| Feats");
+            for (Feat feat: player.info.feats)
+                System.out.println("|  " + feat.getName());
+        }
     }
 
     public void displayPlayerWallet(){
-        System.out.println("|Wallet:");
-        System.out.println("| Copper Pieces  : " + player.wallet.CopperPieces);
-        System.out.println("| Silver Pieces  : " + player.wallet.SilverPieces);
-        System.out.println("| Gold Pieces    : " + player.wallet.GoldPieces);
-        System.out.println("| Platinum Pieces: " + player.wallet.PlatinumPieces);
+        if(player.wallet != null) {
+            System.out.println("|Wallet:");
+            System.out.println("| Copper Pieces  : " + player.wallet.CopperPieces);
+            System.out.println("| Silver Pieces  : " + player.wallet.SilverPieces);
+            System.out.println("| Gold Pieces    : " + player.wallet.GoldPieces);
+            System.out.println("| Platinum Pieces: " + player.wallet.PlatinumPieces);
+        }
     }
 
     public void displayPlayerInventory(){
-        System.out.println("|Player Inventory:");
-        for (InventoryItem item: player.inventory) {
-            System.out.println(" |" + item.name + ": ");
-            System.out.println("  |" + item.itemId);
-            System.out.println("  |" + item.inventoryId);
-            System.out.println("  |" + item.amount);
-            System.out.println("  |" + item.maxCapacity);
+        if(player.inventory != null){
+            System.out.println("|Player Inventory:");
+            for (InventoryItem item: player.inventory) {
+                if(item != null){
+                    System.out.println(" |" + item.name + ": ");
+                    System.out.println("  |" + item.itemId);
+                    System.out.println("  |" + item.inventoryId);
+                    System.out.println("  |" + item.amount);
+                    System.out.println("  |" + item.maxCapacity);
+                }
+            }
         }
+
     }
 
     //endregion

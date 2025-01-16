@@ -2,8 +2,9 @@ package SpiritEngine.God.Creation.Player.ClassTables.Classes;
 
 import SpiritEngine.God.Creation.Player.ClassTables.ClassTable;
 
-public class ClericTable extends ClassTable {
-    public ClericTable(){
+public class Druid extends ClassTable {
+    public Druid(int level){
+        super(level);
         setLevel1(0, 2, 0,2);
         setLevel2(1, 3, 0,3);
         setLevel3(2, 3, 1,3);
