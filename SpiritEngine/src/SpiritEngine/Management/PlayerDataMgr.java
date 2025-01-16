@@ -792,7 +792,7 @@ public class PlayerDataMgr {
 
     //region Data Displays
 
-    public void displayPlayerData(){
+    public void displayPlayerInfo(){
         System.out.println("|Player Info:");
         System.out.println("| Name      : " + player.info.name);
         System.out.println("| Gender    : " + player.info.gender);
@@ -804,52 +804,22 @@ public class PlayerDataMgr {
         System.out.println("| XP        : " + player.info.xp);
         System.out.println("| Health    : " + player.info.health);
         System.out.println("| Max Health: " + player.info.maxHealth);
+    }
 
-        System.out.println("\n| Skills: ");
-        for(Skill skill: player.info.skills)
-            System.out.println("|  " + skill.getName());
+    public void displayPlayerCombatInfo(){
+        System.out.println("|Combat Info: ");
+        System.out.println("| Armor Class: " + player.combatInfo.AC);
+        System.out.println("| Initial Modifier: " + player.combatInfo.initMod);
+        System.out.println("| Base Attack Bonus: " + player.combatInfo.BAB);
+        System.out.println("| Spell Resistance: " + player.combatInfo.sRes);
+        System.out.println("| Combat Maneuver Bonus: " + player.combatInfo.CMB);
+        System.out.println("| Combat Maneuver Defense: " + player.combatInfo.CMD);
+        System.out.println("| Fortitude Save: " + player.combatInfo.fort);
+        System.out.println("| Reflex Save: " + player.combatInfo.ref);
+        System.out.println("| Will Save: " + player.combatInfo.will);
+    }
 
-
-        System.out.println("\n| Feats");
-        for (Feat feat: player.info.feats)
-            System.out.println("|  " + feat.getName());
-
-
-        System.out.println("\n|Attributes:");
-        System.out.println("|  Strength    : " + player.attributes.Strength);
-        System.out.println("|  Dexterity   : " + player.attributes.Dexterity);
-        System.out.println("|  Constitution: " + player.attributes.Constitution);
-        System.out.println("|  Intelligence: " + player.attributes.Intelligence);
-        System.out.println("|  Wisdom      : " + player.attributes.Wisdom);
-        System.out.println("|  Charisma    : " + player.attributes.Charisma);
-        System.out.println("|  Move Speed  : " + player.attributes.MoveSpeed);
-
-        System.out.println("\n| Attribute Modifiers:");
-        System.out.println("|  Strength    : " + player.attributeMods.Strength);
-        System.out.println("|  Dexterity   : " + player.attributeMods.Dexterity);
-        System.out.println("|  Constitution: " + player.attributeMods.Constitution);
-        System.out.println("|  Intelligence: " + player.attributeMods.Intelligence);
-        System.out.println("|  Wisdom      : " + player.attributeMods.Wisdom);
-        System.out.println("|  Charisma    : " + player.attributeMods.Charisma);
-        System.out.println("|  Move Speed  : " + player.attributeMods.MoveSpeed);
-
-        System.out.println("\n|Combat Info: ");
-        System.out.println("|  Armor Class: " + player.combatInfo.AC);
-        System.out.println("|  Initial Modifier: " + player.combatInfo.initMod);
-        System.out.println("|  Base Attack Bonus: " + player.combatInfo.BAB);
-        System.out.println("|  Spell Resistance: " + player.combatInfo.sRes);
-        System.out.println("|  Combat Maneuver Bonus: " + player.combatInfo.CMB);
-        System.out.println("|  Combat Maneuver Defense: " + player.combatInfo.CMD);
-        System.out.println("|  Fortitude Save: " + player.combatInfo.fort);
-        System.out.println("|  Reflex Save: " + player.combatInfo.ref);
-        System.out.println("|  Will Save: " + player.combatInfo.will);
-
-        System.out.println("\n|Wallet:");
-        System.out.println("|  Copper Pieces  : " + player.wallet.CopperPieces);
-        System.out.println("|  Silver Pieces  : " + player.wallet.SilverPieces);
-        System.out.println("|  Gold Pieces    : " + player.wallet.GoldPieces);
-        System.out.println("|  Platinum Pieces: " + player.wallet.PlatinumPieces);
-
+    public void displayPlayerWeapons(){
         System.out.println("\n| Weapons: ");
         for(PlayerWeapon weapon: player.combatInfo.weapons){
             System.out.println("|  Name: " + weapon.weapon.name);
@@ -863,37 +833,81 @@ public class PlayerDataMgr {
             for(Special special: weapon.weapon.special)
                 System.out.println("|   " + special.name());
         }
+    }
 
-        System.out.println("\n| AC Items: ");
-        System.out.println("|  Armors: ");
+    public void displayACItems(){
+        System.out.println("|AC Items: ");
+        System.out.println("| Armors: ");
         for(Armor armor: player.combatInfo.armors){
-            System.out.println("|   Name: " + armor.name);
-            System.out.println("|   Armor Bonus: " + armor.armorBonus);
-            System.out.println("|   Type: " + armor.type);
-            System.out.println("|   Check Penalty: " + armor.armorCheckPenalty);
-            System.out.println("|   Spell Fail Chance: " + armor.arcCheckFailChance + "%");
-            System.out.println("|   Weight: " + armor.weight);
+            System.out.println("|  Name: " + armor.name);
+            System.out.println("|  Armor Bonus: " + armor.armorBonus);
+            System.out.println("|  Type: " + armor.type);
+            System.out.println("|  Check Penalty: " + armor.armorCheckPenalty);
+            System.out.println("|  Spell Fail Chance: " + armor.arcCheckFailChance + "%");
+            System.out.println("|  Weight: " + armor.weight);
         }
-        System.out.println("  Shields: ");
+        System.out.println("| Shields: ");
         for(Shield shield: player.combatInfo.shields){
-            System.out.println("|   Name: " + shield.name);
-            System.out.println("|   Shield Bonus: " + shield.shieldBonus);
+            System.out.println("|  Name: " + shield.name);
+            System.out.println("|  Shield Bonus: " + shield.shieldBonus);
             if(shield.maxDexBonus != 0)
-                System.out.println("|   Max Dex Bonus: " + shield.maxDexBonus);
-            System.out.println("|   Armor Check Penalty: " + shield.armorCheckPenalty);
-            System.out.println("|   Spell Fail Chance: " + shield.spellFailChance);
-            System.out.println("|   Weight: " + shield.weight);
+                System.out.println("|  Max Dex Bonus: " + shield.maxDexBonus);
+            System.out.println("|  Armor Check Penalty: " + shield.armorCheckPenalty);
+            System.out.println("|  Spell Fail Chance: " + shield.spellFailChance);
+            System.out.println("|  Weight: " + shield.weight);
         }
+    }
+
+    public void displayPlayerAttributes(){
+        System.out.println("|Attributes:");
+        System.out.println("| Strength    : " + player.attributes.Strength);
+        System.out.println("| Dexterity   : " + player.attributes.Dexterity);
+        System.out.println("| Constitution: " + player.attributes.Constitution);
+        System.out.println("| Intelligence: " + player.attributes.Intelligence);
+        System.out.println("| Wisdom      : " + player.attributes.Wisdom);
+        System.out.println("| Charisma    : " + player.attributes.Charisma);
+        System.out.println("| Move Speed  : " + player.attributes.MoveSpeed);
+    }
+
+    public void displayAttributeMods(){
+        System.out.println("|Attribute Modifiers:");
+        System.out.println("| Strength    : " + player.attributeMods.Strength);
+        System.out.println("| Dexterity   : " + player.attributeMods.Dexterity);
+        System.out.println("| Constitution: " + player.attributeMods.Constitution);
+        System.out.println("| Intelligence: " + player.attributeMods.Intelligence);
+        System.out.println("| Wisdom      : " + player.attributeMods.Wisdom);
+        System.out.println("| Charisma    : " + player.attributeMods.Charisma);
+        System.out.println("| Move Speed  : " + player.attributeMods.MoveSpeed);
+    }
+
+    public void displayPlayerSkills(){
+        System.out.println("|Skills: ");
+        for(Skill skill: player.info.skills)
+            System.out.println("| " + skill.getName());
+    }
+
+    public void displayPlayerFeats(){
+        System.out.println("\n| Feats");
+        for (Feat feat: player.info.feats)
+            System.out.println("|  " + feat.getName());
+    }
+
+    public void displayPlayerWallet(){
+        System.out.println("|Wallet:");
+        System.out.println("| Copper Pieces  : " + player.wallet.CopperPieces);
+        System.out.println("| Silver Pieces  : " + player.wallet.SilverPieces);
+        System.out.println("| Gold Pieces    : " + player.wallet.GoldPieces);
+        System.out.println("| Platinum Pieces: " + player.wallet.PlatinumPieces);
     }
 
     public void displayPlayerInventory(){
         System.out.println("|Player Inventory:");
         for (InventoryItem item: player.inventory) {
-            System.out.println("  |" + item.name + ": ");
-            System.out.println("    |" + item.itemId);
-            System.out.println("    |" + item.inventoryId);
-            System.out.println("    |" + item.amount);
-            System.out.println("    |" + item.maxCapacity);
+            System.out.println(" |" + item.name + ": ");
+            System.out.println("  |" + item.itemId);
+            System.out.println("  |" + item.inventoryId);
+            System.out.println("  |" + item.amount);
+            System.out.println("  |" + item.maxCapacity);
         }
     }
 
