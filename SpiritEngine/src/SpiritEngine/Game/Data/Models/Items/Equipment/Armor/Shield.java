@@ -1,21 +1,21 @@
 package SpiritEngine.Game.Data.Models.Items.Equipment.Armor;
 
 public class Shield {
-    public String Name;
-    public int Cost;
-    public int ShieldBonus;
-    public int MaxDexBonus;
-    public int ArmorCheckPenalty;
-    public int ArcSpellFailChance;
-    public int Weight;
+    public String name;
+    public int cost;
+    public int shieldBonus;
+    public int maxDexBonus;
+    public int armorCheckPenalty;
+    public int spellFailChance;
+    public int weight;
 
-    public Shield(String name, int cost, int shieldBonus, int maxDexBonus, int armorCheckPenalty, int arcSpellFailChance, int weight){
-        Name = name;
-        Cost = cost;
-        ShieldBonus = shieldBonus;
-        MaxDexBonus = maxDexBonus;
-        ArmorCheckPenalty = armorCheckPenalty;
-        ArcSpellFailChance = arcSpellFailChance;
-        Weight = weight;
+    public Shield(String name, int cost, int shieldBonus, int maxDexBonus, int armorCheckPenalty, int spellFailChance, int weight){
+        this.name = name;
+        this.cost = cost;
+        this.shieldBonus = shieldBonus;
+        this.maxDexBonus = maxDexBonus;
+        this.armorCheckPenalty = armorCheckPenalty;
+        this.spellFailChance = spellFailChance;
+        this.weight = weight;
     }
 }

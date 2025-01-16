@@ -1,8 +1,12 @@
 package SpiritEngine.Management;
 
+import SpiritEngine.Game.Data.Models.God.Creation.Feat.Feat;
 import SpiritEngine.Game.Data.Models.God.Creation.Skill.EntitySkill;
+import SpiritEngine.Game.Data.Models.God.Creation.Skill.Skill;
 import SpiritEngine.Game.Data.Models.Items.Equipment.Armor.Armor;
 import SpiritEngine.Game.Data.Models.Items.Equipment.Armor.Shield;
+import SpiritEngine.Game.Data.Models.Items.Equipment.Weapon.Base.Special;
+import SpiritEngine.Game.Data.Models.Items.Equipment.Weapon.Base.Type;
 import SpiritEngine.Game.Mechanics.Player.InventoryItem;
 import SpiritEngine.Game.Mechanics.Dice;
 import SpiritEngine.God.Creation.Entity.Additional.EntityWallet;
@@ -20,6 +24,7 @@ import SpiritEngine.God.Creation.Player.Player;
 import SpiritEngine.God.Creation.Player.PlayerInfo;
 import Story.Data.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PlayerDataMgr {
@@ -35,7 +40,7 @@ public class PlayerDataMgr {
     Scanner input = new Scanner(System.in);
 
     public Player player = new Player(
-            new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Size.MEDIUM, Class.PLACEHOLDER, 1,0,0,0,0, new EntitySkill[]{}),
+            new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Size.MEDIUM, Class.PLACEHOLDER, 1,0,0,0,0, new EntitySkill[]{}, new ArrayList<>()),
             new PlayerCombatInfo(0,0,0,0,0,0,0,0,0, new PlayerWeapon[5], new PlayerRangedWeapon[5], new Armor[5], new Shield[5]),
             new EntityAttributes(0,0,0,0,0,0,0),
             new EntityAttributeModifiers(0,0,0,0,0,0,0),
@@ -104,6 +109,8 @@ public class PlayerDataMgr {
         calculateHealth();
 
         calculatePlayerAge();
+
+        registerCombatInfo();
     }
 
     void registerPlayerName(){
@@ -356,6 +363,15 @@ public class PlayerDataMgr {
         player.info.health = player.info.maxHealth;
     }
 
+    void registerCombatInfo(){
+        player.combatInfo.BAB = calculateBAB();
+        player.combatInfo.AC = calculateAC();
+        player.combatInfo.CMB = calculateCMB();
+        player.combatInfo.CMD = calculateCMD();
+        player.combatInfo.fort = calculateFort();
+        player.combatInfo.ref = calculateRef();
+        player.combatInfo.will = calculateWill();
+    }
 
     //endregion
 
@@ -546,10 +562,10 @@ public class PlayerDataMgr {
     int calculateAC(){
         int armorBonus = 0, shieldBonus = 0;
         for (Armor armor: player.combatInfo.armors) {
-            armorBonus += armor.ArmorBonus;
+            armorBonus += armor.armorBonus;
         }
         for(Shield shield: player.combatInfo.shields){
-            shieldBonus += shield.ShieldBonus;
+            shieldBonus += shield.shieldBonus;
         }
 
         return 10 + armorBonus + shieldBonus + player.attributeMods.Dexterity + sizeBonus;
@@ -788,9 +804,17 @@ public class PlayerDataMgr {
         System.out.println("| XP        : " + player.info.xp);
         System.out.println("| Health    : " + player.info.health);
         System.out.println("| Max Health: " + player.info.maxHealth);
+
         System.out.println("\n| Skills: ");
-        for(int i = 0; i < player.info.skills.length; i++)
-            System.out.println("|  " + player.info.skills[i].getName());
+        for(Skill skill: player.info.skills)
+            System.out.println("|  " + skill.getName());
+
+
+        System.out.println("\n| Feats");
+        for (Feat feat: player.info.feats)
+            System.out.println("|  " + feat.getName());
+
+
         System.out.println("\n|Attributes:");
         System.out.println("|  Strength    : " + player.attributes.Strength);
         System.out.println("|  Dexterity   : " + player.attributes.Dexterity);
@@ -809,11 +833,57 @@ public class PlayerDataMgr {
         System.out.println("|  Charisma    : " + player.attributeMods.Charisma);
         System.out.println("|  Move Speed  : " + player.attributeMods.MoveSpeed);
 
-        System.out.println("\n| Wallet:");
+        System.out.println("\n|Combat Info: ");
+        System.out.println("|  Armor Class: " + player.combatInfo.AC);
+        System.out.println("|  Initial Modifier: " + player.combatInfo.initMod);
+        System.out.println("|  Base Attack Bonus: " + player.combatInfo.BAB);
+        System.out.println("|  Spell Resistance: " + player.combatInfo.sRes);
+        System.out.println("|  Combat Maneuver Bonus: " + player.combatInfo.CMB);
+        System.out.println("|  Combat Maneuver Defense: " + player.combatInfo.CMD);
+        System.out.println("|  Fortitude Save: " + player.combatInfo.fort);
+        System.out.println("|  Reflex Save: " + player.combatInfo.ref);
+        System.out.println("|  Will Save: " + player.combatInfo.will);
+
+        System.out.println("\n|Wallet:");
         System.out.println("|  Copper Pieces  : " + player.wallet.CopperPieces);
         System.out.println("|  Silver Pieces  : " + player.wallet.SilverPieces);
         System.out.println("|  Gold Pieces    : " + player.wallet.GoldPieces);
         System.out.println("|  Platinum Pieces: " + player.wallet.PlatinumPieces);
+
+        System.out.println("\n| Weapons: ");
+        for(PlayerWeapon weapon: player.combatInfo.weapons){
+            System.out.println("|  Name: " + weapon.weapon.name);
+            System.out.println("|  Dmg (S): " + weapon.weapon.dmgS);
+            System.out.println("|  Dmg (M): " + weapon.weapon.dmgM);
+            System.out.println("|  Critical: " + weapon.weapon.critical);
+            System.out.println("|  Range: " + weapon.weapon.range + "ft");
+            System.out.println("|  Types: ");
+            for(Type type: weapon.weapon.type)
+                System.out.println("|   " + type.name());
+            for(Special special: weapon.weapon.special)
+                System.out.println("|   " + special.name());
+        }
+
+        System.out.println("\n| AC Items: ");
+        System.out.println("|  Armors: ");
+        for(Armor armor: player.combatInfo.armors){
+            System.out.println("|   Name: " + armor.name);
+            System.out.println("|   Armor Bonus: " + armor.armorBonus);
+            System.out.println("|   Type: " + armor.type);
+            System.out.println("|   Check Penalty: " + armor.armorCheckPenalty);
+            System.out.println("|   Spell Fail Chance: " + armor.arcCheckFailChance + "%");
+            System.out.println("|   Weight: " + armor.weight);
+        }
+        System.out.println("  Shields: ");
+        for(Shield shield: player.combatInfo.shields){
+            System.out.println("|   Name: " + shield.name);
+            System.out.println("|   Shield Bonus: " + shield.shieldBonus);
+            if(shield.maxDexBonus != 0)
+                System.out.println("|   Max Dex Bonus: " + shield.maxDexBonus);
+            System.out.println("|   Armor Check Penalty: " + shield.armorCheckPenalty);
+            System.out.println("|   Spell Fail Chance: " + shield.spellFailChance);
+            System.out.println("|   Weight: " + shield.weight);
+        }
     }
 
     public void displayPlayerInventory(){

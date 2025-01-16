@@ -1,8 +1,11 @@
 package SpiritEngine.God.Creation.Player;
 
+import SpiritEngine.Game.Data.Models.God.Creation.Feat.Feat;
 import SpiritEngine.Game.Data.Models.God.Creation.Skill.EntitySkill;
 import SpiritEngine.God.Creation.Importance.Constants.Class;
 import SpiritEngine.God.Creation.Importance.Constants.*;
+
+import java.util.List;
 
 public class PlayerInfo {
     public String name;
@@ -19,8 +22,9 @@ public class PlayerInfo {
     public int health;
     public int armorClass;
     public EntitySkill[] skills;
+    public List<Feat> feats;
 
-    public PlayerInfo(String name, Gender gender, Alignment alignment, int age, Race race, Size size, Class pClass, int level, int xp, int maxHealth, int health, int armorClass, EntitySkill[] skills){
+    public PlayerInfo(String name, Gender gender, Alignment alignment, int age, Race race, Size size, Class pClass, int level, int xp, int maxHealth, int health, int armorClass, EntitySkill[] skills, List<Feat> feats){
         this.name = name;
         this.gender = gender;
         this.alignment = alignment;
@@ -34,5 +38,6 @@ public class PlayerInfo {
         this.health = health;
         this.armorClass = armorClass;
         this.skills = skills;
+        this.feats = feats;
     }
 }
