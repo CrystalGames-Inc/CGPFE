@@ -1,6 +1,6 @@
-package SpiritEngine.God.Creation.Player.ClassTables.Classes;
+package SpiritEngine.God.Creation.Player.Classes;
 
-import SpiritEngine.God.Creation.Player.ClassTables.ClassTable;
+import SpiritEngine.God.Creation.Entity.Additional.ClassTable.ClassTable;
 
 public class Fighter extends ClassTable {
     public Fighter(int level){

@@ -1,9 +1,9 @@
-package SpiritEngine.God.Creation.Player.ClassTables.Classes;
+package SpiritEngine.God.Creation.NPC.Classes;
 
-import SpiritEngine.God.Creation.Player.ClassTables.ClassTable;
+import SpiritEngine.God.Creation.Entity.Additional.ClassTable.ClassTable;
 
-public class Sorcerer extends ClassTable {
-    public Sorcerer(int level){
+public class Adept extends ClassTable {
+    public Adept(int level) {
         super(level);
         setLevel1(0,0,0,2);
         setLevel2(1,0,0,3);
@@ -19,7 +19,7 @@ public class Sorcerer extends ClassTable {
         setLevel12(6,4,4,8);
         setLevel13(6,4,4,8);
         setLevel14(7,4,4,9);
-        setLevel15(7,5,5,9);
+        setLevel15(7,5,4,9);
         setLevel16(8,5,5,10);
         setLevel17(8,5,5,10);
         setLevel18(9,6,6,11);

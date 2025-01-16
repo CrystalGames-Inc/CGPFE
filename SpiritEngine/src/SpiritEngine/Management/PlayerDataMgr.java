@@ -19,8 +19,8 @@ import SpiritEngine.God.Creation.Importance.Constants.Class;
 import SpiritEngine.God.Creation.Player.Additions.PlayerCombatInfo;
 import SpiritEngine.God.Creation.Player.Additions.PlayerRangedWeapon;
 import SpiritEngine.God.Creation.Player.Additions.PlayerWeapon;
-import SpiritEngine.God.Creation.Player.ClassTables.ClassTable;
-import SpiritEngine.God.Creation.Player.ClassTables.Classes.*;
+import SpiritEngine.God.Creation.Entity.Additional.ClassTable.ClassTable;
+import SpiritEngine.God.Creation.Player.Classes.*;
 import SpiritEngine.God.Creation.Player.Player;
 import SpiritEngine.God.Creation.Player.PlayerInfo;
 import Story.Data.*;
@@ -110,6 +110,8 @@ public class PlayerDataMgr {
         calculatePlayerAge();
 
         registerCombatInfo();
+
+        calculateArmorClass();
     }
 
     void registerPlayerName(){

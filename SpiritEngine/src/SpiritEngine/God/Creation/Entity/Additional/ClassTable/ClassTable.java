@@ -1,4 +1,4 @@
-package SpiritEngine.God.Creation.Player.ClassTables;
+package SpiritEngine.God.Creation.Entity.Additional.ClassTable;
 
 public class ClassTable {
     ClassTableRow level;

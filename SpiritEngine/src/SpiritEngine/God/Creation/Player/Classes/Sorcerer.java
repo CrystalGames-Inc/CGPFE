@@ -1,9 +1,9 @@
-package SpiritEngine.God.Creation.Player.ClassTables.Classes;
+package SpiritEngine.God.Creation.Player.Classes;
 
-import SpiritEngine.God.Creation.Player.ClassTables.ClassTable;
+import SpiritEngine.God.Creation.Entity.Additional.ClassTable.ClassTable;
 
-public class Wizard extends ClassTable {
-    public Wizard(int level){
+public class Sorcerer extends ClassTable {
+    public Sorcerer(int level){
         super(level);
         setLevel1(0,0,0,2);
         setLevel2(1,0,0,3);
