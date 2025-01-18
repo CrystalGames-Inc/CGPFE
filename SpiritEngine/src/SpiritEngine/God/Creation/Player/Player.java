@@ -1,23 +1,23 @@
 package SpiritEngine.God.Creation.Player;
 
-import SpiritEngine.Game.Mechanics.Player.InventoryItem;
-import SpiritEngine.God.Creation.Entity.Additional.EntityWallet;
-import SpiritEngine.God.Creation.Entity.Mandatory.EntityAttributeModifiers;
-import SpiritEngine.God.Creation.Entity.Mandatory.EntityAttributes;
-import SpiritEngine.God.Creation.Player.Additions.PlayerCombatInfo;
+import SpiritEngine.Mechanics.Player.InventoryItem;
+import SpiritEngine.God.Creation.Entity.Wallet;
+import SpiritEngine.God.Creation.Entity.AttributeModifiers;
+import SpiritEngine.God.Creation.Entity.Attributes;
+import SpiritEngine.God.Creation.Entity.CombatInfo;
 
 public class Player {
 
-    public PlayerInfo info;
-    public PlayerCombatInfo combatInfo;
-    public EntityAttributes attributes;
-    public EntityAttributeModifiers attributeMods;
-    public EntityWallet wallet;
+    public Info info;
+    public CombatInfo combatInfo;
+    public Attributes attributes;
+    public AttributeModifiers attributeMods;
+    public Wallet wallet;
     public InventoryItem[] inventory;
 
     public int abilityScorePoints;
 
-    public Player(PlayerInfo info, PlayerCombatInfo combatInfo, EntityAttributes attributes, EntityAttributeModifiers attributeMods, EntityWallet wallet, InventoryItem[] inventory){
+    public Player(Info info, CombatInfo combatInfo, Attributes attributes, AttributeModifiers attributeMods, Wallet wallet, InventoryItem[] inventory){
         this.info = info;
         this.combatInfo = combatInfo;
         this.attributes = attributes;

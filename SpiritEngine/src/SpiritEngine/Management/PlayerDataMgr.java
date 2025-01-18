@@ -1,28 +1,28 @@
 package SpiritEngine.Management;
 
-import SpiritEngine.Game.Data.Models.God.Creation.Feat.Feat;
-import SpiritEngine.Game.Data.Models.God.Creation.Skill.EntitySkill;
-import SpiritEngine.Game.Data.Models.God.Creation.Skill.Skill;
-import SpiritEngine.Game.Data.Models.God.Creation.Skill.SkillBonus;
-import SpiritEngine.Game.Data.Models.Items.Equipment.Armor.Armor;
-import SpiritEngine.Game.Data.Models.Items.Equipment.Armor.Shield;
-import SpiritEngine.Game.Data.Models.Items.Equipment.Weapon.Base.Special;
-import SpiritEngine.Game.Data.Models.Items.Equipment.Weapon.Base.Type;
-import SpiritEngine.Game.Mechanics.Player.InventoryItem;
-import SpiritEngine.Game.Mechanics.Dice;
-import SpiritEngine.God.Creation.Entity.Additional.EntityWallet;
-import SpiritEngine.God.Creation.Entity.Mandatory.EntityAttributeModifiers;
-import SpiritEngine.God.Creation.Entity.Mandatory.EntityAttributes;
+import SpiritEngine.God.Creation.Importance.Feat.Feat;
+import SpiritEngine.God.Creation.Importance.Skill.EntitySkill;
+import SpiritEngine.God.Creation.Importance.Skill.Skill;
+import SpiritEngine.God.Creation.Importance.Skill.SkillBonus;
+import SpiritEngine.Data.Models.Items.Equipment.Armor.Armor;
+import SpiritEngine.Data.Models.Items.Equipment.Armor.Shield;
+import SpiritEngine.Data.Models.Items.Equipment.Weapon.Base.Special;
+import SpiritEngine.Data.Models.Items.Equipment.Weapon.Base.Type;
+import SpiritEngine.Mechanics.Player.InventoryItem;
+import SpiritEngine.Mechanics.Dice;
+import SpiritEngine.God.Creation.Entity.Wallet;
+import SpiritEngine.God.Creation.Entity.AttributeModifiers;
+import SpiritEngine.God.Creation.Entity.Attributes;
 import SpiritEngine.God.Creation.Importance.Constants.*;
-import SpiritEngine.Game.Data.Storage.God.Creation.Skills;
+import SpiritEngine.Data.Storage.God.Creation.Skills;
 import SpiritEngine.God.Creation.Importance.Constants.Class;
-import SpiritEngine.God.Creation.Player.Additions.PlayerCombatInfo;
-import SpiritEngine.God.Creation.Player.Additions.PlayerRangedWeapon;
-import SpiritEngine.God.Creation.Player.Additions.PlayerWeapon;
-import SpiritEngine.God.Creation.Entity.Additional.ClassTable.ClassTable;
-import SpiritEngine.God.Creation.Player.Classes.*;
+import SpiritEngine.God.Creation.ClassTable.Classes.Player.Wizard.CombatTable;
+import SpiritEngine.God.Creation.Entity.CombatInfo;
+import SpiritEngine.God.Creation.Player.Inventory.RangedWeapon;
+import SpiritEngine.God.Creation.Player.Inventory.Weapon;
+import SpiritEngine.God.Creation.ClassTable.Table;
 import SpiritEngine.God.Creation.Player.Player;
-import SpiritEngine.God.Creation.Player.PlayerInfo;
+import SpiritEngine.God.Creation.Player.Info;
 import Story.Data.*;
 
 import java.util.ArrayList;
@@ -40,11 +40,11 @@ public class PlayerDataMgr {
     Scanner input = new Scanner(System.in);
 
     public Player player = new Player(
-            new PlayerInfo("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Size.MEDIUM, Class.PLACEHOLDER, 1,0,0,0,0, new EntitySkill[]{}, new ArrayList<>()),
-            new PlayerCombatInfo(0,0,0,0,0,0,0,0,0, new PlayerWeapon[5], new PlayerRangedWeapon[5], new Armor[5], new Shield[5]),
-            new EntityAttributes(0,0,0,0,0,0,0),
-            new EntityAttributeModifiers(0,0,0,0,0,0,0),
-            new EntityWallet(0,0,0,0),
+            new Info("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Size.MEDIUM, Class.PLACEHOLDER, 1,0,0,0,0, new EntitySkill[]{}, new ArrayList<>()),
+            new CombatInfo(0,0,0,0,0,0,0,0,0, new Weapon[5], new RangedWeapon[5], new Armor[5], new Shield[5]),
+            new Attributes(0,0,0,0,0,0,0),
+            new AttributeModifiers(0,0,0,0,0,0,0),
+            new Wallet(0,0,0,0),
             new InventoryItem[210]);
 
     int[] abilities = {
@@ -63,7 +63,7 @@ public class PlayerDataMgr {
     int spendableFeatPts;
     int spendableAbilityPts;
     int sizeBonus;
-    ClassTable classTable;
+    Table classTable;
 
 
     private static PlayerDataMgr _instance = null;
@@ -288,66 +288,66 @@ public class PlayerDataMgr {
         switch (pClass.toUpperCase()){
             case("BARBARIAN") -> {
                 player.info.pClass = Class.BARBARIAN;
-                classTable = new Barbarian(player.info.level);
+                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Barbarian.CombatTable(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.barbarianSkills;
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
             }
             case("BARD") -> {
                 player.info.pClass = Class.BARD;
-                classTable = new Bard(player.info.level);
+                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Bard.CombatTable(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.bardSkills;
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
             }
             case("CLERIC") -> {
                 player.info.pClass = Class.CLERIC;
-                classTable= new Cleric(player.info.level);
+                classTable= new SpiritEngine.God.Creation.ClassTable.Classes.Player.Cleric.CombatTable(player.info.level);
                 player.info.skills =  (EntitySkill[]) skills.clericSkills;
                 player.wallet.GoldPieces = dice.Roll(6,4) * 10;
             }
             case("DRUID") -> {
                 player.info.pClass = Class.DRUID;
-                classTable = new Druid(player.info.level);
+                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Druid.CombatTable(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.druidSkills;
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
             }
             case("FIGHTER") -> {
                 player.info.pClass = Class.FIGHTER;
-                classTable = new Fighter(player.info.level);
+                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Fighter.CombatTable(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.fighterSkills;
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
             }
             case("MONK") -> {
                 player.info.pClass = Class.MONK;
-                classTable = new Monk(player.info.level);
+                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Monk.CombatTable(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.monkSkills;
                 player.wallet.GoldPieces = dice.Roll(6) * 10;
             }
             case("PALADIN") -> {
                 player.info.pClass = Class.PALADIN;
-                classTable = new Paladin(player.info.level);
+                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Paladin.CombatTable(player.info.level);
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
             }
             case("RANGER") -> {
                 player.info.pClass = Class.RANGER;
-                classTable = new Ranger(player.info.level);
+                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Ranger.CombatTable(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.rangerSkills;
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
             }
             case("ROGUE") -> {
                 player.info.pClass = Class.ROGUE;
-                classTable = new Rogue(player.info.level);
+                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Rogue.CombatTable(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.rogueSkills;
                 player.wallet.GoldPieces = dice.Roll(6,4) * 10;
             }
             case("SORCERER") -> {
                 player.info.pClass = Class.SORCERER;
-                classTable = new Sorcerer(player.info.level);
+                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Sorcerer.CombatTable(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.sorcererSkills;
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
             }
             case("WIZARD") -> {
                 player.info.pClass = Class.WIZARD;
-                classTable = new Wizard(player.info.level);
+                classTable = new CombatTable(player.info.level);
                 player.info.skills = (EntitySkill[]) skills.wizardSkills;
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
             }
@@ -738,8 +738,6 @@ public class PlayerDataMgr {
         player.attributeMods.Intelligence += abilityMods[3];
         player.attributeMods.Wisdom += abilityMods[4];
         player.attributeMods.Charisma += abilityMods[5];
-
-        abilityMods = new int[]{0, 0, 0, 0, 0, 0};
     }
 
     public void updatePlayerValues(Player player){
@@ -754,6 +752,10 @@ public class PlayerDataMgr {
         if(player.info.level % 4 == 0)
             player.abilityScorePoints++;
     }
+
+    //endregion
+
+    //region Inventory
 
     public void addInventoryItem(InventoryItem item){
         for (int i = 0; i < player.inventory.length; i++) {
@@ -842,7 +844,7 @@ public class PlayerDataMgr {
 
     public void displayPlayerWeapons(){
         System.out.println("\n| Weapons: ");
-        for (PlayerWeapon weapon : player.combatInfo.weapons) {
+        for (Weapon weapon : player.combatInfo.weapons) {
             if(weapon != null){
             System.out.println("|  Name: " + weapon.weapon.name);
             System.out.println("|  Dmg (S): " + weapon.weapon.dmgS);

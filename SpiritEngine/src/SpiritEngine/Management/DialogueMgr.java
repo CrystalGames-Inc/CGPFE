@@ -1,6 +1,6 @@
 package SpiritEngine.Management;
 
-import SpiritEngine.Game.Mechanics.Dialogue.DialogueLine;
+import SpiritEngine.Mechanics.Dialogue.DialogueLine;
 
 import java.util.ArrayList;
 import java.util.List;
