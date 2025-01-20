@@ -5,35 +5,27 @@ import SpiritEngine.God.Creation.Importance.Skill.SkillCheckModifier;
 public class Feat {
 
     private String name;
-    private Feat depFeat;
-    private Feat[] depFeats;
-    private DepAbility depAbility;
-    private DepAbility[] depAbilities;
-    private boolean combatFeat;
+    private boolean canAcquire;
+    private Type type;
+    private Type[] types;
     private SkillCheckModifier[] skillModifiers;
 
-    public void setName(String name) {
+    public Feat(String name){
         this.name = name;
     }
 
-    public void setDepFeat(Feat depFeat){
-        this.depFeat = depFeat;
+    public Feat(String name, Type type){
+        this.name = name;
+        this.type = type;
     }
 
-    public void setDepFeats(Feat[] depFeats) {
-        this.depFeats = depFeats;
+    public Feat(String name, Type[] types){
+        this.name = name;
+        this.types = types;
     }
 
-    public void setDepAbility(DepAbility depAbility){
-        this.depAbility = depAbility;
-    }
-
-    public void setDepAbilities(DepAbility[] depAbilities) {
-        this.depAbilities = depAbilities;
-    }
-
-    public void setCombatFeat(boolean combatFeat) {
-        this.combatFeat = combatFeat;
+    public void setCanAcquire(boolean canAcquire) {
+        this.canAcquire = canAcquire;
     }
 
     public void setSkillModifiers(SkillCheckModifier[] skillModifiers){
@@ -44,24 +36,17 @@ public class Feat {
         return name;
     }
 
-    public Feat getDepFeat(){
-        return  depFeat;
+    public boolean isCanAcquire() {
+        return canAcquire;
     }
 
-    public Feat[] getDepFeats() {
-        return depFeats;
+
+    public Type getType(){
+        return type;
     }
 
-    public DepAbility getDepAbility(){
-        return depAbility;
-    }
-
-    public DepAbility[] getDepAbilities(){
-        return depAbilities;
-    }
-
-    public boolean isCombatFeat() {
-        return combatFeat;
+    public Type[] getTypes(){
+        return types;
     }
 
     public SkillCheckModifier[] getSkillModifiers(){

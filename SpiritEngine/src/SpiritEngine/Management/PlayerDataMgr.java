@@ -14,7 +14,7 @@ import SpiritEngine.God.Creation.Entity.Wallet;
 import SpiritEngine.God.Creation.Entity.AttributeModifiers;
 import SpiritEngine.God.Creation.Entity.Attributes;
 import SpiritEngine.God.Creation.Importance.Constants.*;
-import SpiritEngine.Data.Storage.God.Creation.Skills;
+import SpiritEngine.God.Creation.Skills.Skills;
 import SpiritEngine.God.Creation.Importance.Constants.Class;
 import SpiritEngine.God.Creation.ClassTable.Classes.Player.Wizard.CombatTable;
 import SpiritEngine.God.Creation.Entity.CombatInfo;
@@ -41,7 +41,7 @@ public class PlayerDataMgr {
 
     public Player player = new Player(
             new Info("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Size.MEDIUM, Class.PLACEHOLDER, 1,0,0,0,0, new EntitySkill[]{}, new ArrayList<>()),
-            new CombatInfo(0,0,0,0,0,0,0,0,0, new Weapon[5], new RangedWeapon[5], new Armor[5], new Shield[5]),
+            new CombatInfo(0,0,0,0,0,0,0,CMBCalcBonus.STRENGTH,0,0, new Weapon[5], new RangedWeapon[5], new Armor[5], new Shield[5]),
             new Attributes(0,0,0,0,0,0,0),
             new AttributeModifiers(0,0,0,0,0,0,0),
             new Wallet(0,0,0,0),
@@ -575,7 +575,15 @@ public class PlayerDataMgr {
     }
 
     int calculateCMB(){
-        return player.combatInfo.BAB + player.attributeMods.Strength + sizeBonus;
+        switch (player.combatInfo.cmbCalcBonus){
+            case STRENGTH -> {
+                return player.combatInfo.BAB + player.attributeMods.Strength + sizeBonus;
+            }
+            case DEXTERITY -> {
+                return player.combatInfo.BAB + player.attributeMods.Dexterity + sizeBonus;
+            }
+        }
+        return 0;
     }
 
     int calculateCMD(){
@@ -592,6 +600,14 @@ public class PlayerDataMgr {
 
     int calculateWill(){
         return player.attributeMods.Wisdom + classTable.getLevel(player.info.level).willSave;
+    }
+
+    public boolean hasFeat(Feat feat){
+        for (Feat f: player.info.feats){
+            if(f == feat)
+                return true;
+        }
+        return false;
     }
 
     //endregion
