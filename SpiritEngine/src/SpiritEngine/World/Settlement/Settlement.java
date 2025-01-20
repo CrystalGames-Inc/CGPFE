@@ -43,21 +43,17 @@ public class Settlement {
 
     Location[] locations;
 
-
-    public void setName(String name) {
+    public Settlement(String name, Type type, Alignment alignment){
         this.name = name;
+        this.type = type;
+        this.alignment = alignment;
     }
+
+
+    //region Setters
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
-
-    public void setAlignment(Alignment alignment) {
-        this.alignment = alignment;
     }
 
     public void setQualities(Quality[] qualities) {
@@ -79,6 +75,10 @@ public class Settlement {
     public void setLocations(Location[] locations) {
         this.locations = locations;
     }
+
+    //endregion
+
+    //region Getters
 
     public String getName() {
         return name;
@@ -156,6 +156,10 @@ public class Settlement {
         return locations;
     }
 
+    //endregion
+
+    //region Data Calculations
+
     public void calculateSettlementData(){
         calculateDanger();
         calculateQualitySize();
@@ -226,10 +230,92 @@ public class Settlement {
     }
 
     void calculateModifiers(){
-        
+        calculateGovernmentModifiers();
     }
 
-    void calculateCorruption(){
-
+    void calculateGovernmentModifiers(){
+        switch (government){
+            case COLONIAL -> {
+                corruption += 2;
+                economy += 1;
+                law += 1;
+            }
+            case COUNCIL -> {
+                society += 4;
+                law -= 2;
+                lore -= 2;
+            }
+            case DYNASTY -> {
+                corruption += 1;
+                law += 1;
+                society -= 2;
+            }
+            case MAGICAL -> {
+                lore += 2;
+                corruption -= 2;
+                society -= 2;
+                spellcasting -= 1;
+            }
+            case MILITARY -> {
+                law += 3;
+                corruption -= 1;
+                society -= 1;
+            }
+            case OVERLORD -> {
+                corruption += 2;
+                law += 2;
+                crime -= 2;
+                society -= 2;
+            }
+            case SECRET_SYNDICATE -> {
+                corruption += 2;
+                economy += 2;
+                crime += 2;
+                law -= 6;
+            }
+            case PLUTOCRACY -> {
+                corruption += 2;
+                crime += 2;
+                economy += 3;
+                society -= 2;
+            }
+            case UTOPIA -> {
+                society += 2;
+                lore += 1;
+                corruption -= 2;
+                crime -= 1;
+            }
+        }
     }
+
+    void calculateQualityModifiers(){
+        for(Quality q: qualities){
+            switch (q){
+                case ABUNDANT -> {
+                    economy += 1;
+                }
+                case ABSTINENT -> {
+                    corruption += 2;
+                    law += 1;
+                    society -= 2;
+                }
+                case ACADEMIC -> {
+                    lore += 1;
+                    spellcasting += 1;
+                }
+                case ADVENTURESITE -> {
+                    society += 2;
+                    purchaseLimit *= (int) 1.5;
+                }
+                case ANIMAL_POLYGLOT -> {
+                    economy -= 1;
+                    lore += 1;
+                    spellcasting += 1;
+                }
+                
+            }
+        }
+    }
+
+    //endregion
 }
