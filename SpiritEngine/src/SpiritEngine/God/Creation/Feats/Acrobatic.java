@@ -8,6 +8,7 @@ import SpiritEngine.God.Creation.Importance.Skill.SkillCheckModifier;
 public class Acrobatic extends Feat {
     public Acrobatic() {
         super("Acrobatic");
+        setCanAcquire(true);
         setSkillModifiers(new SkillCheckModifier[]{
                 new SkillCheckModifier(new Acrobatics(), 2),
                 new SkillCheckModifier(new Fly(), 2)

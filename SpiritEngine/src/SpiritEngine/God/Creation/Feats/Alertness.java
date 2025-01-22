@@ -9,6 +9,7 @@ import SpiritEngine.God.Creation.Skills.SenseMotive;
 public class Alertness extends Feat {
     public Alertness() {
         super("Alertness");
+        setCanAcquire(true);
         setSkillModifiers(new SkillCheckModifier[]{
                 new SkillCheckModifier(new Perception(), 2),
                 new SkillCheckModifier(new SenseMotive(), 2)
