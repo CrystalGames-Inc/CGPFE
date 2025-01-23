@@ -48,12 +48,12 @@ public class PlayerDataMgr {
             new InventoryItem[210]);
 
     int[] abilities = {
-        player.attributes.Strength,
-        player.attributes.Dexterity,
-        player.attributes.Constitution,
-        player.attributes.Intelligence,
-        player.attributes.Wisdom,
-        player.attributes.Charisma
+        player.attributes.strength,
+        player.attributes.dexterity,
+        player.attributes.constitution,
+        player.attributes.intelligence,
+        player.attributes.wisdom,
+        player.attributes.charisma
     };
 
 
@@ -208,49 +208,49 @@ public class PlayerDataMgr {
         switch (race.toUpperCase()){
             case("DWARF") -> {
                 player.info.race = Race.DWARF;
-                player.attributes.Constitution += 2;
-                player.attributes.Wisdom += 2;
-                player.attributes.Charisma -= 2;
-                player.attributes.MoveSpeed = 20;
+                player.attributes.constitution += 2;
+                player.attributes.wisdom += 2;
+                player.attributes.charisma -= 2;
+                player.attributes.moveSpeed = 20;
             }
             case("ELF") -> {
                 player.info.race = Race.ELF;
-                player.attributes.Dexterity += 2;
-                player.attributes.Constitution -= 2;
-                player.attributes.Intelligence += 2;
-                player.attributes.MoveSpeed = 30;
+                player.attributes.dexterity += 2;
+                player.attributes.constitution -= 2;
+                player.attributes.intelligence += 2;
+                player.attributes.moveSpeed = 30;
             }
             case("GNOME") -> {
                 player.info.race = Race.GNOME;
-                player.attributes.Strength -= 2;
-                player.attributes.Constitution += 2;
-                player.attributes.Charisma += 2;
-                player.attributes.MoveSpeed = 20;
+                player.attributes.strength -= 2;
+                player.attributes.constitution += 2;
+                player.attributes.charisma += 2;
+                player.attributes.moveSpeed = 20;
             }
             case("HALFELF") -> {
                 registerPlayerRaceStatMod();
 
                 player.info.race = Race.HALFELF;
-                player.attributes.MoveSpeed = 30;
+                player.attributes.moveSpeed = 30;
             }
             case("HALFORC") -> {
                 registerPlayerRaceStatMod();
 
                 player.info.race = Race.HALFORC;
-                player.attributes.MoveSpeed = 30;
+                player.attributes.moveSpeed = 30;
             }
             case("HALFLING") -> {
                 player.info.race = Race.HALFLING;
-                player.attributes.Strength -= 2;
-                player.attributes.Dexterity += 2;
-                player.attributes.Charisma += 2;
-                player.attributes.MoveSpeed = 20;
+                player.attributes.strength -= 2;
+                player.attributes.dexterity += 2;
+                player.attributes.charisma += 2;
+                player.attributes.moveSpeed = 20;
             }
             case("HUMAN") -> {
                 registerPlayerRaceStatMod();
 
                 player.info.race = Race.HUMAN;
-                player.attributes.MoveSpeed = 30;
+                player.attributes.moveSpeed = 30;
             }
             default -> {
                 System.out.println("Invalid Race.");
@@ -267,12 +267,12 @@ public class PlayerDataMgr {
         raceStatMod = input.nextLine();
 
         switch (raceStatMod.toUpperCase()){
-            case("STR"), ("STRENGTH")     -> player.attributes.Strength += 2;
-            case("DEX"), ("DEXTERITY")    -> player.attributes.Dexterity += 2;
-            case("CON"), ("CONSTITUTION") -> player.attributes.Constitution += 2;
-            case("INT"), ("INTELLIGENCE") -> player.attributes.Intelligence += 2;
-            case("WIS"), ("WISDOM")       -> player.attributes.Wisdom += 2;
-            case("CHA"), ("CHARISMA")     -> player.attributes.Charisma += 2;
+            case("STR"), ("STRENGTH")     -> player.attributes.strength += 2;
+            case("DEX"), ("DEXTERITY")    -> player.attributes.dexterity += 2;
+            case("CON"), ("CONSTITUTION") -> player.attributes.constitution += 2;
+            case("INT"), ("INTELLIGENCE") -> player.attributes.intelligence += 2;
+            case("WIS"), ("WISDOM")       -> player.attributes.wisdom += 2;
+            case("CHA"), ("CHARISMA")     -> player.attributes.charisma += 2;
             default -> {
                 System.out.println("Invalid attribute selected");
                 registerPlayerRaceStatMod();
@@ -433,10 +433,10 @@ public class PlayerDataMgr {
 
     void calculateHealth(){
         switch (player.info.pClass){
-            case BARBARIAN -> player.info.maxHealth = 1 + 12 + player.attributes.Constitution;
-            case BARD, CLERIC, DRUID, MONK, ROGUE -> player.info.maxHealth = 1 + 8 + player.attributes.Constitution;
-            case FIGHTER, PALADIN, RANGER -> player.info.maxHealth = 1 + 10 + player.attributes.Constitution;
-            case SORCERER, WIZARD ->player.info.maxHealth = 1 + 6 + player.attributes.Constitution;
+            case BARBARIAN -> player.info.maxHealth = 1 + 12 + player.attributes.constitution;
+            case BARD, CLERIC, DRUID, MONK, ROGUE -> player.info.maxHealth = 1 + 8 + player.attributes.constitution;
+            case FIGHTER, PALADIN, RANGER -> player.info.maxHealth = 1 + 10 + player.attributes.constitution;
+            case SORCERER, WIZARD ->player.info.maxHealth = 1 + 6 + player.attributes.constitution;
 
         }
     }
@@ -737,12 +737,12 @@ public class PlayerDataMgr {
     //region Data Updates
 
     void updateAbilityPoints(){
-        player.attributes.Strength += abilities[0];
-        player.attributes.Dexterity += abilities[1];
-        player.attributes.Constitution += abilities[2];
-        player.attributes.Intelligence += abilities[3];
-        player.attributes.Wisdom += abilities[4];
-        player.attributes.Charisma += abilities[5];
+        player.attributes.strength += abilities[0];
+        player.attributes.dexterity += abilities[1];
+        player.attributes.constitution += abilities[2];
+        player.attributes.intelligence += abilities[3];
+        player.attributes.wisdom += abilities[4];
+        player.attributes.charisma += abilities[5];
 
         abilities = new int[]{0, 0, 0, 0, 0, 0};
     }
@@ -907,13 +907,13 @@ public class PlayerDataMgr {
     public void displayPlayerAttributes(){
         if (player.attributes != null) {
             System.out.println("|Attributes:");
-            System.out.println("| Strength    : " + player.attributes.Strength);
-            System.out.println("| Dexterity   : " + player.attributes.Dexterity);
-            System.out.println("| Constitution: " + player.attributes.Constitution);
-            System.out.println("| Intelligence: " + player.attributes.Intelligence);
-            System.out.println("| Wisdom      : " + player.attributes.Wisdom);
-            System.out.println("| Charisma    : " + player.attributes.Charisma);
-            System.out.println("| Move Speed  : " + player.attributes.MoveSpeed);
+            System.out.println("| Strength    : " + player.attributes.strength);
+            System.out.println("| Dexterity   : " + player.attributes.dexterity);
+            System.out.println("| Constitution: " + player.attributes.constitution);
+            System.out.println("| Intelligence: " + player.attributes.intelligence);
+            System.out.println("| Wisdom      : " + player.attributes.wisdom);
+            System.out.println("| Charisma    : " + player.attributes.charisma);
+            System.out.println("| Move Speed  : " + player.attributes.moveSpeed);
         }
     }
 

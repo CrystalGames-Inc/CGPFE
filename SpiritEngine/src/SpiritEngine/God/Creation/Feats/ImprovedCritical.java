@@ -4,9 +4,9 @@ import SpiritEngine.God.Creation.Importance.Feat.Feat;
 import SpiritEngine.God.Creation.Importance.Feat.Type;
 import SpiritEngine.Management.PlayerDataMgr;
 
-public class Dodge extends Feat {
-    public Dodge() {
-        super("Dodge", Type.COMBAT);
-        setCanAcquire(PlayerDataMgr.getInstance().player.attributes.dexterity >= 13);
+public class ImprovedCritical extends Feat {
+    public ImprovedCritical() {
+        super("Improved Critical", Type.COMBAT);
+        setCanAcquire(PlayerDataMgr.getInstance().player.combatInfo.BAB >= 8);
     }
 }

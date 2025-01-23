@@ -9,6 +9,7 @@ public class Feat {
     private Type type;
     private Type[] types;
     private SkillCheckModifier[] skillModifiers;
+    private int[] checkModifiers;
 
     public Feat(String name){
         this.name = name;
@@ -32,6 +33,10 @@ public class Feat {
         this.skillModifiers = skillModifiers;
     }
 
+    public void setCheckModifiers(int check, int modifier){
+        checkModifiers = new int[]{check, modifier};
+    }
+
     public String getName() {
         return name;
     }
@@ -51,5 +56,9 @@ public class Feat {
 
     public SkillCheckModifier[] getSkillModifiers(){
         return skillModifiers;
+    }
+
+    public int[] getCheckModifiers(){
+        return checkModifiers;
     }
 }

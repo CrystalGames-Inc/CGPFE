@@ -8,6 +8,6 @@ public class AcrobaticSteps extends Feat {
 
     public AcrobaticSteps() {
         super("Acrobatic Steps");
-        setCanAcquire((mgr.player.attributes.Dexterity >= 15) && (mgr.hasFeat(new NimbleMoves())));
+        setCanAcquire((mgr.player.attributes.dexterity >= 15) && (mgr.hasFeat(new NimbleMoves())));
     }
 }

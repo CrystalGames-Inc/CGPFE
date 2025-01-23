@@ -8,6 +8,7 @@ import SpiritEngine.God.Creation.Skills.SleightOfHand;
 public class DeftHands extends Feat {
     public DeftHands() {
         super("Deft Hands");
+        setCanAcquire(true);
         setSkillModifiers(new SkillCheckModifier[]{
                 new SkillCheckModifier(new DisableDevice(), 2),
                 new SkillCheckModifier(new SleightOfHand(), 2)

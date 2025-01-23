@@ -7,6 +7,6 @@ import SpiritEngine.Management.PlayerDataMgr;
 public class CombatExpertise extends Feat {
     public CombatExpertise() {
         super("Combat Expertise", Type.COMBAT);
-        setCanAcquire(PlayerDataMgr.getInstance().player.attributes.Intelligence >= 13);
+        setCanAcquire(PlayerDataMgr.getInstance().player.attributes.intelligence >= 13);
     }
 }

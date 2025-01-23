@@ -7,6 +7,6 @@ import SpiritEngine.Management.PlayerDataMgr;
 public class GreaterTwoWeaponFighting extends Feat {
     public GreaterTwoWeaponFighting() {
         super("Greater Two-Weapon Fighting", Type.COMBAT);
-        setCanAcquire((PlayerDataMgr.getInstance().player.attributes.Dexterity >= 19) && (PlayerDataMgr.getInstance().hasFeat(new ImprovedTwoWeaponFighting())) && (PlayerDataMgr.getInstance().player.combatInfo.BAB >= 11));
+        setCanAcquire((PlayerDataMgr.getInstance().player.attributes.dexterity >= 19) && (PlayerDataMgr.getInstance().hasFeat(new ImprovedTwoWeaponFighting())) && (PlayerDataMgr.getInstance().player.combatInfo.BAB >= 11));
     }
 }
