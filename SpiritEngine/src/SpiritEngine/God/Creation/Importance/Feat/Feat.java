@@ -2,12 +2,14 @@ package SpiritEngine.God.Creation.Importance.Feat;
 
 import SpiritEngine.God.Creation.Importance.Skill.SkillCheckModifier;
 
+import java.util.concurrent.TimeUnit;
+
 public class Feat {
 
     private String name;
     private boolean canAcquire;
     private Type type;
-    private Type[] types;
+    private Type[] types = new Type[2];
     private SkillCheckModifier[] skillModifiers;
     private int[] checkModifiers;
 
@@ -20,9 +22,10 @@ public class Feat {
         this.type = type;
     }
 
-    public Feat(String name, Type[] types){
+    public Feat(String name, Type type1, Type type2){
         this.name = name;
-        this.types = types;
+        this.types[0] = type1;
+        this.types[1] = type2;
     }
 
     public void setCanAcquire(boolean canAcquire) {
