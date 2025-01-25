@@ -1,11 +1,11 @@
 package SpiritEngine.God.Creation.Feats;
 
-import SpiritEngine.God.Creation.Importance.Feat.Feat;
-import SpiritEngine.God.Creation.Importance.Feat.Type;
+import SpiritEngine.Data.Storage.Equipment.Armor.Armors;
+import SpiritEngine.God.Creation.Importance.Feat.ArmorProficiency;
 
-public class ArmorProficiencyLight extends Feat {
+public class ArmorProficiencyLight extends ArmorProficiency {
     public ArmorProficiencyLight() {
-        super("Armor Proficiency, Light", Type.COMBAT);
+        super("Armor Proficiency, Light", new Armors().lightArmor);
         setCanAcquire(true);
     }
 }

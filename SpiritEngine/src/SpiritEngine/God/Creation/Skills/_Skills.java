@@ -2,7 +2,7 @@ package SpiritEngine.God.Creation.Skills;
 
 import SpiritEngine.God.Creation.Importance.Skill.Skill;
 
-public class Skills {
+public class _Skills {
 
     //region Skills
 

@@ -1,13 +1,13 @@
 package SpiritEngine.God.Creation.Feats;
 
-import SpiritEngine.God.Creation.Importance.Feat.Feat;
-import SpiritEngine.God.Creation.Importance.Feat.Type;
+import SpiritEngine.Data.Storage.Equipment.Armor.Armors;
+import SpiritEngine.God.Creation.Importance.Feat.ArmorProficiency;
 import SpiritEngine.Management.PlayerDataMgr;
 
-public class ArmorProficiencyHeavy extends Feat {
+public class ArmorProficiencyHeavy extends ArmorProficiency {
     PlayerDataMgr mgr = PlayerDataMgr.getInstance();
     public ArmorProficiencyHeavy() {
-        super("Armor Proficiency, Heavy", Type.COMBAT);
+        super("Armor Proficiency, Heavy", new Armors().heavyArmor);
         setCanAcquire((mgr.hasFeat(new ArmorProficiencyLight())) && (mgr.hasFeat(new ArmorProficiencyMedium())));
     }
 }

@@ -14,7 +14,7 @@ import SpiritEngine.God.Creation.Entity.Wallet;
 import SpiritEngine.God.Creation.Entity.AttributeModifiers;
 import SpiritEngine.God.Creation.Entity.Attributes;
 import SpiritEngine.God.Creation.Importance.Constants.*;
-import SpiritEngine.God.Creation.Skills.Skills;
+import SpiritEngine.God.Creation.Skills._Skills;
 import SpiritEngine.God.Creation.Importance.Constants.Class;
 import SpiritEngine.God.Creation.ClassTable.Classes.Player.Wizard.CombatTable;
 import SpiritEngine.God.Creation.Entity.CombatInfo;
@@ -281,7 +281,7 @@ public class PlayerDataMgr {
     }
 
     void registerPlayerClass(){
-        Skills skills = new Skills();
+        _Skills skills = new _Skills();
 
         System.out.println("Please choose your character's class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard");
         String pClass = input.nextLine();

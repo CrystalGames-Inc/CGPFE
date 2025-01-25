@@ -1,5 +1,6 @@
 package SpiritEngine.God.Creation.Feats;
 
+import SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon;
 import SpiritEngine.God.Creation.Importance.Feat.Feat;
 
 public class _Feats {
@@ -178,6 +179,8 @@ public class _Feats {
     public Feat widenSpell = new WidenSpell();
     public Feat windStance = new WindStance();
 
+    //region PC Class Feats
+
     public final Feat[] barbarianFeats = new Feat[]{
             simpleWeaponProficiency,
             martialWeaponProficiency,
@@ -247,5 +250,19 @@ public class _Feats {
     public final Feat[] wizardFeats = new Feat[]{
             //TODO Add Specific Weapon Proficiencies
     };
+
+    //endregion
+
+    //region NPC Class Feats
+
+    public final Feat[] adeptFeats = new Feat[]{
+            simpleWeaponProficiency
+    };
+
+    public final Feat[] aristocratFeat = new Feat[]{
+            simpleWeaponProficiency
+    };
+
+    //endregion
 
 }
