@@ -13,8 +13,23 @@ public class WeaponProficiency extends Feat{
         this.proficientWeapon = proficientWeapon;
     }
 
-    public WeaponProficiency(String name, Weapon[] proficientWeapons){
-        super(name, Type.COMBAT);
+    public WeaponProficiency(String name, Weapon[] proficientWeapons) {
+        super(name);
+        setCanAcquire(true);
+        this.proficientWeapons = proficientWeapons;
+    }
+
+    public WeaponProficiency(Weapon[] proficientWeapons) {
+        super("");
+        setCanAcquire(true);
+        this.proficientWeapons = proficientWeapons;
+    }
+
+    public void setProficientWeapon(Weapon proficientWeapon){
+        this.proficientWeapon = proficientWeapon;
+    }
+
+    public void setProficientWeapons(Weapon[] proficientWeapons){
         this.proficientWeapons = proficientWeapons;
     }
 

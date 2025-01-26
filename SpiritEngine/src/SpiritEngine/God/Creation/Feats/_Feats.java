@@ -1,7 +1,9 @@
 package SpiritEngine.God.Creation.Feats;
 
 import SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon;
+import SpiritEngine.Data.Storage.Equipment.Weapons.Weapons;
 import SpiritEngine.God.Creation.Importance.Feat.Feat;
+import SpiritEngine.God.Creation.Importance.Feat.WeaponProficiency;
 
 public class _Feats {
     public Feat acrobatic = new Acrobatic();
@@ -179,6 +181,8 @@ public class _Feats {
     public Feat widenSpell = new WidenSpell();
     public Feat windStance = new WindStance();
 
+    Weapons weapons = new Weapons();
+
     //region PC Class Feats
 
     public final Feat[] barbarianFeats = new Feat[]{
@@ -218,7 +222,24 @@ public class _Feats {
     };
 
     public final Feat[] monkFeats = new Feat[]{
-            //TODO Add Specific Weapon Proficiencies
+        new WeaponProficiency(new Weapon[]{
+                weapons.club,
+                weapons.lightCrossbow,
+                weapons.heavyCrossbow,
+                weapons.dagger,
+                weapons.handaxe,
+                weapons.javelin,
+                weapons.kama,
+                weapons.nunchaku,
+                weapons.quarterstaff,
+                weapons.sai,
+                weapons.shortspear,
+                weapons.shortSword,
+                weapons.shuriken,
+                weapons.siangham,
+                weapons.sling,
+                weapons.spear
+        })
     };
 
     public final Feat[] paladinFeats = new Feat[]{
@@ -240,6 +261,13 @@ public class _Feats {
 
     public final Feat[] rogueFeats = new Feat[]{
             simpleWeaponProficiency,
+            new WeaponProficiency(new Weapon[]{
+                    weapons.handCrossbow,
+                    weapons.rapier,
+                    weapons.sap,
+                    weapons.shortbow,
+                    weapons.shortSword
+            }),
             armorProficiencyL
     };
 
@@ -248,7 +276,13 @@ public class _Feats {
     };
 
     public final Feat[] wizardFeats = new Feat[]{
-            //TODO Add Specific Weapon Proficiencies
+            new WeaponProficiency(new Weapon[]{
+                weapons.club,
+                weapons.dagger,
+                weapons.heavyCrossbow,
+                weapons.lightCrossbow,
+                weapons.quarterstaff
+            })
     };
 
     //endregion
@@ -260,6 +294,10 @@ public class _Feats {
     };
 
     public final Feat[] aristocratFeat = new Feat[]{
+            simpleWeaponProficiency
+    };
+
+    public final Feat[] commonerFeat = new Feat[]{
             simpleWeaponProficiency
     };
 
