@@ -4,7 +4,7 @@ import SpiritEngine.Management.PlayerDataMgr;
 
 public class GameStartup {
     boolean skipIntro = true;
-    boolean skipRegister = true;
+    boolean skipRegister = false;
 
     public void startGame(){
         PlayerDataMgr pMgr = PlayerDataMgr.getInstance();
@@ -12,6 +12,8 @@ public class GameStartup {
         if(!skipIntro) startIntro();
 
         if(!skipRegister) pMgr.registerNewPlayer();
+
+        pMgr.displayAll();
     }
 
     public void startIntro(){

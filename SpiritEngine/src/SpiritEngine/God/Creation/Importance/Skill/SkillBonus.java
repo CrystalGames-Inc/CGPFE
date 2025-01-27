@@ -8,6 +8,10 @@ public class SkillBonus {
     public int ranks;
     public int miscMod;
 
+    public SkillBonus(){
+
+    }
+
     public SkillBonus(int abilityMod, int ranks, int miscMod) {
         this.abilityMod = abilityMod;
         this.ranks = ranks;

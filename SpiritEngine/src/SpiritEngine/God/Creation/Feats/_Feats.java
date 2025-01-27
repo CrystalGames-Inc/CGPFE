@@ -293,12 +293,27 @@ public class _Feats {
             simpleWeaponProficiency
     };
 
-    public final Feat[] aristocratFeat = new Feat[]{
+    public final Feat[] aristocratFeats = new Feat[]{
             simpleWeaponProficiency
     };
 
-    public final Feat[] commonerFeat = new Feat[]{
+    public final Feat[] commonerFeats = new Feat[]{
             simpleWeaponProficiency
+    };
+
+    public final Feat[] expertFeats = new Feat[]{
+            simpleWeaponProficiency,
+            armorProficiencyL
+    };
+
+    public final Feat[] warrior = new Feat[]{
+            simpleWeaponProficiency,
+            martialWeaponProficiency,
+            armorProficiencyL,
+            armorProficiencyM,
+            armorProficiencyH,
+            shieldProficiency,
+            towerShieldProficiency
     };
 
     //endregion

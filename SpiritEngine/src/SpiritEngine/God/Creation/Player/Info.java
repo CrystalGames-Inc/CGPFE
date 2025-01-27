@@ -21,10 +21,10 @@ public class Info {
     public int maxHealth;
     public int health;
     public int armorClass;
-    public EntitySkill[] skills;
+    public EntitySkill[] classSkills;
     public List<Feat> feats;
 
-    public Info(String name, Gender gender, Alignment alignment, int age, Race race, Size size, Class pClass, int level, int xp, int maxHealth, int health, int armorClass, EntitySkill[] skills, List<Feat> feats){
+    public Info(String name, Gender gender, Alignment alignment, int age, Race race, Size size, Class pClass, int level, int xp, int maxHealth, int health, int armorClass, EntitySkill[] classSkills, List<Feat> feats){
         this.name = name;
         this.gender = gender;
         this.alignment = alignment;
@@ -37,7 +37,7 @@ public class Info {
         this.maxHealth = maxHealth;
         this.health = health;
         this.armorClass = armorClass;
-        this.skills = skills;
+        this.classSkills = classSkills;
         this.feats = feats;
     }
 }

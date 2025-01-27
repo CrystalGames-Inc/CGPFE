@@ -9,6 +9,7 @@ public class Skill {
     private Class[] classes;
     private boolean untrained;
     private Attribute ability;
+    private SkillBonus bonus;
 
 
     //For the sake of navigation, I've separated the getters and setters
@@ -29,6 +30,10 @@ public class Skill {
         this.ability = ability;
     }
 
+    public void setBonus(int ranks){
+        bonus = new SkillBonus(0,ranks,0);
+    }
+
     //And here are the getters
     public String getName() {
         return name;
@@ -44,5 +49,17 @@ public class Skill {
 
     public Attribute getAbility() {
         return ability;
+    }
+
+    public SkillBonus getBonus(){
+        return bonus;
+    }
+
+    public int getRanks(){
+        return bonus.ranks;
+    }
+
+    public int getMiscMod(){
+        return bonus.miscMod;
     }
 }
