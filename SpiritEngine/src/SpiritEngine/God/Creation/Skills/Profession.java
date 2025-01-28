@@ -6,20 +6,22 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class Profession extends Skill {
     public Profession(){
-        setName("Profession");
-        setClasses(new Class[]{
-                Class.BARD,
-                Class.CLERIC,
-                Class.DRUID,
-                Class.FIGHTER,
-                Class.MONK,
-                Class.PALADIN,
-                Class.RANGER,
-                Class.ROGUE,
-                Class.SORCERER,
-                Class.WIZARD
-        });
-        setUntrained(false);
-        setAbility(Attribute.WISDOM);
+        super(
+                "Profession",
+                new Class[]{
+                        Class.BARD,
+                        Class.CLERIC,
+                        Class.DRUID,
+                        Class.FIGHTER,
+                        Class.MONK,
+                        Class.PALADIN,
+                        Class.RANGER,
+                        Class.ROGUE,
+                        Class.SORCERER,
+                        Class.WIZARD
+                },
+                false,
+                Attribute.WISDOM
+        );
     }
 }

@@ -6,14 +6,16 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class Survival extends Skill {
     public Survival(){
-        setName("Survival");
-        setClasses(new Class[]{
-                Class.BARBARIAN,
-                Class.DRUID,
-                Class.FIGHTER,
-                Class.RANGER
-        });
-        setUntrained(true);
-        setAbility(Attribute.WISDOM);
+        super(
+                "Survival",
+                new Class[]{
+                        Class.BARBARIAN,
+                        Class.DRUID,
+                        Class.FIGHTER,
+                        Class.RANGER
+                },
+                true,
+                Attribute.WISDOM
+        );
     }
 }

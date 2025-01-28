@@ -6,14 +6,16 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class KnowArcana extends Skill {
     public KnowArcana(){
-        setName("Knowledge (Arcana)");
-        setClasses(new Class[]{
-                Class.BARD,
-                Class.CLERIC,
-                Class.SORCERER,
-                Class.WIZARD
-        });
-        setUntrained(false);
-        setAbility(Attribute.INTELLIGENCE);
+        super(
+                "Knowledge (Arcana)",
+                new Class[]{
+                        Class.BARD,
+                        Class.CLERIC,
+                        Class.SORCERER,
+                        Class.WIZARD
+                },
+                false,
+                Attribute.INTELLIGENCE
+        );
     }
 }

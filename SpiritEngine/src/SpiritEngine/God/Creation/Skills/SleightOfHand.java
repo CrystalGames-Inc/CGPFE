@@ -6,12 +6,14 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class SleightOfHand extends Skill {
     public SleightOfHand(){
-        setName("Sleight Of Hand");
-        setClasses(new Class[]{
-                Class.BARD,
-                Class.ROGUE
-        });
-        setUntrained(false);
-        setAbility(Attribute.DEXTERITY);
+        super(
+                "Sleight Of Hand",
+                new Class[]{
+                        Class.BARD,
+                        Class.ROGUE
+                },
+                false,
+                Attribute.DEXTERITY
+        );
     }
 }

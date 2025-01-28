@@ -5,28 +5,17 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public class Skill {
 
-    private String name;
-    private Class[] classes;
-    private boolean untrained;
-    private Attribute ability;
+    private final String name;
+    private final Class[] classes;
+    private final boolean untrained;
+    private final Attribute ability;
     private SkillBonus bonus;
 
 
-    //For the sake of navigation, I've separated the getters and setters
-    //Here are the setters
-    public void setName(String name) {
+    public Skill(String name, Class[] classes, boolean untrained, Attribute ability){
         this.name = name;
-    }
-
-    public void setClasses(Class[] classes){
         this.classes = classes;
-    }
-
-    public void setUntrained(boolean untrained) {
         this.untrained = untrained;
-    }
-
-    public void setAbility(Attribute ability) {
         this.ability = ability;
     }
 
@@ -34,7 +23,6 @@ public class Skill {
         bonus = new SkillBonus(0,ranks,0);
     }
 
-    //And here are the getters
     public String getName() {
         return name;
     }

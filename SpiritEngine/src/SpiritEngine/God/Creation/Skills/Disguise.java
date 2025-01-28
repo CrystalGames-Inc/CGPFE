@@ -6,12 +6,14 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class Disguise extends Skill {
     public Disguise(){
-        setName("Disguise");
-        setClasses(new Class[]{
-                Class.BARD,
-                Class.ROGUE
-        });
-        setUntrained(true);
-        setAbility(Attribute.CHARISMA);
+        super(
+                "Disguise",
+                new Class[]{
+                        Class.BARD,
+                        Class.ROGUE
+                },
+                true,
+                Attribute.CHARISMA
+        );
     }
 }

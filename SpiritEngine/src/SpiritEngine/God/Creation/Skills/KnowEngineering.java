@@ -6,13 +6,15 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class KnowEngineering extends Skill {
     public KnowEngineering(){
-        setName("Knowledge (Engineering)");
-        setClasses(new Class[]{
-                Class.BARD,
-                Class.FIGHTER,
-                Class.WIZARD
-        });
-        setUntrained(false);
-        setAbility(Attribute.INTELLIGENCE);
+        super(
+                "Knowledge (Engineering)",
+                new Class[]{
+                        Class.BARD,
+                        Class.FIGHTER,
+                        Class.WIZARD
+                },
+                false,
+                Attribute.INTELLIGENCE
+        );
     }
 }

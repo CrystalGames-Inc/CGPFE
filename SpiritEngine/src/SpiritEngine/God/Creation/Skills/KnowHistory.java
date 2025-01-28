@@ -6,14 +6,16 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class KnowHistory extends Skill {
     public KnowHistory(){
-        setName("Knowledge (History)");
-        setClasses(new Class[]{
-                Class.BARD,
-                Class.CLERIC,
-                Class.MONK,
-                Class.WIZARD
-        });
-        setUntrained(false);
-        setAbility(Attribute.INTELLIGENCE);
+        super(
+                "Knowledge (History)",
+                new Class[]{
+                        Class.BARD,
+                        Class.CLERIC,
+                        Class.MONK,
+                        Class.WIZARD
+                },
+                false,
+                Attribute.INTELLIGENCE
+        );
     }
 }

@@ -6,13 +6,15 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class Perform extends Skill {
     public Perform(){
-        setName("Perform");
-        setClasses(new Class[]{
-                Class.BARD,
-                Class.MONK,
-                Class.ROGUE
-        });
-        setUntrained(true);
-        setAbility(Attribute.CHARISMA);
+        super(
+                "Perform",
+                new Class[]{
+                        Class.BARD,
+                        Class.MONK,
+                        Class.ROGUE
+                },
+                true,
+                Attribute.CHARISMA
+        );
     }
 }

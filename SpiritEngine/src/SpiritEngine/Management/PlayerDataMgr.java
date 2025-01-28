@@ -2,9 +2,7 @@ package SpiritEngine.Management;
 
 import SpiritEngine.God.Creation.Feats._Feats;
 import SpiritEngine.God.Creation.Importance.Feat.Feat;
-import SpiritEngine.God.Creation.Importance.Skill.EntitySkill;
 import SpiritEngine.God.Creation.Importance.Skill.Skill;
-import SpiritEngine.God.Creation.Importance.Skill.SkillBonus;
 import SpiritEngine.Data.Models.Items.Equipment.Armor.Armor;
 import SpiritEngine.Data.Models.Items.Equipment.Armor.Shield;
 import SpiritEngine.Data.Models.Items.Equipment.Weapon.Base.Special;
@@ -26,13 +24,10 @@ import SpiritEngine.God.Creation.Player.Player;
 import SpiritEngine.God.Creation.Player.Info;
 import Story.Data.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class PlayerDataMgr {
-
-    //TODO ADD THE FULL CONVERSION FOR NORMAL SKILLS TO ENTITY SKILLS.
 
     //region Variables
 
@@ -44,7 +39,7 @@ public class PlayerDataMgr {
     Scanner input = new Scanner(System.in);
 
     public Player player = new Player(
-            new Info("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Size.MEDIUM, Class.PLACEHOLDER, 1,0,0,0,0, new EntitySkill[]{}, new ArrayList<>()),
+            new Info("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Size.MEDIUM, Class.PLACEHOLDER, 1,0,0,0,new Skill[]{}),
             new CombatInfo(0,0,0,0,0,0,0,CMBCalcBonus.STRENGTH,0,0, new Weapon[5], new RangedWeapon[5], new Armor[5], new Shield[5]),
             new Attributes(0,0,0,0,0,0,0),
             new AttributeModifiers(0,0,0,0,0,0,0),
@@ -68,8 +63,6 @@ public class PlayerDataMgr {
     int spendableAbilityPts;
     int sizeBonus;
     Table classTable;
-    _Feats feats;
-
 
     private static PlayerDataMgr _instance = null;
 
@@ -107,6 +100,8 @@ public class PlayerDataMgr {
         calculateSizeBonus();
 
         registerPlayerClass();
+
+        calculateSkillsBonuses();
 
         registerPlayerAlignment();
 
@@ -285,99 +280,101 @@ public class PlayerDataMgr {
         }
     }
 
-    void registerPlayerClass(){
+    void registerPlayerClass() {
         _Skills skills = new _Skills();
 
         System.out.println("Please choose your character's class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard");
         String pClass = input.nextLine();
-        switch (pClass.toUpperCase()){
-            case("BARBARIAN") -> {
+        switch (pClass.toUpperCase()) {
+            case ("BARBARIAN") -> {
                 player.info.pClass = Class.BARBARIAN;
                 classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Barbarian.CombatTable(player.info.level);
-                player.info.classSkills = (EntitySkill[]) skills.barbarianSkills;
-                player.info.feats.addAll(Arrays.asList(feats.barbarianFeats));
-                player.wallet.GoldPieces = dice.Roll(6,3) * 10;
+                player.info.classSkills = skills.barbarianSkills;
+                registerFeats(new _Feats().barbarianFeats);
+                player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
             }
-            case("BARD") -> {
+            case ("BARD") -> {
                 player.info.pClass = Class.BARD;
                 classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Bard.CombatTable(player.info.level);
-                player.info.classSkills = (EntitySkill[]) skills.bardSkills;
-                player.info.feats.addAll(Arrays.asList(feats.bardFeats));
-                player.wallet.GoldPieces = dice.Roll(6,3) * 10;
+                player.info.classSkills = skills.bardSkills;
+                player.info.feats.addAll(Arrays.asList(new _Feats().bardFeats));
+                player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
             }
-            case("CLERIC") -> {
+            case ("CLERIC") -> {
                 player.info.pClass = Class.CLERIC;
-                classTable= new SpiritEngine.God.Creation.ClassTable.Classes.Player.Cleric.CombatTable(player.info.level);
-                player.info.classSkills =  (EntitySkill[]) skills.clericSkills;
-                player.info.feats.addAll(Arrays.asList(feats.clericFeats));
-                player.wallet.GoldPieces = dice.Roll(6,4) * 10;
+                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Cleric.CombatTable(player.info.level);
+                player.info.classSkills = skills.clericSkills;
+                player.info.feats.addAll(Arrays.asList(new _Feats().clericFeats));
+                player.wallet.GoldPieces = dice.Roll(6, 4) * 10;
             }
-            case("DRUID") -> {
+            case ("DRUID") -> {
                 player.info.pClass = Class.DRUID;
                 classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Druid.CombatTable(player.info.level);
-                player.info.classSkills = (EntitySkill[]) skills.druidSkills;
-                player.info.feats.addAll(Arrays.asList(feats.druidFeats));
-                player.wallet.GoldPieces = dice.Roll(6,2) * 10;
+                player.info.classSkills = skills.druidSkills;
+                player.info.feats.addAll(Arrays.asList(new _Feats().druidFeats));
+                player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
             }
-            case("FIGHTER") -> {
+            case ("FIGHTER") -> {
                 player.info.pClass = Class.FIGHTER;
                 classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Fighter.CombatTable(player.info.level);
-                player.info.classSkills = (EntitySkill[]) skills.fighterSkills;
-                player.info.feats.addAll(Arrays.asList(feats.fighterFeats));
-                player.wallet.GoldPieces = dice.Roll(6,5) * 10;
+                player.info.classSkills = skills.fighterSkills;
+                player.info.feats.addAll(Arrays.asList(new _Feats().fighterFeats));
+                player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
             }
-            case("MONK") -> {
+            case ("MONK") -> {
                 player.info.pClass = Class.MONK;
                 classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Monk.CombatTable(player.info.level);
-                player.info.classSkills = (EntitySkill[]) skills.monkSkills;
-                player.info.feats.addAll(Arrays.asList(feats.monkFeats));
+                player.info.classSkills = skills.monkSkills;
+                player.info.feats.addAll(Arrays.asList(new _Feats().monkFeats));
                 player.wallet.GoldPieces = dice.Roll(6) * 10;
             }
-            case("PALADIN") -> {
+            case ("PALADIN") -> {
                 player.info.pClass = Class.PALADIN;
                 classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Paladin.CombatTable(player.info.level);
-                player.info.classSkills = (EntitySkill[]) skills.paladinSkills;
-                player.info.feats.addAll(Arrays.asList(feats.paladinFeats));
-                player.wallet.GoldPieces = dice.Roll(6,5) * 10;
+                player.info.classSkills = skills.paladinSkills;
+                player.info.feats.addAll(Arrays.asList(new _Feats().paladinFeats));
+                player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
             }
-            case("RANGER") -> {
+            case ("RANGER") -> {
                 player.info.pClass = Class.RANGER;
                 classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Ranger.CombatTable(player.info.level);
-                player.info.classSkills = (EntitySkill[]) skills.rangerSkills;
-                player.info.feats.addAll(Arrays.asList(feats.rangerFeats));
-                player.wallet.GoldPieces = dice.Roll(6,5) * 10;
+                player.info.classSkills = skills.rangerSkills;
+                player.info.feats.addAll(Arrays.asList(new _Feats().rangerFeats));
+                player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
             }
-            case("ROGUE") -> {
+            case ("ROGUE") -> {
                 player.info.pClass = Class.ROGUE;
                 classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Rogue.CombatTable(player.info.level);
-                player.info.classSkills = (EntitySkill[]) skills.rogueSkills;
-                player.info.feats.addAll(Arrays.asList(feats.rogueFeats));
-                player.wallet.GoldPieces = dice.Roll(6,4) * 10;
+                player.info.classSkills = skills.rogueSkills;
+                player.info.feats.addAll(Arrays.asList(new _Feats().rogueFeats));
+                player.wallet.GoldPieces = dice.Roll(6, 4) * 10;
             }
-            case("SORCERER") -> {
+            case ("SORCERER") -> {
                 player.info.pClass = Class.SORCERER;
                 classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Sorcerer.CombatTable(player.info.level);
-                player.info.classSkills = (EntitySkill[]) skills.sorcererSkills;
-                player.info.feats.addAll(Arrays.asList(feats.sorcererFeats));
-                player.wallet.GoldPieces = dice.Roll(6,2) * 10;
+                player.info.classSkills = skills.sorcererSkills;
+                player.info.feats.addAll(Arrays.asList(new _Feats().sorcererFeats));
+                player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
             }
-            case("WIZARD") -> {
+            case ("WIZARD") -> {
                 player.info.pClass = Class.WIZARD;
                 classTable = new CombatTable(player.info.level);
-                player.info.classSkills = (EntitySkill[]) skills.wizardSkills;
-                player.info.feats.addAll(Arrays.asList(feats.wizardFeats));
-                player.wallet.GoldPieces = dice.Roll(6,2) * 10;
+                player.info.classSkills = skills.wizardSkills;
+                player.info.feats.addAll(Arrays.asList(new _Feats().wizardFeats));
+                player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
             }
-            default ->{
+            default -> {
                 System.out.println("Invalid class.");
                 registerPlayerClass();
             }
+
         }
-        player.info.classSkills = calculateSkillsBonuses();
 
         cmdMgr.cls();
+    }
 
-        player.info.health = player.info.maxHealth;
+    void registerFeats(Feat[] feats){
+        player.info.feats.addAll(Arrays.asList(feats));
     }
 
     //endregion
@@ -450,10 +447,10 @@ public class PlayerDataMgr {
 
     void calculateHealth(){
         switch (player.info.pClass){
-            case BARBARIAN -> player.info.maxHealth = 1 + 12 + player.attributes.constitution;
-            case BARD, CLERIC, DRUID, MONK, ROGUE -> player.info.maxHealth = 1 + 8 + player.attributes.constitution;
-            case FIGHTER, PALADIN, RANGER -> player.info.maxHealth = 1 + 10 + player.attributes.constitution;
-            case SORCERER, WIZARD ->player.info.maxHealth = 1 + 6 + player.attributes.constitution;
+            case BARBARIAN -> player.info.maxHealth = 1 + 12 + player.attributeMods.constitution;
+            case BARD, CLERIC, DRUID, MONK, ROGUE -> player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
+            case FIGHTER, PALADIN, RANGER -> player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
+            case SORCERER, WIZARD ->player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
 
         }
     }
@@ -533,28 +530,11 @@ public class PlayerDataMgr {
     }
 
     void calculateArmorClass(){
-        player.info.armorClass = 10 + player.attributeMods.Dexterity;
+        player.combatInfo.AC = 10 + player.attributeMods.dexterity;
     }
 
-    EntitySkill[] calculateSkillsBonuses(){
+    void calculateSkillsBonuses(){
 
-        EntitySkill[] skills = new EntitySkill[player.info.classSkills.length];
-
-        for(int i = 0; i < player.info.classSkills.length; i++){
-            EntitySkill skill = new EntitySkill();
-            skill.setSkill(player.info.classSkills[i]);
-            switch (skill.getAbility()) {
-                case STRENGTH -> skill.setSize(new SkillBonus(player.attributeMods.Strength, 0,0));
-                case DEXTERITY -> skill.setSize(new SkillBonus(player.attributeMods.Dexterity, 0,0));
-                case CONSTITUTION -> skill.setSize(new SkillBonus(player.attributeMods.Constitution, 0,0));
-                case INTELLIGENCE -> skill.setSize(new SkillBonus(player.attributeMods.Intelligence, 0,0));
-                case WISDOM -> skill.setSize(new SkillBonus(player.attributeMods.Wisdom, 0,0));
-                case CHARISMA -> skill.setSize(new SkillBonus(player.attributeMods.Charisma, 0,0));
-            }
-            skills[i] = skill;
-        }
-
-        return skills;
     }
 
     void calculateSizeBonus(){
@@ -588,35 +568,35 @@ public class PlayerDataMgr {
                     shieldBonus += shield.shieldBonus;
             }
         }
-        return 10 + armorBonus + shieldBonus + player.attributeMods.Dexterity + sizeBonus;
+        return 10 + armorBonus + shieldBonus + player.attributeMods.dexterity + sizeBonus;
     }
 
     int calculateCMB(){
         switch (player.combatInfo.cmbCalcBonus){
             case STRENGTH -> {
-                return player.combatInfo.BAB + player.attributeMods.Strength + sizeBonus;
+                return player.combatInfo.BAB + player.attributeMods.strength + sizeBonus;
             }
             case DEXTERITY -> {
-                return player.combatInfo.BAB + player.attributeMods.Dexterity + sizeBonus;
+                return player.combatInfo.BAB + player.attributeMods.dexterity + sizeBonus;
             }
         }
         return 0;
     }
 
     int calculateCMD(){
-        return 10 + player.combatInfo.BAB + player.attributeMods.Strength + player.attributeMods.Dexterity + sizeBonus;
+        return 10 + player.combatInfo.BAB + player.attributeMods.strength + player.attributeMods.dexterity + sizeBonus;
     }
 
     int calculateFort(){
-        return player.attributeMods.Constitution + classTable.getLevel(player.info.level).fortSave;
+        return player.attributeMods.constitution + classTable.getLevel(player.info.level).fortSave;
     }
 
     int calculateRef(){
-        return player.attributeMods.Dexterity + classTable.getLevel(player.info.level).refSave;
+        return player.attributeMods.dexterity + classTable.getLevel(player.info.level).refSave;
     }
 
     int calculateWill(){
-        return player.attributeMods.Wisdom + classTable.getLevel(player.info.level).willSave;
+        return player.attributeMods.wisdom + classTable.getLevel(player.info.level).willSave;
     }
 
     public boolean hasFeat(Feat feat){
@@ -625,6 +605,10 @@ public class PlayerDataMgr {
                 return true;
         }
         return false;
+    }
+
+    public boolean hasSkillRanks(Skill skill, int ranks){
+        return ranks >= skill.getRanks();
     }
 
     //endregion
@@ -765,12 +749,12 @@ public class PlayerDataMgr {
     }
 
     void updateAbilityModifiers(){
-        player.attributeMods.Strength += abilityMods[0];
-        player.attributeMods.Dexterity += abilityMods[1];
-        player.attributeMods.Constitution += abilityMods[2];
-        player.attributeMods.Intelligence += abilityMods[3];
-        player.attributeMods.Wisdom += abilityMods[4];
-        player.attributeMods.Charisma += abilityMods[5];
+        player.attributeMods.strength += abilityMods[0];
+        player.attributeMods.dexterity += abilityMods[1];
+        player.attributeMods.constitution += abilityMods[2];
+        player.attributeMods.intelligence += abilityMods[3];
+        player.attributeMods.wisdom += abilityMods[4];
+        player.attributeMods.charisma += abilityMods[5];
     }
 
     public void updatePlayerValues(Player player){
@@ -923,7 +907,7 @@ public class PlayerDataMgr {
 
     public void displayPlayerAttributes(){
         if (player.attributes != null) {
-            System.out.println("|Attributes:");
+            System.out.println("\n|Attributes:");
             System.out.println("| Strength    : " + player.attributes.strength);
             System.out.println("| Dexterity   : " + player.attributes.dexterity);
             System.out.println("| Constitution: " + player.attributes.constitution);
@@ -936,21 +920,21 @@ public class PlayerDataMgr {
 
     public void displayAttributeMods() {
         if (player.attributeMods != null) {
-            System.out.println("|Attribute Modifiers:");
-            System.out.println("| Strength    : " + player.attributeMods.Strength);
-            System.out.println("| Dexterity   : " + player.attributeMods.Dexterity);
-            System.out.println("| Constitution: " + player.attributeMods.Constitution);
-            System.out.println("| Intelligence: " + player.attributeMods.Intelligence);
-            System.out.println("| Wisdom      : " + player.attributeMods.Wisdom);
-            System.out.println("| Charisma    : " + player.attributeMods.Charisma);
-            System.out.println("| Move Speed  : " + player.attributeMods.MoveSpeed);
+            System.out.println("\n|Attribute Modifiers:");
+            System.out.println("| Strength    : " + player.attributeMods.strength);
+            System.out.println("| Dexterity   : " + player.attributeMods.dexterity);
+            System.out.println("| Constitution: " + player.attributeMods.constitution);
+            System.out.println("| Intelligence: " + player.attributeMods.intelligence);
+            System.out.println("| Wisdom      : " + player.attributeMods.wisdom);
+            System.out.println("| Charisma    : " + player.attributeMods.charisma);
+            System.out.println("| Move Speed  : " + player.attributeMods.moveSpeed);
 
         }
     }
 
     public void displayPlayerSkills(){
         if(player.info.classSkills != null){
-            System.out.println("|Skills: ");
+            System.out.println("\n|Skills: ");
             for(Skill skill: player.info.classSkills)
                 System.out.println("| " + skill.getName());
         }
@@ -966,7 +950,7 @@ public class PlayerDataMgr {
 
     public void displayPlayerWallet(){
         if(player.wallet != null) {
-            System.out.println("|Wallet:");
+            System.out.println("\n|Wallet:");
             System.out.println("| Copper Pieces  : " + player.wallet.CopperPieces);
             System.out.println("| Silver Pieces  : " + player.wallet.SilverPieces);
             System.out.println("| Gold Pieces    : " + player.wallet.GoldPieces);

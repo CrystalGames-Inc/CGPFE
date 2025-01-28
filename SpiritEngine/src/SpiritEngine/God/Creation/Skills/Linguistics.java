@@ -6,14 +6,16 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class Linguistics extends Skill {
     public Linguistics(){
-        setName("Linguistics");
-        setClasses(new Class[]{
-                Class.BARD,
-                Class.CLERIC,
-                Class.ROGUE,
-                Class.WIZARD
-        });
-        setUntrained(false);
-        setAbility(Attribute.INTELLIGENCE);
+        super(
+                "Linguistics",
+                new Class[]{
+                        Class.BARD,
+                        Class.CLERIC,
+                        Class.ROGUE,
+                        Class.WIZARD
+                },
+                false,
+                Attribute.INTELLIGENCE
+        );
     }
 }

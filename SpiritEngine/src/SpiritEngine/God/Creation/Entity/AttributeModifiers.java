@@ -1,21 +1,21 @@
 package SpiritEngine.God.Creation.Entity;
 
 public class AttributeModifiers {
-    public int Strength;
-    public int Dexterity;
-    public int Constitution;
-    public int Intelligence;
-    public int Wisdom;
-    public int Charisma;
-    public int MoveSpeed;
+    public int strength;
+    public int dexterity;
+    public int constitution;
+    public int intelligence;
+    public int wisdom;
+    public int charisma;
+    public int moveSpeed;
 
     public AttributeModifiers(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int moveSpeed) {
-        Strength = strength;
-        Dexterity = dexterity;
-        Constitution = constitution;
-        Intelligence = intelligence;
-        Wisdom = wisdom;
-        Charisma = charisma;
-        MoveSpeed = moveSpeed;
+        this.strength = strength;
+        this.dexterity = dexterity;
+        this.constitution = constitution;
+        this.intelligence = intelligence;
+        this.wisdom = wisdom;
+        this.charisma = charisma;
+        this.moveSpeed = moveSpeed;
     }
 }

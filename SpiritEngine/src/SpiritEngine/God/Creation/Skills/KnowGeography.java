@@ -6,14 +6,16 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class KnowGeography extends Skill {
     public KnowGeography(){
-        setName("Knowledge (Geography)");
-        setClasses(new Class[]{
-                Class.BARD,
-                Class.DRUID,
-                Class.RANGER,
-                Class.WIZARD
-        });
-        setUntrained(false);
-        setAbility(Attribute.INTELLIGENCE);
+        super(
+                "Knowledge (Geography)",
+                new Class[]{
+                        Class.BARD,
+                        Class.DRUID,
+                        Class.RANGER,
+                        Class.WIZARD
+                },
+                false,
+                Attribute.INTELLIGENCE
+        );
     }
 }

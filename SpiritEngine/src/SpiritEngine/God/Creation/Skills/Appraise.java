@@ -6,16 +6,18 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class Appraise extends Skill {
     public Appraise(){
-        setName("Appraise");
-        setClasses(new Class[]{
-                Class.BARD,
-                Class.CLERIC,
-                Class.MONK,
-                Class.ROGUE,
-                Class.SORCERER,
-                Class.WIZARD
-        });
-        setUntrained(true);
-        setAbility(Attribute.INTELLIGENCE);
+        super(
+            "Appraise",
+            new Class[]{
+                    Class.BARD,
+                    Class.CLERIC,
+                    Class.MONK,
+                    Class.ROGUE,
+                    Class.SORCERER,
+                    Class.WIZARD
+            },
+            true,
+            Attribute.INTELLIGENCE
+        );
     }
 }

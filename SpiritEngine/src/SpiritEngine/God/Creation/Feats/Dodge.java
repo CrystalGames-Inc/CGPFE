@@ -8,5 +8,8 @@ public class Dodge extends Feat {
     public Dodge() {
         super("Dodge", Type.COMBAT);
         setCanAcquire(PlayerDataMgr.getInstance().player.attributes.dexterity >= 13);
+        if(hasFeat()){
+            PlayerDataMgr.getInstance().player.combatInfo.AC++;
+        }
     }
 }

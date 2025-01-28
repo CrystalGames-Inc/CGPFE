@@ -6,13 +6,15 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class UseMagicDevice extends Skill {
     public UseMagicDevice(){
-        setName("Use Magic Device");
-        setClasses(new Class[]{
-                Class.BARD,
-                Class.ROGUE,
-                Class.SORCERER
-        });
-        setUntrained(false);
-        setAbility(Attribute.CHARISMA);
+        super(
+                "Use Magic Device",
+                new Class[]{
+                        Class.BARD,
+                        Class.ROGUE,
+                        Class.SORCERER
+                },
+                false,
+                Attribute.CHARISMA
+        );
     }
 }

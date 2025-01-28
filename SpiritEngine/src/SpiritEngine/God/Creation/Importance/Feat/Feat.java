@@ -4,30 +4,38 @@ import SpiritEngine.God.Creation.Importance.Skill.SkillCheckModifier;
 
 public class Feat {
 
-    private String name;
+    private final String name;
+    private boolean hasFeat;
     private boolean canAcquire;
     private Type type;
-    private Type[] types = new Type[2];
+    private final Type[] types = new Type[2];
     private SkillCheckModifier[] skillModifiers;
     private int[] checkModifiers;
 
     public Feat(String name){
         this.name = name;
+        this.hasFeat = false;
     }
 
     public Feat(String name, Type type){
         this.name = name;
+        this.hasFeat = false;
         this.type = type;
     }
 
     public Feat(String name, Type type1, Type type2){
         this.name = name;
+        this.hasFeat = false;
         this.types[0] = type1;
         this.types[1] = type2;
     }
 
     public void setCanAcquire(boolean condition) {
         this.canAcquire = condition;
+    }
+
+    public void setHasFeat(boolean hasFeat){
+        this.hasFeat = hasFeat;
     }
 
     public void setSkillModifiers(SkillCheckModifier[] skillModifiers){
@@ -40,6 +48,10 @@ public class Feat {
 
     public String getName() {
         return name;
+    }
+
+    public boolean hasFeat(){
+        return hasFeat;
     }
 
     public boolean canAcquire() {

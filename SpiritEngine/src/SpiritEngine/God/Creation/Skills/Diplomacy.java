@@ -7,14 +7,16 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 public final class Diplomacy extends Skill {
 
     public Diplomacy(){
-        setName("Diplomacy");
-        setClasses(new Class[]{
-                Class.BARD,
-                Class.CLERIC,
-                Class.PALADIN,
-                Class.ROGUE
-        });
-        setUntrained(true);
-        setAbility(Attribute.CHARISMA);
+        super(
+                "Diplomacy",
+                new Class[]{
+                        Class.BARD,
+                        Class.CLERIC,
+                        Class.PALADIN,
+                        Class.ROGUE
+                },
+                true,
+                Attribute.CHARISMA
+        );
     }
 }

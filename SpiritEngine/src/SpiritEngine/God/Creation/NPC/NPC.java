@@ -68,26 +68,26 @@ public class NPC {
                     shieldBonus += shield.shieldBonus;
             }
         }
-        return 10 + armorBonus + shieldBonus + attributeMods.Dexterity + sizeBonus;
+        return 10 + armorBonus + shieldBonus + attributeMods.dexterity + sizeBonus;
     }
 
     int calculateCMB(){
-        return combatInfo.BAB + attributeMods.Strength + sizeBonus;
+        return combatInfo.BAB + attributeMods.strength + sizeBonus;
     }
 
     int calculateCMD(){
-        return 10 + combatInfo.BAB + attributeMods.Strength + attributeMods.Dexterity + sizeBonus;
+        return 10 + combatInfo.BAB + attributeMods.strength + attributeMods.dexterity + sizeBonus;
     }
 
     int calculateFort(){
-        return attributeMods.Constitution + combatInfo.table.getLevel(info.level).fortSave;
+        return attributeMods.constitution + combatInfo.table.getLevel(info.level).fortSave;
     }
 
     int calculateRef(){
-        return attributeMods.Dexterity + combatInfo.table.getLevel(info.level).refSave;
+        return attributeMods.dexterity + combatInfo.table.getLevel(info.level).refSave;
     }
 
     int calculateWill(){
-        return attributeMods.Wisdom + combatInfo.table.getLevel(info.level).willSave;
+        return attributeMods.wisdom + combatInfo.table.getLevel(info.level).willSave;
     }
 }

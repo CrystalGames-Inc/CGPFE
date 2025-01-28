@@ -6,17 +6,19 @@ import SpiritEngine.God.Creation.Importance.Constants.Attribute;
 
 public final class Intimidate extends Skill {
     public Intimidate(){
-        setName("Intimidate");
-        setClasses(new Class[]{
-                Class.BARBARIAN,
-                Class.BARD,
-                Class.FIGHTER,
-                Class.MONK,
-                Class.RANGER,
-                Class.ROGUE,
-                Class.SORCERER
-        });
-        setUntrained(true);
-        setAbility(Attribute.CHARISMA);
+        super(
+                "Intimidate",
+                new Class[]{
+                        Class.BARBARIAN,
+                        Class.BARD,
+                        Class.FIGHTER,
+                        Class.MONK,
+                        Class.RANGER,
+                        Class.ROGUE,
+                        Class.SORCERER
+                },
+                true,
+                Attribute.CHARISMA
+        );
     }
 }
