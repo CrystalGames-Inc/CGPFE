@@ -10,7 +10,6 @@ import SpiritEngine.Data.Models.Items.Equipment.Weapon.Base.Type;
 import SpiritEngine.Mechanics.Player.InventoryItem;
 import SpiritEngine.Mechanics.Dice;
 import SpiritEngine.God.Creation.Entity.Wallet;
-import SpiritEngine.God.Creation.Entity.AttributeModifiers;
 import SpiritEngine.God.Creation.Entity.Attributes;
 import SpiritEngine.God.Creation.Importance.Constants.*;
 import SpiritEngine.God.Creation.Skills._Skills;
@@ -42,7 +41,7 @@ public class PlayerDataMgr {
             new Info("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Size.MEDIUM, Class.PLACEHOLDER, 1,0,0,0,new Skill[]{}),
             new CombatInfo(0,0,0,0,0,0,0,CMBCalcBonus.STRENGTH,0,0, new Weapon[5], new RangedWeapon[5], new Armor[5], new Shield[5]),
             new Attributes(0,0,0,0,0,0,0),
-            new AttributeModifiers(0,0,0,0,0,0,0),
+            new Attributes(0,0,0,0,0,0,0),
             new Wallet(0,0,0,0),
             new InventoryItem[210]);
 

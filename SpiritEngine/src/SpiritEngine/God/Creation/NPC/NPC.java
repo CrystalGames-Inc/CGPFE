@@ -9,12 +9,12 @@ public class NPC {
     public Info info;
     public CombatInfo combatInfo;
     public Attributes attributes;
-    public AttributeModifiers attributeMods;
+    public Attributes attributeMods;
     public Wallet wallet;
     public InventoryItem[] inventory;
     public int sizeBonus;
 
-    public NPC(Info info, CombatInfo combatInfo, Attributes attributes, AttributeModifiers attributeMods, Wallet wallet, InventoryItem[] inventory) {
+    public NPC(Info info, CombatInfo combatInfo, Attributes attributes, Attributes attributeMods, Wallet wallet, InventoryItem[] inventory) {
         this.info = info;
         this.combatInfo = combatInfo;
         this.attributes = attributes;
