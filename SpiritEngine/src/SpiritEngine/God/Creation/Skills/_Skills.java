@@ -1,6 +1,7 @@
 package SpiritEngine.God.Creation.Skills;
 
 import SpiritEngine.God.Creation.Importance.Skill.Skill;
+import SpiritEngine.Management.PlayerDataMgr;
 
 public class _Skills {
 
@@ -46,26 +47,340 @@ public class _Skills {
 
     //region Class-Specific Skill Arrays
 
-    public Skill[] barbarianSkills = new Skill[]{acrobatics, climb, craft, handleAnimal, intimidate, knowNature, perception, ride, survival, swim};
-    public Skill[] bardSkills = new Skill[]{acrobatics, appraise, bluff, climb, craft, diplomacy, disguise, escapeArtist, intimidate, knowArcana, knowDungeoneering, knowEngineering, knowGeography, knowHistory, knowLocal, knowNature, knowNobility, knowPlanes, knowReligion, linguistics, perception, perform, profession, senseMotive, sleightOfHand, spellcraft, stealth, useMagicDevice};
-    public Skill[] clericSkills = new Skill[]{appraise, craft, diplomacy, heal, knowArcana, knowHistory, knowNobility, knowPlanes, knowReligion, linguistics, profession, senseMotive, spellcraft};
-    public Skill[] druidSkills = new Skill[]{climb, craft, fly, handleAnimal, heal, knowEngineering, knowGeography, knowNature, perception, profession, ride, spellcraft, survival, swim};
-    public Skill[] fighterSkills = new Skill[]{craft, intimidate, knowDungeoneering, profession, ride};
-    public Skill[] monkSkills = new Skill[]{acrobatics, craft, intimidate, knowHistory, knowNobility, knowReligion, perception, perform, profession, ride, senseMotive, stealth, swim};
-    public Skill[] paladinSkills = new Skill[]{craft, handleAnimal, heal, intimidate, knowDungeoneering, knowEngineering, knowGeography, knowNature, knowReligion, profession, ride, spellcraft, survival, swim};
-    public Skill[] rangerSkills = new Skill[]{climb, craft, handleAnimal, heal, intimidate, knowDungeoneering, knowLocal, perception, profession, ride, spellcraft, stealth, swim};
-    public Skill[] rogueSkills = new Skill[]{acrobatics, appraise, bluff, climb, craft, diplomacy, disableDevice, disguise, escapeArtist, intimidate, knowArcana, linguistics, perception, perform, profession, senseMotive, sleightOfHand, stealth, useMagicDevice};
-    public Skill[] sorcererSkills = new Skill[]{appraise, bluff, craft, fly, knowArcana, profession, spellcraft, useMagicDevice};
-    public Skill[] wizardSkills = new Skill[]{appraise, craft, fly, knowArcana, knowDungeoneering, knowEngineering, knowGeography, knowHistory, knowLocal, knowNature, knowNobility, knowPlanes, knowReligion, profession, spellcraft};
+    public final Skill[] alchemistSkills = new Skill[]{
+            appraise,
+            craft,
+            disableDevice,
+            fly,
+            heal,
+            knowArcana,
+            knowNature,
+            perception,
+            profession,
+            sleightOfHand,
+            spellcraft,
+            survival,
+            useMagicDevice
+    };
+
+    public final Skill[] barbarianSkills = new Skill[]{
+            acrobatics,
+            climb,
+            craft,
+            handleAnimal,
+            intimidate,
+            knowNature,
+            perception,
+            ride,
+            survival,
+            swim
+    };
+    public final Skill[] bardSkills = new Skill[]{
+            acrobatics,
+            appraise,
+            bluff,
+            climb,
+            craft,
+            diplomacy,
+            disguise,
+            escapeArtist,
+            intimidate,
+            knowArcana,
+            knowDungeoneering,
+            knowEngineering,
+            knowGeography,
+            knowHistory,
+            knowLocal,
+            knowNature,
+            knowNobility,
+            knowPlanes,
+            knowReligion,
+            linguistics,
+            perception,
+            perform,
+            profession,
+            senseMotive,
+            sleightOfHand,
+            spellcraft,
+            stealth,
+            useMagicDevice
+    };
+
+    public final Skill[] cavalierSkills = new Skill[]{
+            bluff,
+            climb,
+            craft,
+            diplomacy,
+            handleAnimal,
+            intimidate,
+            profession,
+            ride,
+            senseMotive,
+            swim
+    };
+
+    public final Skill[] clericSkills = new Skill[]{
+            appraise,
+            craft,
+            diplomacy,
+            heal,
+            knowArcana,
+            knowHistory,
+            knowNobility,
+            knowPlanes,
+            knowReligion,
+            linguistics,
+            profession,
+            senseMotive,
+            spellcraft
+    };
+
+    public final Skill[] druidSkills = new Skill[]{
+            climb,
+            craft,
+            fly,
+            handleAnimal,
+            heal,
+            knowEngineering,
+            knowGeography,
+            knowNature,
+            perception,
+            profession,
+            ride,
+            spellcraft,
+            survival,
+            swim
+    };
+
+    public final Skill[] fighterSkills = new Skill[]{
+            craft,
+            intimidate,
+            knowDungeoneering,
+            profession,
+            ride
+    };
+
+    public final Skill[] inquisitorSkills = new Skill[]{
+            bluff,
+            climb,
+            craft,
+            diplomacy,
+            disguise,
+            heal,
+            intimidate,
+            knowArcana,
+            knowDungeoneering,
+            knowNature,
+            knowPlanes,
+            knowReligion,
+            perception,
+            profession,
+            ride,
+            senseMotive,
+            spellcraft,
+            stealth,
+            survival,
+            swim
+    };
+
+    public final Skill[] monkSkills = new Skill[]{
+            acrobatics,
+            craft,
+            intimidate,
+            knowHistory,
+            knowNobility,
+            knowReligion,
+            perception,
+            perform,
+            profession,
+            ride,
+            senseMotive,
+            stealth,
+            swim
+    };
+
+    public final Skill[] oracleSkills = new Skill[]{
+            craft,
+            diplomacy,
+            heal,
+            knowHistory,
+            knowPlanes,
+            knowReligion,
+            profession,
+            senseMotive,
+            spellcraft
+    };
+
+    public final Skill[] paladinSkills = new Skill[]{
+            craft,
+            handleAnimal,
+            heal,
+            intimidate,
+            knowDungeoneering,
+            knowEngineering,
+            knowGeography,
+            knowNature,
+            knowReligion,
+            profession,
+            ride,
+            spellcraft,
+            survival,
+            swim
+    };
+
+    public final Skill[] rangerSkills = new Skill[]{
+            climb,
+            craft,
+            handleAnimal,
+            heal,
+            intimidate,
+            knowDungeoneering,
+            knowLocal,
+            perception,
+            profession,
+            ride,
+            spellcraft,
+            stealth,
+            swim
+    };
+
+    public final Skill[] rogueSkills = new Skill[]{
+            acrobatics,
+            appraise,
+            bluff,
+            climb,
+            craft,
+            diplomacy,
+            disableDevice,
+            disguise,
+            escapeArtist,
+            intimidate,
+            knowArcana,
+            linguistics,
+            perception,
+            perform,
+            profession,
+            senseMotive,
+            sleightOfHand,
+            stealth,
+            useMagicDevice
+    };
+
+    public final Skill[] sorcererSkills = new Skill[]{
+            appraise,
+            bluff,
+            craft,
+            fly,
+            knowArcana,
+            profession,
+            spellcraft,
+            useMagicDevice
+    };
+
+    public final Skill[] summonerSkills = new Skill[]{
+            craft,
+            fly,
+            handleAnimal,
+            knowArcana,
+            knowDungeoneering,
+            knowEngineering,
+            knowGeography,
+            knowHistory,
+            knowLocal,
+            knowNature,
+            knowNobility,
+            knowPlanes,
+            knowReligion,
+            linguistics,
+            profession,
+            ride,
+            spellcraft,
+            useMagicDevice
+    };
+
+    public final Skill[] witchSkills = new Skill[]{
+            craft,
+            fly,
+            heal,
+            intimidate,
+            knowArcana,
+            knowHistory,
+            knowNature,
+            knowPlanes,
+            profession,
+            spellcraft,
+            useMagicDevice
+    };
+
+    public final Skill[] wizardSkills = new Skill[]{
+            appraise,
+            craft,
+            fly,
+            knowArcana,
+            knowDungeoneering,
+            knowEngineering,
+            knowGeography,
+            knowHistory,
+            knowLocal,
+            knowNature,
+            knowNobility,
+            knowPlanes,
+            knowReligion,
+            profession,
+            spellcraft
+    };
 
     //endregion
 
     //region NPC Skill arrays
 
-    public Skill[] adeptSkills = new Skill[]{craft, handleAnimal, heal, profession, spellcraft, survival};
-    public Skill[] aristocratSkills = new Skill[]{appraise, bluff, craft, diplomacy, disguise, handleAnimal, intimidate, linguistics, perception, perform, profession, ride, senseMotive, survival, swim};
-    public Skill[] commonerSkills = new Skill[]{climb, craft, handleAnimal, perception, profession, ride, swim};
+    public final Skill[] adeptSkills = new Skill[]{
+            craft,
+            handleAnimal,
+            heal,
+            profession,
+            spellcraft,
+            survival
+    };
+
+    public final Skill[] aristocratSkills = new Skill[]{
+            appraise,
+            bluff,
+            craft,
+            diplomacy,
+            disguise,
+            handleAnimal,
+            intimidate,
+            linguistics,
+            perception,
+            perform,
+            profession,
+            ride,
+            senseMotive,
+            survival,
+            swim
+    };
+
+    public final Skill[] commonerSkills = new Skill[]{
+            climb,
+            craft,
+            handleAnimal,
+            perception,
+            profession,
+            ride,
+            swim
+    };
+
     //Since The Expert can choose 10 skills, add them when creating the NPC
-    public Skill[] warriorSkills = new Skill[]{climb, craft, handleAnimal, intimidate, profession, ride, swim};
+
+    public Skill[] warriorSkills = new Skill[]{
+            climb,
+            craft,
+            handleAnimal,
+            intimidate,
+            profession,
+            ride,
+            swim
+    };
     //endregion
 }

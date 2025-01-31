@@ -38,7 +38,7 @@ public class PlayerDataMgr {
     Scanner input = new Scanner(System.in);
 
     public Player player = new Player(
-            new Info("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.PLACEHOLDER, Size.MEDIUM, Class.PLACEHOLDER, 1,0,0,0,new Skill[]{}),
+            new Info("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.HUMAN, Size.MEDIUM, Class.PALADIN, 1,0,0,0,new Skill[]{}),
             new CombatInfo(0,0,0,0,0,0,0,CMBCalcBonus.STRENGTH,0,0, new Weapon[5], new RangedWeapon[5], new Armor[5], new Shield[5]),
             new Attributes(0,0,0,0,0,0,0),
             new Attributes(0,0,0,0,0,0,0),
@@ -103,8 +103,6 @@ public class PlayerDataMgr {
         calculateSkillsBonuses();
 
         registerPlayerAlignment();
-
-        calculateHealth();
 
         calculatePlayerAge();
 
@@ -291,6 +289,7 @@ public class PlayerDataMgr {
                 player.info.classSkills = skills.barbarianSkills;
                 registerFeats(new _Feats().barbarianFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
+                player.info.maxHealth = 1 + 12 + player.attributeMods.constitution;
             }
             case ("BARD") -> {
                 player.info.pClass = Class.BARD;
@@ -298,6 +297,7 @@ public class PlayerDataMgr {
                 player.info.classSkills = skills.bardSkills;
                 player.info.feats.addAll(Arrays.asList(new _Feats().bardFeats));
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
+                player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("CLERIC") -> {
                 player.info.pClass = Class.CLERIC;
@@ -305,6 +305,7 @@ public class PlayerDataMgr {
                 player.info.classSkills = skills.clericSkills;
                 player.info.feats.addAll(Arrays.asList(new _Feats().clericFeats));
                 player.wallet.GoldPieces = dice.Roll(6, 4) * 10;
+                player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("DRUID") -> {
                 player.info.pClass = Class.DRUID;
@@ -312,6 +313,7 @@ public class PlayerDataMgr {
                 player.info.classSkills = skills.druidSkills;
                 player.info.feats.addAll(Arrays.asList(new _Feats().druidFeats));
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
+                player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("FIGHTER") -> {
                 player.info.pClass = Class.FIGHTER;
@@ -319,6 +321,7 @@ public class PlayerDataMgr {
                 player.info.classSkills = skills.fighterSkills;
                 player.info.feats.addAll(Arrays.asList(new _Feats().fighterFeats));
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
+                player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
             }
             case ("MONK") -> {
                 player.info.pClass = Class.MONK;
@@ -326,6 +329,7 @@ public class PlayerDataMgr {
                 player.info.classSkills = skills.monkSkills;
                 player.info.feats.addAll(Arrays.asList(new _Feats().monkFeats));
                 player.wallet.GoldPieces = dice.Roll(6) * 10;
+                player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("PALADIN") -> {
                 player.info.pClass = Class.PALADIN;
@@ -333,6 +337,7 @@ public class PlayerDataMgr {
                 player.info.classSkills = skills.paladinSkills;
                 player.info.feats.addAll(Arrays.asList(new _Feats().paladinFeats));
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
+                player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
             }
             case ("RANGER") -> {
                 player.info.pClass = Class.RANGER;
@@ -340,6 +345,7 @@ public class PlayerDataMgr {
                 player.info.classSkills = skills.rangerSkills;
                 player.info.feats.addAll(Arrays.asList(new _Feats().rangerFeats));
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
+                player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
             }
             case ("ROGUE") -> {
                 player.info.pClass = Class.ROGUE;
@@ -347,6 +353,7 @@ public class PlayerDataMgr {
                 player.info.classSkills = skills.rogueSkills;
                 player.info.feats.addAll(Arrays.asList(new _Feats().rogueFeats));
                 player.wallet.GoldPieces = dice.Roll(6, 4) * 10;
+                player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("SORCERER") -> {
                 player.info.pClass = Class.SORCERER;
@@ -354,6 +361,7 @@ public class PlayerDataMgr {
                 player.info.classSkills = skills.sorcererSkills;
                 player.info.feats.addAll(Arrays.asList(new _Feats().sorcererFeats));
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
+                player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
             }
             case ("WIZARD") -> {
                 player.info.pClass = Class.WIZARD;
@@ -361,6 +369,7 @@ public class PlayerDataMgr {
                 player.info.classSkills = skills.wizardSkills;
                 player.info.feats.addAll(Arrays.asList(new _Feats().wizardFeats));
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
+                player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
             }
             default -> {
                 System.out.println("Invalid class.");
@@ -368,6 +377,8 @@ public class PlayerDataMgr {
             }
 
         }
+
+        player.info.health = player.info.maxHealth;
 
         cmdMgr.cls();
     }
@@ -441,16 +452,6 @@ public class PlayerDataMgr {
                     case CLERIC, DRUID, MONK, WIZARD -> player.info.age =    dice.Roll(6,2,15);
                 }
             }
-        }
-    }
-
-    void calculateHealth(){
-        switch (player.info.pClass){
-            case BARBARIAN -> player.info.maxHealth = 1 + 12 + player.attributeMods.constitution;
-            case BARD, CLERIC, DRUID, MONK, ROGUE -> player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
-            case FIGHTER, PALADIN, RANGER -> player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
-            case SORCERER, WIZARD ->player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
-
         }
     }
 

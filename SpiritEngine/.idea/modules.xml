@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ConsoleRPG.iml" filepath="$PROJECT_DIR$/ConsoleRPG.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpiritEngine.iml" filepath="$PROJECT_DIR$/SpiritEngine.iml" />
     </modules>
   </component>
 </project>

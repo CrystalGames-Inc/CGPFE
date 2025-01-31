@@ -8,5 +8,4 @@ public enum Race {
     HALFORC,
     HALFLING,
     HUMAN,
-    PLACEHOLDER
 }
