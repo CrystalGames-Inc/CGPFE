@@ -185,6 +185,11 @@ public class _Feats {
 
     //region PC Class Feats
 
+    public final Feat[] alchemistFeats = new Feat[]{
+            simpleWeaponProficiency,
+            armorProficiencyL
+    };
+
     public final Feat[] barbarianFeats = new Feat[]{
             simpleWeaponProficiency,
             martialWeaponProficiency,
@@ -196,6 +201,15 @@ public class _Feats {
     public final Feat[] bardFeats = new Feat[]{
             simpleWeaponProficiency,
             armorProficiencyL,
+            shieldProficiency
+    };
+
+    public final Feat[] cavalierFeats = new Feat[]{
+            simpleWeaponProficiency,
+            martialWeaponProficiency,
+            armorProficiencyL,
+            armorProficiencyM,
+            armorProficiencyH,
             shieldProficiency
     };
 
@@ -221,6 +235,20 @@ public class _Feats {
             towerShieldProficiency
     };
 
+    public final Feat[] inquisitorFeats = new Feat[]{
+            simpleWeaponProficiency,
+            new WeaponProficiency(new Weapon[]{
+                    weapons.handCrossbow,
+                    weapons.longbow,
+                    weapons.repeatingLightCrossbow,
+                    weapons.repeatingHeavyCrossbow,
+                    weapons.shortbow
+            }),
+            armorProficiencyL,
+            armorProficiencyM,
+            shieldProficiency
+    };
+
     public final Feat[] monkFeats = new Feat[]{
         new WeaponProficiency(new Weapon[]{
                 weapons.club,
@@ -240,6 +268,13 @@ public class _Feats {
                 weapons.sling,
                 weapons.spear
         })
+    };
+
+    public final Feat[] oracleFeats = new Feat[]{
+            simpleWeaponProficiency,
+            armorProficiencyL,
+            armorProficiencyM,
+            shieldProficiency
     };
 
     public final Feat[] paladinFeats = new Feat[]{
@@ -272,6 +307,15 @@ public class _Feats {
     };
 
     public final Feat[] sorcererFeats = new Feat[]{
+            simpleWeaponProficiency
+    };
+
+    public final Feat[] summonerFeats = new Feat[]{
+            simpleWeaponProficiency,
+            armorProficiencyL
+    };
+
+    public final Feat[] witchFeats = new Feat[]{
             simpleWeaponProficiency
     };
 
