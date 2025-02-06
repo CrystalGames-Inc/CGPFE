@@ -62,6 +62,7 @@ public class PlayerDataMgr {
     int spendableAbilityPts;
     int sizeBonus;
     Table classTable;
+    _Feats gameFeats = new _Feats();
 
     private static PlayerDataMgr _instance = null;
 
@@ -156,7 +157,7 @@ public class PlayerDataMgr {
                     case "CHAOTICEVIL" -> player.info.alignment = Alignment.CHAOTICEVIL;
                 }
             }
-            case BARD, CLERIC, FIGHTER, RANGER, ROGUE, SORCERER, WIZARD -> {
+            case ALCHEMIST, BARD, CAVALIER, CLERIC, FIGHTER, ORACLE, RANGER, ROGUE, SORCERER, SUMMONER, WITCH, WIZARD -> {
                 System.out.println("Please Select An Alignment:\nLawfulGood\nNeutralGood\nChaoticGood\nLawfulNeutral\nNeutral\nChaoticNeutral\nLawfulEvil\nNeutralEvil\nChaoticEvil");
                 alignmentIn = input.nextLine();
                 switch (alignmentIn.toUpperCase()){
@@ -278,96 +279,144 @@ public class PlayerDataMgr {
     }
 
     void registerPlayerClass() {
-        _Skills skills = new _Skills();
+        _Skills gameSkills = new _Skills();
 
-        System.out.println("Please choose your character's class:\nBarbarian\nBard\nCleric\nDruid\nFighter\nMonk\nPaladin\nRanger\nRogue\nSorcerer\nWizard");
+        System.out.println("Please choose your character's class:\nAlchemist\nBarbarian\nBard\nCavalier\nCleric\nDruid\nFighter\nInquisitor\nMonk\nOracle\nPaladin\nRanger\nRogue\nSorcerer\nSummoner\nWitch\nWizard");
         String pClass = input.nextLine();
         switch (pClass.toUpperCase()) {
+            case ("ALCHEMIST") -> {
+                player.info.pClass = Class.ALCHEMIST;
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.alchemistSkills;
+                registerFeats(gameFeats.alchemistFeats);
+                player.wallet.GoldPieces = dice.Roll(6,3) * 10;
+                player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
+            }
             case ("BARBARIAN") -> {
                 player.info.pClass = Class.BARBARIAN;
-                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Barbarian.CombatTable(player.info.level);
-                player.info.classSkills = skills.barbarianSkills;
-                registerFeats(new _Feats().barbarianFeats);
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.barbarianSkills;
+                registerFeats(gameFeats.barbarianFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
                 player.info.maxHealth = 1 + 12 + player.attributeMods.constitution;
             }
             case ("BARD") -> {
                 player.info.pClass = Class.BARD;
-                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Bard.CombatTable(player.info.level);
-                player.info.classSkills = skills.bardSkills;
-                player.info.feats.addAll(Arrays.asList(new _Feats().bardFeats));
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.bardSkills;
+                registerFeats(gameFeats.bardFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
+            case ("CAVALIER") -> {
+                player.info.pClass = Class.CAVALIER;
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.cavalierSkills;
+                registerFeats(new _Feats().cavalierFeats);
+                player.wallet.GoldPieces = dice.Roll(6,5) * 10;
+                player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
+            }
             case ("CLERIC") -> {
                 player.info.pClass = Class.CLERIC;
-                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Cleric.CombatTable(player.info.level);
-                player.info.classSkills = skills.clericSkills;
-                player.info.feats.addAll(Arrays.asList(new _Feats().clericFeats));
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.clericSkills;
+                registerFeats(gameFeats.clericFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 4) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("DRUID") -> {
                 player.info.pClass = Class.DRUID;
-                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Druid.CombatTable(player.info.level);
-                player.info.classSkills = skills.druidSkills;
-                player.info.feats.addAll(Arrays.asList(new _Feats().druidFeats));
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.druidSkills;
+                registerFeats(gameFeats.druidFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("FIGHTER") -> {
                 player.info.pClass = Class.FIGHTER;
-                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Fighter.CombatTable(player.info.level);
-                player.info.classSkills = skills.fighterSkills;
-                player.info.feats.addAll(Arrays.asList(new _Feats().fighterFeats));
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.fighterSkills;
+                registerFeats(gameFeats.fighterFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
             }
+            case ("INQUISITOR") -> {
+                player.info.pClass = Class.INQUISITOR;
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.inquisitorSkills;
+                registerFeats(gameFeats.inquisitorFeats);
+                player.wallet.GoldPieces = dice.Roll(6,4) * 10;
+                player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
+            }
             case ("MONK") -> {
                 player.info.pClass = Class.MONK;
-                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Monk.CombatTable(player.info.level);
-                player.info.classSkills = skills.monkSkills;
-                player.info.feats.addAll(Arrays.asList(new _Feats().monkFeats));
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.monkSkills;
+                registerFeats(gameFeats.monkFeats);
                 player.wallet.GoldPieces = dice.Roll(6) * 10;
+                player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
+            }
+            case ("ORACLE") -> {
+                player.info.pClass = Class.ORACLE;
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.oracleSkills;
+                registerFeats(gameFeats.oracleFeats);
+                player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("PALADIN") -> {
                 player.info.pClass = Class.PALADIN;
-                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Paladin.CombatTable(player.info.level);
-                player.info.classSkills = skills.paladinSkills;
-                player.info.feats.addAll(Arrays.asList(new _Feats().paladinFeats));
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.paladinSkills;
+                registerFeats(gameFeats.paladinFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
             }
             case ("RANGER") -> {
                 player.info.pClass = Class.RANGER;
-                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Ranger.CombatTable(player.info.level);
-                player.info.classSkills = skills.rangerSkills;
-                player.info.feats.addAll(Arrays.asList(new _Feats().rangerFeats));
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.rangerSkills;
+                registerFeats(gameFeats.rangerFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
             }
             case ("ROGUE") -> {
                 player.info.pClass = Class.ROGUE;
-                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Rogue.CombatTable(player.info.level);
-                player.info.classSkills = skills.rogueSkills;
-                player.info.feats.addAll(Arrays.asList(new _Feats().rogueFeats));
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.rogueSkills;
+                registerFeats(gameFeats.rogueFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 4) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("SORCERER") -> {
                 player.info.pClass = Class.SORCERER;
-                classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Sorcerer.CombatTable(player.info.level);
-                player.info.classSkills = skills.sorcererSkills;
-                player.info.feats.addAll(Arrays.asList(new _Feats().sorcererFeats));
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.sorcererSkills;
+                registerFeats(gameFeats.sorcererFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
+                player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
+            }
+            case ("SUMMONER") -> {
+                player.info.pClass = Class.SUMMONER;
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.summonerSkills;
+                registerFeats(gameFeats.summonerFeats);
+                player.wallet.GoldPieces = dice.Roll(6,2) * 10;
+                player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
+            }
+            case ("WITCH") -> {
+                player.info.pClass = Class.WITCH;
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.witchSkills;
+                registerFeats(gameFeats.witchFeats);
+                player.wallet.GoldPieces = dice.Roll(6,3) * 10;
                 player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
             }
             case ("WIZARD") -> {
                 player.info.pClass = Class.WIZARD;
-                classTable = new CombatTable(player.info.level);
-                player.info.classSkills = skills.wizardSkills;
-                player.info.feats.addAll(Arrays.asList(new _Feats().wizardFeats));
+                updatePlayerCombatTable(1);
+                player.info.classSkills = gameSkills.wizardSkills;
+                registerFeats(gameFeats.wizardFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
                 player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
             }
@@ -375,7 +424,6 @@ public class PlayerDataMgr {
                 System.out.println("Invalid class.");
                 registerPlayerClass();
             }
-
         }
 
         player.info.health = player.info.maxHealth;
@@ -757,7 +805,46 @@ public class PlayerDataMgr {
         player.attributeMods.charisma += abilityMods[5];
     }
 
-    public void updatePlayerValues(Player player){
+    void updatePlayerCombatTable(int level){
+        switch (player.info.pClass){
+            case ALCHEMIST ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Alchemist.CombatTable(level);
+            case BARBARIAN ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Barbarian.CombatTable(level);
+            case BARD ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Bard.CombatTable(level);
+            case CAVALIER ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Cavalier.CombatTable(level);
+            case CLERIC ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Cleric.CombatTable(level);
+            case DRUID ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Druid.CombatTable(level);
+            case FIGHTER ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Fighter.CombatTable(level);
+            case INQUISITOR ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Inquisitor.CombatTable(level);
+            case MONK ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Monk.CombatTable(level);
+            case ORACLE ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Oracle.CombatTable(level);
+            case PALADIN ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Paladin.CombatTable(level);
+            case RANGER ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Ranger.CombatTable(level);
+            case ROGUE ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Rogue.CombatTable(level);
+            case SORCERER ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Sorcerer.CombatTable(level);
+            case SUMMONER ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Summoner.CombatTable(level);
+            case WITCH ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Witch.CombatTable(level);
+            case WIZARD ->
+                    classTable = new SpiritEngine.God.Creation.ClassTable.Classes.Player.Wizard.CombatTable(level);
+        }
+    }
+
+    public void updatePlayer(Player player){
         this.player = player;
     }
 

@@ -9,6 +9,7 @@ public final class Heal extends Skill {
         super(
                 "Heal",
                 new Class[]{
+                        Class.ALCHEMIST,
                         Class.BARD,
                         Class.DRUID,
                         Class.PALADIN,

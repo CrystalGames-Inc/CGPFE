@@ -9,6 +9,7 @@ public final class Survival extends Skill {
         super(
                 "Survival",
                 new Class[]{
+                        Class.ALCHEMIST,
                         Class.BARBARIAN,
                         Class.DRUID,
                         Class.FIGHTER,

@@ -9,6 +9,7 @@ public final class Spellcraft extends Skill {
         super(
                 "Spellcraft",
                 new Class[]{
+                        Class.ALCHEMIST,
                         Class.BARD,
                         Class.CLERIC,
                         Class.DRUID,

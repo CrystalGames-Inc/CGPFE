@@ -10,6 +10,7 @@ public final class SenseMotive extends Skill {
                 "Sense Motive",
                 new Class[]{
                         Class.BARD,
+                        Class.CAVALIER,
                         Class.CLERIC,
                         Class.MONK,
                         Class.PALADIN,

@@ -10,8 +10,10 @@ public final class Craft extends Skill {
         super(
             "Craft",
             new Class[]{
+                    Class.ALCHEMIST,
                     Class.BARBARIAN,
                     Class.BARD,
+                    Class.CAVALIER,
                     Class.CLERIC,
                     Class.DRUID,
                     Class.FIGHTER,

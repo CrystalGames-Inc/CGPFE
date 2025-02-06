@@ -10,6 +10,7 @@ public final class HandleAnimal extends Skill {
                 "Handle Animal",
                 new Class[]{
                         Class.BARBARIAN,
+                        Class.CAVALIER,
                         Class.DRUID,
                         Class.FIGHTER,
                         Class.PALADIN,

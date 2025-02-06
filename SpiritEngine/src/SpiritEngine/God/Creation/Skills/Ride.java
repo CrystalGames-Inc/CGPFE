@@ -10,6 +10,7 @@ public final class Ride extends Skill {
                 "Ride",
                 new Class[]{
                         Class.BARBARIAN,
+                        Class.CAVALIER,
                         Class.DRUID,
                         Class.FIGHTER,
                         Class.MONK,

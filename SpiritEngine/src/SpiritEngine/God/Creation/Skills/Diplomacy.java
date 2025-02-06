@@ -11,6 +11,7 @@ public final class Diplomacy extends Skill {
                 "Diplomacy",
                 new Class[]{
                         Class.BARD,
+                        Class.CAVALIER,
                         Class.CLERIC,
                         Class.PALADIN,
                         Class.ROGUE

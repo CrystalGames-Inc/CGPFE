@@ -12,6 +12,7 @@ public final class Climb extends Skill {
             new Class[]{
                     Class.BARBARIAN,
                     Class.BARD,
+                    Class.CAVALIER,
                     Class.DRUID,
                     Class.FIGHTER,
                     Class.MONK,

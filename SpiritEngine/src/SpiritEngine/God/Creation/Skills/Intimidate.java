@@ -11,6 +11,7 @@ public final class Intimidate extends Skill {
                 new Class[]{
                         Class.BARBARIAN,
                         Class.BARD,
+                        Class.CAVALIER,
                         Class.FIGHTER,
                         Class.MONK,
                         Class.RANGER,

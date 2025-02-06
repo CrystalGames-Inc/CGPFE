@@ -9,7 +9,9 @@ public final class Profession extends Skill {
         super(
                 "Profession",
                 new Class[]{
+                        Class.ALCHEMIST,
                         Class.BARD,
+                        Class.CAVALIER,
                         Class.CLERIC,
                         Class.DRUID,
                         Class.FIGHTER,

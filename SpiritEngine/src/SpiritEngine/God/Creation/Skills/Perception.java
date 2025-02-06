@@ -9,6 +9,7 @@ public final class Perception extends Skill {
         super(
                 "Perception",
                 new Class[]{
+                        Class.ALCHEMIST,
                         Class.BARBARIAN,
                         Class.BARD,
                         Class.DRUID,

@@ -9,7 +9,8 @@ public final class Swim extends Skill {
         super(
                 "Linguistics",
                 new Class[]{
-                    Class.BARBARIAN,
+                        Class.BARBARIAN,
+                        Class.CAVALIER,
                         Class.DRUID,
                         Class.FIGHTER,
                         Class.MONK,

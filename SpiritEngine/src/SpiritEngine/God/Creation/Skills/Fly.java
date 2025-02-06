@@ -9,6 +9,7 @@ public final class Fly extends Skill {
         super(
                 "Fly",
                 new Class[]{
+                        Class.ALCHEMIST,
                         Class.DRUID,
                         Class.SORCERER,
                         Class.WIZARD

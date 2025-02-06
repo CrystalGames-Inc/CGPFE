@@ -9,6 +9,7 @@ public final class KnowNature extends Skill {
         super(
                 "Knowledge (Nature)",
                 new Class[]{
+                        Class.ALCHEMIST,
                         Class.BARBARIAN,
                         Class.BARD,
                         Class.DRUID,

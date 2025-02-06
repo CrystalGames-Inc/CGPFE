@@ -9,6 +9,7 @@ public final class DisableDevice extends Skill {
         super(
                 "Disable Device",
                 new Class[]{
+                        Class.ALCHEMIST,
                         Class.ROGUE
                 },
                 false,

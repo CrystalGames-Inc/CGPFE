@@ -9,6 +9,7 @@ public final class SleightOfHand extends Skill {
         super(
                 "Sleight Of Hand",
                 new Class[]{
+                        Class.ALCHEMIST,
                         Class.BARD,
                         Class.ROGUE
                 },

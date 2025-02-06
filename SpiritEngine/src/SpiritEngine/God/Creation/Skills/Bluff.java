@@ -9,8 +9,8 @@ public final class Bluff extends Skill {
         super(
             "Bluff",
             new Class[]{
-
                     Class.BARD,
+                    Class.CAVALIER,
                     Class.SORCERER
             },
             true,

@@ -9,6 +9,7 @@ public final class Appraise extends Skill {
         super(
             "Appraise",
             new Class[]{
+                    Class.ALCHEMIST,
                     Class.BARD,
                     Class.CLERIC,
                     Class.MONK,

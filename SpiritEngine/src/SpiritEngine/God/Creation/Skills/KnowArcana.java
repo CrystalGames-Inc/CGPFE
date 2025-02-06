@@ -9,6 +9,7 @@ public final class KnowArcana extends Skill {
         super(
                 "Knowledge (Arcana)",
                 new Class[]{
+                        Class.ALCHEMIST,
                         Class.BARD,
                         Class.CLERIC,
                         Class.SORCERER,

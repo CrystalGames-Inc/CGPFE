@@ -9,6 +9,7 @@ public final class UseMagicDevice extends Skill {
         super(
                 "Use Magic Device",
                 new Class[]{
+                        Class.ALCHEMIST,
                         Class.BARD,
                         Class.ROGUE,
                         Class.SORCERER
