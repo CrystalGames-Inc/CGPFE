@@ -3,6 +3,20 @@ package SpiritEngine.Data.Storage.Equipment.Weapons;
 import SpiritEngine.Data.Models.Items.Equipment.Weapon.Ranged.Ammunition;
 
 public final class Munitions {
+
+    private static Munitions _instance;
+
+    public static synchronized Munitions getInstance(){
+        if (_instance == null) {
+            _instance = new Munitions();
+        }
+        return _instance;
+    }
+
+    private Munitions(){
+
+    }
+
     public final Ammunition blowgunDarts = new Ammunition("Blowgun Darts", 10,0.5, 0.0);
     public final Ammunition crossbowBolts = new Ammunition("Crossbow Bolts", 10,1, 1);
     public final Ammunition slingBullets = new Ammunition("Sling Bullets", 10,0.1, 5);

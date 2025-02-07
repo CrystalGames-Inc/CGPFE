@@ -6,7 +6,7 @@ import SpiritEngine.Management.PlayerDataMgr;
 
 public class ExoticWeaponProficiency extends WeaponProficiency {
     public ExoticWeaponProficiency() {
-        super("Exotic Weapon Proficiency", new Weapons().exoticWeapons);
+        super("Exotic Weapon Proficiency", Weapons.getInstance().exoticWeapons);
         setCanAcquire(PlayerDataMgr.getInstance().player.combatInfo.BAB >= 1);
     }
 }

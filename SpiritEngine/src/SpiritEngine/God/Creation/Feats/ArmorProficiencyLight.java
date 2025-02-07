@@ -5,7 +5,7 @@ import SpiritEngine.God.Creation.Importance.Feat.ArmorProficiency;
 
 public class ArmorProficiencyLight extends ArmorProficiency {
     public ArmorProficiencyLight() {
-        super("Armor Proficiency, Light", new Armors().lightArmor);
+        super("Armor Proficiency, Light", Armors.getInstance().lightArmor);
         setCanAcquire(true);
     }
 }

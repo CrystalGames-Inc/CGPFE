@@ -6,7 +6,21 @@ import SpiritEngine.Data.Models.Items.Equipment.Weapon.Base.Type;
 import SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon;
 
 public final class Weapons {
-    Munitions munitions = new Munitions();
+
+    private static Weapons _instance;
+
+    public static synchronized Weapons getInstance(){
+        if (_instance == null) {
+            _instance = new Weapons();
+        }
+        return _instance;
+    }
+
+    private Weapons(){
+
+    }
+
+    Munitions munitions = Munitions.getInstance();
 
     //region Simple Weapons
 

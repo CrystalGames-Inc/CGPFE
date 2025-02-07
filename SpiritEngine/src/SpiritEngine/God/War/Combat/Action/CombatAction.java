@@ -1,18 +1,17 @@
 package SpiritEngine.God.War.Combat.Action;
 
-public class Action {
+public class CombatAction {
+    public final String name;
+    public final Type type;
+    public final boolean attackOfOpportunity;
 
-    private final String name;
-    private final Type type;
-    private final boolean attackOfOpportunity;
-
-    public Action(String name, Type type, boolean attackOfOpportunity) {
+    public CombatAction(String name, Type type, boolean attackOfOpportunity) {
         this.name = name;
         this.type = type;
         this.attackOfOpportunity = attackOfOpportunity;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 

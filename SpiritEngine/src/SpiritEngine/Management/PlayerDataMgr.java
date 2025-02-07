@@ -14,7 +14,6 @@ import SpiritEngine.God.Creation.Entity.Attributes;
 import SpiritEngine.God.Creation.Importance.Constants.*;
 import SpiritEngine.God.Creation.Skills._Skills;
 import SpiritEngine.God.Creation.Importance.Constants.Class;
-import SpiritEngine.God.Creation.ClassTable.Classes.Player.Wizard.CombatTable;
 import SpiritEngine.God.Creation.Entity.CombatInfo;
 import SpiritEngine.God.Creation.Player.Inventory.RangedWeapon;
 import SpiritEngine.God.Creation.Player.Inventory.Weapon;
@@ -62,7 +61,6 @@ public class PlayerDataMgr {
     int spendableAbilityPts;
     int sizeBonus;
     Table classTable;
-    _Feats gameFeats = new _Feats();
 
     private static PlayerDataMgr _instance = null;
 
@@ -279,7 +277,8 @@ public class PlayerDataMgr {
     }
 
     void registerPlayerClass() {
-        _Skills gameSkills = new _Skills();
+        _Feats gameFeats = _Feats.getInstance();
+        _Skills gameSkills = _Skills.getInstance();
 
         System.out.println("Please choose your character's class:\nAlchemist\nBarbarian\nBard\nCavalier\nCleric\nDruid\nFighter\nInquisitor\nMonk\nOracle\nPaladin\nRanger\nRogue\nSorcerer\nSummoner\nWitch\nWizard");
         String pClass = input.nextLine();
@@ -312,7 +311,7 @@ public class PlayerDataMgr {
                 player.info.pClass = Class.CAVALIER;
                 updatePlayerCombatTable(1);
                 player.info.classSkills = gameSkills.cavalierSkills;
-                registerFeats(new _Feats().cavalierFeats);
+                registerFeats(gameFeats.cavalierFeats);
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
             }

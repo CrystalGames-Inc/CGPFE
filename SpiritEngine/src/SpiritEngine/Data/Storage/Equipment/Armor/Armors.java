@@ -5,6 +5,19 @@ import SpiritEngine.Data.Models.Items.Equipment.Armor.Armor;
 
 public final class Armors {
 
+    private static Armors _instance;
+
+    public static synchronized Armors getInstance(){
+        if (_instance == null) {
+            _instance = new Armors();
+        }
+        return _instance;
+    }
+
+    private Armors(){
+
+    }
+
     //region Light Armor
 
     public final Armor paddedArmor = new Armor("Padded Armor", Weight.LIGHT,5, 1,8,0,5,new int[]{30, 20}, 10);

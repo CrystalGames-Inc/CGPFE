@@ -3,6 +3,20 @@ package SpiritEngine.Data.Storage.Equipment.Armor;
 import SpiritEngine.Data.Models.Items.Equipment.Armor.Shield;
 
 public final class Shields {
+
+    private static Shields _instance;
+
+    public static synchronized Shields getInstance(){
+        if (_instance == null) {
+            _instance = new Shields();
+        }
+        return _instance;
+    }
+
+    private Shields(){
+
+    }
+
     public final Shield buckler = new Shield("Buckler",15,1,0,-1,5,5);
     public final Shield lightWoodenShield = new Shield("Light Wooden Shield",3,1, 0, -1, 5, 5);
     public final Shield lightSteelShield = new Shield("Light Steel Shield", 9,1,0,-1,5,6);

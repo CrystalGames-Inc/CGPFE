@@ -5,6 +5,20 @@ import SpiritEngine.Management.PlayerDataMgr;
 
 public class _Skills {
 
+
+    private static _Skills _instance;
+
+    public static synchronized _Skills getInstance(){
+        if (_instance == null) {
+            _instance = new _Skills();
+        }
+        return _instance;
+    }
+
+    private  _Skills(){
+
+    }
+
     //region Skills
 
     public final Skill acrobatics = new Acrobatics();
@@ -373,7 +387,7 @@ public class _Skills {
 
     //Since The Expert can choose 10 skills, add them when creating the NPC
 
-    public Skill[] warriorSkills = new Skill[]{
+    public final Skill[] warriorSkills = new Skill[]{
             climb,
             craft,
             handleAnimal,
