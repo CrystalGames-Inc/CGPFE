@@ -1,4 +1,4 @@
-package Story.Data.StoryModifiers;
+package SpiritEngine.Data.Game.StoryModifiers;
 
 public enum Fantasty {
     LOW,

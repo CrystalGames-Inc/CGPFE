@@ -20,7 +20,6 @@ import SpiritEngine.God.Creation.Player.Inventory.Weapon;
 import SpiritEngine.God.Creation.ClassTable.Table;
 import SpiritEngine.God.Creation.Player.Player;
 import SpiritEngine.God.Creation.Player.Info;
-import Story.Data.*;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -29,7 +28,7 @@ public class PlayerDataMgr {
 
     //region Variables
 
-    StoryData storyData = new StoryData();
+    GameDataMgr gameData = GameDataMgr.getInstance();
     CommandMgr cmdMgr = CommandMgr.getInstance();
 
     Dice dice = new Dice();
@@ -503,7 +502,7 @@ public class PlayerDataMgr {
     }
 
     void calculateXPForNextLvl(){
-        switch (storyData.gameSpeed){
+        switch (gameData.storyData.getGameSpeed()){
             case SLOW -> {
                 switch (player.info.level){
                     case 1 -> xpForNextLvl = 3000;
@@ -663,7 +662,7 @@ public class PlayerDataMgr {
     //region Ability Points
 
     void calculateAbilityScorePoints(){
-        switch (storyData.abilityScoreType){
+        switch (gameData.storyData.getAbilityScoreType()){
             case STANDARD-> {
                 for (int i = 0; i < 6; i++) {
                     int minIndex = 0;
@@ -701,7 +700,7 @@ public class PlayerDataMgr {
                 }
             }
             case PURCHASE -> {
-                switch (storyData.gameFantasty) {
+                switch (gameData.storyData.getGameFantasty()) {
                     case LOW -> spendableAbilityPts = 10;
                     case STANDARD -> spendableAbilityPts = 15;
                     case HIGH -> spendableAbilityPts = 20;
