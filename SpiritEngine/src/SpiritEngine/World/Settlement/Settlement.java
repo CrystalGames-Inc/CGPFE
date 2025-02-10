@@ -3,7 +3,7 @@ package SpiritEngine.World.Settlement;
 import SpiritEngine.God.Creation.Importance.Constants.Alignment;
 import SpiritEngine.World.Location;
 
-public class Settlement {
+public class Settlement extends Location{
     private String name;
     private String nickname;
     private Type type;

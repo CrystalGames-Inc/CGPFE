@@ -1,6 +1,6 @@
 package SpiritEngine.World;
 
-public class Region {
+public class Region extends Location{
 
     private String name;
     private Location[] locations;

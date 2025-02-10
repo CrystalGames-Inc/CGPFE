@@ -21,15 +21,12 @@ public class GameData {
     //Determines how much XP is needed to level up
     private final GameSpeed gameSpeed;
 
-    private World gameWorld;
+    private final World gameWorld;
 
-    public GameData(Fantasty gameFantasty, AbilityScoreType abilityScoreType, GameSpeed gameSpeed){
+    public GameData(Fantasty gameFantasty, AbilityScoreType abilityScoreType, GameSpeed gameSpeed, World gameWorld){
         this.gameFantasty = gameFantasty;
         this.abilityScoreType = abilityScoreType;
         this.gameSpeed = gameSpeed;
-    }
-
-    public void setGameWorld(World gameWorld) {
         this.gameWorld = gameWorld;
     }
 
