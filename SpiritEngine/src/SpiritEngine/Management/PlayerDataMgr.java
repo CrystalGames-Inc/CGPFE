@@ -30,6 +30,7 @@ public class PlayerDataMgr {
 
     GameDataMgr gameData = GameDataMgr.getInstance();
     CommandMgr cmdMgr = CommandMgr.getInstance();
+    CombatMgr combatMgr = CombatMgr.getInstance();
 
     Dice dice = new Dice();
 
@@ -118,6 +119,7 @@ public class PlayerDataMgr {
             cmdMgr.cls();
             registerPlayerName();
         }
+        player.info.name = name;
     }
 
     void registerPlayerGender(){

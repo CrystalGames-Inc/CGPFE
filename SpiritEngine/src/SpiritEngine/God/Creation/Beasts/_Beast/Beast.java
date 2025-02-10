@@ -28,7 +28,7 @@ public class Beast {
     private final int ac; //Armor Class
     private final int touch;
     private final int flatFooted;
-    private final int hp;
+    private int hp;
 
     private final int fort; //Fortitude
     private final int ref; //Reflex
@@ -70,6 +70,10 @@ public class Beast {
         this.ref = ref;
         this.will = will;
         this.attributes = attributes;
+    }
+
+    public void setHp(int hp){
+        this.hp = hp;
     }
 
     public void setMelee(Weapon melee) {
