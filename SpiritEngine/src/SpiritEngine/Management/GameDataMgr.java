@@ -24,13 +24,13 @@ public class GameDataMgr {
     }
 
     public void displayLocations(){
-        if(storyData.getGameWorld() != null){
-            for (int i = 0; i < storyData.getGameWorld().getRegions().length; i++) {
-                if(storyData.getGameWorld().getRegions()[i] != null){
-                    System.out.println(storyData.getGameWorld().getRegions()[i].getName() + ":");
-                    for (int j = 0; j < storyData.getGameWorld().getRegions()[i].getLocations().length; j++) {
-                        if(storyData.getGameWorld().getRegions()[i].getLocations()[j] != null){
-                            System.out.println(storyData.getGameWorld().getRegions()[i].getLocations()[j].getName());
+        if(storyData.gameWorld() != null){
+            for (int i = 0; i < storyData.gameWorld().getRegions().length; i++) {
+                if(storyData.gameWorld().getRegions()[i] != null){
+                    System.out.println(storyData.gameWorld().getRegions()[i].getName() + ":");
+                    for (int j = 0; j < storyData.gameWorld().getRegions()[i].getLocations().length; j++) {
+                        if(storyData.gameWorld().getRegions()[i].getLocations()[j] != null){
+                            System.out.println(storyData.gameWorld().getRegions()[i].getLocations()[j].getName());
                         }
                     }
                 }

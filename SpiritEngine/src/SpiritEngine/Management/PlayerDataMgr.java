@@ -38,7 +38,7 @@ public class PlayerDataMgr {
 
     public Player player = new Player(
             new Info("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.HUMAN, Size.MEDIUM, Class.PALADIN, 1,0,0,0,new Skill[]{}),
-            new CombatInfo(0,0,0,0,0,0,0,CMBCalcBonus.STRENGTH,0,0, new Weapon[5], new RangedWeapon[5], new Armor[5], new Shield[5]),
+            new CombatInfo(0,0,0,0,0,0,0,CMBCalcBonus.STRENGTH,0,0, new SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon[5], new RangedWeapon[5], new Armor[5], new Shield[5]),
             new Attributes(0,0,0,0,0,0,0),
             new Attributes(0,0,0,0,0,0,0),
             new Wallet(0,0,0,0),
@@ -504,7 +504,7 @@ public class PlayerDataMgr {
     }
 
     void calculateXPForNextLvl(){
-        switch (gameData.storyData.getGameSpeed()){
+        switch (gameData.storyData.gameSpeed()){
             case SLOW -> {
                 switch (player.info.level){
                     case 1 -> xpForNextLvl = 3000;
@@ -664,7 +664,7 @@ public class PlayerDataMgr {
     //region Ability Points
 
     void calculateAbilityScorePoints(){
-        switch (gameData.storyData.getAbilityScoreType()){
+        switch (gameData.storyData.abilityScoreType()){
             case STANDARD-> {
                 for (int i = 0; i < 6; i++) {
                     int minIndex = 0;
@@ -702,7 +702,7 @@ public class PlayerDataMgr {
                 }
             }
             case PURCHASE -> {
-                switch (gameData.storyData.getGameFantasty()) {
+                switch (gameData.storyData.gameFantasty()) {
                     case LOW -> spendableAbilityPts = 10;
                     case STANDARD -> spendableAbilityPts = 15;
                     case HIGH -> spendableAbilityPts = 20;
@@ -948,18 +948,25 @@ public class PlayerDataMgr {
 
     public void displayPlayerWeapons(){
         System.out.println("\n| Weapons: ");
-        for (Weapon weapon : player.combatInfo.weapons) {
+        for (SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon weapon : player.combatInfo.weapons) {
             if(weapon != null){
-            System.out.println("|  Name: " + weapon.weapon.name);
-            System.out.println("|  Dmg (S): " + weapon.weapon.dmgS);
-            System.out.println("|  Dmg (M): " + weapon.weapon.dmgM);
-            System.out.println("|  Critical: " + weapon.weapon.critical);
-            System.out.println("|  Range: " + weapon.weapon.range + "ft");
-            System.out.println("|  Types: ");
-            for (Type type : weapon.weapon.type)
-                System.out.println("|   " + type.name());
-            for (Special special : weapon.weapon.special)
-                System.out.println("|   " + special.name());
+            System.out.println("|  " + weapon.name + ": ");
+            System.out.println("|   Dmg (S): " + weapon.dmgS.amount + "d" + weapon.dmgS.die);
+            System.out.println("|   Dmg (M): " + weapon.dmgM.amount + "d" + weapon.dmgM.die);
+            if(weapon.critical.minDie == 20)
+                System.out.println("|   Critical: x" + weapon.critical.multiplier);
+            else
+                System.out.println("|   Critical: " + weapon.critical.minDie + "-20/x" + weapon.critical.multiplier);
+            System.out.println("|   Range: " + weapon.range + "ft");
+            System.out.println("|   Types: ");
+            if(weapon.type != null){
+                for (Type type : weapon.type)
+                    System.out.println("|   " + type.name());
+            }
+            if(weapon.special != null){
+                for (Special special : weapon.special)
+                    System.out.println("|   " + special.name());
+                }
             }
         }
     }

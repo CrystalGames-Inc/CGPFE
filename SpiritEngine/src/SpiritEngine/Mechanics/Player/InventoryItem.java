@@ -1,6 +1,8 @@
 package SpiritEngine.Mechanics.Player;
 
-public class InventoryItem{
+import SpiritEngine.Data.Models.Items.Item;
+
+public class InventoryItem extends Item {
      public String name;
      public int itemId;
      public int inventoryId;
@@ -8,6 +10,7 @@ public class InventoryItem{
      public int maxCapacity;
 
      public InventoryItem(String name, int itemId, int inventoryId, int amount, int maxCapacity){
+         super(name, itemId, 0);
           this.name = name;
           this.itemId = itemId;
           this.inventoryId = inventoryId;

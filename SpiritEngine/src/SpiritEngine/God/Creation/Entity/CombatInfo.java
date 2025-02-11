@@ -18,12 +18,12 @@ public class CombatInfo {
     public CMBCalcBonus cmbCalcBonus;
     public int CMB;
     public int CMD;
-    public Weapon[] weapons;
+    public SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon[] weapons;
     public RangedWeapon[] rangedWeapons;
     public Armor[] armors;
     public Shield[] shields;
 
-    public CombatInfo(int initMod, int AC, int fort, int ref, int will, int BAB, int sRes, CMBCalcBonus cmbCalcBonus, int CMB, int CMD, Weapon[] weapons, RangedWeapon[] rangedWeapons, Armor[] armors, Shield[] shields) {
+    public CombatInfo(int initMod, int AC, int fort, int ref, int will, int BAB, int sRes, CMBCalcBonus cmbCalcBonus, int CMB, int CMD, SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon[] weapons, RangedWeapon[] rangedWeapons, Armor[] armors, Shield[] shields) {
         this.initMod = initMod;
         this.AC = AC;
         this.fort = fort;
