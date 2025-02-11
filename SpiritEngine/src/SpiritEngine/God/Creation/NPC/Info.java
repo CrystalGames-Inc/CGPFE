@@ -13,15 +13,18 @@ public class Info {
     public NPCClass nClass;
     public Size size;
     public int level;
+    public int hp;
+    public int maxHp;
     public Alignment alignment;
     public Skill[] skills;
 
-    public Info(String name, Alignment alignment, Race race, NPCClass nClass, Size size, Skill[] skills) {
+    public Info(String name, Alignment alignment, Race race, NPCClass nClass, int level, int maxHp) {
         this.name = name;
         this.race = race;
         this.nClass = nClass;
-        this.size = size;
+        this.level = level;
+        this.maxHp = maxHp;
+        this.hp = maxHp;
         this.alignment = alignment;
-        this.skills = skills;
     }
 }

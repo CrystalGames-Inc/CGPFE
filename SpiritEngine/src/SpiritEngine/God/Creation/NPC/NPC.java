@@ -2,6 +2,9 @@ package SpiritEngine.God.Creation.NPC;
 
 import SpiritEngine.Data.Models.Items.Equipment.Armor.Armor;
 import SpiritEngine.Data.Models.Items.Equipment.Armor.Shield;
+import SpiritEngine.God.Creation.Importance.Constants.Size;
+import SpiritEngine.God.Creation.Importance.Skill.Skill;
+import SpiritEngine.God.Creation.Skills._Skills;
 import SpiritEngine.Mechanics.Player.InventoryItem;
 import SpiritEngine.God.Creation.Entity.*;
 
@@ -22,6 +25,7 @@ public class NPC {
         this.wallet = wallet;
         this.inventory = inventory;
 
+        this.info.size = calculateSize();
         calculateClassBonuses();
     }
 
@@ -34,6 +38,42 @@ public class NPC {
         combatInfo.ref = calculateRef();
         combatInfo.will = calculateWill();
         sizeBonus = calculateSizeBonus();
+    }
+
+    Skill[] assignClassSkills(){
+        _Skills gameSkills = _Skills.getInstance();
+        switch (info.nClass){
+            case ADEPT -> {
+                return gameSkills.adeptSkills;
+            }
+            case ARISTOCRAT -> {
+                return gameSkills.aristocratSkills;
+            }
+            case COMMONER -> {
+                return gameSkills.commonerSkills;
+            }
+            case EXPERT -> {}
+            case WARRIOR -> {
+                return gameSkills.warriorSkills;
+            }
+        }
+        return null;
+    }
+
+    public Skill[] assignExpertSkills(Skill[] skills){
+        return skills;
+    }
+
+    Size calculateSize(){
+        switch (info.race){
+            case DWARF, HUMAN, HALFORC, HALFELF, ELF -> {
+                return Size.MEDIUM;
+            }
+            case GNOME, HALFLING -> {
+                return Size.SMALL;
+            }
+        }
+        return Size.MEDIUM;
     }
 
     int calculateSizeBonus(){
