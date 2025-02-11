@@ -15,13 +15,13 @@ public class Game {
 
         Beast aasimar = new Aasimar();
 
-        System.out.println(aasimar.getHp());
+        System.out.println(aasimar.defense.hp);
 
         c.attackEnemy(
                 aasimar,
                 Weapons.getInstance().greatsword
         );
 
-        System.out.println(aasimar.getHp());
+        System.out.println(aasimar.defense.hp);
     }
 }
