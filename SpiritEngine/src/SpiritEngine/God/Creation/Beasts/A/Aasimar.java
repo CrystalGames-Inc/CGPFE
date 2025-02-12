@@ -1,15 +1,22 @@
 package SpiritEngine.God.Creation.Beasts.A;
 
-import SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon;
+import SpiritEngine.Data.Storage.Equipment.Weapons.Weapons;
 import SpiritEngine.God.Creation.Beasts._Beast.Beast;
 import SpiritEngine.God.Creation.Beasts._Beast.Properties.*;
 import SpiritEngine.God.Creation.Entity.Attributes;
+import SpiritEngine.God.Creation.Feats._Feats;
 import SpiritEngine.God.Creation.Importance.Constants.Alignment;
 import SpiritEngine.God.Creation.Importance.Constants.Class;
 import SpiritEngine.God.Creation.Importance.Constants.Race;
 import SpiritEngine.God.Creation.Importance.Constants.Size;
+import SpiritEngine.God.Creation.Importance.Feat.Feat;
+import SpiritEngine.God.Creation.Importance.Skill.Skill;
+import SpiritEngine.God.Creation.Skills._Skills;
 
 public class Aasimar extends Beast {
+
+        _Skills skills = _Skills.getInstance();
+
     public Aasimar() {
         super(
             new Info(
@@ -33,10 +40,7 @@ public class Aasimar extends Beast {
             0,
             5
             ),
-            new Offense(
-              null,
-              null
-            ),
+            new Offense(Weapons.getInstance().heavyMace, Weapons.getInstance().lightCrossbow),
             new Statistics(
                     0,
                     -1,
@@ -53,6 +57,17 @@ public class Aasimar extends Beast {
                     30
             )
         );
+
+
+        info.skills = new Skill[]{
+                skills.diplomacy,
+                skills.heal,
+                skills.knowReligion
+        };
+
+        info.feats = new Feat[]{
+                _Feats.getInstance().turnUndead
+        };
 
     }
 }

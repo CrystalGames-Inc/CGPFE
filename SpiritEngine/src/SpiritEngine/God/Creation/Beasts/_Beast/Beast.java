@@ -6,6 +6,7 @@ import SpiritEngine.God.Creation.Importance.Constants.*;
 import SpiritEngine.God.Creation.Importance.Constants.Class;
 import SpiritEngine.God.Creation.Importance.Feat.Feat;
 import SpiritEngine.God.Creation.Importance.Skill.Skill;
+import SpiritEngine.God.Creation.Importance.Skill.SkillBonus;
 import SpiritEngine.God.Creation.Player.Inventory.RangedWeapon;
 import SpiritEngine.God.Creation.Player.Inventory.Weapon;
 
@@ -28,5 +29,10 @@ public class Beast {
         this.offense = offense;
         this.statistics = statistics;
         this.attributes = attributes;
+    }
+
+    //Its size is equal to the number of skills the entity has
+    int[] setSkillBonuses(int[] bonuses){
+        return bonuses;
     }
 }
