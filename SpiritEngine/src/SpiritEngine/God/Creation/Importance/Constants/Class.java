@@ -18,4 +18,5 @@ public enum Class {
     SUMMONER,
     WITCH,
     WIZARD,
+    NONE
 }
