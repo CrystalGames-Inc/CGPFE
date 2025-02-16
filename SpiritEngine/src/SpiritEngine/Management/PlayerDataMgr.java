@@ -1,22 +1,23 @@
 package SpiritEngine.Management;
 
-import SpiritEngine.God.Creation.Feats._Feats;
+import SpiritEngine.God.Creation.Importance.Feat.GameFeats;
 import SpiritEngine.God.Creation.Importance.Feat.Feat;
 import SpiritEngine.God.Creation.Importance.Skill.Skill;
 import SpiritEngine.Data.Models.Items.Equipment.Armor.Armor;
 import SpiritEngine.Data.Models.Items.Equipment.Armor.Shield;
 import SpiritEngine.Data.Models.Items.Equipment.Weapon.Base.Special;
 import SpiritEngine.Data.Models.Items.Equipment.Weapon.Base.Type;
+import SpiritEngine.God.Creation.Player.PlayerSkill;
+import SpiritEngine.God.Creation.Player.PlayerSkills;
 import SpiritEngine.Mechanics.Player.InventoryItem;
 import SpiritEngine.Mechanics.Dice;
 import SpiritEngine.God.Creation.Entity.Wallet;
 import SpiritEngine.God.Creation.Entity.Attributes;
 import SpiritEngine.God.Creation.Importance.Constants.*;
-import SpiritEngine.God.Creation.Skills._Skills;
+import SpiritEngine.God.Creation.Importance.Skill.GameSkills;
 import SpiritEngine.God.Creation.Importance.Constants.Class;
 import SpiritEngine.God.Creation.Entity.CombatInfo;
 import SpiritEngine.God.Creation.Player.Inventory.RangedWeapon;
-import SpiritEngine.God.Creation.Player.Inventory.Weapon;
 import SpiritEngine.God.Creation.ClassTable.Table;
 import SpiritEngine.God.Creation.Player.Player;
 import SpiritEngine.God.Creation.Player.Info;
@@ -37,7 +38,7 @@ public class PlayerDataMgr {
     Scanner input = new Scanner(System.in);
 
     public Player player = new Player(
-            new Info("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.HUMAN, Size.MEDIUM, Class.PALADIN, 1,0,0,0,new Skill[]{}),
+            new Info("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.HUMAN, Size.MEDIUM, Class.PALADIN, 1,0,0,0,new PlayerSkill[35]),
             new CombatInfo(0,0,0,0,0,0,0,CMBCalcBonus.STRENGTH,0,0, new SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon[5], new RangedWeapon[5], new Armor[5], new Shield[5]),
             new Attributes(0,0,0,0,0,0,0),
             new Attributes(0,0,0,0,0,0,0),
@@ -278,8 +279,8 @@ public class PlayerDataMgr {
     }
 
     void registerPlayerClass() {
-        _Feats gameFeats = _Feats.getInstance();
-        _Skills gameSkills = _Skills.getInstance();
+        GameFeats gameFeats = GameFeats.getInstance();
+        PlayerSkills skills = PlayerSkills.getInstance();
 
         System.out.println("Please choose your character's class:\nAlchemist\nBarbarian\nBard\nCavalier\nCleric\nDruid\nFighter\nInquisitor\nMonk\nOracle\nPaladin\nRanger\nRogue\nSorcerer\nSummoner\nWitch\nWizard");
         String pClass = input.nextLine();
@@ -287,7 +288,7 @@ public class PlayerDataMgr {
             case ("ALCHEMIST") -> {
                 player.info.pClass = Class.ALCHEMIST;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.alchemistSkills;
+                player.info.playerSkills = skills.alchemistSkills;
                 registerFeats(gameFeats.alchemistFeats);
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -295,7 +296,7 @@ public class PlayerDataMgr {
             case ("BARBARIAN") -> {
                 player.info.pClass = Class.BARBARIAN;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.barbarianSkills;
+                player.info.playerSkills = skills.barbarianSkills;
                 registerFeats(gameFeats.barbarianFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
                 player.info.maxHealth = 1 + 12 + player.attributeMods.constitution;
@@ -303,7 +304,7 @@ public class PlayerDataMgr {
             case ("BARD") -> {
                 player.info.pClass = Class.BARD;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.bardSkills;
+                player.info.playerSkills = skills.bardSkills;
                 registerFeats(gameFeats.bardFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -311,7 +312,7 @@ public class PlayerDataMgr {
             case ("CAVALIER") -> {
                 player.info.pClass = Class.CAVALIER;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.cavalierSkills;
+                player.info.playerSkills = skills.cavalierSkills;
                 registerFeats(gameFeats.cavalierFeats);
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
@@ -319,7 +320,7 @@ public class PlayerDataMgr {
             case ("CLERIC") -> {
                 player.info.pClass = Class.CLERIC;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.clericSkills;
+                player.info.playerSkills = skills.clericSkills;
                 registerFeats(gameFeats.clericFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 4) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -327,7 +328,7 @@ public class PlayerDataMgr {
             case ("DRUID") -> {
                 player.info.pClass = Class.DRUID;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.druidSkills;
+                player.info.playerSkills = skills.druidSkills;
                 registerFeats(gameFeats.druidFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -335,7 +336,7 @@ public class PlayerDataMgr {
             case ("FIGHTER") -> {
                 player.info.pClass = Class.FIGHTER;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.fighterSkills;
+                player.info.playerSkills = skills.fighterSkills;
                 registerFeats(gameFeats.fighterFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
@@ -343,7 +344,7 @@ public class PlayerDataMgr {
             case ("INQUISITOR") -> {
                 player.info.pClass = Class.INQUISITOR;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.inquisitorSkills;
+                player.info.playerSkills = skills.inquisitorSkills;
                 registerFeats(gameFeats.inquisitorFeats);
                 player.wallet.GoldPieces = dice.Roll(6,4) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -351,7 +352,7 @@ public class PlayerDataMgr {
             case ("MONK") -> {
                 player.info.pClass = Class.MONK;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.monkSkills;
+                player.info.playerSkills = skills.monkSkills;
                 registerFeats(gameFeats.monkFeats);
                 player.wallet.GoldPieces = dice.Roll(6) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -359,7 +360,7 @@ public class PlayerDataMgr {
             case ("ORACLE") -> {
                 player.info.pClass = Class.ORACLE;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.oracleSkills;
+                player.info.playerSkills = skills.oracleSkills;
                 registerFeats(gameFeats.oracleFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -367,7 +368,7 @@ public class PlayerDataMgr {
             case ("PALADIN") -> {
                 player.info.pClass = Class.PALADIN;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.paladinSkills;
+                player.info.playerSkills = skills.paladinSkills;
                 registerFeats(gameFeats.paladinFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
@@ -375,7 +376,7 @@ public class PlayerDataMgr {
             case ("RANGER") -> {
                 player.info.pClass = Class.RANGER;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.rangerSkills;
+                player.info.playerSkills = skills.rangerSkills;
                 registerFeats(gameFeats.rangerFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
@@ -383,7 +384,7 @@ public class PlayerDataMgr {
             case ("ROGUE") -> {
                 player.info.pClass = Class.ROGUE;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.rogueSkills;
+                player.info.playerSkills = skills.rogueSkills;
                 registerFeats(gameFeats.rogueFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 4) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -391,7 +392,7 @@ public class PlayerDataMgr {
             case ("SORCERER") -> {
                 player.info.pClass = Class.SORCERER;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.sorcererSkills;
+                player.info.playerSkills = skills.sorcererSkills;
                 registerFeats(gameFeats.sorcererFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
                 player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
@@ -399,7 +400,7 @@ public class PlayerDataMgr {
             case ("SUMMONER") -> {
                 player.info.pClass = Class.SUMMONER;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.summonerSkills;
+                player.info.playerSkills = skills.summonerSkills;
                 registerFeats(gameFeats.summonerFeats);
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -407,7 +408,7 @@ public class PlayerDataMgr {
             case ("WITCH") -> {
                 player.info.pClass = Class.WITCH;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.witchSkills;
+                player.info.playerSkills = skills.witchSkills;
                 registerFeats(gameFeats.witchFeats);
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
                 player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
@@ -415,7 +416,7 @@ public class PlayerDataMgr {
             case ("WIZARD") -> {
                 player.info.pClass = Class.WIZARD;
                 updatePlayerCombatTable(1);
-                player.info.classSkills = gameSkills.wizardSkills;
+                player.info.playerSkills = skills.wizardSkills;
                 registerFeats(gameFeats.wizardFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
                 player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
@@ -655,8 +656,8 @@ public class PlayerDataMgr {
         return false;
     }
 
-    public boolean hasSkillRanks(Skill skill, int ranks){
-        return ranks >= skill.getRanks();
+    public boolean hasSkillRanks(PlayerSkill skill, int ranks){
+        return ranks >= skill.bonus.ranks;
     }
 
     //endregion
@@ -1027,10 +1028,10 @@ public class PlayerDataMgr {
     }
 
     public void displayPlayerSkills(){
-        if(player.info.classSkills != null){
+        if(player.info.playerSkills != null){
             System.out.println("\n|Skills: ");
-            for(Skill skill: player.info.classSkills)
-                System.out.println("| " + skill.getName());
+            for(PlayerSkill skill: player.info.playerSkills)
+                System.out.println("| " + skill.skill.getName());
         }
     }
 

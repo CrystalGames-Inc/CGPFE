@@ -1,6 +1,6 @@
 package SpiritEngine.God.Creation.Importance.Feat;
 
-import SpiritEngine.God.Creation.Importance.Skill.SkillCheckModifier;
+import SpiritEngine.God.Creation.Importance.Skill.SkillBonus;
 
 public class Feat {
 
@@ -9,7 +9,7 @@ public class Feat {
     private boolean canAcquire;
     private Type type;
     private final Type[] types = new Type[2];
-    private SkillCheckModifier[] skillModifiers;
+    private SkillBonus[] skillModifiers;
     private int[] checkModifiers;
 
     public Feat(String name){
@@ -38,7 +38,7 @@ public class Feat {
         this.hasFeat = hasFeat;
     }
 
-    public void setSkillModifiers(SkillCheckModifier[] skillModifiers){
+    public void setSkillModifiers(SkillBonus[] skillModifiers){
         this.skillModifiers = skillModifiers;
     }
 
@@ -66,7 +66,7 @@ public class Feat {
         return types;
     }
 
-    public SkillCheckModifier[] getSkillModifiers(){
+    public SkillBonus[] getSkillModifiers(){
         return skillModifiers;
     }
 

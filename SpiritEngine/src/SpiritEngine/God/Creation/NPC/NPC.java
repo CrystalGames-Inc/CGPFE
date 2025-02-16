@@ -4,7 +4,7 @@ import SpiritEngine.Data.Models.Items.Equipment.Armor.Armor;
 import SpiritEngine.Data.Models.Items.Equipment.Armor.Shield;
 import SpiritEngine.God.Creation.Importance.Constants.Size;
 import SpiritEngine.God.Creation.Importance.Skill.Skill;
-import SpiritEngine.God.Creation.Skills._Skills;
+import SpiritEngine.God.Creation.Importance.Skill.GameSkills;
 import SpiritEngine.Mechanics.Player.InventoryItem;
 import SpiritEngine.God.Creation.Entity.*;
 
@@ -41,7 +41,7 @@ public class NPC {
     }
 
     Skill[] assignClassSkills(){
-        _Skills gameSkills = _Skills.getInstance();
+        GameSkills gameSkills = GameSkills.getInstance();
         switch (info.nClass){
             case ADEPT -> {
                 return gameSkills.adeptSkills;

@@ -3,7 +3,6 @@ package SpiritEngine.God.Creation.Player;
 import SpiritEngine.God.Creation.Importance.Feat.Feat;
 import SpiritEngine.God.Creation.Importance.Constants.Class;
 import SpiritEngine.God.Creation.Importance.Constants.*;
-import SpiritEngine.God.Creation.Importance.Skill.Skill;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,10 +20,10 @@ public class Info {
     public int xp;
     public int maxHealth;
     public int health;
-    public Skill[] classSkills;
+    public PlayerSkill[] playerSkills;
     public List<Feat> feats = new ArrayList<>();
 
-    public Info(String name, Gender gender, Alignment alignment, int age, Race race, Size size, Class pClass, int level, int xp, int maxHealth, int health, Skill[] classSkills){
+    public Info(String name, Gender gender, Alignment alignment, int age, Race race, Size size, Class pClass, int level, int xp, int maxHealth, int health, PlayerSkill[] playerSkills){
         this.name = name;
         this.gender = gender;
         this.alignment = alignment;
@@ -36,6 +35,6 @@ public class Info {
         this.xp = xp;
         this.maxHealth = maxHealth;
         this.health = health;
-        this.classSkills = classSkills;
+        this.playerSkills = playerSkills;
     }
 }
