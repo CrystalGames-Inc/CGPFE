@@ -1030,8 +1030,10 @@ public class PlayerDataMgr {
     public void displayPlayerSkills(){
         if(player.info.playerSkills != null){
             System.out.println("\n|Skills: ");
-            for(PlayerSkill skill: player.info.playerSkills)
-                System.out.println("| " + skill.skill.getName());
+            for(PlayerSkill skill: player.info.playerSkills){
+                if(skill != null)
+                    System.out.println("| " + skill.skill.getName());
+            }
         }
     }
 

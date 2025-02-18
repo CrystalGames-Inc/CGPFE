@@ -12,8 +12,6 @@ public class GameStartup {
         if(!skipIntro) startIntro();
 
         if(!skipRegister) pMgr.registerNewPlayer();
-
-        pMgr.displayAll();
     }
 
     public void startIntro(){
