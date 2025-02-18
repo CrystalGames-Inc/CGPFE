@@ -4,18 +4,18 @@ import SpiritEngine.Data.Storage.Equipment.Weapons.Weapons;
 import SpiritEngine.God.Creation.Beasts._Beast.Beast;
 import SpiritEngine.God.Creation.Beasts._Beast.Properties.*;
 import SpiritEngine.God.Creation.Entity.Attributes;
-import SpiritEngine.God.Creation.Feats._Feats;
 import SpiritEngine.God.Creation.Importance.Constants.Alignment;
 import SpiritEngine.God.Creation.Importance.Constants.Class;
 import SpiritEngine.God.Creation.Importance.Constants.Race;
 import SpiritEngine.God.Creation.Importance.Constants.Size;
 import SpiritEngine.God.Creation.Importance.Feat.Feat;
+import SpiritEngine.God.Creation.Importance.Feat.GameFeats;
+import SpiritEngine.God.Creation.Importance.Skill.GameSkills;
 import SpiritEngine.God.Creation.Importance.Skill.Skill;
-import SpiritEngine.God.Creation.Skills._Skills;
 
 public class Aasimar extends Beast {
 
-        _Skills skills = _Skills.getInstance();
+        GameSkills skills = GameSkills.getInstance();
 
     public Aasimar() {
         super(
@@ -66,7 +66,7 @@ public class Aasimar extends Beast {
         };
 
         info.feats = new Feat[]{
-                _Feats.getInstance().turnUndead
+                GameFeats.getInstance().turnUndead
         };
 
     }

@@ -26,16 +26,16 @@ public class CombatMgr {
     public void attackEnemy(Beast enemy, Weapon weapon){
         int damage = 0;
 
-        if(enemy.info.size() == Size.SMALL){
+        if(enemy.info.size == Size.SMALL){
             damage = dice.Roll(weapon.dmgS.die, weapon.dmgS.amount);
             enemy.defense.hp -= damage;
         }
-        else if(enemy.info.size() == Size.MEDIUM){
+        else if(enemy.info.size == Size.MEDIUM){
             damage = dice.Roll(weapon.dmgM.die, weapon.dmgM.amount);
             enemy.defense.hp -= damage;
         }
 
-        System.out.println("Dealt " + damage + " to " + enemy.info.name());
+        System.out.println("Dealt " + damage + " to " + enemy.info.name);
     }
 
     public void attackEnemy(NPC enemy, Weapon weapon){

@@ -8,7 +8,7 @@ import SpiritEngine.World.World;
 
 public class GameDataMgr {
 
-    GameData storyData = new GameData(Fantasty.HIGH, AbilityScoreType.STANDARD, GameSpeed.MEDIUM, new World());
+    GameData storyData = new GameData(Fantasty.HIGH, AbilityScoreType.STANDARD, GameSpeed.MEDIUM);
 
     private static GameDataMgr _instance;
 
@@ -24,13 +24,13 @@ public class GameDataMgr {
     }
 
     public void displayLocations(){
-        if(storyData.gameWorld() != null){
-            for (int i = 0; i < storyData.gameWorld().getRegions().length; i++) {
-                if(storyData.gameWorld().getRegions()[i] != null){
-                    System.out.println(storyData.gameWorld().getRegions()[i].getName() + ":");
-                    for (int j = 0; j < storyData.gameWorld().getRegions()[i].getLocations().length; j++) {
-                        if(storyData.gameWorld().getRegions()[i].getLocations()[j] != null){
-                            System.out.println(storyData.gameWorld().getRegions()[i].getLocations()[j].getName());
+        if(storyData.gameWorld != null){
+            for (int i = 0; i < storyData.gameWorld.getRegions().length; i++) {
+                if(storyData.gameWorld.getRegions()[i] != null){
+                    System.out.println(storyData.gameWorld.getRegions()[i].getName() + ":");
+                    for (int j = 0; j < storyData.gameWorld.getRegions()[i].getLocations().length; j++) {
+                        if(storyData.gameWorld.getRegions()[i].getLocations()[j] != null){
+                            System.out.println(storyData.gameWorld.getRegions()[i].getLocations()[j].getName());
                         }
                     }
                 }

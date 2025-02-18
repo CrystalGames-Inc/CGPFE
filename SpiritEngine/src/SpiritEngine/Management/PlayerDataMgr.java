@@ -505,7 +505,7 @@ public class PlayerDataMgr {
     }
 
     void calculateXPForNextLvl(){
-        switch (gameData.storyData.gameSpeed()){
+        switch (gameData.storyData.gameSpeed){
             case SLOW -> {
                 switch (player.info.level){
                     case 1 -> xpForNextLvl = 3000;
@@ -665,7 +665,7 @@ public class PlayerDataMgr {
     //region Ability Points
 
     void calculateAbilityScorePoints(){
-        switch (gameData.storyData.abilityScoreType()){
+        switch (gameData.storyData.abilityScoreType){
             case STANDARD-> {
                 for (int i = 0; i < 6; i++) {
                     int minIndex = 0;
@@ -703,7 +703,7 @@ public class PlayerDataMgr {
                 }
             }
             case PURCHASE -> {
-                switch (gameData.storyData.gameFantasty()) {
+                switch (gameData.storyData.gameFantasty) {
                     case LOW -> spendableAbilityPts = 10;
                     case STANDARD -> spendableAbilityPts = 15;
                     case HIGH -> spendableAbilityPts = 20;
