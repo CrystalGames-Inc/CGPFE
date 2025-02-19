@@ -23,33 +23,45 @@ public class CombatMgr {
 
     }
 
-    public void attackEnemy(Beast enemy, Weapon weapon){
-        int damage = 0;
+    public int damage = 0;
 
-        if(enemy.info.size == Size.SMALL){
-            damage = dice.Roll(weapon.dmgS.die, weapon.dmgS.amount);
-            enemy.defense.hp -= damage;
+    public void didHitEnemy(Beast enemy){
+
+        int hitDie = dice.Roll(20,1);
+
+        if(hitDie == 1)
+            System.out.println("A nat 1! You missed your target");
+        else if(hitDie == 20){
+            System.out.println("A nat 20! Will you get a critical?");
+            isCritical(enemy);
         }
-        else if(enemy.info.size == Size.MEDIUM){
-            damage = dice.Roll(weapon.dmgM.die, weapon.dmgM.amount);
-            enemy.defense.hp -= damage;
+
+        if(hitDie >= enemy.defense.ac && hitDie < 20){
+
         }
+    }
+
+    public boolean isCritical(Beast enemy){
+
+
+        return false;
+    }
+
+    public void attackEnemy(Beast enemy, Weapon weapon){
+        damage = dice.Roll(weapon.dmgM.die, weapon.dmgM.amount);
+        enemy.defense.hp -= damage;
 
         System.out.println("Dealt " + damage + " to " + enemy.info.name);
+
+        damage = 0;
     }
 
     public void attackEnemy(NPC enemy, Weapon weapon){
-        int damage = 0;
-
-        if(enemy.info.size == Size.SMALL){
-            damage = dice.Roll(weapon.dmgS.die, weapon.dmgS.amount);
-            enemy.info.hp -= damage;
-        }
-        else if(enemy.info.size == Size.MEDIUM){
-            damage = dice.Roll(weapon.dmgM.die, weapon.dmgM.amount);
-            enemy.info.hp -= damage;
-        }
+        damage = dice.Roll(weapon.dmgM.die, weapon.dmgM.amount);
+        enemy.info.hp -= damage;
 
         System.out.println("Dealt " + damage + " to " + enemy.info.name);
+
+        damage = 0;
     }
 }

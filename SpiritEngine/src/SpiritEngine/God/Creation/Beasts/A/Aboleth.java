@@ -1,6 +1,5 @@
 package SpiritEngine.God.Creation.Beasts.A;
 
-import SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon;
 import SpiritEngine.God.Creation.Beasts._Beast.Beast;
 import SpiritEngine.God.Creation.Beasts._Beast.Properties.*;
 import SpiritEngine.God.Creation.Entity.Attributes;
