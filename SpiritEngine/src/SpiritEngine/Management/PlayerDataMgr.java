@@ -50,7 +50,7 @@ public class PlayerDataMgr {
                     0,
                     0,
                     0,
-                    new PlayerSkill[34]
+                    PlayerSkills.playerSkills
             ),
             new CombatInfo(
                     0,

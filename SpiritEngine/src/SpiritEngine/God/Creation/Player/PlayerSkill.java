@@ -12,7 +12,7 @@ public class PlayerSkill {
 
     public Skill skill;
     public Class[] classes;
-    public SkillBonus bonus;
+    public SkillBonus bonus = new SkillBonus();
 
     public PlayerSkill(Skill skill, Class[] classes){
         this.skill = skill;

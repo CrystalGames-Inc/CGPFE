@@ -4,9 +4,9 @@ public class SkillBonus {
 
     public int size;
 
-    public int abilityMod;
-    public int ranks;
-    public int miscMod;
+    public int abilityMod = 0;
+    public int ranks = 0;
+    public int miscMod = 0;
 
     public SkillBonus(){
 
