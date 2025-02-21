@@ -1,5 +1,6 @@
 package SpiritEngine.Management;
 
+import SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon;
 import SpiritEngine.God.Creation.Importance.Feat.GameFeats;
 import SpiritEngine.God.Creation.Importance.Feat.Feat;
 import SpiritEngine.God.Creation.Importance.Skill.Skill;
@@ -31,18 +32,62 @@ public class PlayerDataMgr {
 
     GameDataMgr gameData = GameDataMgr.getInstance();
     CommandMgr cmdMgr = CommandMgr.getInstance();
-    CombatMgr combatMgr = CombatMgr.getInstance();
 
     Dice dice = new Dice();
 
     Scanner input = new Scanner(System.in);
 
     public Player player = new Player(
-            new Info("PLACEHOLDER", Gender.MALE, Alignment.NEUTRAL, 12, Race.HUMAN, Size.MEDIUM, Class.PALADIN, 1,0,0,0,new PlayerSkill[35]),
-            new CombatInfo(0,0,0,0,0,0,0,CMBCalcBonus.STRENGTH,0,0, new SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon[5], new RangedWeapon[5], new Armor[5], new Shield[5]),
-            new Attributes(0,0,0,0,0,0,0),
-            new Attributes(0,0,0,0,0,0,0),
-            new Wallet(0,0,0,0),
+            new Info(
+                    "PLACEHOLDER",
+                    Gender.MALE,
+                    Alignment.NEUTRAL,
+                    12,
+                    Race.HUMAN,
+                    Size.MEDIUM,
+                    Class.PALADIN,
+                    1,
+                    0,
+                    0,
+                    0,
+                    new PlayerSkill[34]
+            ),
+            new CombatInfo(
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    CMBCalcBonus.STRENGTH,
+                    0,
+                    0,
+                    new Weapon[5],
+                    new RangedWeapon[5],
+                    new Armor[5],
+                    new Shield[5]),
+            new Attributes(
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0),
+            new Attributes(
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0),
+            new Wallet(
+                    0,
+                    0,
+                    0,
+                    0),
             new InventoryItem[210]);
 
     int[] abilities = {
@@ -279,145 +324,142 @@ public class PlayerDataMgr {
     }
 
     void registerPlayerClass() {
-        GameFeats gameFeats = GameFeats.getInstance();
-        PlayerSkills skills = PlayerSkills.getInstance();
-
         System.out.println("Please choose your character's class:\nAlchemist\nBarbarian\nBard\nCavalier\nCleric\nDruid\nFighter\nInquisitor\nMonk\nOracle\nPaladin\nRanger\nRogue\nSorcerer\nSummoner\nWitch\nWizard");
         String pClass = input.nextLine();
         switch (pClass.toUpperCase()) {
             case ("ALCHEMIST") -> {
                 player.info.pClass = Class.ALCHEMIST;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.alchemistSkills;
-                registerFeats(gameFeats.alchemistFeats);
+                player.info.playerSkills = PlayerSkills.alchemistSkills;
+                registerFeats(GameFeats.alchemistFeats);
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("BARBARIAN") -> {
                 player.info.pClass = Class.BARBARIAN;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.barbarianSkills;
-                registerFeats(gameFeats.barbarianFeats);
+                player.info.playerSkills = PlayerSkills.barbarianSkills;
+                registerFeats(GameFeats.barbarianFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
                 player.info.maxHealth = 1 + 12 + player.attributeMods.constitution;
             }
             case ("BARD") -> {
                 player.info.pClass = Class.BARD;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.bardSkills;
-                registerFeats(gameFeats.bardFeats);
+                player.info.playerSkills = PlayerSkills.bardSkills;
+                registerFeats(GameFeats.bardFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("CAVALIER") -> {
                 player.info.pClass = Class.CAVALIER;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.cavalierSkills;
-                registerFeats(gameFeats.cavalierFeats);
+                player.info.playerSkills = PlayerSkills.cavalierSkills;
+                registerFeats(GameFeats.cavalierFeats);
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
             }
             case ("CLERIC") -> {
                 player.info.pClass = Class.CLERIC;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.clericSkills;
-                registerFeats(gameFeats.clericFeats);
+                player.info.playerSkills = PlayerSkills.clericSkills;
+                registerFeats(GameFeats.clericFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 4) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("DRUID") -> {
                 player.info.pClass = Class.DRUID;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.druidSkills;
-                registerFeats(gameFeats.druidFeats);
+                player.info.playerSkills = PlayerSkills.druidSkills;
+                registerFeats(GameFeats.druidFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("FIGHTER") -> {
                 player.info.pClass = Class.FIGHTER;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.fighterSkills;
-                registerFeats(gameFeats.fighterFeats);
+                player.info.playerSkills = PlayerSkills.fighterSkills;
+                registerFeats(GameFeats.fighterFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
             }
             case ("INQUISITOR") -> {
                 player.info.pClass = Class.INQUISITOR;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.inquisitorSkills;
-                registerFeats(gameFeats.inquisitorFeats);
+                player.info.playerSkills = PlayerSkills.inquisitorSkills;
+                registerFeats(GameFeats.inquisitorFeats);
                 player.wallet.GoldPieces = dice.Roll(6,4) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("MONK") -> {
                 player.info.pClass = Class.MONK;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.monkSkills;
-                registerFeats(gameFeats.monkFeats);
+                player.info.playerSkills = PlayerSkills.monkSkills;
+                registerFeats(GameFeats.monkFeats);
                 player.wallet.GoldPieces = dice.Roll(6) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("ORACLE") -> {
                 player.info.pClass = Class.ORACLE;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.oracleSkills;
-                registerFeats(gameFeats.oracleFeats);
+                player.info.playerSkills = PlayerSkills.oracleSkills;
+                registerFeats(GameFeats.oracleFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("PALADIN") -> {
                 player.info.pClass = Class.PALADIN;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.paladinSkills;
-                registerFeats(gameFeats.paladinFeats);
+                player.info.playerSkills = PlayerSkills.paladinSkills;
+                registerFeats(GameFeats.paladinFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
             }
             case ("RANGER") -> {
                 player.info.pClass = Class.RANGER;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.rangerSkills;
-                registerFeats(gameFeats.rangerFeats);
+                player.info.playerSkills = PlayerSkills.rangerSkills;
+                registerFeats(GameFeats.rangerFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
             }
             case ("ROGUE") -> {
                 player.info.pClass = Class.ROGUE;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.rogueSkills;
-                registerFeats(gameFeats.rogueFeats);
+                player.info.playerSkills = PlayerSkills.rogueSkills;
+                registerFeats(GameFeats.rogueFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 4) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("SORCERER") -> {
                 player.info.pClass = Class.SORCERER;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.sorcererSkills;
-                registerFeats(gameFeats.sorcererFeats);
+                player.info.playerSkills = PlayerSkills.sorcererSkills;
+                registerFeats(GameFeats.sorcererFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
                 player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
             }
             case ("SUMMONER") -> {
                 player.info.pClass = Class.SUMMONER;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.summonerSkills;
-                registerFeats(gameFeats.summonerFeats);
+                player.info.playerSkills = PlayerSkills.summonerSkills;
+                registerFeats(GameFeats.summonerFeats);
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
             }
             case ("WITCH") -> {
                 player.info.pClass = Class.WITCH;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.witchSkills;
-                registerFeats(gameFeats.witchFeats);
+                player.info.playerSkills = PlayerSkills.witchSkills;
+                registerFeats(GameFeats.witchFeats);
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
                 player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
             }
             case ("WIZARD") -> {
                 player.info.pClass = Class.WIZARD;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = skills.wizardSkills;
-                registerFeats(gameFeats.wizardFeats);
+                player.info.playerSkills = PlayerSkills.wizardSkills;
+                registerFeats(GameFeats.wizardFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
                 player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
             }
@@ -949,7 +991,7 @@ public class PlayerDataMgr {
 
     public void displayPlayerWeapons(){
         System.out.println("\n| Weapons: ");
-        for (SpiritEngine.Data.Models.Items.Equipment.Weapon.Weapon weapon : player.combatInfo.weapons) {
+        for (Weapon weapon : player.combatInfo.weapons) {
             if(weapon != null){
             System.out.println("|  " + weapon.name + ": ");
             System.out.println("|   Dmg (S): " + weapon.dmgS.amount + "d" + weapon.dmgS.die);

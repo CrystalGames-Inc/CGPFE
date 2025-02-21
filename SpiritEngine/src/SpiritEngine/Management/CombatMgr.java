@@ -12,6 +12,8 @@ public class CombatMgr {
 
     private static CombatMgr _instance = null;
 
+    boolean critical;
+
     public static synchronized CombatMgr getInstance() {
         if (_instance == null) {
             _instance = new CombatMgr();
@@ -25,7 +27,7 @@ public class CombatMgr {
 
     public int damage = 0;
 
-    public void didHitEnemy(Beast enemy){
+    public boolean didHitEnemy(Beast enemy){
 
         int hitDie = dice.Roll(20,1);
 
@@ -33,27 +35,40 @@ public class CombatMgr {
             System.out.println("A nat 1! You missed your target");
         else if(hitDie == 20){
             System.out.println("A nat 20! Will you get a critical?");
-            isCritical(enemy);
+            hitDie = dice.Roll(20,1);
+            if(hitDie >= enemy.defense.ac){
+                System.out.println("You rolled a " + hitDie + " and got a critical hit!");
+                critical = true;
+            }else{
+                System.out.println("You rolled a " + hitDie + " and failed the critical");
+                critical = false;
+            }
+            return true;
         }
-
-        if(hitDie >= enemy.defense.ac && hitDie < 20){
-
+        else if(hitDie >= enemy.defense.ac){
+            System.out.println("You rolled a " + hitDie + " and hit the " + enemy.info.name);
+            return true;
         }
-    }
-
-    public boolean isCritical(Beast enemy){
-
-
+        else{
+            System.out.println("You rolled a " + hitDie + " and missed the " + enemy.info.name);
+            return false;
+        }
         return false;
     }
 
     public void attackEnemy(Beast enemy, Weapon weapon){
-        damage = dice.Roll(weapon.dmgM.die, weapon.dmgM.amount);
-        enemy.defense.hp -= damage;
+        if(didHitEnemy(enemy)){
+            damage = dice.Roll(weapon.dmgM.die, weapon.dmgM.amount);
+            if(critical)
+                damage *= weapon.critical.multiplier;
 
-        System.out.println("Dealt " + damage + " to " + enemy.info.name);
+            enemy.defense.hp -= damage;
+
+            System.out.println("Dealt " + damage + " to " + enemy.info.name);
+        }
 
         damage = 0;
+        critical = false;
     }
 
     public void attackEnemy(NPC enemy, Weapon weapon){

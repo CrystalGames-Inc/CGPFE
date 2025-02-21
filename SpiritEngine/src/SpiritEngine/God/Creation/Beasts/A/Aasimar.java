@@ -14,9 +14,6 @@ import SpiritEngine.God.Creation.Importance.Skill.GameSkills;
 import SpiritEngine.God.Creation.Importance.Skill.Skill;
 
 public class Aasimar extends Beast {
-
-        GameSkills skills = GameSkills.getInstance();
-
     public Aasimar() {
         super(
             new Info(
@@ -40,7 +37,7 @@ public class Aasimar extends Beast {
             0,
             5
             ),
-            new Offense(Weapons.getInstance().heavyMace, Weapons.getInstance().lightCrossbow),
+            new Offense(Weapons.heavyMace, Weapons.lightCrossbow),
             new Statistics(
                     0,
                     -1,
@@ -60,13 +57,13 @@ public class Aasimar extends Beast {
 
 
         info.skills = new Skill[]{
-                skills.diplomacy,
-                skills.heal,
-                skills.knowReligion
+                GameSkills.diplomacy,
+                GameSkills.heal,
+                GameSkills.knowReligion
         };
 
         info.feats = new Feat[]{
-                GameFeats.getInstance().turnUndead
+                GameFeats.turnUndead
         };
 
     }

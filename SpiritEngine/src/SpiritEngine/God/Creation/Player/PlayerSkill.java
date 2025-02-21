@@ -19,7 +19,6 @@ public class PlayerSkill {
         this.classes = classes;
     }
 
-    GameSkills gameSkills = GameSkills.getInstance();
     PlayerDataMgr pMgr = PlayerDataMgr.getInstance();
 
     boolean isClassSkill(PlayerSkill skill){
@@ -33,6 +32,9 @@ public class PlayerSkill {
         }
         if(!skill.skill.isUntrained()){
             if(isClassSkill(skill)){
+
+            }
+            else{
 
             }
         }

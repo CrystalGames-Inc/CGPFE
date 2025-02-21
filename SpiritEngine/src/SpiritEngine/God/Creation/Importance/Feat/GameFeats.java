@@ -5,205 +5,189 @@ import SpiritEngine.Data.Storage.Equipment.Weapons.Weapons;
 import SpiritEngine.God.Creation.Importance.Feat.Feats.*;
 
 public class GameFeats {
-
-    private static GameFeats _instance;
-
-    public static synchronized GameFeats getInstance(){
-        if (_instance == null) {
-            _instance = new GameFeats();
-        }
-        return _instance;
-    }
-
-    private GameFeats(){
-
-    }
-
-    public final Feat acrobatic = new Acrobatic();
-    public final Feat acrobaticSteps = new AcrobaticSteps();
-    public final Feat agileManeuvers = new AgileManeuvers();
-    public final Feat alertness = new Alertness();
-    public final Feat alignmentChannel = new AlignmentChannel();
-    public final Feat animalAffinity = new AnimalAffinity();
-    public final Feat arcaneArmorMastery = new ArcaneArmorMastery();
-    public final Feat arcaneArmorTraining = new ArcaneArmorTraining();
-    public final Feat arcaneStrike = new ArcaneStrike();
-    public final Feat armorProficiencyH = new ArmorProficiencyHeavy();
-    public final Feat armorProficiencyL = new ArmorProficiencyLight();
-    public final Feat armorProficiencyM = new ArmorProficiencyMedium();
-    public final Feat athletic = new Athletic();
-    public final Feat augmentSummoning = new AugmentSummoning();
-    public final Feat bleedingCritical = new BleedingCritical();
-    public final Feat brewPotion = new BrewPotion();
-    public final Feat catchOffGuard = new CatchOffGuard();
-    public final Feat channelSmite = new ChannelSmite();
-    public final Feat cleave = new Cleave();
-    public final Feat combatCasting = new CombatCasting();
-    public final Feat combatExpertise = new CombatExpertise();
-    public final Feat combatReflexes = new CombatReflexes();
-    public final Feat commandUndead = new CommandUndead();
-    public final Feat craftMagicArmsArmor = new CraftMagicArmsArmor();
-    public final Feat craftRod = new CraftRod();
-    public final Feat craftStaff = new CraftStaff();
-    public final Feat craftWand = new CraftWand();
-    public final Feat craftWondrousItem = new CraftWondrousItem();
-    public final Feat criticalFocus = new CriticalFocus();
-    public final Feat criticalMastery = new CriticalMastery();
-    public final Feat dazzlingDisplay = new DazzlingDisplay();
-    public final Feat deadlyAim = new DeadlyAim();
-    public final Feat deadlyStroke = new DeadlyStroke();
-    public final Feat defeatingCritical = new DefeatingCritical();
-    public final Feat deceitful = new Deceitful();
-    public final Feat defensiveCombatTraining = new DefensiveCombatTraining();
-    public final Feat deflectArrows = new DeflectArrows();
-    public final Feat deftHands = new DeftHands();
-    public final Feat diehard = new Diehard();
-    public final Feat disruptive = new Disruptive();
-    public final Feat dodge = new Dodge();
-    public final Feat doubleSlice = new DoubleSlice();
-    public final Feat elementalChannel = new ElementalChannel();
-    public final Feat empowerSpell = new EmpowerSpell();
-    public final Feat endurance = new Endurance();
-    public final Feat enlargeSpell = new EnlargeSpell();
-    public final Feat eschewMaterials = new EschewMaterials();
-    public final Feat exhaustingCritical = new ExhaustingCritical();
-    public final Feat exoticWeaponProficiency = new ExoticWeaponProficiency();
-    public final Feat extendSpell = new ExtendSpell();
-    public final Feat extraChannel = new ExtraChannel();
-    public final Feat extraKi = new ExtraKi();
-    public final Feat extraLayOnHands = new ExtraLayOnHands();
-    public final Feat extraMercy = new ExtraMercy();
-    public final Feat extraPerformance = new ExtraPerformance();
-    public final Feat extraRage = new ExtraRage();
-    public final Feat farShot = new FarShot();
-    public final Feat fleet = new Fleet();
-    public final Feat forgeRing = new ForgeRing();
-    public final Feat gorgonsFist = new GorgonsFist();
-    public final Feat greatCleave = new GreatCleave();
-    public final Feat greatFortitude = new GreatFortitude();
-    public final Feat greaterBullRush = new GreaterBullRush();
-    public final Feat greaterDisarm = new GreaterDisarm();
-    public final Feat greaterFeint = new GreaterFeint();
-    public final Feat greaterGrapple = new GreaterGrapple();
-    public final Feat greaterOverrun = new GreaterOverrun();
-    public final Feat greaterPenetratingStrike = new GreaterPenetratingStrike();
-    public final Feat greaterShieldFocus = new GreaterShieldFocus();
-    public final Feat greaterSpellFocus = new GreaterSpellFocus();
-    public final Feat greaterSpellPenetration = new GreaterSpellPenetration();
-    public final Feat greaterSunder = new GreaterSunder();
-    public final Feat greaterTrip = new GreaterTrip();
-    public final Feat greaterTwoWeaponFighting = new GreaterTwoWeaponFighting();
-    public final Feat greaterVitalStrike = new GreaterVitalStrike();
-    public final Feat greaterWeaponFocus = new GreaterWeaponFocus();
-    public final Feat greaterWeaponSpecialization = new GreaterWeaponSpecialization();
-    public final Feat heightenSpell = new HeightenSpell();
-    public final Feat improvedBullRush = new ImprovedBullRush();
-    public final Feat improvedChannel = new ImprovedChannel();
-    public final Feat improvedCounterspell = new ImprovedCounterspell();
-    public final Feat improvedCritical = new ImprovedCritical();
-    public final Feat improvedDisarm = new ImprovedDisarm();
-    public final Feat improvedFamiliar = new ImprovedFamiliar();
-    public final Feat improvedFeint = new ImprovedFeint();
-    public final Feat improvedGrapple = new ImprovedGrapple();
-    public final Feat improvedGreatFortitude = new ImprovedGreatFortitude();
-    public final Feat improvedInitiative = new ImprovedInitiative();
-    public final Feat improvedIronWill = new ImprovedIronWill();
-    public final Feat improvedLightningReflexes = new ImprovedLightningReflexes();
-    public final Feat improvedOverrun = new ImprovedOverrun();
-    public final Feat improvedPreciseShot = new ImprovedPreciseShot();
-    public final Feat improvedShieldBash = new ImprovedShieldBash();
-    public final Feat improvedSunder = new ImprovedSunder();
-    public final Feat improvedTrip = new ImprovedTrip();
-    public final Feat improvedTwoWeaponFighting = new ImprovedTwoWeaponFighting();
-    public final Feat improvedUnarmedStrike = new ImprovedUnarmedStrike();
-    public final Feat improvedVitalStrike = new ImprovedVitalStrike();
-    public final Feat improvisedWeaponMastery = new ImprovisedWeaponMastery();
-    public final Feat intimidatingProwess = new IntimidatingProwess();
-    public final Feat ironWill = new IronWill();
-    public final Feat leadership = new Leadership();
-    public final Feat lightningReflexes = new LightningReflexes();
-    public final Feat lightningStance = new LightningStance();
-    public final Feat lunge = new Lunge();
-    public final Feat magicalAptitude = new MagicalAptitude();
-    public final Feat manyshot = new Manyshot();
-    public final Feat martialWeaponProficiency = new MartialWeaponProficiency();
-    public final Feat masterCraftsman = new MasterCraftsman();
-    public final Feat maximizeSpell = new MaximizeSpell();
-    public final Feat medusasWrath = new MedusasWrath();
-    public final Feat mobility = new Mobility();
-    public final Feat mountedArchery = new MountedArchery();
-    public final Feat mountedCombat = new MountedCombat();
-    public final Feat naturalSpell = new NaturalSpell();
-    public final Feat nimbleMoves = new NimbleMoves();
-    public final Feat penetratingStrike = new PenetratingStrike();
-    public final Feat persuasive = new Persuasive();
-    public final Feat pinpointTargeting = new PinpointTargeting();
-    public final Feat pointBlankShot = new PointBlankShot();
-    public final Feat powerAttack = new PowerAttack();
-    public final Feat preciseShot = new PreciseShot();
-    public final Feat quickDraw = new QuickDraw();
-    public final Feat quickenSpell = new QuickenSpell();
-    public final Feat rapidReload = new RapidReload();
-    public final Feat rapidShot = new RapidShot();
-    public final Feat rideByAttack = new RideByAttack();
-    public final Feat run = new Run();
-    public final Feat scorpionStyle = new ScorpionStyle();
-    public final Feat scribeScroll = new ScribeScroll();
-    public final Feat selectiveChanneling = new SelectiveChanneling();
-    public final Feat selfSufficient = new SelfSufficient();
-    public final Feat shatterDefenses = new ShatterDefenses();
-    public final Feat shieldFocus = new ShieldFocus();
-    public final Feat shieldMaster = new ShieldMaster();
-    public final Feat shieldProficiency = new ShieldProficiency();
-    public final Feat shieldSlam = new ShieldSlam();
-    public final Feat shotOnTheRun = new ShotOnTheRun();
-    public final Feat sickeningCritical = new SickeningCritical();
-    public final Feat silentSpell = new SilentSpell();
-    public final Feat simpleWeaponProficiency = new SimpleWeaponProficiency();
-    public final Feat skillFocus = new SkillFocus();
-    public final Feat snatchArrows = new SnatchArrows();
-    public final Feat spellFocus = new SpellFocus();
-    public final Feat spellMastery = new SpellMastery();
-    public final Feat spellPenetration = new SpellPenetration();
-    public final Feat spellbreaker = new Spellbreaker();
-    public final Feat spiritedCharge = new SpiritedCharge();
-    public final Feat springAttack = new SpringAttack();
-    public final Feat staggeringCritical = new StaggeringCritical();
-    public final Feat standStill = new StandStill();
-    public final Feat stealthy = new Stealthy();
-    public final Feat stepUp = new StepUp();
-    public final Feat stillSpell = new StillSpell();
-    public final Feat strikeBack = new StrikeBack();
-    public final Feat stunningCritical = new StunningCritical();
-    public final Feat stunningFist = new StunningFist();
-    public final Feat throwAnything = new ThrowAnything();
-    public final Feat tiringCritical = new TiringCritical();
-    public final Feat toughness = new Toughness();
-    public final Feat towerShieldProficiency = new TowerShieldProficiency();
-    public final Feat trample = new Trample();
-    public final Feat turnUndead = new TurnUndead();
-    public final Feat twoWeaponDefense = new TwoWeaponDefense();
-    public final Feat twoWeaponFighting = new TwoWeaponFighting();
-    public final Feat twoWeaponRend = new TwoWeaponRend();
-    public final Feat unseat = new Unseat();
-    public final Feat vitalStrike = new VitalStrike();
-    public final Feat weaponFinesse = new WeaponFinesse();
-    public final Feat weaponFocus = new WeaponFocus();
-    public final Feat weaponSpecialization = new WeaponSpecialization();
-    public final Feat whirlwindAttack = new WhirlwindAttack();
-    public final Feat widenSpell = new WidenSpell();
-    public final Feat windStance = new WindStance();
-
-    Weapons weapons = Weapons.getInstance();
+    public static final Feat acrobatic = new Acrobatic();
+    public static final Feat acrobaticSteps = new AcrobaticSteps();
+    public static final Feat agileManeuvers = new AgileManeuvers();
+    public static final Feat alertness = new Alertness();
+    public static final Feat alignmentChannel = new AlignmentChannel();
+    public static final Feat animalAffinity = new AnimalAffinity();
+    public static final Feat arcaneArmorMastery = new ArcaneArmorMastery();
+    public static final Feat arcaneArmorTraining = new ArcaneArmorTraining();
+    public static final Feat arcaneStrike = new ArcaneStrike();
+    public static final Feat armorProficiencyH = new ArmorProficiencyHeavy();
+    public static final Feat armorProficiencyL = new ArmorProficiencyLight();
+    public static final Feat armorProficiencyM = new ArmorProficiencyMedium();
+    public static final Feat athletic = new Athletic();
+    public static final Feat augmentSummoning = new AugmentSummoning();
+    public static final Feat bleedingCritical = new BleedingCritical();
+    public static final Feat brewPotion = new BrewPotion();
+    public static final Feat catchOffGuard = new CatchOffGuard();
+    public static final Feat channelSmite = new ChannelSmite();
+    public static final Feat cleave = new Cleave();
+    public static final Feat combatCasting = new CombatCasting();
+    public static final Feat combatExpertise = new CombatExpertise();
+    public static final Feat combatReflexes = new CombatReflexes();
+    public static final Feat commandUndead = new CommandUndead();
+    public static final Feat craftMagicArmsArmor = new CraftMagicArmsArmor();
+    public static final Feat craftRod = new CraftRod();
+    public static final Feat craftStaff = new CraftStaff();
+    public static final Feat craftWand = new CraftWand();
+    public static final Feat craftWondrousItem = new CraftWondrousItem();
+    public static final Feat criticalFocus = new CriticalFocus();
+    public static final Feat criticalMastery = new CriticalMastery();
+    public static final Feat dazzlingDisplay = new DazzlingDisplay();
+    public static final Feat deadlyAim = new DeadlyAim();
+    public static final Feat deadlyStroke = new DeadlyStroke();
+    public static final Feat defeatingCritical = new DefeatingCritical();
+    public static final Feat deceitful = new Deceitful();
+    public static final Feat defensiveCombatTraining = new DefensiveCombatTraining();
+    public static final Feat deflectArrows = new DeflectArrows();
+    public static final Feat deftHands = new DeftHands();
+    public static final Feat diehard = new Diehard();
+    public static final Feat disruptive = new Disruptive();
+    public static final Feat dodge = new Dodge();
+    public static final Feat doubleSlice = new DoubleSlice();
+    public static final Feat elementalChannel = new ElementalChannel();
+    public static final Feat empowerSpell = new EmpowerSpell();
+    public static final Feat endurance = new Endurance();
+    public static final Feat enlargeSpell = new EnlargeSpell();
+    public static final Feat eschewMaterials = new EschewMaterials();
+    public static final Feat exhaustingCritical = new ExhaustingCritical();
+    public static final Feat exoticWeaponProficiency = new ExoticWeaponProficiency();
+    public static final Feat extendSpell = new ExtendSpell();
+    public static final Feat extraChannel = new ExtraChannel();
+    public static final Feat extraKi = new ExtraKi();
+    public static final Feat extraLayOnHands = new ExtraLayOnHands();
+    public static final Feat extraMercy = new ExtraMercy();
+    public static final Feat extraPerformance = new ExtraPerformance();
+    public static final Feat extraRage = new ExtraRage();
+    public static final Feat farShot = new FarShot();
+    public static final Feat fleet = new Fleet();
+    public static final Feat forgeRing = new ForgeRing();
+    public static final Feat gorgonsFist = new GorgonsFist();
+    public static final Feat greatCleave = new GreatCleave();
+    public static final Feat greatFortitude = new GreatFortitude();
+    public static final Feat greaterBullRush = new GreaterBullRush();
+    public static final Feat greaterDisarm = new GreaterDisarm();
+    public static final Feat greaterFeint = new GreaterFeint();
+    public static final Feat greaterGrapple = new GreaterGrapple();
+    public static final Feat greaterOverrun = new GreaterOverrun();
+    public static final Feat greaterPenetratingStrike = new GreaterPenetratingStrike();
+    public static final Feat greaterShieldFocus = new GreaterShieldFocus();
+    public static final Feat greaterSpellFocus = new GreaterSpellFocus();
+    public static final Feat greaterSpellPenetration = new GreaterSpellPenetration();
+    public static final Feat greaterSunder = new GreaterSunder();
+    public static final Feat greaterTrip = new GreaterTrip();
+    public static final Feat greaterTwoWeaponFighting = new GreaterTwoWeaponFighting();
+    public static final Feat greaterVitalStrike = new GreaterVitalStrike();
+    public static final Feat greaterWeaponFocus = new GreaterWeaponFocus();
+    public static final Feat greaterWeaponSpecialization = new GreaterWeaponSpecialization();
+    public static final Feat heightenSpell = new HeightenSpell();
+    public static final Feat improvedBullRush = new ImprovedBullRush();
+    public static final Feat improvedChannel = new ImprovedChannel();
+    public static final Feat improvedCounterspell = new ImprovedCounterspell();
+    public static final Feat improvedCritical = new ImprovedCritical();
+    public static final Feat improvedDisarm = new ImprovedDisarm();
+    public static final Feat improvedFamiliar = new ImprovedFamiliar();
+    public static final Feat improvedFeint = new ImprovedFeint();
+    public static final Feat improvedGrapple = new ImprovedGrapple();
+    public static final Feat improvedGreatFortitude = new ImprovedGreatFortitude();
+    public static final Feat improvedInitiative = new ImprovedInitiative();
+    public static final Feat improvedIronWill = new ImprovedIronWill();
+    public static final Feat improvedLightningReflexes = new ImprovedLightningReflexes();
+    public static final Feat improvedOverrun = new ImprovedOverrun();
+    public static final Feat improvedPreciseShot = new ImprovedPreciseShot();
+    public static final Feat improvedShieldBash = new ImprovedShieldBash();
+    public static final Feat improvedSunder = new ImprovedSunder();
+    public static final Feat improvedTrip = new ImprovedTrip();
+    public static final Feat improvedTwoWeaponFighting = new ImprovedTwoWeaponFighting();
+    public static final Feat improvedUnarmedStrike = new ImprovedUnarmedStrike();
+    public static final Feat improvedVitalStrike = new ImprovedVitalStrike();
+    public static final Feat improvisedWeaponMastery = new ImprovisedWeaponMastery();
+    public static final Feat intimidatingProwess = new IntimidatingProwess();
+    public static final Feat ironWill = new IronWill();
+    public static final Feat leadership = new Leadership();
+    public static final Feat lightningReflexes = new LightningReflexes();
+    public static final Feat lightningStance = new LightningStance();
+    public static final Feat lunge = new Lunge();
+    public static final Feat magicalAptitude = new MagicalAptitude();
+    public static final Feat manyshot = new Manyshot();
+    public static final Feat martialWeaponProficiency = new MartialWeaponProficiency();
+    public static final Feat masterCraftsman = new MasterCraftsman();
+    public static final Feat maximizeSpell = new MaximizeSpell();
+    public static final Feat medusasWrath = new MedusasWrath();
+    public static final Feat mobility = new Mobility();
+    public static final Feat mountedArchery = new MountedArchery();
+    public static final Feat mountedCombat = new MountedCombat();
+    public static final Feat naturalSpell = new NaturalSpell();
+    public static final Feat nimbleMoves = new NimbleMoves();
+    public static final Feat penetratingStrike = new PenetratingStrike();
+    public static final Feat persuasive = new Persuasive();
+    public static final Feat pinpointTargeting = new PinpointTargeting();
+    public static final Feat pointBlankShot = new PointBlankShot();
+    public static final Feat powerAttack = new PowerAttack();
+    public static final Feat preciseShot = new PreciseShot();
+    public static final Feat quickDraw = new QuickDraw();
+    public static final Feat quickenSpell = new QuickenSpell();
+    public static final Feat rapidReload = new RapidReload();
+    public static final Feat rapidShot = new RapidShot();
+    public static final Feat rideByAttack = new RideByAttack();
+    public static final Feat run = new Run();
+    public static final Feat scorpionStyle = new ScorpionStyle();
+    public static final Feat scribeScroll = new ScribeScroll();
+    public static final Feat selectiveChanneling = new SelectiveChanneling();
+    public static final Feat selfSufficient = new SelfSufficient();
+    public static final Feat shatterDefenses = new ShatterDefenses();
+    public static final Feat shieldFocus = new ShieldFocus();
+    public static final Feat shieldMaster = new ShieldMaster();
+    public static final Feat shieldProficiency = new ShieldProficiency();
+    public static final Feat shieldSlam = new ShieldSlam();
+    public static final Feat shotOnTheRun = new ShotOnTheRun();
+    public static final Feat sickeningCritical = new SickeningCritical();
+    public static final Feat silentSpell = new SilentSpell();
+    public static final Feat simpleWeaponProficiency = new SimpleWeaponProficiency();
+    public static final Feat skillFocus = new SkillFocus();
+    public static final Feat snatchArrows = new SnatchArrows();
+    public static final Feat spellFocus = new SpellFocus();
+    public static final Feat spellMastery = new SpellMastery();
+    public static final Feat spellPenetration = new SpellPenetration();
+    public static final Feat spellbreaker = new Spellbreaker();
+    public static final Feat spiritedCharge = new SpiritedCharge();
+    public static final Feat springAttack = new SpringAttack();
+    public static final Feat staggeringCritical = new StaggeringCritical();
+    public static final Feat standStill = new StandStill();
+    public static final Feat stealthy = new Stealthy();
+    public static final Feat stepUp = new StepUp();
+    public static final Feat stillSpell = new StillSpell();
+    public static final Feat strikeBack = new StrikeBack();
+    public static final Feat stunningCritical = new StunningCritical();
+    public static final Feat stunningFist = new StunningFist();
+    public static final Feat throwAnything = new ThrowAnything();
+    public static final Feat tiringCritical = new TiringCritical();
+    public static final Feat toughness = new Toughness();
+    public static final Feat towerShieldProficiency = new TowerShieldProficiency();
+    public static final Feat trample = new Trample();
+    public static final Feat turnUndead = new TurnUndead();
+    public static final Feat twoWeaponDefense = new TwoWeaponDefense();
+    public static final Feat twoWeaponFighting = new TwoWeaponFighting();
+    public static final Feat twoWeaponRend = new TwoWeaponRend();
+    public static final Feat unseat = new Unseat();
+    public static final Feat vitalStrike = new VitalStrike();
+    public static final Feat weaponFinesse = new WeaponFinesse();
+    public static final Feat weaponFocus = new WeaponFocus();
+    public static final Feat weaponSpecialization = new WeaponSpecialization();
+    public static final Feat whirlwindAttack = new WhirlwindAttack();
+    public static final Feat widenSpell = new WidenSpell();
+    public static final Feat windStance = new WindStance();
 
     //region PC Class Feats
 
-    public final Feat[] alchemistFeats = new Feat[]{
+    public static final Feat[] alchemistFeats = new Feat[]{
             simpleWeaponProficiency,
             armorProficiencyL
     };
 
-    public final Feat[] barbarianFeats = new Feat[]{
+    public static final Feat[] barbarianFeats = new Feat[]{
             simpleWeaponProficiency,
             martialWeaponProficiency,
             armorProficiencyL,
@@ -211,13 +195,13 @@ public class GameFeats {
             shieldProficiency
     };
 
-    public final Feat[] bardFeats = new Feat[]{
+    public static final Feat[] bardFeats = new Feat[]{
             simpleWeaponProficiency,
             armorProficiencyL,
             shieldProficiency
     };
 
-    public final Feat[] cavalierFeats = new Feat[]{
+    public static final Feat[] cavalierFeats = new Feat[]{
             simpleWeaponProficiency,
             martialWeaponProficiency,
             armorProficiencyL,
@@ -226,19 +210,19 @@ public class GameFeats {
             shieldProficiency
     };
 
-    public final Feat[] clericFeats = new Feat[]{
+    public static final Feat[] clericFeats = new Feat[]{
             simpleWeaponProficiency,
             armorProficiencyL,
             armorProficiencyM,
             shieldProficiency
     };
 
-    public final Feat[] druidFeats = new Feat[]{
+    public static final Feat[] druidFeats = new Feat[]{
             armorProficiencyL,
             armorProficiencyM
     };
 
-    public final Feat[] fighterFeats = new Feat[]{
+    public static final Feat[] fighterFeats = new Feat[]{
             simpleWeaponProficiency,
             martialWeaponProficiency,
             armorProficiencyL,
@@ -248,49 +232,49 @@ public class GameFeats {
             towerShieldProficiency
     };
 
-    public final Feat[] inquisitorFeats = new Feat[]{
+    public static final Feat[] inquisitorFeats = new Feat[]{
             simpleWeaponProficiency,
             new WeaponProficiency(new Weapon[]{
-                    weapons.handCrossbow,
-                    weapons.longbow,
-                    weapons.repeatingLightCrossbow,
-                    weapons.repeatingHeavyCrossbow,
-                    weapons.shortbow
+                    Weapons.handCrossbow,
+                    Weapons.longbow,
+                    Weapons.repeatingLightCrossbow,
+                    Weapons.repeatingHeavyCrossbow,
+                    Weapons.shortbow
             }),
             armorProficiencyL,
             armorProficiencyM,
             shieldProficiency
     };
 
-    public final Feat[] monkFeats = new Feat[]{
+    public static final Feat[] monkFeats = new Feat[]{
         new WeaponProficiency(new Weapon[]{
-                weapons.club,
-                weapons.lightCrossbow,
-                weapons.heavyCrossbow,
-                weapons.dagger,
-                weapons.handaxe,
-                weapons.javelin,
-                weapons.kama,
-                weapons.nunchaku,
-                weapons.quarterstaff,
-                weapons.sai,
-                weapons.shortspear,
-                weapons.shortSword,
-                weapons.shuriken,
-                weapons.siangham,
-                weapons.sling,
-                weapons.spear
+                Weapons.club,
+                Weapons.lightCrossbow,
+                Weapons.heavyCrossbow,
+                Weapons.dagger,
+                Weapons.handaxe,
+                Weapons.javelin,
+                Weapons.kama,
+                Weapons.nunchaku,
+                Weapons.quarterstaff,
+                Weapons.sai,
+                Weapons.shortspear,
+                Weapons.shortSword,
+                Weapons.shuriken,
+                Weapons.siangham,
+                Weapons.sling,
+                Weapons.spear
         })
     };
 
-    public final Feat[] oracleFeats = new Feat[]{
+    public static final Feat[] oracleFeats = new Feat[]{
             simpleWeaponProficiency,
             armorProficiencyL,
             armorProficiencyM,
             shieldProficiency
     };
 
-    public final Feat[] paladinFeats = new Feat[]{
+    public static final Feat[] paladinFeats = new Feat[]{
             simpleWeaponProficiency,
             martialWeaponProficiency,
             armorProficiencyL,
@@ -299,7 +283,7 @@ public class GameFeats {
             shieldProficiency
     };
 
-    public final Feat[] rangerFeats = new Feat[]{
+    public static final Feat[] rangerFeats = new Feat[]{
             simpleWeaponProficiency,
             martialWeaponProficiency,
             armorProficiencyL,
@@ -307,38 +291,38 @@ public class GameFeats {
             shieldProficiency
     };
 
-    public final Feat[] rogueFeats = new Feat[]{
+    public static final Feat[] rogueFeats = new Feat[]{
             simpleWeaponProficiency,
             new WeaponProficiency(new Weapon[]{
-                    weapons.handCrossbow,
-                    weapons.rapier,
-                    weapons.sap,
-                    weapons.shortbow,
-                    weapons.shortSword
+                    Weapons.handCrossbow,
+                    Weapons.rapier,
+                    Weapons.sap,
+                    Weapons.shortbow,
+                    Weapons.shortSword
             }),
             armorProficiencyL
     };
 
-    public final Feat[] sorcererFeats = new Feat[]{
+    public static final Feat[] sorcererFeats = new Feat[]{
             simpleWeaponProficiency
     };
 
-    public final Feat[] summonerFeats = new Feat[]{
+    public static final Feat[] summonerFeats = new Feat[]{
             simpleWeaponProficiency,
             armorProficiencyL
     };
 
-    public final Feat[] witchFeats = new Feat[]{
+    public static final Feat[] witchFeats = new Feat[]{
             simpleWeaponProficiency
     };
 
-    public final Feat[] wizardFeats = new Feat[]{
+    public static final Feat[] wizardFeats = new Feat[]{
             new WeaponProficiency(new Weapon[]{
-                weapons.club,
-                weapons.dagger,
-                weapons.heavyCrossbow,
-                weapons.lightCrossbow,
-                weapons.quarterstaff
+                Weapons.club,
+                Weapons.dagger,
+                Weapons.heavyCrossbow,
+                Weapons.lightCrossbow,
+                Weapons.quarterstaff
             })
     };
 
@@ -346,24 +330,24 @@ public class GameFeats {
 
     //region NPC Class Feats
 
-    public final Feat[] adeptFeats = new Feat[]{
+    public static final Feat[] adeptFeats = new Feat[]{
             simpleWeaponProficiency
     };
 
-    public final Feat[] aristocratFeats = new Feat[]{
+    public static final Feat[] aristocratFeats = new Feat[]{
             simpleWeaponProficiency
     };
 
-    public final Feat[] commonerFeats = new Feat[]{
+    public static final Feat[] commonerFeats = new Feat[]{
             simpleWeaponProficiency
     };
 
-    public final Feat[] expertFeats = new Feat[]{
+    public static final Feat[] expertFeats = new Feat[]{
             simpleWeaponProficiency,
             armorProficiencyL
     };
 
-    public final Feat[] warriorFeats = new Feat[]{
+    public static final Feat[] warriorFeats = new Feat[]{
             simpleWeaponProficiency,
             martialWeaponProficiency,
             armorProficiencyL,

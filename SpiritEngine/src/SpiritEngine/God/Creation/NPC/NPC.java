@@ -41,20 +41,19 @@ public class NPC {
     }
 
     Skill[] assignClassSkills(){
-        GameSkills gameSkills = GameSkills.getInstance();
         switch (info.nClass){
             case ADEPT -> {
-                return gameSkills.adeptSkills;
+                return GameSkills.adeptSkills;
             }
             case ARISTOCRAT -> {
-                return gameSkills.aristocratSkills;
+                return GameSkills.aristocratSkills;
             }
             case COMMONER -> {
-                return gameSkills.commonerSkills;
+                return GameSkills.commonerSkills;
             }
             case EXPERT -> {}
             case WARRIOR -> {
-                return gameSkills.warriorSkills;
+                return GameSkills.warriorSkills;
             }
         }
         return null;

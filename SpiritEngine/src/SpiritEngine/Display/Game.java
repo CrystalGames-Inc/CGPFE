@@ -1,10 +1,10 @@
 package SpiritEngine.Display;
 
 import SpiritEngine.Data.Storage.Equipment.Weapons.Weapons;
-import SpiritEngine.God.Creation.Beasts.A.Aboleth;
+import SpiritEngine.God.Creation.Beasts.A.Aasimar;
 import SpiritEngine.God.Creation.Beasts._Beast.Beast;
-import SpiritEngine.God.Creation.Importance.Feat.Feats.GreatCleave;
 import SpiritEngine.Management.CombatMgr;
+import SpiritEngine.Management.PlayerDataMgr;
 
 public class Game {
 
@@ -14,13 +14,14 @@ public class Game {
 
         g.startGame();
 
-        Weapons weapons = Weapons.getInstance();
 
-        Beast aboleth = new Aboleth();
+        PlayerDataMgr.getInstance();
+
+        Beast aboleth = new Aasimar();
 
         System.out.println("Aboleth Health: " + aboleth.defense.hp);
 
-        c.attackEnemy(aboleth, weapons.greatsword);
+        c.attackEnemy(aboleth, Weapons.greatsword);
 
         System.out.println("Aboleth Health: " + aboleth.defense.hp);
     }

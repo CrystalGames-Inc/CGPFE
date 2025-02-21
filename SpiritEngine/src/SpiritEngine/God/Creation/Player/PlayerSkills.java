@@ -5,26 +5,10 @@ import SpiritEngine.God.Creation.Importance.Skill.GameSkills;
 import SpiritEngine.God.Creation.Importance.Skill.Skill;
 
 public class PlayerSkills {
-
-    private static PlayerSkills _instance;
-
-    public static synchronized PlayerSkills getInstance(){
-        if (_instance == null) {
-            _instance = new PlayerSkills();
-        }
-        return _instance;
-    }
-
-    public PlayerSkills(){
-
-    }
-
-    GameSkills gameSkills = GameSkills.getInstance();
-
     //region Acrobatics
 
-    PlayerSkill acrobatics = new PlayerSkill(
-            gameSkills.acrobatics,
+    public static final PlayerSkill acrobatics = new PlayerSkill(
+            GameSkills.acrobatics,
             new Class[]{
                     Class.BARBARIAN,
                     Class.BARD,
@@ -36,8 +20,8 @@ public class PlayerSkills {
 
     //region Appraise
 
-    PlayerSkill appraise = new PlayerSkill(
-            gameSkills.appraise,
+    public static final PlayerSkill appraise = new PlayerSkill(
+            GameSkills.appraise,
             new Class[]{
                     Class.ALCHEMIST,
                     Class.BARD,
@@ -51,8 +35,8 @@ public class PlayerSkills {
 
     //region Bluff
 
-    PlayerSkill bluff = new PlayerSkill(
-            gameSkills.bluff,
+    public static final PlayerSkill bluff = new PlayerSkill(
+            GameSkills.bluff,
             new Class[]{
                     Class.BARD,
                     Class.ROGUE,
@@ -63,8 +47,8 @@ public class PlayerSkills {
 
     //region Climb
 
-    PlayerSkill climb = new PlayerSkill(
-            gameSkills.climb,
+    public static final PlayerSkill climb = new PlayerSkill(
+            GameSkills.climb,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARBARIAN,
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
@@ -79,8 +63,8 @@ public class PlayerSkills {
 
     //region Craft
 
-    PlayerSkill craft = new PlayerSkill(
-            gameSkills.craft,
+    public static final PlayerSkill craft = new PlayerSkill(
+            GameSkills.craft,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARBARIAN,
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
@@ -99,8 +83,8 @@ public class PlayerSkills {
 
     //region Diplomacy
 
-    PlayerSkill diplomacy = new PlayerSkill(
-            gameSkills.diplomacy,
+    public static final PlayerSkill diplomacy = new PlayerSkill(
+            GameSkills.diplomacy,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.CLERIC,
@@ -112,8 +96,8 @@ public class PlayerSkills {
 
     //region Disable Device
 
-    PlayerSkill disableDevice = new PlayerSkill(
-            gameSkills.disableDevice,
+    public static final PlayerSkill disableDevice = new PlayerSkill(
+            GameSkills.disableDevice,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.ROGUE
             });
@@ -122,8 +106,8 @@ public class PlayerSkills {
 
     //region Disguise
 
-    PlayerSkill disguise = new PlayerSkill(
-            gameSkills.disguise,
+    public static final PlayerSkill disguise = new PlayerSkill(
+            GameSkills.disguise,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.ROGUE
@@ -133,8 +117,8 @@ public class PlayerSkills {
 
     //region Escape Artist
 
-    PlayerSkill escapeArtist = new PlayerSkill(
-            gameSkills.escapeArtist,
+    public static final PlayerSkill escapeArtist = new PlayerSkill(
+            GameSkills.escapeArtist,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.MONK,
@@ -145,8 +129,8 @@ public class PlayerSkills {
 
     //region Fly
 
-    PlayerSkill fly = new PlayerSkill(
-            gameSkills.fly,
+    public static final PlayerSkill fly = new PlayerSkill(
+            GameSkills.fly,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.DRUID,
                     SpiritEngine.God.Creation.Importance.Constants.Class.SORCERER,
@@ -157,8 +141,8 @@ public class PlayerSkills {
 
     //region Handle Animal
 
-    PlayerSkill handleAnimal = new PlayerSkill(
-            gameSkills.handleAnimal,
+    public static final PlayerSkill handleAnimal = new PlayerSkill(
+            GameSkills.handleAnimal,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARBARIAN,
                     SpiritEngine.God.Creation.Importance.Constants.Class.DRUID,
@@ -171,8 +155,8 @@ public class PlayerSkills {
 
     //region Heal
 
-    PlayerSkill heal = new PlayerSkill(
-            gameSkills.heal,
+    public static final PlayerSkill heal = new PlayerSkill(
+            GameSkills.heal,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.CLERIC,
                     SpiritEngine.God.Creation.Importance.Constants.Class.DRUID,
@@ -184,8 +168,8 @@ public class PlayerSkills {
 
     //region Intimidate
 
-    PlayerSkill intimidate = new PlayerSkill(
-            gameSkills.intimidate,
+    public static final PlayerSkill intimidate = new PlayerSkill(
+            GameSkills.intimidate,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARBARIAN,
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
@@ -200,8 +184,8 @@ public class PlayerSkills {
 
     //region Knowledge (Arcana)
 
-    PlayerSkill knowArcana = new PlayerSkill(
-            gameSkills.knowArcana,
+    public static final PlayerSkill knowArcana = new PlayerSkill(
+            GameSkills.knowArcana,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.CLERIC,
@@ -213,8 +197,8 @@ public class PlayerSkills {
 
     //region Knowledge (Dungeoneering)
 
-    PlayerSkill knowDungeoneering = new PlayerSkill(
-            gameSkills.knowDungeoneering,
+    public static final PlayerSkill knowDungeoneering = new PlayerSkill(
+            GameSkills.knowDungeoneering,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.FIGHTER,
@@ -227,8 +211,8 @@ public class PlayerSkills {
 
     //region Knowledge (Engineering)
 
-    PlayerSkill knowEngineering = new PlayerSkill(
-            gameSkills.knowEngineering,
+    public static final PlayerSkill knowEngineering = new PlayerSkill(
+            GameSkills.knowEngineering,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.FIGHTER,
@@ -239,8 +223,8 @@ public class PlayerSkills {
 
     //region Knowledge (Geography)
 
-    PlayerSkill knowGeography = new PlayerSkill(
-            gameSkills.knowGeography,
+    public static final PlayerSkill knowGeography = new PlayerSkill(
+            GameSkills.knowGeography,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.DRUID,
@@ -252,8 +236,8 @@ public class PlayerSkills {
 
     //region Knowledge (History)
 
-    PlayerSkill knowHistory = new PlayerSkill(
-            gameSkills.knowHistory,
+    public static final PlayerSkill knowHistory = new PlayerSkill(
+            GameSkills.knowHistory,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.CLERIC,
@@ -265,8 +249,8 @@ public class PlayerSkills {
 
     //region Knowledge (Local)
 
-    PlayerSkill knowLocal = new PlayerSkill(
-            gameSkills.knowLocal,
+    public static final PlayerSkill knowLocal = new PlayerSkill(
+            GameSkills.knowLocal,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.ROGUE,
@@ -277,8 +261,8 @@ public class PlayerSkills {
 
     //region Knowledge (Nature)
 
-    PlayerSkill knowNature = new PlayerSkill(
-            gameSkills.knowNature,
+    public static final PlayerSkill knowNature = new PlayerSkill(
+            GameSkills.knowNature,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARBARIAN,
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
@@ -291,8 +275,8 @@ public class PlayerSkills {
 
     //region Knowledge (Nobility)
 
-    PlayerSkill knowNobility = new PlayerSkill(
-            gameSkills.knowNobility,
+    public static final PlayerSkill knowNobility = new PlayerSkill(
+            GameSkills.knowNobility,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.CLERIC,
@@ -304,8 +288,8 @@ public class PlayerSkills {
 
     //region Knowledge (Planes)
 
-    PlayerSkill knowPlanes = new PlayerSkill(
-            gameSkills.knowPlanes,
+    public static final PlayerSkill knowPlanes = new PlayerSkill(
+            GameSkills.knowPlanes,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.CLERIC,
@@ -316,8 +300,8 @@ public class PlayerSkills {
 
     //region Knowledge (Religion)
 
-    PlayerSkill knowReligion = new PlayerSkill(
-            gameSkills.knowReligion,
+    public static final PlayerSkill knowReligion = new PlayerSkill(
+            GameSkills.knowReligion,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.CLERIC,
@@ -330,8 +314,8 @@ public class PlayerSkills {
 
     //region Linguistics
 
-    PlayerSkill linguistics = new PlayerSkill(
-            gameSkills.linguistics,
+    public static final PlayerSkill linguistics = new PlayerSkill(
+            GameSkills.linguistics,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.CLERIC,
@@ -343,8 +327,8 @@ public class PlayerSkills {
 
     //region Perception
 
-    PlayerSkill perception = new PlayerSkill(
-            gameSkills.perception,
+    public static final PlayerSkill perception = new PlayerSkill(
+            GameSkills.perception,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARBARIAN,
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
@@ -358,8 +342,8 @@ public class PlayerSkills {
 
     //region Perform
 
-    PlayerSkill perform = new PlayerSkill(
-            gameSkills.perform,
+    public static final PlayerSkill perform = new PlayerSkill(
+            GameSkills.perform,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.MONK,
@@ -370,8 +354,8 @@ public class PlayerSkills {
 
     //region Profession
 
-    PlayerSkill profession = new PlayerSkill(
-            gameSkills.profession,
+    public static final PlayerSkill profession = new PlayerSkill(
+            GameSkills.profession,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
                     SpiritEngine.God.Creation.Importance.Constants.Class.CLERIC,
@@ -389,8 +373,8 @@ public class PlayerSkills {
 
     //region Ride
 
-    PlayerSkill ride = new PlayerSkill(
-            gameSkills.ride,
+    public static final PlayerSkill ride = new PlayerSkill(
+            GameSkills.ride,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
                     SpiritEngine.God.Creation.Importance.Constants.Class.BARBARIAN,
                     SpiritEngine.God.Creation.Importance.Constants.Class.DRUID,
@@ -404,100 +388,100 @@ public class PlayerSkills {
 
     //region Sense Motive
 
-    PlayerSkill senseMotive = new PlayerSkill(
-            gameSkills.senseMotive,
+    public static final PlayerSkill senseMotive = new PlayerSkill(
+            GameSkills.senseMotive,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
-                    SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.CLERIC,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.MONK,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.PALADIN,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.ROGUE
+                    Class.BARD,
+                    Class.CLERIC,
+                    Class.MONK,
+                    Class.PALADIN,
+                    Class.ROGUE
             });
 
     //endregion
 
     //region Sleight Of Hand
 
-    PlayerSkill sleightOfHand = new PlayerSkill(
-            gameSkills.sleightOfHand,
+    public static final PlayerSkill sleightOfHand = new PlayerSkill(
+            GameSkills.sleightOfHand,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
-                    SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.ROGUE
+                    Class.BARD,
+                    Class.ROGUE
             });
 
     //endregion
 
     //region Spellcraft
 
-    PlayerSkill spellcraft = new PlayerSkill(
-            gameSkills.spellcraft,
+    public static final PlayerSkill spellcraft = new PlayerSkill(
+            GameSkills.spellcraft,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
-                    SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.CLERIC,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.DRUID,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.PALADIN,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.RANGER,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.SORCERER,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.WIZARD
+                    Class.BARD,
+                    Class.CLERIC,
+                    Class.DRUID,
+                    Class.PALADIN,
+                    Class.RANGER,
+                    Class.SORCERER,
+                    Class.WIZARD
             });
 
     //endregion
 
     //region Stealth
 
-    PlayerSkill stealth = new PlayerSkill(
-            gameSkills.stealth,
+    public static final PlayerSkill stealth = new PlayerSkill(
+            GameSkills.stealth,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
-                    SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.MONK,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.RANGER,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.ROGUE
+                    Class.BARD,
+                    Class.MONK,
+                    Class.RANGER,
+                    Class.ROGUE
             });
 
     //endregion
 
     //region Survival
 
-    PlayerSkill survival = new PlayerSkill(
-            gameSkills.survival,
+    public static final PlayerSkill survival = new PlayerSkill(
+            GameSkills.survival,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
-                    SpiritEngine.God.Creation.Importance.Constants.Class.BARBARIAN,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.DRUID,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.FIGHTER,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.RANGER
+                    Class.BARBARIAN,
+                    Class.DRUID,
+                    Class.FIGHTER,
+                    Class.RANGER
             });
 
     //endregion
 
     //region Swim
 
-    PlayerSkill swim = new PlayerSkill(
-            gameSkills.swim,
+    public static final PlayerSkill swim = new PlayerSkill(
+            GameSkills.swim,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
-                    SpiritEngine.God.Creation.Importance.Constants.Class.BARBARIAN,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.DRUID,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.FIGHTER,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.MONK,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.RANGER,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.ROGUE
+                    Class.BARBARIAN,
+                    Class.DRUID,
+                    Class.FIGHTER,
+                    Class.MONK,
+                    Class.RANGER,
+                    Class.ROGUE
             });
 
     //endregion
 
     //region Use Magic Device
 
-    PlayerSkill useMagicDevice = new PlayerSkill(
-            gameSkills.useMagicDevice,
+    public static final PlayerSkill useMagicDevice = new PlayerSkill(
+            GameSkills.useMagicDevice,
             new SpiritEngine.God.Creation.Importance.Constants.Class[]{
-                    SpiritEngine.God.Creation.Importance.Constants.Class.BARD,
-                    SpiritEngine.God.Creation.Importance.Constants.Class.ROGUE,
+                    Class.BARD,
+                    Class.ROGUE,
                     Class.SORCERER
             });
 
     //endregion
 
 
-    public final PlayerSkill[] alchemistSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] alchemistSkills = new PlayerSkill[]{
             appraise,
             craft,
             disableDevice,
@@ -513,7 +497,7 @@ public class PlayerSkills {
             useMagicDevice
     };
 
-    public final PlayerSkill[] barbarianSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] barbarianSkills = new PlayerSkill[]{
             acrobatics,
             climb,
             craft,
@@ -525,7 +509,7 @@ public class PlayerSkills {
             survival,
             swim
     };
-    public final PlayerSkill[] bardSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] bardSkills = new PlayerSkill[]{
             acrobatics,
             appraise,
             bluff,
@@ -556,7 +540,7 @@ public class PlayerSkills {
             useMagicDevice
     };
 
-    public final PlayerSkill[] cavalierSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] cavalierSkills = new PlayerSkill[]{
             bluff,
             climb,
             craft,
@@ -569,7 +553,7 @@ public class PlayerSkills {
             swim
     };
 
-    public final PlayerSkill[] clericSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] clericSkills = new PlayerSkill[]{
             appraise,
             craft,
             diplomacy,
@@ -585,7 +569,7 @@ public class PlayerSkills {
             spellcraft
     };
 
-    public final PlayerSkill[] druidSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] druidSkills = new PlayerSkill[]{
             climb,
             craft,
             fly,
@@ -602,7 +586,7 @@ public class PlayerSkills {
             swim
     };
 
-    public final PlayerSkill[] fighterSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] fighterSkills = new PlayerSkill[]{
             craft,
             intimidate,
             knowDungeoneering,
@@ -610,7 +594,7 @@ public class PlayerSkills {
             ride
     };
 
-    public final PlayerSkill[] inquisitorSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] inquisitorSkills = new PlayerSkill[]{
             bluff,
             climb,
             craft,
@@ -633,7 +617,7 @@ public class PlayerSkills {
             swim
     };
 
-    public final PlayerSkill[] monkSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] monkSkills = new PlayerSkill[]{
             acrobatics,
             craft,
             intimidate,
@@ -649,7 +633,7 @@ public class PlayerSkills {
             swim
     };
 
-    public final PlayerSkill[] oracleSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] oracleSkills = new PlayerSkill[]{
             craft,
             diplomacy,
             heal,
@@ -661,7 +645,7 @@ public class PlayerSkills {
             spellcraft
     };
 
-    public final PlayerSkill[] paladinSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] paladinSkills = new PlayerSkill[]{
             craft,
             handleAnimal,
             heal,
@@ -678,7 +662,7 @@ public class PlayerSkills {
             swim
     };
 
-    public final PlayerSkill[] rangerSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] rangerSkills = new PlayerSkill[]{
             climb,
             craft,
             handleAnimal,
@@ -694,7 +678,7 @@ public class PlayerSkills {
             swim
     };
 
-    public final PlayerSkill[] rogueSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] rogueSkills = new PlayerSkill[]{
             acrobatics,
             appraise,
             bluff,
@@ -716,7 +700,7 @@ public class PlayerSkills {
             useMagicDevice
     };
 
-    public final PlayerSkill[] sorcererSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] sorcererSkills = new PlayerSkill[]{
             appraise,
             bluff,
             craft,
@@ -727,7 +711,7 @@ public class PlayerSkills {
             useMagicDevice
     };
 
-    public final PlayerSkill[] summonerSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] summonerSkills = new PlayerSkill[]{
             craft,
             fly,
             handleAnimal,
@@ -748,7 +732,7 @@ public class PlayerSkills {
             useMagicDevice
     };
 
-    public final PlayerSkill[] witchSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] witchSkills = new PlayerSkill[]{
             craft,
             fly,
             heal,
@@ -762,7 +746,7 @@ public class PlayerSkills {
             useMagicDevice
     };
 
-    public final PlayerSkill[] wizardSkills = new PlayerSkill[]{
+    public static final PlayerSkill[] wizardSkills = new PlayerSkill[]{
             appraise,
             craft,
             fly,
@@ -778,5 +762,42 @@ public class PlayerSkills {
             knowReligion,
             profession,
             spellcraft
+    };
+
+    public static final PlayerSkill[] playerSkills = new PlayerSkill[]{
+            acrobatics,
+            appraise,
+            bluff,
+            climb,
+            craft,
+            diplomacy,
+            disableDevice,
+            disguise,
+            escapeArtist,
+            fly,
+            handleAnimal,
+            heal,
+            intimidate,
+            knowArcana,
+            knowDungeoneering,
+            knowEngineering,
+            knowGeography,
+            knowHistory,
+            knowLocal,
+            knowNature,
+            knowNobility,
+            knowPlanes,
+            knowReligion,
+            linguistics,
+            perception,
+            perform,
+            profession,
+            ride,
+            senseMotive,
+            spellcraft,
+            stealth,
+            survival,
+            swim,
+            useMagicDevice
     };
 }
