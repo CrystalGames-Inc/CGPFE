@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SpiritEngine.iml" filepath="$PROJECT_DIR$/SpiritEngine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CGPFE.iml" filepath="$PROJECT_DIR$/CGPFE.iml" />
     </modules>
   </component>
 </project>
