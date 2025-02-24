@@ -1,3 +1,0 @@
-Manifest-Version: ALPHA-1.0
-Main-Class: CGPFE.Display.Game
-
