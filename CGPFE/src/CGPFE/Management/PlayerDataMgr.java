@@ -327,7 +327,6 @@ public class PlayerDataMgr {
             case ("ALCHEMIST") -> {
                 player.info.pClass = Class.ALCHEMIST;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.alchemistSkills;
                 registerFeats(GameFeats.alchemistFeats);
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -335,7 +334,6 @@ public class PlayerDataMgr {
             case ("BARBARIAN") -> {
                 player.info.pClass = Class.BARBARIAN;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.barbarianSkills;
                 registerFeats(GameFeats.barbarianFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
                 player.info.maxHealth = 1 + 12 + player.attributeMods.constitution;
@@ -343,7 +341,6 @@ public class PlayerDataMgr {
             case ("BARD") -> {
                 player.info.pClass = Class.BARD;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.bardSkills;
                 registerFeats(GameFeats.bardFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -351,7 +348,6 @@ public class PlayerDataMgr {
             case ("CAVALIER") -> {
                 player.info.pClass = Class.CAVALIER;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.cavalierSkills;
                 registerFeats(GameFeats.cavalierFeats);
                 player.wallet.GoldPieces = dice.Roll(6,5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
@@ -359,7 +355,6 @@ public class PlayerDataMgr {
             case ("CLERIC") -> {
                 player.info.pClass = Class.CLERIC;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.clericSkills;
                 registerFeats(GameFeats.clericFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 4) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -367,7 +362,6 @@ public class PlayerDataMgr {
             case ("DRUID") -> {
                 player.info.pClass = Class.DRUID;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.druidSkills;
                 registerFeats(GameFeats.druidFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -375,7 +369,6 @@ public class PlayerDataMgr {
             case ("FIGHTER") -> {
                 player.info.pClass = Class.FIGHTER;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.fighterSkills;
                 registerFeats(GameFeats.fighterFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
@@ -383,7 +376,6 @@ public class PlayerDataMgr {
             case ("INQUISITOR") -> {
                 player.info.pClass = Class.INQUISITOR;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.inquisitorSkills;
                 registerFeats(GameFeats.inquisitorFeats);
                 player.wallet.GoldPieces = dice.Roll(6,4) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -391,7 +383,6 @@ public class PlayerDataMgr {
             case ("MONK") -> {
                 player.info.pClass = Class.MONK;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.monkSkills;
                 registerFeats(GameFeats.monkFeats);
                 player.wallet.GoldPieces = dice.Roll(6) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -399,7 +390,6 @@ public class PlayerDataMgr {
             case ("ORACLE") -> {
                 player.info.pClass = Class.ORACLE;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.oracleSkills;
                 registerFeats(GameFeats.oracleFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 3) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -407,7 +397,6 @@ public class PlayerDataMgr {
             case ("PALADIN") -> {
                 player.info.pClass = Class.PALADIN;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.paladinSkills;
                 registerFeats(GameFeats.paladinFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
@@ -415,7 +404,6 @@ public class PlayerDataMgr {
             case ("RANGER") -> {
                 player.info.pClass = Class.RANGER;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.rangerSkills;
                 registerFeats(GameFeats.rangerFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 5) * 10;
                 player.info.maxHealth = 1 + 10 + player.attributeMods.constitution;
@@ -423,7 +411,6 @@ public class PlayerDataMgr {
             case ("ROGUE") -> {
                 player.info.pClass = Class.ROGUE;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.rogueSkills;
                 registerFeats(GameFeats.rogueFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 4) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -431,7 +418,6 @@ public class PlayerDataMgr {
             case ("SORCERER") -> {
                 player.info.pClass = Class.SORCERER;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.sorcererSkills;
                 registerFeats(GameFeats.sorcererFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
                 player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
@@ -439,7 +425,6 @@ public class PlayerDataMgr {
             case ("SUMMONER") -> {
                 player.info.pClass = Class.SUMMONER;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.summonerSkills;
                 registerFeats(GameFeats.summonerFeats);
                 player.wallet.GoldPieces = dice.Roll(6,2) * 10;
                 player.info.maxHealth = 1 + 8 + player.attributeMods.constitution;
@@ -447,7 +432,6 @@ public class PlayerDataMgr {
             case ("WITCH") -> {
                 player.info.pClass = Class.WITCH;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.witchSkills;
                 registerFeats(GameFeats.witchFeats);
                 player.wallet.GoldPieces = dice.Roll(6,3) * 10;
                 player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
@@ -455,7 +439,6 @@ public class PlayerDataMgr {
             case ("WIZARD") -> {
                 player.info.pClass = Class.WIZARD;
                 updatePlayerCombatTable(1);
-                player.info.playerSkills = PlayerSkills.wizardSkills;
                 registerFeats(GameFeats.wizardFeats);
                 player.wallet.GoldPieces = dice.Roll(6, 2) * 10;
                 player.info.maxHealth = 1 + 6 + player.attributeMods.constitution;
@@ -466,6 +449,7 @@ public class PlayerDataMgr {
             }
         }
 
+        checkClassSkills();
         player.info.health = player.info.maxHealth;
 
         cmdMgr.cls();
@@ -619,6 +603,17 @@ public class PlayerDataMgr {
 
     void calculateArmorClass(){
         player.combatInfo.AC = 10 + player.attributeMods.dexterity;
+    }
+
+    void checkClassSkills(){
+        for(PlayerSkill p: PlayerSkills.playerSkills){
+            for(Class c: p.classes){
+                if (c == player.info.pClass) {
+                    p.classSkill = true;
+                    break;
+                }
+            }
+        }
     }
 
     void calculateSkillsBonuses(){

@@ -12,10 +12,12 @@ public class PlayerSkill {
     public Skill skill;
     public Class[] classes;
     public SkillBonus bonus = new SkillBonus();
+    public boolean classSkill;
 
     public PlayerSkill(Skill skill, Class[] classes){
         this.skill = skill;
         this.classes = classes;
+        classSkill = false;
     }
 
     PlayerDataMgr pMgr = PlayerDataMgr.getInstance();
