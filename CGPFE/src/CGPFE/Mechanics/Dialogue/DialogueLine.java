@@ -1,12 +1,19 @@
 package CGPFE.Mechanics.Dialogue;
 
 public class DialogueLine {
-    public String SpeakerName;
-    public String Line;
+    public String speakerName;
+    public String line;
+    public String[] answers;
 
 
     public DialogueLine(String speakerName, String line){
-        SpeakerName = speakerName;
-        Line = line;
+        this.speakerName = speakerName;
+        this.line = line;
+    }
+
+    public DialogueLine(String speakerName, String line, String[] answers){
+        this.speakerName = speakerName;
+        this.line = line;
+        this.answers = answers;
     }
 }

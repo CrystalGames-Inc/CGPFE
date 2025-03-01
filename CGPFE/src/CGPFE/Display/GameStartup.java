@@ -3,8 +3,8 @@ package CGPFE.Display;
 import CGPFE.Management.PlayerDataMgr;
 
 public class GameStartup {
-    boolean skipIntro = false;
-    boolean skipRegister = false;
+    public boolean skipIntro = false;
+    public boolean skipRegister = false;
 
     public void startGame(){
         PlayerDataMgr pMgr = PlayerDataMgr.getInstance();
